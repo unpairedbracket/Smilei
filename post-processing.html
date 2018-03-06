@@ -1,0 +1,1429 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Post-process &#8212; Smilei v3.3-448-gd0624b66 documentation</title>
+    <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Publications" href="material.html" />
+    <link rel="prev" title="Run" href="run.html" />
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      scale: 95,
+      availableFonts: ["TeX"]
+    }
+  });
+  </script>
+  
+   
+
+  </head><body>
+
+<div id="smallScreenMenu" class="off">
+
+    
+    <div class="toctree-smilei">
+        <ul>
+          <li class="outer">
+              <a href="licence.html">Licence</a>
+          </li>
+          <li class="outer">
+              <a href="synopsis.html">Synopsis</a>
+          </li>
+          <li class="outer">
+              <a href="highlights.html">Highlights</a>
+          </li>
+          <li class="outer">
+              <a href="releases.html">Releases</a>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li class="outer">
+              <a href="units.html">Units</a>
+          </li>
+          <li class="outer">
+              <a href="algorithms.html">PIC algorithms</a>
+          </li>
+          <li class="outer">
+              <a href="parallelization.html">Parallelization basics</a>
+          </li>
+          <li class="outer">
+              <a href="collisions.html">Binary collisions</a>
+          </li>
+          <li class="outer">
+              <a href="field_ionization.html">Field ionization</a>
+          </li>
+          <li class="outer">
+              <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
+          </li>
+          <li class="outer">
+              <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li class="outer">
+              <a href="installation.html">Install</a>
+          </li>
+          <li class="outer">
+              <a href="namelist.html">Write a namelist</a>
+          </li>
+          <li class="outer">
+              <a href="run.html">Run</a>
+          </li>
+        </ul>
+            <ul>
+<li><a class="reference internal" href="#">Post-process</a><ul>
+<li><a class="reference internal" href="#open-a-simulation">Open a simulation</a></li>
+<li><a class="reference internal" href="#extract-namelist-information">Extract namelist information</a></li>
+<li><a class="reference internal" href="#open-a-scalar-diagnostic">Open a Scalar diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-field-diagnostic">Open a Field diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-probe-diagnostic">Open a Probe diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-particlebinning-diagnostic">Open a ParticleBinning diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-screen-diagnostic">Open a Screen diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-trackparticles-diagnostic">Open a TrackParticles diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-performances-diagnostic">Open a Performances diagnostic</a></li>
+<li><a class="reference internal" href="#specifying-units">Specifying units</a></li>
+<li><a class="reference internal" href="#units-of-particlebinning-and-screen">Units of ParticleBinning and Screen</a></li>
+<li><a class="reference internal" href="#obtain-the-data">Obtain the data</a></li>
+<li><a class="reference internal" href="#plot-the-data-at-one-timestep">Plot the data at one timestep</a></li>
+<li><a class="reference internal" href="#plot-the-data-streaked-over-time">Plot the data streaked over time</a></li>
+<li><a class="reference internal" href="#animated-plot">Animated plot</a></li>
+<li><a class="reference internal" href="#simultaneous-plotting-of-multiple-diagnostics">Simultaneous plotting of multiple diagnostics</a></li>
+<li><a class="reference internal" href="#advanced-plotting-options">Advanced plotting options</a></li>
+<li><a class="reference internal" href="#update-the-plotting-options">Update the plotting options</a></li>
+<li><a class="reference internal" href="#other-tools-in-happi">Other tools in <code class="docutils literal notranslate"><span class="pre">happi</span></code></a></li>
+<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
+</ul>
+</li>
+</ul>
+
+        <ul>
+        </ul>
+        <hr />
+        <ul>
+          <li class="outer">
+              <a href="material.html">Publications</a>
+          </li>
+          <li class="outer">
+              <a href="partners.html">Partners</a>
+          </li>
+          <li class="outer">
+              <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
+          </li>
+        </ul>
+    </div>
+
+</div>
+<div id="hcontainer">
+    <div id="nav_positioner">
+        <div id="nav">
+            <div id="nav_button" onclick="toggleNav()">
+                Sections
+            </div>
+            <div id="nav_list" class="toctree-smilei">
+                <div id="nav_title"><a href="#">Post-process</a></div>
+                <ul>
+<li><a class="reference internal" href="#">Post-process</a><ul>
+<li><a class="reference internal" href="#open-a-simulation">Open a simulation</a></li>
+<li><a class="reference internal" href="#extract-namelist-information">Extract namelist information</a></li>
+<li><a class="reference internal" href="#open-a-scalar-diagnostic">Open a Scalar diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-field-diagnostic">Open a Field diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-probe-diagnostic">Open a Probe diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-particlebinning-diagnostic">Open a ParticleBinning diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-screen-diagnostic">Open a Screen diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-trackparticles-diagnostic">Open a TrackParticles diagnostic</a></li>
+<li><a class="reference internal" href="#open-a-performances-diagnostic">Open a Performances diagnostic</a></li>
+<li><a class="reference internal" href="#specifying-units">Specifying units</a></li>
+<li><a class="reference internal" href="#units-of-particlebinning-and-screen">Units of ParticleBinning and Screen</a></li>
+<li><a class="reference internal" href="#obtain-the-data">Obtain the data</a></li>
+<li><a class="reference internal" href="#plot-the-data-at-one-timestep">Plot the data at one timestep</a></li>
+<li><a class="reference internal" href="#plot-the-data-streaked-over-time">Plot the data streaked over time</a></li>
+<li><a class="reference internal" href="#animated-plot">Animated plot</a></li>
+<li><a class="reference internal" href="#simultaneous-plotting-of-multiple-diagnostics">Simultaneous plotting of multiple diagnostics</a></li>
+<li><a class="reference internal" href="#advanced-plotting-options">Advanced plotting options</a></li>
+<li><a class="reference internal" href="#update-the-plotting-options">Update the plotting options</a></li>
+<li><a class="reference internal" href="#other-tools-in-happi">Other tools in <code class="docutils literal notranslate"><span class="pre">happi</span></code></a></li>
+<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="headercolor">
+    </div>
+    <div class="hpositioner">
+        <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img class="logo" src="_static/smileiLogo.svg" alt="Logo" />
+            </a>
+        </div>
+        
+    
+            
+        
+        <div class="menu" id="menu_Licence">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+                <span>Overview</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="licence.html">Licence</a>
+                        </li>
+                        <li class="outer">
+                            <a href="synopsis.html">Synopsis</a>
+                        </li>
+                        <li class="outer">
+                            <a href="highlights.html">Highlights</a>
+                        </li>
+                        <li class="outer">
+                            <a href="releases.html">Releases</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Units">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+                <span>Understand</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="units.html">Units</a>
+                        </li>
+                        <li class="outer">
+                            <a href="algorithms.html">PIC algorithms</a>
+                        </li>
+                        <li class="outer">
+                            <a href="parallelization.html">Parallelization basics</a>
+                        </li>
+                        <li class="outer">
+                            <a href="collisions.html">Binary collisions</a>
+                        </li>
+                        <li class="outer">
+                            <a href="field_ionization.html">Field ionization</a>
+                        </li>
+                        <li class="outer">
+                            <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
+                        </li>
+                        <li class="outer">
+                            <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Install" style="font-weight:bold">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+                <span>Use</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="installation.html">Install</a>
+                        </li>
+                        <li class="outer">
+                            <a href="namelist.html">Write a namelist</a>
+                        </li>
+                        <li class="outer">
+                            <a href="run.html">Run</a>
+                        </li>
+                        <li >
+                            <a href="#">Post-process</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Publications">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+                <span>More</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="material.html">Publications</a>
+                        </li>
+                        <li class="outer">
+                            <a href="partners.html">Partners</a>
+                        </li>
+                        <li class="outer">
+                            <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="searchbox" role="search" style="display:none">
+            <form class="search" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search" id="searchinput" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        
+        <div id="searchicon" onclick="openSearch()" style="display:block">
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 80 120">
+              <g transform="translate(0,-932.36216)" >
+                <circle
+                   r="25" cy="977.51044" cx="38.078663"
+                   style="opacity:1;fill:none;stroke:#ffffff;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                <rect
+                   transform="matrix(0.36717877,0.93015039,-0.93427297,0.35655858,0,0)"
+                   rx="4.9996676" ry="7.4995141"
+                   y="316.16959" x="947.6142"
+                   height="14.117695" width="46.476151"
+                   style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;" />
+                <path
+                   d="m 41.383282,962.25996 a 15,15 0 0 1 11.660107,11.6355"
+                   style="opacity:1;fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              </g>
+            </svg>
+        </div>
+        <div id="closesearchicon" onclick="closeSearch()" style="display:none">
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 80 120">
+              <g
+                 transform="translate(0,-932.36216)">
+                <path
+                   d="m 10,962.36216 60,60.00004"
+                   style="fill:none;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+                <path
+                   d="M 70,962.36216 10,1022.3622"
+                   style="fill:none;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+              </g>
+            </svg>
+        </div>
+        
+        <div id="smallScreenMenuButton" onclick="toggleSmallScreenMenu()">
+            <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
+               viewBox="-20 -20 140 140">
+              <g  style="fill:#ffffff;stroke:none;">
+                <circle cx="15" cy="20" r="5" />
+                <circle cx="35" cy="20" r="5" />
+                <circle cx="85" cy="20" r="5" />
+                <rect width="50" height="10" x="35" y="15" rx="0" ry="0" />
+                <circle cx="15" cy="40" r="5" />
+                <circle cx="35" cy="40" r="5" />
+                <circle cx="85" cy="40" r="5" />
+                <rect width="50" height="10" x="35" y="35" rx="0" ry="0" />
+                <circle cx="15" cy="60" r="5" />
+                <circle cx="35" cy="60" r="5" />
+                <circle cx="85" cy="60" r="5" />
+                <rect width="50" height="10" x="35" y="55" rx="0" ry="0" />
+                <circle cx="15" cy="80" r="5" />
+                <circle cx="35" cy="80" r="5" />
+                <circle cx="85" cy="80" r="5" />
+                <rect width="50" height="10" x="35" y="75" rx="0" ry="0" />
+              </g>
+            </svg>
+        </div>
+        
+    </div>
+    
+</div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="material.html" title="Publications"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="run.html" title="Run"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-448-gd0624b66 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+    <div class="documentwrapper">
+      <div class="bodywrapper">
+        <div class="body" role="main">
+          
+  <div class="section" id="post-process">
+<h1>Post-process<a class="headerlink" href="#post-process" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the usage of the python module <code class="docutils literal notranslate"><span class="pre">happi</span></code> for extracting, viewing
+and post-processing simulation data. First, you need to <a class="reference internal" href="installation.html#installmodule"><span class="std std-ref">install happi</span></a>.</p>
+<p>The module can be imported directly in <em>python</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">happi</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-simulation">
+<h2>Open a simulation<a class="headerlink" href="#open-a-simulation" title="Permalink to this headline">¶</a></h2>
+<p>In a <em>python</em> command line (or script), call the following function to open
+your <strong class="program">Smilei</strong> simulation. Note that several simulations can be opened at once,
+as long as they correspond to several <a class="reference internal" href="namelist.html#checkpoints"><span class="std std-ref">restarts</span></a> of the same simulation.</p>
+<dl class="method">
+<dt id="happi.Open">
+<code class="descclassname">happi.</code><code class="descname">Open</code><span class="sig-paren">(</span><em>results_path=&quot;.&quot;</em>, <em>show=True</em>, <em>reference_angular_frequency_SI=None</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#happi.Open" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">results_path</span></code>: path or list of paths to the directory-ies
+where the results of the simulation-s are stored. It can also contain wildcards,
+such as <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code> in order to include several simulations at once.</li>
+<li><code class="docutils literal notranslate"><span class="pre">reference_angular_frequency_SI</span></code>: overrides the value of the simulation parameter
+<a class="reference internal" href="namelist.html#reference_angular_frequency_SI" title="reference_angular_frequency_SI"><code class="xref py py-data docutils literal notranslate"><span class="pre">reference_angular_frequency_SI</span></code></a>, in order to re-scale units.</li>
+<li><code class="docutils literal notranslate"><span class="pre">show</span></code>: if <code class="docutils literal notranslate"><span class="pre">False</span></code>, figures will not plot on screen. Make sure that
+you have not loaded another simulation or the matplotlib package. You may need to
+restart python.</li>
+<li><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: if <code class="docutils literal notranslate"><span class="pre">False</span></code>, less information is printed while post-processing.</li>
+<li><code class="docutils literal notranslate"><span class="pre">scan</span></code>: if <code class="docutils literal notranslate"><span class="pre">False</span></code>, HDF5 output files are not scanned initially.</li>
+</ul>
+</dd></dl>
+
+<dl class="docutils">
+<dt><strong>Returns:</strong> An object containing various methods to extract and manipulate the simulation</dt>
+<dd>outputs, as described below.</dd>
+</dl>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once a simulation is opened, several methods are available to find information on the
+namelist or open various diagnostics. Checkout the namelist documentation to find out
+which diagnostics are included in Smilei: <a class="reference internal" href="namelist.html#diagscalar"><span class="std std-ref">scalars</span></a>,
+<a class="reference internal" href="namelist.html#diagfields"><span class="std std-ref">fields</span></a>, <a class="reference internal" href="namelist.html#diagprobe"><span class="std std-ref">probes</span></a>,
+<a class="reference internal" href="namelist.html#diagparticlebinning"><span class="std std-ref">particle binning</span></a>, <a class="reference internal" href="namelist.html#diagtrackparticles"><span class="std std-ref">trajectories</span></a>
+and <a class="reference internal" href="namelist.html#diagperformances"><span class="std std-ref">performances</span></a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="extract-namelist-information">
+<h2>Extract namelist information<a class="headerlink" href="#extract-namelist-information" title="Permalink to this headline">¶</a></h2>
+<p>Once a simulation is opened as shown above, you can access the content of the namelist
+using the attribute <code class="docutils literal notranslate"><span class="pre">namelist</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span> <span class="c1"># Open a simulation</span>
+<span class="nb">print</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">timestep</span>   <span class="c1"># print the timestep</span>
+<span class="nb">print</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">geometry</span>   <span class="c1"># print the simulation dimensions</span>
+</pre></div>
+</div>
+<p>All the variables defined in the original namelist are copied into this variable.</p>
+<p>Concerning components like <a class="reference internal" href="namelist.html#species"><span class="std std-ref">Species</span></a>, <a class="reference internal" href="namelist.html#externalfield"><span class="std std-ref">External fields</span></a> or <a class="reference internal" href="namelist.html#diagprobe"><span class="std std-ref">Probe diagnostics</span></a>, of which
+several instances may exist, you can directly iterate over them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Species</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also access to a specific component by referencing its number:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">ExternalField</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># get the first external field</span>
+<span class="nb">print</span> <span class="s2">&quot;An external field &quot;</span><span class="o">+</span><span class="n">F</span><span class="o">.</span><span class="n">field</span><span class="o">+</span><span class="s2">&quot; was applied&quot;</span>
+</pre></div>
+</div>
+<p>In the case of the species, you can also obtain a given species by its name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Species</span><span class="p">[</span><span class="s2">&quot;electron1&quot;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-scalar-diagnostic">
+<h2>Open a Scalar diagnostic<a class="headerlink" href="#open-a-scalar-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Scalar">
+<code class="descname">Scalar</code><span class="sig-paren">(</span><em>scalar=None, timesteps=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">scalar</span></code>: The name of the scalar.</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, then a list of available scalars is printed.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>: The requested timestep(s).</dt>
+<dd><div class="first last line-block">
+<div class="line">If omitted, all timesteps are used.</div>
+<div class="line">If one number  given, the nearest timestep available is used.</div>
+<div class="line">If two numbers given, all the timesteps in between are used.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">units</span></code>: A unit specification (see <a class="reference internal" href="#units"><span class="std std-ref">Specifying units</span></a>)</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">data_log</span></code>:</dt>
+<dd><div class="first last line-block">
+<div class="line">If <code class="docutils literal notranslate"><span class="pre">True</span></code>, then <span class="math notranslate">\(\log_{10}\)</span> is applied to the output.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Scalar</span><span class="p">(</span><span class="s2">&quot;Utot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-field-diagnostic">
+<h2>Open a Field diagnostic<a class="headerlink" href="#open-a-field-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Field">
+<code class="descname">Field</code><span class="sig-paren">(</span><em>diagNumber=None, field=None, timesteps=None, subset=None, average=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Field" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">diagNumber</span></code>: The number of the fields diagnostic</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, then a list of available diagnostic numbers is printed.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">field</span></code>: The name of a field (<code class="docutils literal notranslate"><span class="pre">&quot;Ex&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ey&quot;</span></code>, etc.)</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, then a list of available fields is printed.</div>
+<div class="line">The string can also be an operation between several fields, such as <code class="docutils literal notranslate"><span class="pre">&quot;Jx+Jy&quot;</span></code>.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">subset</span></code>: A selection of coordinates to be extracted.</dt>
+<dd><div class="first last line-block">
+<div class="line">Syntax 1: <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">location,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 2: <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">[start,</span> <span class="pre">stop]</span> <span class="pre">,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 3: <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">[start,</span> <span class="pre">stop,</span> <span class="pre">step]</span> <span class="pre">,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">axis</span></code> must be <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>.</div>
+<div class="line">Only the data within the chosen axes’ selections is extracted.</div>
+<div class="line"><strong>WARNING:</strong> THE VALUE OF <code class="docutils literal notranslate"><span class="pre">step</span></code> IS A NUMBER OF CELLS.</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">{&quot;y&quot;:[10,</span> <span class="pre">80,</span> <span class="pre">4]}</span></code></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">average</span></code>: A selection of coordinates on which to average.</dt>
+<dd><div class="first last line-block">
+<div class="line">Syntax 1: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">&quot;all&quot;,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 2: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">location,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 3: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">[start,</span> <span class="pre">stop]</span> <span class="pre">,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">axis</span></code> must be <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>.</div>
+<div class="line">The chosen axes will be removed:</div>
+<div class="line">- With syntax 1, an average is performed over all the axis.</div>
+<div class="line">- With syntax 2, only the bin closest to <code class="docutils literal notranslate"><span class="pre">location</span></code> is kept.</div>
+<div class="line">- With syntax 3, an average is performed from <code class="docutils literal notranslate"><span class="pre">start</span></code> to <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{&quot;x&quot;:[4,5]}</span></code> will average for <span class="math notranslate">\(x\)</span> within [4,5].</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Ex&quot;</span><span class="p">,</span> <span class="n">average</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-probe-diagnostic">
+<h2>Open a Probe diagnostic<a class="headerlink" href="#open-a-probe-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Probe">
+<code class="descname">Probe</code><span class="sig-paren">(</span><em>probeNumber=None, field=None, timesteps=None, subset=None, average=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">probeNumber</span></code>: number of the probe (the first one has number 0).</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, a list of available probes is printed.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">field</span></code>: name of the field (<code class="docutils literal notranslate"><span class="pre">&quot;Bx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;By&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ex&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ey&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ez&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jz&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;Rho&quot;</span></code>).</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, then a list of available fields is printed.</div>
+<div class="line">The string can also be an operation between several fields, such as <code class="docutils literal notranslate"><span class="pre">&quot;Jx+Jy&quot;</span></code>.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">subset</span></code> and <code class="docutils literal notranslate"><span class="pre">average</span></code> are very similar to those of <a class="reference internal" href="#Field" title="Field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Field()</span></code></a>, but they can only have the axes: <code class="docutils literal notranslate"><span class="pre">&quot;axis1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;axis2&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;axis3&quot;</span></code>.
+For instance, <code class="docutils literal notranslate"><span class="pre">average={&quot;axis1&quot;:&quot;all&quot;}</span></code>. Note that the axes are not necessarily <span class="math notranslate">\(x\)</span>, <span class="math notranslate">\(y\)</span> or <span class="math notranslate">\(z\)</span> because the probe mesh is arbitrary.</p>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Probe</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Ex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-particlebinning-diagnostic">
+<h2>Open a ParticleBinning diagnostic<a class="headerlink" href="#open-a-particlebinning-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="ParticleBinning">
+<code class="descname">ParticleBinning</code><span class="sig-paren">(</span><em>diagNumber=None, timesteps=None, subset=None, sum=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">diagNumber</span></code>: number of the particle binning diagnostic (starts at 0).</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, a list of available diagnostics is printed.</div>
+<div class="line">It can also be an operation between several diagnostics.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">&quot;#0/#1&quot;</span></code> computes the division by diagnostics 0 and 1.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">subset</span></code> is similar to that of <a class="reference internal" href="#Field" title="Field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Field()</span></code></a>, although the axis must be one of</dt>
+<dd><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;px&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;py&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gamma&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ekin&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code>.</p>
+<p class="last"><strong>WARNING:</strong> With the syntax <code class="docutils literal notranslate"><span class="pre">subset={axis:[start,</span> <span class="pre">stop,</span> <span class="pre">step]}</span></code>, the value of <code class="docutils literal notranslate"><span class="pre">step</span></code>
+is a number of bins.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sum</span></code>: a selection of coordinates on which to sum the data.</dt>
+<dd><div class="first line-block">
+<div class="line">Syntax 1: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">&quot;all&quot;,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 2: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">location,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+<div class="line">Syntax 3: <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">axis</span> <span class="pre">:</span> <span class="pre">[begin,</span> <span class="pre">end]</span> <span class="pre">,</span> <span class="pre">...</span> <span class="pre">}</span></code></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">axis</span></code> must be <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;px&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;py&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gamma&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ekin&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;vz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code>.</p>
+<div class="last line-block">
+<div class="line">The chosen axes will be removed:</div>
+<div class="line">- With syntax 1, a sum is performed over all the axis.</div>
+<div class="line">- With syntax 2, only the bin closest to <code class="docutils literal notranslate"><span class="pre">location</span></code> is kept.</div>
+<div class="line">- With syntax 3, a sum is performed between <code class="docutils literal notranslate"><span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>.</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">sum={&quot;x&quot;:[4,5]}</span></code> will sum all the data for x within [4,5].</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-screen-diagnostic">
+<h2>Open a Screen diagnostic<a class="headerlink" href="#open-a-screen-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Screen">
+<code class="descname">Screen</code><span class="sig-paren">(</span><em>diagNumber=None, timesteps=None, subset=None, sum=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">diagNumber</span></code>: number of the screen diagnostic (the first one has number 0).</dt>
+<dd><div class="first last line-block">
+<div class="line">If not given, a list of available screen diagnostics is printed.</div>
+<div class="line">It can also be an operation between several Screen diagnostics.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">&quot;#0/#1&quot;</span></code> computes the division by diagnostics 0 and 1.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">subset</span></code> and <code class="docutils literal notranslate"><span class="pre">sum</span></code>: identical to that of ParticleBinning diagnostics.</p>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Screen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-trackparticles-diagnostic">
+<h2>Open a TrackParticles diagnostic<a class="headerlink" href="#open-a-trackparticles-diagnostic" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="TrackParticles">
+<code class="descname">TrackParticles</code><span class="sig-paren">(</span><em>species=None, select=&quot;&quot;, axes=[], timesteps=None, sort=True, length=None, units=[&quot;&quot;], **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>: same as before.</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">species</span></code>: the name of a tracked-particle species.</dt>
+<dd><div class="first last line-block">
+<div class="line">If omitted, a list of available tracked-particle species is printed.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">select</span></code>: Instructions for selecting particles among those available.
+A detailed explanation is provided below</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">axes</span></code>: A list of axes for plotting the trajectories or obtaining particle data.</dt>
+<dd><div class="first last line-block">
+<div class="line">Each axis is one of the <a class="reference internal" href="namelist.html#attributes" title="attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> defined in the namelist.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;]</span></code> corresponds to <span class="math notranslate">\(x\)</span> versus time.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;,&quot;y&quot;]</span></code> correspond to 2-D trajectories.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;,&quot;px&quot;]</span></code> correspond to phase-space trajectories.</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">sort</span></code>: If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the particles are not sorted by ID. This can save significant
+time, but prevents plotting, exporting to VTK, and the <code class="docutils literal notranslate"><span class="pre">select</span></code> argument. Only
+<code class="docutils literal notranslate"><span class="pre">getData()</span></code> is available in this mode. Read <a class="reference internal" href="ids.html"><span class="doc">this</span></a> for more information
+on particle IDs.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">length</span></code>: The length of each plotted trajectory, in number of timesteps.</p>
+</li>
+<li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">TrackParticles</span><span class="p">(</span><span class="s2">&quot;electrons&quot;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">,</span><span class="s2">&quot;py&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Detailed explanation of the <code class="docutils literal notranslate"><span class="pre">select</span></code> parameter</p>
+<div class="line-block">
+<div class="line">Say <code class="docutils literal notranslate"><span class="pre">times</span></code> is a condition on timesteps <code class="docutils literal notranslate"><span class="pre">t</span></code>, for instance <code class="docutils literal notranslate"><span class="pre">t&gt;50</span></code>.</div>
+<div class="line">Say <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a condition on particles properties  (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">px</span></code>, <code class="docutils literal notranslate"><span class="pre">py</span></code>, <code class="docutils literal notranslate"><span class="pre">pz</span></code>), for instance <code class="docutils literal notranslate"><span class="pre">px&gt;0</span></code>.</div>
+</div>
+<ul>
+<li><div class="first line-block">
+<div class="line"><strong>Syntax 1:</strong> <code class="docutils literal notranslate"><span class="pre">select=&quot;any(times,</span> <span class="pre">condition)&quot;</span></code></div>
+<div class="line">Selects particles satisfying <code class="docutils literal notranslate"><span class="pre">condition</span></code> for at least one of the <code class="docutils literal notranslate"><span class="pre">times</span></code>.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;any(t&gt;0,</span> <span class="pre">px&gt;1.)&quot;</span></code> selects those reaching <span class="math notranslate">\(p_x&gt;1\)</span> at some point.</div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">select=&quot;all(times,</span> <span class="pre">condition)&quot;</span></code></div>
+<div class="line">Selects particles satisfying <code class="docutils literal notranslate"><span class="pre">condition</span></code> at all <code class="docutils literal notranslate"><span class="pre">times</span></code>.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;all(t&lt;40,</span> <span class="pre">px&lt;1)&quot;</span></code> selects those having <span class="math notranslate">\(p_x&lt;1\)</span> until timestep 40.</div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><strong>Syntax 3:</strong> <code class="docutils literal notranslate"><span class="pre">select=[ID1,</span> <span class="pre">ID2,</span> <span class="pre">...]</span></code></div>
+<div class="line">Selects the provided particle IDs.</div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line">It is possible to make logical operations: <code class="docutils literal notranslate"><span class="pre">+</span></code> is <em>OR</em>; <code class="docutils literal notranslate"><span class="pre">*</span></code> is <em>AND</em>; <code class="docutils literal notranslate"><span class="pre">~</span></code> is <em>NOT</em>.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;any((t&gt;30)*(t&lt;60),</span> <span class="pre">px&gt;1)</span> <span class="pre">+</span> <span class="pre">all(t&gt;0,</span> <span class="pre">(x&gt;1)*(x&lt;2))&quot;</span></code></div>
+</div>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="open-a-performances-diagnostic">
+<h2>Open a Performances diagnostic<a class="headerlink" href="#open-a-performances-diagnostic" title="Permalink to this headline">¶</a></h2>
+<p>The post-processing of the <em>performances</em> diagnostic may be achieved in three different
+modes: <code class="docutils literal notranslate"><span class="pre">raw</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code>, or <code class="docutils literal notranslate"><span class="pre">histogram</span></code>, described further below. You must choose one
+and only one mode between those three.</p>
+<dl class="method">
+<dt id="Performances">
+<code class="descname">Performances</code><span class="sig-paren">(</span><em>raw=None, map=None, histogram=None, timesteps=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Performances" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</li>
+<li><code class="docutils literal notranslate"><span class="pre">raw</span></code> : The name of a quantity, or an operation between them (see quantities below).
+The requested quantity is listed for each process.</li>
+<li><code class="docutils literal notranslate"><span class="pre">map</span></code> : The name of a quantity, or an operation between them (see quantities below).
+The requested quantity is mapped vs. space coordinates (1D and 2D only).</li>
+<li><code class="docutils literal notranslate"><span class="pre">histogram</span></code> : the list <code class="docutils literal notranslate"><span class="pre">[&quot;quantity&quot;,</span> <span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">nsteps]</span></code>.
+Makes a histogram of the requested quantity between <code class="docutils literal notranslate"><span class="pre">min</span></code> an <code class="docutils literal notranslate"><span class="pre">max</span></code>, with <code class="docutils literal notranslate"><span class="pre">nsteps</span></code> bins.
+The <code class="docutils literal notranslate"><span class="pre">&quot;quantity&quot;</span></code> may be an operation between the quantities listed further below.</li>
+<li>Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</li>
+</ul>
+</dd></dl>
+
+<p><strong>Available quantities</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">hindex</span></code>                     : the starting index of each proc in the hilbert curve</li>
+<li><code class="docutils literal notranslate"><span class="pre">number_of_cells</span></code>            : the number of cells in each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">number_of_particles</span></code>        : the number of particles in each proc (except frozen ones)</li>
+<li><code class="docutils literal notranslate"><span class="pre">number_of_frozen_particles</span></code> : the number of frozen particles in each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">total_load</span></code>                 : the <cite>load</cite> of each proc (number of particles and cells with cell_load coefficient)</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_global</span></code>               : global simulation time (only available for proc 0)</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_particles</span></code>            : time spent computing particles by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_maxwell</span></code>              : time spent solving maxwell by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_densities</span></code>            : time spent projecting densities by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_collisions</span></code>           : time spent computing collisions by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_movWindow</span></code>            : time spent handling the moving window by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_loadBal</span></code>              : time spent balancing the load by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_syncPart</span></code>             : time spent synchronzing particles by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_syncField</span></code>            : time spent synchronzing fields by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_syncDens</span></code>             : time spent synchronzing densities by each proc</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_diags</span></code>                : time spent by each proc calculating and writing diagnostics</li>
+<li><code class="docutils literal notranslate"><span class="pre">timer_total</span></code>                : the sum of all timers above (except timer_global)</li>
+</ul>
+<p><strong>WARNING</strong>: The timers <code class="docutils literal notranslate"><span class="pre">loadBal</span></code> and <code class="docutils literal notranslate"><span class="pre">diags</span></code> span parts of the code where <em>global</em>
+communications take place. This means they will include time spent doing no calculations,
+waiting for  other processes. The timers <code class="docutils literal notranslate"><span class="pre">syncPart</span></code>, <code class="docutils literal notranslate"><span class="pre">syncField</span></code> and <code class="docutils literal notranslate"><span class="pre">syncDens</span></code>
+contain <em>proc-to-proc</em> communications, which also represents some waiting time.</p>
+</div></blockquote>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Performances</span><span class="p">(</span><span class="nb">map</span><span class="o">=</span><span class="s2">&quot;total_load&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+<div class="section" id="specifying-units">
+<span id="units"></span><h2>Specifying units<a class="headerlink" href="#specifying-units" title="Permalink to this headline">¶</a></h2>
+<p>By default, all the diagnostics data is in code units (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>).</p>
+<p>To change the units, all the methods <a class="reference internal" href="#Scalar" title="Scalar"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Scalar()</span></code></a>,
+<a class="reference internal" href="#Field" title="Field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Field()</span></code></a>, <a class="reference internal" href="#Probe" title="Probe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Probe()</span></code></a>,
+<a class="reference internal" href="#ParticleBinning" title="ParticleBinning"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ParticleBinning()</span></code></a> and
+<a class="reference internal" href="#TrackParticles" title="TrackParticles"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TrackParticles()</span></code></a> support a <code class="docutils literal notranslate"><span class="pre">units</span></code> argument.
+It has three different syntaxes:</p>
+<ol class="arabic">
+<li><p class="first"><strong>A list</strong>, for example <code class="docutils literal notranslate"><span class="pre">units</span> <span class="pre">=</span> <span class="pre">[&quot;um/ns&quot;,</span> <span class="pre">&quot;feet&quot;,</span> <span class="pre">&quot;W/cm^2&quot;]</span></code></p>
+<p>In this case, any quantity found to be of the same dimension as one of these units
+will be converted.</p>
+</li>
+<li><p class="first"><strong>A dictionary</strong>, for example <code class="docutils literal notranslate"><span class="pre">units</span> <span class="pre">=</span> <span class="pre">{&quot;x&quot;:&quot;um&quot;,</span> <span class="pre">&quot;y&quot;:&quot;um&quot;,</span> <span class="pre">&quot;v&quot;:&quot;Joule&quot;}</span></code></p>
+<p>In this case, we specify the units separately for axes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, and for the
+data values <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
+</li>
+<li><p class="first"><strong>A</strong> <code class="docutils literal notranslate"><span class="pre">Units</span></code> <strong>object</strong>, for example <code class="docutils literal notranslate"><span class="pre">units</span> <span class="pre">=</span> <span class="pre">happi.Units(&quot;um/ns&quot;,</span> <span class="pre">&quot;feet&quot;,</span> <span class="pre">x=&quot;um&quot;)</span></code></p>
+<p>This version combines the two previous ones.</p>
+</li>
+</ol>
+<p class="rubric">Requirements for changing units</p>
+<ul class="simple">
+<li>The <a class="reference external" href="https://pypi.python.org/pypi/Pint/">Pint module</a>.</li>
+<li>To obtain units in a non-normalized system (e.g. SI), the simulation must have the
+parameter <a class="reference internal" href="namelist.html#reference_angular_frequency_SI" title="reference_angular_frequency_SI"><code class="xref py py-data docutils literal notranslate"><span class="pre">reference_angular_frequency_SI</span></code></a> set to a finite value.
+Otherwise, this parameter can be set during post-processing as an argument to the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Open()</span></code> function.</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="units-of-particlebinning-and-screen">
+<h2>Units of ParticleBinning and Screen<a class="headerlink" href="#units-of-particlebinning-and-screen" title="Permalink to this headline">¶</a></h2>
+<p>Most of the data output from the <code class="docutils literal notranslate"><span class="pre">ParticleBinning</span></code> and <code class="docutils literal notranslate"><span class="pre">Screen</span></code> diagnostics is
+proportional to the macro-particle statistical weights, as stated by their
+<a class="reference internal" href="namelist.html#deposited_quantity" title="deposited_quantity"><code class="xref py py-data docutils literal notranslate"><span class="pre">deposited_quantity</span></code></a> argument. These weights <a class="reference internal" href="units.html#weights"><span class="std std-ref">are defined as</span></a>
+the species density divided by the number of macro-particles of this species in the
+cell where the particle is born. Consequently, weights are in units of the number
+density <span class="math notranslate">\(N_r\)</span> (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>), and the sum of all macro-particle weights in
+one cell corresponds to the local species density.</p>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code> and <code class="docutils literal notranslate"><span class="pre">DiagScreen</span></code> diagnostics do not necessarily
+sum the weights in one cell: they calculate a sum over a <em>bin</em> that can be of any size,
+and in any space (phase-space, etc). The data written in the outputs
+<code class="docutils literal notranslate"><span class="pre">ParticleBinning*.h5</span></code> and <code class="docutils literal notranslate"><span class="pre">Screen*.h5</span></code> is thus in units of <span class="math notranslate">\(N_r\)</span>, but does not
+always represent the actual plasma density.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">happi</span></code>, the post-processing takes into account these features in order for outputs
+to represent the actual plasma density. For instance, if your <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code>
+has two axes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, the output will represent the real plasma density. Another
+example: if your <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code> has two axes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">px</span></code>, the output
+will be in units of <span class="math notranslate">\(N_r/P_r\)</span> and represents the real plasma density per unit of
+<span class="math notranslate">\(p_x\)</span>.</p>
+<p>Let us briefly explain how <code class="docutils literal notranslate"><span class="pre">happi</span></code> applies the correction. The idea is that the output
+has to be divided by the number of cells <em>relevant</em> to each bin.</p>
+<ul class="simple">
+<li>The output is divided by the total number of cells in the simulation</li>
+<li>For each axis of the diagnostic <a class="reference internal" href="namelist.html#axes" title="axes"><code class="xref py py-data docutils literal notranslate"><span class="pre">axes</span></code></a>:<ul>
+<li>If the axis is one of <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>:<ul>
+<li>Multiply the outputs by the simulation length along that axis.</li>
+<li>If the axis is included in a <code class="docutils literal notranslate"><span class="pre">subset</span></code> or a <code class="docutils literal notranslate"><span class="pre">sum</span></code>: divide by the corresponding <em>length</em>.</li>
+<li>Otherwise, divide by the length of each bin.</li>
+</ul>
+</li>
+<li>Otherwise:<ul>
+<li>If the axis is included in a <code class="docutils literal notranslate"><span class="pre">subset</span></code> or a <code class="docutils literal notranslate"><span class="pre">sum</span></code>: do nothing.</li>
+<li>Otherwise, divide by the length of each bin.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>As a final note, remember that the <a class="reference internal" href="namelist.html#axes" title="axes"><code class="xref py py-data docutils literal notranslate"><span class="pre">axes</span></code></a> of a diagnostic may be a <em>python function</em>.
+In this case, if the function represents some spatial axis, then happi cannot know how to
+apply the correction. The user has to figure it out.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="obtain-the-data">
+<h2>Obtain the data<a class="headerlink" href="#obtain-the-data" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Scalar.getData">
+<code class="descclassname">Scalar.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.getData">
+<code class="descclassname">Field.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.getData">
+<code class="descclassname">Probe.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.getData">
+<code class="descclassname">ParticleBinning.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.getData">
+<code class="descclassname">Screen.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.getData">
+<code class="descclassname">TrackParticles.</code><code class="descname">getData</code><span class="sig-paren">(</span><em>timestep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the data arrays (one element for each timestep requested).
+In the case of <code class="docutils literal notranslate"><span class="pre">TrackParticles</span></code>, this method returns a dictionary containing one
+entry for each axis, and if <code class="docutils literal notranslate"><span class="pre">sort==True</span></code>, these entries are included inside an entry
+for each timestep.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">timestep</span></code>, if specified, is the only timestep number that is read and returned.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/results&quot;</span><span class="p">)</span> <span class="c1"># Open the simulation</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Ex&quot;</span><span class="p">)</span>       <span class="c1"># Open Ex in the first Field diag</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Diag</span><span class="o">.</span><span class="n">getData</span><span class="p">()</span>       <span class="c1"># Get list of Ex arrays (one for each time)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scalar.getTimesteps">
+<code class="descclassname">Scalar.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.getTimesteps">
+<code class="descclassname">Field.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Field.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.getTimesteps">
+<code class="descclassname">Probe.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Probe.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.getTimesteps">
+<code class="descclassname">ParticleBinning.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.getTimesteps">
+<code class="descclassname">Screen.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Screen.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.getTimesteps">
+<code class="descclassname">TrackParticles.</code><code class="descname">getTimesteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.getTimesteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the timesteps requested.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scalar.getTimes">
+<code class="descclassname">Scalar.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.getTimes" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.getTimes">
+<code class="descclassname">Field.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Field.getTimes" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.getTimes">
+<code class="descclassname">Probe.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Probe.getTimes" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.getTimes">
+<code class="descclassname">ParticleBinning.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.getTimes" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.getTimes">
+<code class="descclassname">Screen.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Screen.getTimes" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.getTimes">
+<code class="descclassname">TrackParticles.</code><code class="descname">getTimes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.getTimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of the times requested.
+By default, times are in the code’s units, but are converted to the diagnostic’s
+units defined by the <code class="docutils literal notranslate"><span class="pre">units</span></code> argument, if provided.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scalar.getAxis">
+<code class="descclassname">Scalar.</code><code class="descname">getAxis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.getAxis" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.getAxis">
+<code class="descclassname">Field.</code><code class="descname">getAxis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.getAxis" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.getAxis">
+<code class="descclassname">Probe.</code><code class="descname">getAxis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.getAxis" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.getAxis">
+<code class="descclassname">ParticleBinning.</code><code class="descname">getAxis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.getAxis" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.getAxis">
+<code class="descclassname">Screen.</code><code class="descname">getAxis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.getAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of positions of the diagnostic data along the requested axis.
+If the axis is not available, returns an empty list.
+By default, axis positions are in the code’s units, but are converted to
+the diagnostic’s units defined by the <code class="docutils literal notranslate"><span class="pre">units</span></code> argument, if provided.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">axis</span></code>: the name of the requested axis.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="TrackParticles.iterParticles">
+<code class="descclassname">TrackParticles.</code><code class="descname">iterParticles</code><span class="sig-paren">(</span><em>timestep</em>, <em>chunksize=1</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.iterParticles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method, specific to the tracked particles, provides a fast iterator on chunks of particles
+for a given timestep. The argument <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> is the number of particles in each chunk.
+Note that the data is <em>not ordered</em> by particle ID, meaning that particles are not ordered
+the same way from one timestep to another.</p>
+<p>The returned quantity for each iteration is a python dictionary containing key/value
+pairs <code class="docutils literal notranslate"><span class="pre">axis:array</span></code>, where <code class="docutils literal notranslate"><span class="pre">axis</span></code> is the name of the particle characteristic (<code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;px&quot;</span></code>, etc.) and <code class="docutils literal notranslate"><span class="pre">array</span></code> contains the corresponding particle values.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>        <span class="c1"># Open the simulation</span>
+<span class="n">Diag</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">TrackParticles</span><span class="p">(</span><span class="s2">&quot;my_particles&quot;</span><span class="p">)</span> <span class="c1"># Open the tracked particles</span>
+<span class="n">npart</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_px</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="c1"># Loop particles of timestep 100 by chunks of 10000</span>
+<span class="k">for</span> <span class="n">particle_chunk</span> <span class="ow">in</span> <span class="n">Diag</span><span class="o">.</span><span class="n">iterParticles</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">npart</span>  <span class="o">+=</span> <span class="n">particle_chunk</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">sum_px</span> <span class="o">+=</span> <span class="n">particle_chunk</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="c1"># Calculate the average px</span>
+<span class="n">mean_px</span> <span class="o">=</span> <span class="n">sum_px</span> <span class="o">/</span> <span class="n">npart</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="plot-the-data-at-one-timestep">
+<h2>Plot the data at one timestep<a class="headerlink" href="#plot-the-data-at-one-timestep" title="Permalink to this headline">¶</a></h2>
+<p>This is the first method to plot the data. It produces a static image of the data
+at one given timestep.</p>
+<dl class="method">
+<dt id="Scalar.plot">
+<code class="descclassname">Scalar.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.plot">
+<code class="descclassname">Field.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.plot">
+<code class="descclassname">Probe.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.plot">
+<code class="descclassname">ParticleBinning.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.plot">
+<code class="descclassname">TrackParticles.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.plot">
+<code class="descclassname">Screen.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>All these methods have the same arguments described below.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>timestep=None</em>, <em>saveAs=None</em>, <em>axes=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#plot" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">If the data is 1D, it is plotted as a <strong>curve</strong>.</div>
+<div class="line">If the data is 2D, it is plotted as a <strong>map</strong>.</div>
+<div class="line">If the data is 0D, it is plotted as a <strong>curve</strong> as function of time.</div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">timestep</span></code>: The iteration number at which to plot the data.</li>
+<li><code class="docutils literal notranslate"><span class="pre">saveAs</span></code>: name of a directory where to save each frame as figures.
+You can even specify a filename such as <code class="docutils literal notranslate"><span class="pre">mydir/prefix.png</span></code> and it will automatically
+make successive files showing the timestep: <code class="docutils literal notranslate"><span class="pre">mydir/prefix0.png</span></code>, <code class="docutils literal notranslate"><span class="pre">mydir/prefix1.png</span></code>,
+etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">axes</span></code>: Matplotlib’s axes handle on which to plot. If None, make new axes.</li>
+</ul>
+<p>Other keyword-arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) include:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">figure</span></code>: The figure number that is passed to matplotlib.</li>
+<li><code class="docutils literal notranslate"><span class="pre">vmin</span></code>, <code class="docutils literal notranslate"><span class="pre">vmax</span></code>: data value limits.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code>: axes limits.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xfactor</span></code>, <code class="docutils literal notranslate"><span class="pre">yfactor</span></code>: factors to rescale axes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">side</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code> (by default) or <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code> puts the y-axis on the left- or the right-hand-side.</li>
+<li><code class="docutils literal notranslate"><span class="pre">transparent</span></code>: <code class="docutils literal notranslate"><span class="pre">None</span></code> (by default), <code class="docutils literal notranslate"><span class="pre">&quot;over&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;under&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code> makes the colormap transparent outside the requested boundary.</li>
+<li>Many Matplotlib arguments listed in <a class="reference internal" href="#advancedoptions"><span class="std std-ref">Advanced plotting options</span></a>.</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timestep</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="plot-the-data-streaked-over-time">
+<h2>Plot the data streaked over time<a class="headerlink" href="#plot-the-data-streaked-over-time" title="Permalink to this headline">¶</a></h2>
+<p>This second type of plot works only for 1D data. All available timesteps
+are streaked to produce a 2D image where the second axis is time.</p>
+<dl class="method">
+<dt id="Scalar.streak">
+<code class="descclassname">Scalar.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.streak" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.streak">
+<code class="descclassname">Field.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.streak" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.streak">
+<code class="descclassname">Probe.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.streak" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.streak">
+<code class="descclassname">ParticleBinning.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.streak" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.streak">
+<code class="descclassname">TrackParticles.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.streak" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.streak">
+<code class="descclassname">Screen.</code><code class="descname">streak</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.streak" title="Permalink to this definition">¶</a></dt>
+<dd><p>All these methods have the same arguments described below.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="streak">
+<code class="descname">streak</code><span class="sig-paren">(</span><em>saveAs=None</em>, <em>axes=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#streak" title="Permalink to this definition">¶</a></dt>
+<dd><p>All arguments are identical to those of <code class="docutils literal notranslate"><span class="pre">plot</span></code>, with the exception of <code class="docutils literal notranslate"><span class="pre">timestep</span></code>.</p>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">streak</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="animated-plot">
+<h2>Animated plot<a class="headerlink" href="#animated-plot" title="Permalink to this headline">¶</a></h2>
+<p>This third plotting method animates the data over time.</p>
+<dl class="method">
+<dt id="Scalar.animate">
+<code class="descclassname">Scalar.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.animate" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.animate">
+<code class="descclassname">Field.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.animate" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.animate">
+<code class="descclassname">Probe.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.animate" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.animate">
+<code class="descclassname">ParticleBinning.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.animate" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.animate">
+<code class="descclassname">TrackParticles.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.animate" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.animate">
+<code class="descclassname">Screen.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>All these methods have the same arguments described below.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="animate">
+<code class="descname">animate</code><span class="sig-paren">(</span><em>movie=&quot;&quot;</em>, <em>fps=15</em>, <em>dpi=200</em>, <em>saveAs=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>All arguments are identical to those of <code class="docutils literal notranslate"><span class="pre">streak</span></code>, with the addition of:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">movie</span></code>: name of a file to create a movie, such as <code class="docutils literal notranslate"><span class="pre">&quot;movie.avi&quot;</span></code> or  <code class="docutils literal notranslate"><span class="pre">&quot;movie.gif&quot;</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">movie=&quot;&quot;</span></code> no movie is created.</li>
+<li><code class="docutils literal notranslate"><span class="pre">fps</span></code>: number of frames per second (only if movie requested).</li>
+<li><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: number of dots per inch (only if movie requested).</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">animate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="simultaneous-plotting-of-multiple-diagnostics">
+<h2>Simultaneous plotting of multiple diagnostics<a class="headerlink" href="#simultaneous-plotting-of-multiple-diagnostics" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="happi.multiPlot">
+<code class="descclassname">happi.</code><code class="descname">multiPlot</code><span class="sig-paren">(</span><em>diag1</em>, <em>diag2</em>, <em>...</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#happi.multiPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes an animated figure containing several plots (one for each diagnostic).
+If all diagnostics are of similar type, they may be overlayed on only one plot.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">diag1</span></code>, <code class="docutils literal notranslate"><span class="pre">diag2</span></code>, etc.</dt>
+<dd><div class="first last line-block">
+<div class="line">Diagnostics prepared by <code class="docutils literal notranslate"><span class="pre">Scalar()</span></code>, <code class="docutils literal notranslate"><span class="pre">Field()</span></code>, <code class="docutils literal notranslate"><span class="pre">Probe()</span></code>, etc.</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Keyword-arguments <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">figure</span></code>: The figure number that is passed to matplotlib (default is 1).</li>
+<li><code class="docutils literal notranslate"><span class="pre">shape</span></code>: The arrangement of plots inside the figure. For instance, <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">1]</span></code>
+makes two plots stacked vertically, and <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span></code> makes two plots stacked horizontally.
+If absent, stacks plots vertically.</li>
+<li><code class="docutils literal notranslate"><span class="pre">movie</span></code> : filename to create a movie.</li>
+<li><code class="docutils literal notranslate"><span class="pre">fps</span></code> : frames per second for the movie.</li>
+<li><code class="docutils literal notranslate"><span class="pre">dpi</span></code> : resolution of the movie.</li>
+<li><code class="docutils literal notranslate"><span class="pre">saveAs</span></code>: name of a directory where to save each frame as figures.
+You can even specify a filename such as <code class="docutils literal notranslate"><span class="pre">mydir/prefix.png</span></code> and it will automatically
+make successive files showing the timestep: <code class="docutils literal notranslate"><span class="pre">mydir/prefix0.png</span></code>, <code class="docutils literal notranslate"><span class="pre">mydir/prefix1.png</span></code>, etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">skipAnimation</span></code> : if True, plots only the last frame.</li>
+<li><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>: same as the <code class="docutils literal notranslate"><span class="pre">timesteps</span></code> argument of the <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a> method.</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">Probe</span><span class="p">(</span><span class="n">probeNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s2">&quot;Ex&quot;</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="n">diagNumber</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">happi</span><span class="o">.</span><span class="n">multiPlot</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div>This plots a Probe and a ParticleBinning on the same figure, and makes an animation for all available timesteps.</div></blockquote>
+<hr class="docutils" />
+</div>
+<div class="section" id="advanced-plotting-options">
+<span id="advancedoptions"></span><h2>Advanced plotting options<a class="headerlink" href="#advanced-plotting-options" title="Permalink to this headline">¶</a></h2>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">figure</span></code>, <code class="docutils literal notranslate"><span class="pre">vmin</span></code>, <code class="docutils literal notranslate"><span class="pre">vmax</span></code>, <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code> and <code class="docutils literal notranslate"><span class="pre">ymax</span></code>,
+there are many more optional arguments. They are directly passed to the <em>matplotlib</em> package.</p>
+<p>Options for the figure: <code class="docutils literal notranslate"><span class="pre">figsize</span></code>, <code class="docutils literal notranslate"><span class="pre">dpi</span></code>, <code class="docutils literal notranslate"><span class="pre">facecolor</span></code>, <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code></p>
+<blockquote>
+<div>Please refer to <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.figure">matplotlib’s figure options</a>.</div></blockquote>
+<p>Options for the axes frame: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>, <code class="docutils literal notranslate"><span class="pre">axis_bgcolor</span></code>, <code class="docutils literal notranslate"><span class="pre">frame_on</span></code>, <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">visible</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xlabel</span></code>, <code class="docutils literal notranslate"><span class="pre">xscale</span></code>, <code class="docutils literal notranslate"><span class="pre">xticklabels</span></code>, <code class="docutils literal notranslate"><span class="pre">xticks</span></code>, <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, <code class="docutils literal notranslate"><span class="pre">yscale</span></code>, <code class="docutils literal notranslate"><span class="pre">yticklabels</span></code>, <code class="docutils literal notranslate"><span class="pre">yticks</span></code>, <code class="docutils literal notranslate"><span class="pre">zorder</span></code></p>
+<blockquote>
+<div>Please refer to matplotlib’s axes options: the same as functions starting with <code class="docutils literal notranslate"><span class="pre">set_</span></code> listed <a class="reference external" href="http://matplotlib.org/api/axes_api.html">here</a>.</div></blockquote>
+<p>Options for the lines: <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">dashes</span></code>, <code class="docutils literal notranslate"><span class="pre">drawstyle</span></code>, <code class="docutils literal notranslate"><span class="pre">fillstyle</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>, <code class="docutils literal notranslate"><span class="pre">linewidth</span></code>,
+<code class="docutils literal notranslate"><span class="pre">marker</span></code>, <code class="docutils literal notranslate"><span class="pre">markeredgecolor</span></code>, <code class="docutils literal notranslate"><span class="pre">markeredgewidth</span></code>, <code class="docutils literal notranslate"><span class="pre">markerfacecolor</span></code>, <code class="docutils literal notranslate"><span class="pre">markerfacecoloralt</span></code>,
+<code class="docutils literal notranslate"><span class="pre">markersize</span></code>, <code class="docutils literal notranslate"><span class="pre">markevery</span></code>, <code class="docutils literal notranslate"><span class="pre">visible</span></code>, <code class="docutils literal notranslate"><span class="pre">zorder</span></code></p>
+<blockquote>
+<div>Please refer to <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot">matplotlib’s line options</a>.</div></blockquote>
+<p>Options for the image: <code class="docutils literal notranslate"><span class="pre">cmap</span></code>, <code class="docutils literal notranslate"><span class="pre">aspect</span></code>, <code class="docutils literal notranslate"><span class="pre">interpolation</span></code></p>
+<blockquote>
+<div>Please refer to <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.imshow">matplotlib’s image options</a>.</div></blockquote>
+<p>Options for the colorbar: <code class="docutils literal notranslate"><span class="pre">cbaspect</span></code>, <code class="docutils literal notranslate"><span class="pre">orientation</span></code>, <code class="docutils literal notranslate"><span class="pre">fraction</span></code>, <code class="docutils literal notranslate"><span class="pre">pad</span></code>, <code class="docutils literal notranslate"><span class="pre">shrink</span></code>, <code class="docutils literal notranslate"><span class="pre">anchor</span></code>, <code class="docutils literal notranslate"><span class="pre">panchor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">extend</span></code>, <code class="docutils literal notranslate"><span class="pre">extendfrac</span></code>, <code class="docutils literal notranslate"><span class="pre">extendrect</span></code>, <code class="docutils literal notranslate"><span class="pre">spacing</span></code>, <code class="docutils literal notranslate"><span class="pre">ticks</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">drawedges</span></code></p>
+<blockquote>
+<div>Please refer to <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.colorbar">matplotlib’s colorbar options</a>.</div></blockquote>
+<p>Options for the tick labels: <code class="docutils literal notranslate"><span class="pre">style_x</span></code>, <code class="docutils literal notranslate"><span class="pre">scilimits_x</span></code>, <code class="docutils literal notranslate"><span class="pre">useOffset_x</span></code>, <code class="docutils literal notranslate"><span class="pre">style_y</span></code>, <code class="docutils literal notranslate"><span class="pre">scilimits_y</span></code>, <code class="docutils literal notranslate"><span class="pre">useOffset_y</span></code></p>
+<blockquote>
+<div>Please refer to <a class="reference external" href="http://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.ticklabel_format.html">matplotlib’s tick label format</a>.</div></blockquote>
+<p><strong>Example</strong>:</p>
+<blockquote>
+<div><p>To choose a gray colormap of the image, use <code class="docutils literal notranslate"><span class="pre">cmap=&quot;gray&quot;</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span> <span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div>Many colormaps are available from the <em>matplotlib</em> package. With <code class="docutils literal notranslate"><span class="pre">cmap=&quot;&quot;</span></code>, you will get a list of available colormaps.
+Smilei’s default colormaps are: <code class="docutils literal notranslate"><span class="pre">smilei</span></code>, <code class="docutils literal notranslate"><span class="pre">smilei_r</span></code>, <code class="docutils literal notranslate"><span class="pre">smileiD</span></code> and <code class="docutils literal notranslate"><span class="pre">smileiD_r</span></code>.</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="update-the-plotting-options">
+<h2>Update the plotting options<a class="headerlink" href="#update-the-plotting-options" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Scalar.set">
+<code class="descclassname">Scalar.</code><code class="descname">set</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Scalar.set" title="Permalink to this definition">¶</a></dt>
+<dt id="Field.set">
+<code class="descclassname">Field.</code><code class="descname">set</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.set" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.set">
+<code class="descclassname">Probe.</code><code class="descname">set</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.set" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.set">
+<code class="descclassname">ParticleBinning.</code><code class="descname">set</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.set" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.set">
+<code class="descclassname">Screen.</code><code class="descname">set</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.set" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">ParticleBinning</span><span class="p">(</span><span class="n">diagNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">figure</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="other-tools-in-happi">
+<h2>Other tools in <code class="docutils literal notranslate"><span class="pre">happi</span></code><a class="headerlink" href="#other-tools-in-happi" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="happi.openNamelist">
+<code class="descclassname">happi.</code><code class="descname">openNamelist</code><span class="sig-paren">(</span><em>namelist</em><span class="sig-paren">)</span><a class="headerlink" href="#happi.openNamelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a namelist and stores all its content in the returned object.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">namelist</span></code>: the path to the namelist.</li>
+</ul>
+</dd></dl>
+
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">namelist</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">openNamelist</span><span class="p">(</span><span class="s2">&quot;path/no/my/namelist.py&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">timestep</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<p>A dedicated page for learning how to run and analyse Smilei simulations
+is <a class="reference external" href="https://smileipic.github.io/tutorials">available here</a>.</p>
+</div>
+</div>
+
+
+        </div></div>
+      </div>
+    </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="material.html" title="Publications"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="run.html" title="Run"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-448-gd0624b66 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div>
+      <a href="site.html">Site index</a>
+      </div>
+      <div>
+        Last updated on Mar 06, 2018
+      </div>
+      
+      <div>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.1</a>
+      </div>
+      
+    </div>
+    
+    <script type="text/javascript">
+        
+        var nav = document.getElementById("nav");
+        var nav_list = document.getElementById("nav_list");
+        var nav_button = document.getElementById("nav_button");
+        var smallScreenMenu = document.getElementById("smallScreenMenu");
+        var smallScreenMenuButton = document.getElementById("smallScreenMenuButton");
+        var searchicon = document.getElementById("searchicon");
+        var searchbox  = document.getElementById("searchbox");
+        var searchinput= document.getElementById("searchinput");
+        var menus = document.getElementsByClassName("menu");
+        for( var i=0; i<menus.length; i++ )
+            menus[i].active = false;
+        
+        
+        var ul = nav_list.getElementsByTagName("ul")[0], li;
+        var keep_nav = false;
+        if( ul ) {
+            li = ul.firstElementChild;
+            if( li ) {
+                if( li.getElementsByTagName("ul").length > 0 ) keep_nav = true;
+            }
+        }
+        if( keep_nav ) {
+            li.removeChild( li.firstElementChild );
+        } else {
+            document.getElementById("nav_positioner").removeChild( document.getElementById("nav") );
+        }
+        
+        function navOff() {
+            nav_list.style.display = "none";
+            nav_button.className = "";
+            nav.style.overflowY = "visible";
+        }
+        
+        function toggleNav() {
+            for( var i=0; i<menus.length; i++ )
+                menuOff( menus[i] );
+            if( nav_list.style.display != "inline-block" ) {
+                nav_list.style.display = "inline-block";
+                nav_button.className = "pushed";
+                nav.style.overflowY = "auto";
+            } else {
+                navOff();
+            }
+        }
+        
+        function toggleSmallScreenMenu() {
+            if( smallScreenMenu.className != "on" ) {
+                smallScreenMenu.className = "on";
+                smallScreenMenuButton.className = "pushed";
+            } else {
+                smallScreenMenu.className = "off";
+                smallScreenMenuButton.className = "";
+            }
+        }
+        
+        function menuOn( menu ) {
+            var divs = menu.getElementsByTagName("div");
+            if(nav_list) navOff();
+            divs[1].className = "on";
+            divs[0].className = "menuButton pushed";
+            menu.active = true;
+        }
+        function menuOff( menu ) {
+            var divs = menu.getElementsByTagName("div");
+            divs[1].className = "off";
+            divs[0].className = "menuButton";
+            menu.active = false;
+        }
+        
+        function thisMenuOnly(menu_id) {
+            var menu = document.getElementById(menu_id);
+            for( var i=0; i<menus.length; i++ )
+                if( i!=menu_id )
+                    menuOff( menus[i] );
+            menuOn( menu );
+        }
+        
+        function toggleMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            if( menu.active ) {
+                menuOff( menu );
+            } else {
+                for( var i=0; i<menus.length; i++ )
+                    if( i!=menu_id )
+                        menuOff( menus[i] );
+                menuOn( menu );
+            }
+        }
+        
+        function openSearch() {
+            for( var i=0; i<menus.length; i++ ) {
+                menuOff( menus[i] );
+                menus[i].style.zIndex = "-1";
+            }
+            searchicon.style.display = "none";
+            closesearchicon.style.display = "block";
+            searchbox.style.display = "block";
+            searchinput.focus();
+        }
+        
+        function closeSearch() {
+            searchicon.style.display = "block";
+            closesearchicon.style.display = "none";
+            searchbox .style.display = "none";
+            for( var i=0; i<menus.length; i++ )
+                menus[i].style.zIndex = "0";
+        }
+        
+        
+        var documentDiv = document.getElementsByClassName("document")[0];
+        documentDiv.addEventListener('click', function (event) {
+            if(nav_list) navOff();
+            for( var i=0; i<menus.length; i++ )
+                menuOff( menus[i] );
+        });
+    </script>
+  </body>
+</html>

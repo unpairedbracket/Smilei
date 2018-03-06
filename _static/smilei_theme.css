@@ -1,0 +1,1064 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("basic.css");
+
+@font-face {
+    font-family: "BPreplay";
+    src: url("BPreplay.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "BPreplay";
+    src: url("BPreplayBold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "BPreplay";
+    src: url("BPreplayItalics.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "BPreplay";
+    src: url("BPreplayBoldItalics.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BPmonoRound";
+    src: url("BPmonoRound.otf");
+}
+
+/* -- page layout ----------------------------------------------------------- */
+
+body {
+    font-family: tahoma, sans-serif;
+    font-size: 1em;
+    background-color: white;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+div.document {
+    width:100%;
+}
+
+div.documentwrapper {
+    max-width: 50em;
+    margin: 2.7em auto 0 auto;
+}
+
+div.bodywrapper {
+    margin: 0 0 0 0;
+}
+
+hr {
+    border: 1px solid #B1B4B6;
+}
+
+div.body {
+    background-color: #ffffff;
+    color: #3E4349;
+    padding: 0 30px 0 30px;
+}
+
+div.footer {
+    max-width: 50em;
+    margin: 1.5em auto;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+div.footer a {
+    color: #888;
+}
+
+div.footer > div {
+    margin: 0.8em;
+    display: inline-block;
+}
+
+div.related {
+    display: none;
+}
+
+div.sphinxsidebar a {
+    text-decoration: none;
+}
+
+div.sphinxsidebar {
+    font-size: 1em;
+    line-height: 1.5;
+    margin:0;
+    width:100% !important;
+    padding-bottom:3em;
+}
+
+div.sphinxsidebarwrapper {
+    padding: 0;
+}
+
+div.logo {
+    padding-right: 2em;
+    margin: 0;
+    text-align: left;
+    height:2.7em;
+}
+
+div.sphinxsidebarwrapper h1.logo {
+    margin-top: -10px;
+    text-align: center;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+div.sphinxsidebarwrapper h1.logo-name {
+    margin-top: 0px;
+}
+
+div.sphinxsidebarwrapper p.blurb {
+    margin-top: 0;
+    font-style: normal;
+}
+
+div.sphinxsidebar h3,
+div.sphinxsidebar h4 {
+    font-family: "BPreplay", sans-serif;
+    color: #444;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+div.sphinxsidebar h4 {
+    font-size: 1.2eù;
+}
+
+div.sphinxsidebar h3 a {
+    color: #444;
+}
+
+div.logo a,
+div.sphinxsidebar h3 a,
+div.logo a:hover,
+div.sphinxsidebar h3 a:hover {
+    border: none;
+}
+
+div.sphinxsidebar p {
+    color: #555;
+    margin: 10px 0;
+}
+
+div.sphinxsidebar ul li.toctree-l1 > a {
+    font-size: 120%;
+}
+
+div.sphinxsidebar ul li.toctree-l2 > a {
+    font-size: 110%;
+}
+
+div.sphinxsidebar input {
+    border: 1px solid #CCC;
+    font-family: tahoma, sans-serif;
+    font-size: 1em;
+}
+
+div.sphinxsidebar hr {
+    border: none;
+    height: 1px;
+    color: #999;
+    background: #999;
+
+    text-align: left;
+    margin-left: 0;
+    width: 50%;
+}
+
+/* -- body styles ----------------------------------------------------------- */
+
+a {
+    color: #0672BA;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #409ddb;
+    text-decoration: underline;
+}
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    font-family: "BPreplay", sans-serif;
+    font-weight: bold;
+    margin: 30px 0px 10px 0px;
+    padding: 0;
+}
+
+div.body h1 { 
+    font-size: 240%;
+    margin-right: 3em;
+    padding: 0.1em 0.3em 0.1em 1em;
+	background-color:#EAF4FD;
+	display: inline-block;
+	border-radius:0.1em
+}
+div.body h2 { font-size: 180%; }
+div.body h3 { font-size: 150%; }
+div.body h4 { font-size: 130%; }
+div.body h5 { font-size: 100%; }
+div.body h6 { font-size: 100%; }
+
+a.headerlink {
+    color: #DDD;
+    padding: 0 4px;
+    text-decoration: none;
+}
+
+a.headerlink:hover {
+    color: #444;
+    background: #EAEAEA;
+}
+
+div.body p, div.body dd, div.body li {
+    line-height: 1.4em;
+}
+
+div.admonition {
+    margin: 20px 0px;
+    padding: 10px 30px;
+    background-color: #FCC;
+    border: 1px solid #FAA;
+}
+
+div.admonition tt.xref, div.admonition a tt {
+    border-bottom: 1px solid #fafafa;
+}
+
+dd div.admonition {
+    margin-left: -60px;
+    padding-left: 60px;
+}
+
+div.admonition p.admonition-title {
+    font-family: "BPreplay", sans-serif;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: 1;
+}
+
+div.admonition p.last {
+    margin-bottom: 0;
+}
+
+div.highlight {
+    background-color: white;
+}
+
+dt:target, .highlight {
+    background: #FAF3E8;
+}
+
+div.note {
+    background-color: #EEE;
+    border: 1px solid #CCC;
+}
+
+div.seealso {
+    background-color: #EEE;
+    border: 1px solid #CCC;
+}
+
+div.topic {
+    background-color: #eee;
+}
+
+p.admonition-title {
+    display: inline;
+}
+
+p.admonition-title:after {
+    content: ":";
+}
+
+pre, tt, code {
+    font-family: 'Consolas', "BPmonoRound", 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 0.9em;
+}
+
+img.screenshot {
+}
+
+tt.descname, tt.descclassname, code.descname, code.descclassname {
+    font-size: 0.95em;
+    color: #05baa8;
+}
+
+tt.descname, code.descname {
+    padding-right: 0.08em;
+}
+
+img.screenshot {
+    -moz-box-shadow: 2px 2px 4px #eee;
+    -webkit-box-shadow: 2px 2px 4px #eee;
+    box-shadow: 2px 2px 4px #eee;
+}
+
+table.docutils {
+    border: 1px solid #888;
+    -moz-box-shadow: 2px 2px 4px #eee;
+    -webkit-box-shadow: 2px 2px 4px #eee;
+    box-shadow: 2px 2px 4px #eee;
+}
+
+table.docutils td, table.docutils th {
+    border: 1px solid #888;
+    padding: 0.25em 0.7em;
+}
+
+table.field-list, table.footnote {
+    border: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+table.footnote {
+    margin: 15px 0;
+    width: 100%;
+    border: 1px solid #EEE;
+    background: #FDFDFD;
+    font-size: 0.9em;
+}
+
+table.footnote + table.footnote {
+    margin-top: -15px;
+    border-top: none;
+}
+
+table.field-list th {
+    padding: 0 0.8em 0 0;
+}
+
+table.field-list td {
+    padding: 0;
+}
+
+table.footnote td.label {
+    width: 0;
+    padding: 0.3em 0 0.3em 0.5em;
+}
+
+table.footnote td {
+    padding: 0.3em 0.5em;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+dl dd {
+    margin-left: 30px;
+}
+
+blockquote {
+    margin: 0 0 0 30px;
+    padding: 0;
+}
+
+ul, ol {
+    margin: 10px 0 10px 30px;
+    padding: 0;
+}
+
+pre {
+    background: #EEE;
+    padding: 7px 30px;
+    margin: 15px 0px;
+    line-height: 1.3em;
+}
+
+dl pre, blockquote pre, li pre {
+    margin-left: -60px;
+    padding-left: 60px;
+}
+
+dl dl pre {
+    margin-left: -90px;
+    padding-left: 90px;
+}
+
+tt, code {
+    background-color: #ecf0f3;
+    color: #222;
+    /* padding: 1px 2px; */
+}
+
+tt.xref, code.xref, a tt {
+    background-color: #FBFBFB;
+    border-bottom: 1px solid white;
+}
+
+a.reference {
+    text-decoration: none;
+}
+
+a.reference:hover {
+    border-bottom: 1px solid #409ddb;
+}
+
+a.footnote-reference {
+    text-decoration: none;
+    font-size: 0.7em;
+    vertical-align: top;
+    border-bottom: 1px dotted #0672BA;
+}
+
+a.footnote-reference:hover {
+    border-bottom: 1px solid #409ddb;
+}
+
+a:hover tt, a:hover code {
+    background: #EEE;
+}
+
+/* misc. */
+
+.revsys-inline {
+    display: none!important;
+}
+
+/* Make nested-list/multi-paragraph items look better in Releases changelog
+ * pages. Without this, docutils' magical list fuckery causes inconsistent
+ * formatting between different release sub-lists.
+ */
+div#changelog > div.section > ul > li > p:only-child {
+    margin-bottom: 0;
+}
+
+/* Hide fugly table cell borders in ..bibliography:: directive output */
+table.docutils.citation, table.docutils.citation td, table.docutils.citation th {
+  border:none;
+}
+
+
+
+
+/*----------------------*/
+/* ADDED FOR SMILEI
+/*----------------------*/
+
+
+/* --------------------------------------------------------------------*/
+/* Header bar */
+#hcontainer {
+	position: fixed;
+	width: 100%;
+	top:0;
+	margin:0;
+	padding:0;
+    text-align: center;
+    z-index: 10;
+    font-family: "BPreplay", sans-serif;
+}
+
+div.headercolor {
+    position:fixed;
+    top:0;
+	height: 2.7em;
+	width: 100%;
+	background-color:#0672BA;
+}
+
+div.hpositioner {
+	position: relative;
+	max-width: 50em;
+	margin: 0 auto;
+	height:100%;
+}
+
+div.header {
+	position: relative;
+	height: 100%;
+	font-size: 1em;
+	color: white;
+	display: inline-block;
+	text-align: left;
+}
+
+div.header > * {
+	float:left;
+}
+
+.menu, #nav_positioner{
+    position:relative;
+    display: block;
+    height: 100%;
+    margin:0;
+}
+.menu {
+    height: 2.7em;
+}
+#nav_positioner {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    left: 50%;
+}
+
+#nav {
+    position:absolute;
+    right:-25.0em;
+    top:0;
+	text-align: left;
+    white-space: nowrap;
+    max-height:100%;
+    min-height:2.7em;
+    min-width :6em;
+	padding: 2.7em 12px 0 5px;
+	box-sizing: border-box;
+}
+#nav_button {
+    position:absolute;
+    right:0;
+	cursor:pointer;
+	text-align: center;
+    background-color: #eee;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-right:12px;
+    padding:0.2em 1em;
+    font-size:80%;
+    z-index:10;
+}
+#nav_button.pushed {
+    display:none;
+}
+#nav_list {
+    display:none;
+    background-color: transparent;
+    position: relative;
+}
+#nav_list > ul a {
+    padding:0.3em 1em;
+}
+#nav_title {
+    line-height: 2.16em;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    background-color: #eee;
+    padding: 0 1em;
+    font-weight: bold;
+    font-size:120%;
+    position: relative;
+}
+#nav_title > a {
+    color: #444;
+}
+#nav_list > ul {
+    position: relative;
+    right:0;
+    background-color: #eee;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+
+.menuButton {
+    cursor:pointer;
+    padding: 0 2em;
+    line-height: 2.7em;
+    height: 100%;
+}
+
+.menuButton > span {
+    font-size: 1.296em;
+}
+
+.menuButton.pushed {
+    background-color: #409ddb;
+}
+
+.menu > div + div {
+    font-size: 1em;
+    position: absolute;
+    left:-1px;
+    top: 2.7em;
+    white-space: nowrap;
+    min-width: 10em;
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+.menu div.toctree-smilei {
+    border-left:   1px solid #0672BA;
+    border-right:  1px solid #0672BA;
+    border-bottom: 1px solid #0672BA;
+    border-bottom-left-radius:  4px;
+    border-bottom-right-radius: 4px;
+}
+
+.menu a {
+    padding: 0.4em 1em !important;
+}
+
+#smallScreenMenuButton {
+	width: 3.24em;
+	height:2.7em;
+	cursor:pointer;
+    float:right;
+    text-align: center;
+    display:none;
+}
+
+#smallScreenMenuButton svg, #nav_button svg {
+    width: 2.7em;
+    height:2.7em;
+    margin:0 auto;
+}
+
+#smallScreenMenuButton.pushed {
+    background-color: #EAF4FD;
+}
+
+#smallScreenMenuButton.pushed svg g {
+    fill:#0672BA !important;
+}
+
+#smallScreenMenu {
+    width: 100%;
+    position:fixed;
+    top:2.7em;
+    bottom:0;
+    left:0;
+    padding:0.3em 0 0 0;
+    overflow-y: auto;
+    background-color:#EAF4FD;
+    border: 0;
+    z-index:500;
+}
+
+#smallScreenMenu > div {
+    padding-bottom: 2em;
+}
+
+.on {
+    display:block;
+}
+
+.off {
+    display:none;
+}
+
+/* --------------------------------------------------------------------*/
+/* Color styles that are used in tags :red: or :blue: */
+.blue {
+	color:blue;
+}
+.red {
+	color:red;
+}
+.purple {
+	color:#6967AB;
+}
+.green {
+	color:green;
+}
+.orange {
+	color:orange;
+}
+
+/* --------------------------------------------------------------------*/
+/* Style for the "In progress" block */
+.inprogress {
+	text-align:center;
+	padding:5px;
+	margin:0 30%;
+	background-color: #EAF4FD;
+	border: 1px solid #0672BA;
+}
+
+/* Style for an emphasized link */
+.emphlink {
+	text-align:center;
+	font-size:1.3em;
+}
+
+/* --------------------------------------------------------------------*/
+/* Prevent tables to wrap lines */
+table.nowrap {
+	white-space: nowrap;
+}
+/* Remove bottom margin in table cells with line-blocks */
+table.docutils div.line-block {
+	margin-bottom:0;
+}
+
+table.noborder, table.noborder td {
+	border:0 !important;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+/* Make nicer table header */
+table.docutils thead {
+	background-color: #EAF4FD;
+}
+
+/* --------------------------------------------------------------------*/
+/* Logos and icons */
+img.logo {
+	height:2.7em;
+}
+.icon {
+	display:inline-block;
+	text-align:center;
+	margin:0.3em;
+	width:100px;
+}
+.icon * {
+	margin:0 auto;
+	display:block;
+}
+.icon img {
+	height:3em;
+}
+.icon, .icon:hover {
+	text-decoration:none;
+	color:#333;
+}
+.icon:hover {
+	background-color:#EAF4FD;
+}
+.icon:active {
+	background-color:#409ddb;
+}
+
+/* --------------------------------------------------------------------*/
+/* Styles for the lab logos container */
+div.lablogos {
+	border:0px solid #555;
+}
+div.lablogos > br.clear {
+	clear:both;
+}
+div.lablogos > div {
+	padding:5px;
+	float:left;
+}
+
+/* --------------------------------------------------------------------*/
+/* table of contents */
+div.toctree-smilei {
+	background-color: #EAF4FD;
+	font-weight:normal;
+}
+
+div.toctree-smilei a {
+	text-decoration: none;
+	border:0 !important;
+	color: black;
+	display:block;
+}
+div.toctree-smilei > ul {
+	margin: 0;
+	list-style: none;
+}
+div.toctree-smilei > ul > li {
+	margin: 0;
+    padding: 0;
+}
+div.toctree-smilei > ul > li > a  {
+	background-color: #0672BA;
+	color: #EAF4FD;
+    padding: 0.4em 0 0.4em 1em;
+}
+div.toctree-smilei li.outer > a {
+	background-color: transparent;
+    color: #0672BA;
+}
+div.toctree-smilei li.outer > a:hover {
+	background-color: #409ddb;
+	color: #EAF4FD;
+}
+div.toctree-smilei > ul > li > ul {
+    margin: 0;
+	list-style: none;
+}
+div.toctree-smilei > ul > li > ul > li > a {
+    padding:0.3em 0 0.3em 2.5em;
+}
+div.toctree-smilei > ul > li > ul > li > a:hover {
+	background-color: #ddd;
+}
+
+div.toctree-smilei > ul > li > ul > li > ul {
+    display:none;
+}
+
+/* --------------------------------------------------------------------*/
+/* Some tricks for the citations */
+/* Remove the weird shadows */
+table.docutils.citation, table.docutils.citation * {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+/* Remove the back-reference links when there are several back-references */
+table.citation td.label + td > em {
+	display:none;
+}
+table.citation td.label + td ol {
+	margin-top: 0 !important;
+}
+/* Remove the back-reference link when there is one back-reference */
+table.citation td.label a {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	color: inherit;
+}
+/* Make a "bigcitation" class for citations with several lines */
+table.bigcitation td.label {
+	max-width: 3px;
+}
+table.bigcitation td.label + td {
+	padding-top: 25px;
+}
+
+/* --------------------------------------------------------------------*/
+/* Adjust code blocks */
+dl pre, blockquote pre, li pre {
+	margin-left:0;
+}
+div.highlight > pre {
+	padding-left:0.3em;
+}
+
+/* --------------------------------------------------------------------*/
+/* Adjust horizontal lines */
+hr {
+	margin-top:1em;
+	border-color: #0672BA;
+}
+.toctree-smilei hr {
+	margin: 0.2em 0;
+	background: #0672BA !important;
+	width:100% !important;
+}
+
+/* --------------------------------------------------------------------*/
+/* titles */
+h1, h2, h3, h4, h5, h6 {
+	color: #0672BA;
+	font-weight:bold !important;
+}
+.section {
+    padding-top:1.35em;
+    margin-top:-2.7em;
+}
+
+/* --------------------------------------------------------------------*/
+/* Smaller admonition box */
+div.admonition {
+	padding:7px !important;
+	margin:2px 30px !important;
+	background-color: #EAF4FD;
+	border: 1px solid #0672BA;
+	overflow: hidden;
+}
+div.admonition p.admonition-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin:0;
+	float: inherit;
+}
+div.admonition p {
+	margin:5px 0;
+	float: right;
+}
+
+/* --------------------------------------------------------------------*/
+/* Adjust figure */
+.figure {
+	text-align:center;
+}
+.caption-number {
+	margin-right:8px;
+	padding-right:4px;
+	border-right:1px solid #BBB;
+}
+.caption {
+	margin-top:0;
+	margin-bottom:0;
+}
+.image-reference, table.noborder td:first-child > .reference {
+	border-bottom:0 !important;
+}
+
+.c1 {
+    color: #aab8c1 !important;
+}
+
+/* --------------------------------------------------------------------*/
+/* Index */
+
+.siteindex {
+    width:100%;
+    text-align:center;
+}
+.siteindex > div {
+    display:inline-block;
+    text-align:left;
+}
+
+@media print
+{
+	#hcontainer { display: none !important; }
+}
+
+/* --------------------------------------------------------------------*/
+/* Search box */
+
+#searchicon, #closesearchicon {
+	width:2.7em;
+	text-align: center;
+	cursor:pointer;
+}
+#searchicon > svg, #closesearchicon > svg {
+	height:2.7em;
+}
+#searchbox {
+	position: absolute;
+	right:2.7em;
+	height:2.7em;
+}
+#searchinput {
+	height:1.3em;
+	width: 20em;
+	font-size: 1em;
+	padding:0.3em 0.6em;
+	margin:0.3em 0;
+	border-radius:0.5em;
+	border:0.1em solid #bbb;
+}
+#search-results {
+	padding-top: 5px;
+}
+
+
+
+@media screen and (max-width:  50.5em) {
+
+	body, div.documentwrapper, .bodywrapper {
+		margin:0;
+	}
+	
+	ul {
+		margin-left: 0;
+	}
+	
+	.document {
+		width: auto !important;
+	}
+	
+	.footer {
+		width: auto;
+	}
+	
+	.github, .rtd_doc_footer {
+	    display: none;
+	}
+	
+	div.documentwrapper {
+	    float: none;
+	    background: white;
+	}
+	
+	div.sphinxsidebar h3, div.sphinxsidebar h4, div.sphinxsidebar p,
+	div.sphinxsidebar h3 a {
+	    color: white;
+	}
+	
+	div.document {
+	    margin: 2.7em 0 0 0;
+	    padding: 0 1em 1em 1em;
+	}
+	
+	div.body {
+	    min-height: 0;
+	    padding: 0;
+	}
+	
+	div.header {
+	   display:block;
+	}
+	#smallScreenMenuButton {
+	    display: block !important;
+	}
+	.menu, #nav {
+	    display: none;
+	}
+	#searchicon, #closesearchicon {
+		display:none !important;
+	}
+	#searchbox {
+		display:block !important;
+		left:7.45em;
+		right:4.75em;
+	}
+	#searchinput {
+		display:block !important;
+		width:100%;
+	}
+}
+
+
+@media screen and (min-width: 50.5em) {
+	#smallScreenMenu {
+	    display: none !important;
+	}
+}

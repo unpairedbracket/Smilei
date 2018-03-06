@@ -1,0 +1,863 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Install &#8212; Smilei v3.3-448-gd0624b66 documentation</title>
+    <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Write a namelist" href="namelist.html" />
+    <link rel="prev" title="Multiphoton Breit-Wheeler pair creation" href="multiphoton_Breit_Wheeler.html" />
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      scale: 95,
+      availableFonts: ["TeX"]
+    }
+  });
+  </script>
+  
+   
+
+  </head><body>
+
+<div id="smallScreenMenu" class="off">
+
+    
+    <div class="toctree-smilei">
+        <ul>
+          <li class="outer">
+              <a href="licence.html">Licence</a>
+          </li>
+          <li class="outer">
+              <a href="synopsis.html">Synopsis</a>
+          </li>
+          <li class="outer">
+              <a href="highlights.html">Highlights</a>
+          </li>
+          <li class="outer">
+              <a href="releases.html">Releases</a>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li class="outer">
+              <a href="units.html">Units</a>
+          </li>
+          <li class="outer">
+              <a href="algorithms.html">PIC algorithms</a>
+          </li>
+          <li class="outer">
+              <a href="parallelization.html">Parallelization basics</a>
+          </li>
+          <li class="outer">
+              <a href="collisions.html">Binary collisions</a>
+          </li>
+          <li class="outer">
+              <a href="field_ionization.html">Field ionization</a>
+          </li>
+          <li class="outer">
+              <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
+          </li>
+          <li class="outer">
+              <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+        </ul>
+            <ul>
+<li><a class="reference internal" href="#">Install</a><ul>
+<li><a class="reference internal" href="#install-dependencies-on-mac">Install dependencies on Mac</a><ul>
+<li><a class="reference internal" href="#via-macports">Via Macports</a></li>
+<li><a class="reference internal" href="#via-homebrew">Via HomeBrew</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-dependencies-on-linux">Install dependencies on Linux</a><ul>
+<li><a class="reference internal" href="#fedora">Fedora</a></li>
+<li><a class="reference internal" href="#debian-ubuntu-mint-etc">Debian (Ubuntu, Mint etc…)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-optional-picsar-library">The optional Picsar library</a><ul>
+<li><a class="reference internal" href="#install-fftw">Install FFTW</a></li>
+<li><a class="reference internal" href="#install-picsar-as-a-library">Install PICSAR as a library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-dependencies-on-other-systems">Install dependencies on other systems</a></li>
+<li><a class="reference internal" href="#download-and-compile-smilei">Download and compile Smilei</a></li>
+<li><a class="reference internal" href="#advanced-compilation-options">Advanced compilation options</a></li>
+<li><a class="reference internal" href="#compile-the-documentation">Compile the documentation</a></li>
+<li><a class="reference internal" href="#install-the-happi-module">Install the happi module</a></li>
+</ul>
+</li>
+</ul>
+
+        <ul>
+          <li class="outer">
+              <a href="namelist.html">Write a namelist</a>
+          </li>
+          <li class="outer">
+              <a href="run.html">Run</a>
+          </li>
+          <li class="outer">
+              <a href="post-processing.html">Post-process</a>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li class="outer">
+              <a href="material.html">Publications</a>
+          </li>
+          <li class="outer">
+              <a href="partners.html">Partners</a>
+          </li>
+          <li class="outer">
+              <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
+          </li>
+        </ul>
+    </div>
+
+</div>
+<div id="hcontainer">
+    <div id="nav_positioner">
+        <div id="nav">
+            <div id="nav_button" onclick="toggleNav()">
+                Sections
+            </div>
+            <div id="nav_list" class="toctree-smilei">
+                <div id="nav_title"><a href="#">Install</a></div>
+                <ul>
+<li><a class="reference internal" href="#">Install</a><ul>
+<li><a class="reference internal" href="#install-dependencies-on-mac">Install dependencies on Mac</a><ul>
+<li><a class="reference internal" href="#via-macports">Via Macports</a></li>
+<li><a class="reference internal" href="#via-homebrew">Via HomeBrew</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-dependencies-on-linux">Install dependencies on Linux</a><ul>
+<li><a class="reference internal" href="#fedora">Fedora</a></li>
+<li><a class="reference internal" href="#debian-ubuntu-mint-etc">Debian (Ubuntu, Mint etc…)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-optional-picsar-library">The optional Picsar library</a><ul>
+<li><a class="reference internal" href="#install-fftw">Install FFTW</a></li>
+<li><a class="reference internal" href="#install-picsar-as-a-library">Install PICSAR as a library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-dependencies-on-other-systems">Install dependencies on other systems</a></li>
+<li><a class="reference internal" href="#download-and-compile-smilei">Download and compile Smilei</a></li>
+<li><a class="reference internal" href="#advanced-compilation-options">Advanced compilation options</a></li>
+<li><a class="reference internal" href="#compile-the-documentation">Compile the documentation</a></li>
+<li><a class="reference internal" href="#install-the-happi-module">Install the happi module</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="headercolor">
+    </div>
+    <div class="hpositioner">
+        <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img class="logo" src="_static/smileiLogo.svg" alt="Logo" />
+            </a>
+        </div>
+        
+    
+            
+        
+        <div class="menu" id="menu_Licence">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+                <span>Overview</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="licence.html">Licence</a>
+                        </li>
+                        <li class="outer">
+                            <a href="synopsis.html">Synopsis</a>
+                        </li>
+                        <li class="outer">
+                            <a href="highlights.html">Highlights</a>
+                        </li>
+                        <li class="outer">
+                            <a href="releases.html">Releases</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Units">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+                <span>Understand</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="units.html">Units</a>
+                        </li>
+                        <li class="outer">
+                            <a href="algorithms.html">PIC algorithms</a>
+                        </li>
+                        <li class="outer">
+                            <a href="parallelization.html">Parallelization basics</a>
+                        </li>
+                        <li class="outer">
+                            <a href="collisions.html">Binary collisions</a>
+                        </li>
+                        <li class="outer">
+                            <a href="field_ionization.html">Field ionization</a>
+                        </li>
+                        <li class="outer">
+                            <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
+                        </li>
+                        <li class="outer">
+                            <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Install" style="font-weight:bold">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+                <span>Use</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li >
+                            <a href="#">Install</a>
+                        </li>
+                        <li class="outer">
+                            <a href="namelist.html">Write a namelist</a>
+                        </li>
+                        <li class="outer">
+                            <a href="run.html">Run</a>
+                        </li>
+                        <li class="outer">
+                            <a href="post-processing.html">Post-process</a>
+                        </li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu" id="menu_Publications">
+            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+                <span>More</span>
+            </div>
+            <div class="off">
+                <div class="toctree-smilei">
+                    <ul>
+                        <li class="outer">
+                            <a href="material.html">Publications</a>
+                        </li>
+                        <li class="outer">
+                            <a href="partners.html">Partners</a>
+                        </li>
+                        <li class="outer">
+                            <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="searchbox" role="search" style="display:none">
+            <form class="search" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search" id="searchinput" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        
+        <div id="searchicon" onclick="openSearch()" style="display:block">
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 80 120">
+              <g transform="translate(0,-932.36216)" >
+                <circle
+                   r="25" cy="977.51044" cx="38.078663"
+                   style="opacity:1;fill:none;stroke:#ffffff;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+                <rect
+                   transform="matrix(0.36717877,0.93015039,-0.93427297,0.35655858,0,0)"
+                   rx="4.9996676" ry="7.4995141"
+                   y="316.16959" x="947.6142"
+                   height="14.117695" width="46.476151"
+                   style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;" />
+                <path
+                   d="m 41.383282,962.25996 a 15,15 0 0 1 11.660107,11.6355"
+                   style="opacity:1;fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              </g>
+            </svg>
+        </div>
+        <div id="closesearchicon" onclick="closeSearch()" style="display:none">
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 80 120">
+              <g
+                 transform="translate(0,-932.36216)">
+                <path
+                   d="m 10,962.36216 60,60.00004"
+                   style="fill:none;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+                <path
+                   d="M 70,962.36216 10,1022.3622"
+                   style="fill:none;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+              </g>
+            </svg>
+        </div>
+        
+        <div id="smallScreenMenuButton" onclick="toggleSmallScreenMenu()">
+            <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
+               viewBox="-20 -20 140 140">
+              <g  style="fill:#ffffff;stroke:none;">
+                <circle cx="15" cy="20" r="5" />
+                <circle cx="35" cy="20" r="5" />
+                <circle cx="85" cy="20" r="5" />
+                <rect width="50" height="10" x="35" y="15" rx="0" ry="0" />
+                <circle cx="15" cy="40" r="5" />
+                <circle cx="35" cy="40" r="5" />
+                <circle cx="85" cy="40" r="5" />
+                <rect width="50" height="10" x="35" y="35" rx="0" ry="0" />
+                <circle cx="15" cy="60" r="5" />
+                <circle cx="35" cy="60" r="5" />
+                <circle cx="85" cy="60" r="5" />
+                <rect width="50" height="10" x="35" y="55" rx="0" ry="0" />
+                <circle cx="15" cy="80" r="5" />
+                <circle cx="35" cy="80" r="5" />
+                <circle cx="85" cy="80" r="5" />
+                <rect width="50" height="10" x="35" y="75" rx="0" ry="0" />
+              </g>
+            </svg>
+        </div>
+        
+    </div>
+    
+</div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="namelist.html" title="Write a namelist"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-448-gd0624b66 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+    <div class="documentwrapper">
+      <div class="bodywrapper">
+        <div class="body" role="main">
+          
+  <div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<p>Before installing <strong class="program">Smilei</strong>, you need to install a few dependencies:</p>
+<ul class="simple">
+<li>A C++11 compiler, optionally implementing openMP</li>
+<li>MPI libraries supporting <code class="docutils literal notranslate"><span class="pre">MPI_THREAD_MULTIPLE</span></code></li>
+<li>HDF5 libraries compatible with your versions of C++ and MPI</li>
+<li>Python 2.7 or Python 3 (with header files)</li>
+</ul>
+<p>Optional dependencies are:</p>
+<ul class="simple">
+<li>Git</li>
+<li>Python modules: sphinx, h5py, numpy, matplotlib, pylab, pint</li>
+<li>ffmpeg</li>
+<li>the <a class="reference external" href="http://picsar.net">Picsar</a> library</li>
+</ul>
+<p>On a large cluster, refer to the administrator to install these requirements.
+If you want to install <strong class="program">Smilei</strong> on your personal computer, refer to the following sections.</p>
+<p>To get some help on compilation and the environment variables you can change in order
+to have a successful compilation, you can type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code>.</p>
+<hr class="docutils" />
+<div class="section" id="install-dependencies-on-mac">
+<h2>Install dependencies on Mac<a class="headerlink" href="#install-dependencies-on-mac" title="Permalink to this headline">¶</a></h2>
+<p>Even if it possible to install all dependencies manually, we recommend using a
+package manager software.</p>
+<div class="section" id="via-macports">
+<h3>Via Macports<a class="headerlink" href="#via-macports" title="Permalink to this headline">¶</a></h3>
+<p>This installation procedure relies on the software <a class="reference external" href="https://www.macports.org">MacPorts</a>
+that you can install following <a class="reference external" href="https://www.macports.org/install.php">these instructions</a>.</p>
+<ol class="arabic">
+<li><p class="first">In a terminal, run the following command to install the C++ compiler with MPI and HDF5:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install openmpi-gcc7 +threads
+sudo port <span class="k">select</span> --set mpi openmpi-gcc7-fortran
+sudo port install hdf5-18 +openmpi+gcc7+threads
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> hidden file located in your home folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>open ~/.bash_profile
+</pre></div>
+</div>
+<p>and add the following lines at the end:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SMILEICXX</span><span class="o">=</span>mpicxx
+<span class="nb">export</span> <span class="nv">HDF5_ROOT_DIR</span><span class="o">=</span>/opt/local/hdf5-18/lib/
+</pre></div>
+</div>
+</li>
+<li><p class="first">Python should be already installed by default, but in case you need
+a specific version, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install python27
+sudo port <span class="k">select</span> --set python python27
+sudo port <span class="k">select</span> --set python2 python27
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you wish to run the Python post-processing scripts provided in <strong class="program">Smilei</strong>,
+you need several modules (numpy, matplotlib, pylab, h5py, sphinx, pint).
+We recommend to install <strong class="program">IPython</strong> which includes some of these.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install py27-ipython <span class="c1"># nicer python console</span>
+sudo port install py27-h5py    <span class="c1"># mandatory for opening any HDF5 file</span>
+sudo port install py27-pint    <span class="c1"># only for auto unit conversion</span>
+sudo port install py27-sphinx  <span class="c1"># only for building the doc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="via-homebrew">
+<h3>Via HomeBrew<a class="headerlink" href="#via-homebrew" title="Permalink to this headline">¶</a></h3>
+<p>This installation procedure has been tested on OS X 10.12</p>
+<ol class="arabic">
+<li><p class="first"><a class="reference external" href="http://brew.sh">HomeBrew</a> can easily installed via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Once installed, you need these packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install gcc
+brew install openmpi --with-mpi-thread-multiple
+brew install hdf5 --with-mpi
+brew install python numpy
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+pip2 install ipython h5py pint sphinx matplotlib pylab
+</pre></div>
+</div>
+</li>
+<li><p class="first">To be able to use the gcc with openmpi, you need to set the <code class="docutils literal notranslate"><span class="pre">OMPI_CXX</span></code> variable :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">OMPI_CXX</span><span class="o">=</span>g++-7 <span class="c1"># the number version might vary</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can put the above line in a shell rc file (e.g. <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>)
+or you can just add it before the <code class="docutils literal notranslate"><span class="pre">make</span></code> command (<code class="docutils literal notranslate"><span class="pre">OMPI_CXX=g++-7</span> <span class="pre">make</span></code> …)</p>
+</li>
+<li><p class="first">now you can compile <strong class="program">smilei</strong> (see <a class="reference internal" href="#compile"><span class="std std-ref">Download and compile Smilei</span></a> for other options)</p>
+</li>
+</ol>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-dependencies-on-linux">
+<h2>Install dependencies on Linux<a class="headerlink" href="#install-dependencies-on-linux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fedora">
+<h3>Fedora<a class="headerlink" href="#fedora" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dnf install -y gcc-c++ hdf5-openmpi hdf5-openmpi-devel openmpi-devel git which findutils python python-devel
+dnf install -y h5py ipython python2-pint sphinx python2-matplotlib
+</pre></div>
+</div>
+</div>
+<div class="section" id="debian-ubuntu-mint-etc">
+<h3>Debian (Ubuntu, Mint etc…)<a class="headerlink" href="#debian-ubuntu-mint-etc" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Install these packages</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python-h5py ipython python-pint python-sphinx python-matplotlib python2-dev  pyhton-numpy
+</pre></div>
+</div>
+</div></blockquote>
+<p>Since the system <code class="docutils literal notranslate"><span class="pre">openmpi</span></code> is not compiled with <code class="docutils literal notranslate"><span class="pre">--enable-mpi-thread-multiple</span></code>, a manual installation is required :</p>
+<ol class="arabic simple" start="2">
+<li>Choose a path whet to install dependencies by setting the environment variable <code class="docutils literal notranslate"><span class="pre">INSTALL_DIR</span></code>. e.g. :</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">INSTALL_DIR</span><span class="o">=</span>/usr/local
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Download <a class="reference external" href="https://www.open-mpi.org/software/ompi">OpenMPI</a> and install.
+You may choose any <code class="docutils literal notranslate"><span class="pre">${INSTALL_DIR}</span></code>.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf openmpi-1.10.2.tar.gz
+<span class="nb">cd</span> openmpi-1.10.2
+./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi --enable-mpi-thread-multiple --enable-mpirun-prefix-by-default
+make
+make install
+</pre></div>
+</div>
+<p>Set environment variables in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Download <a class="reference external" href="https://support.hdfgroup.org/HDF5">HDF5</a> and install</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf hdf5-1.8.16.tar.gz
+<span class="nb">cd</span> hdf5-1.8.16
+./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5 --enable-parallel --with-pic --enable-linux-lfs --enable-shared --enable-production<span class="o">=</span>yes --disable-sharedlib-rpath --enable-static <span class="nv">CC</span><span class="o">=</span>mpicc <span class="nv">FC</span><span class="o">=</span>mpif90
+make
+make install
+</pre></div>
+</div>
+<p>Set environment variables in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">HDF5_ROOT_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="the-optional-picsar-library">
+<h2>The optional Picsar library<a class="headerlink" href="#the-optional-picsar-library" title="Permalink to this headline">¶</a></h2>
+<p>A Pseudo-Spectral Analytical Time Domain solver (PSATD) for Maxwell equations
+is available for use in Smilei via the <a class="reference external" href="http://picsar.net">Picsar</a> library.
+The PSATD solver is an FFT-based high-order Maxwell solver.
+Picsar uses the <a class="reference external" href="http://www.fftw.org">FFTW</a> library.</p>
+<div class="section" id="install-fftw">
+<h3>Install FFTW<a class="headerlink" href="#install-fftw" title="Permalink to this headline">¶</a></h3>
+<p>Download and install the <a class="reference external" href="http://www.fftw.org/">latest version</a> of FFTW</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf fftw-3.3.7.tar.gz
+<span class="nb">cd</span> fftw-3.3.7
+configure --prefix INSTALL_DIR --enable-shared --enable-threads --with-openmp --enable-mpi
+make
+make install
+</pre></div>
+</div>
+<p>Set a few environment variables, typically in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FFTW_LIB_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/lib
+<span class="nb">export</span> <span class="nv">FFTW_INC_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/include
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-picsar-as-a-library">
+<h3>Install PICSAR as a library<a class="headerlink" href="#install-picsar-as-a-library" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Download the <a class="reference external" href="git&#64;bitbucket.org:berkeleylab/picsar.git">latest version of Picsar</a></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@bitbucket.org:berkeleylab/picsar.git
+<span class="nb">cd</span> picsar/
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Set library flags to compile picsar as a library</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s/MODE=prod/MODE=library/g&#39;</span> Makefile
+sed -i <span class="s1">&#39;s/COMP=gnu/COMP=intel/g&#39;</span> Makefile <span class="c1"># - if using intel compiler</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Link fftw to picsar (you may have to modify the following according to your machine)</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -i  <span class="s1">&#39;s/FFTW3_LIB=\/usr\/lib\/x86_64-linux-gnu/FFTW3_LIB=$(FFTW_LIB_DIR)/g&#39;</span> Makefile
+sed -i  <span class="s1">&#39;s/FFTW3_INCLUDE=\/usr\/include/FFTW3_INCLUDE=$(FFTW_INC_DIR)/g&#39;</span> Makefile
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Install picsar as a library</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make lib
+<span class="nb">export</span> <span class="nv">LIBPXR</span><span class="o">=</span><span class="nv">$PWD</span>/lib
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LIBPXR</span><span class="si">}</span>:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-dependencies-on-other-systems">
+<h2>Install dependencies on other systems<a class="headerlink" href="#install-dependencies-on-other-systems" title="Permalink to this headline">¶</a></h2>
+<p>If you have successfully installed these dependencies on other platforms, please
+<a class="reference internal" href="partners.html"><span class="doc">contact us</span></a> and share!</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="download-and-compile-smilei">
+<span id="compile"></span><h2>Download and compile Smilei<a class="headerlink" href="#download-and-compile-smilei" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Download the latest <strong class="program">Smilei</strong> tarball <a class="reference internal" href="releases.html#latestversion"><span class="std std-ref">here</span></a>.</p>
+</li>
+<li><p class="first">Extract the tarball at the location of your choice.
+Let us assume it is located in your home directory <code class="docutils literal notranslate"><span class="pre">~/smilei/</span></code>.</p>
+</li>
+<li><p class="first">In a terminal, go to that location and compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/smilei
+make
+</pre></div>
+</div>
+</li>
+<li><p class="first">The next step is to <a class="reference internal" href="namelist.html"><span class="doc">write a namelist</span></a>.</p>
+</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="advanced-compilation-options">
+<h2>Advanced compilation options<a class="headerlink" href="#advanced-compilation-options" title="Permalink to this headline">¶</a></h2>
+<p>Several <code class="docutils literal notranslate"><span class="pre">make</span></code> options are available:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -j <span class="m">4</span>                    <span class="c1"># Compiles with 4 procs (fast compilation)</span>
+make <span class="nv">config</span><span class="o">=</span>debug            <span class="c1"># With debugging output (slow execution)</span>
+make <span class="nv">config</span><span class="o">=</span>noopenmp         <span class="c1"># Without OpenMP support</span>
+make <span class="nv">config</span><span class="o">=</span><span class="s2">&quot;debug noopenmp&quot;</span> <span class="c1"># With debugging output, without OpenMP</span>
+make print-XXX               <span class="c1"># Prints the value of makefile variable XXX</span>
+make env                     <span class="c1"># Prints the values of all makefile variables</span>
+make <span class="nb">help</span>                    <span class="c1"># Gets some help on compilation</span>
+sed -i <span class="s1">&#39;s/PICSAR=FALSE/PICSAR=TRUE/g&#39;</span> makefile<span class="p">;</span> make -j4 <span class="c1">#To enable calls for PSATD solver from picsar</span>
+</pre></div>
+</div>
+<p>Each machine may require a specific configuration (environment variables, modules, etc.).
+Such instructions may be included, from a file of your choice, via the <code class="docutils literal notranslate"><span class="pre">machine</span></code> argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nv">machine</span><span class="o">=</span>my_machine_file
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">my_machine_file</span></code> is a file, located in <code class="docutils literal notranslate"><span class="pre">scripts/CompileTools/machine</span></code>, containing
+the lines of command to be executed before compilation.</p>
+<p>If you successfully write such a file for a common supercomputer, please share it
+with developpers so that it can be included in the next release of <strong class="program">Smilei</strong>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="compile-the-documentation">
+<h2>Compile the documentation<a class="headerlink" href="#compile-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you have installed the python module <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, you can compile the documentation
+(which you are currently reading) with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make doc
+</pre></div>
+</div>
+<p>This creates a local <em>html</em> website accessible in your <code class="docutils literal notranslate"><span class="pre">build/html/</span></code> folder.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="install-the-happi-module">
+<span id="installmodule"></span><h2>Install the happi module<a class="headerlink" href="#install-the-happi-module" title="Permalink to this headline">¶</a></h2>
+<p>A python module, <code class="docutils literal notranslate"><span class="pre">happi</span></code>, is provided to view, extract and post-process data from
+all the diagnostics.
+There are several ways to load this module in python.</p>
+<ol class="arabic simple">
+<li>Recommended:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make happi
+</pre></div>
+</div>
+<p>This has to be done only once, unless you move the smilei directory elsewhere.
+This command creates a small file in the Python <em>user-site</em> directory that tells python
+where to find the module.
+To remove it use the command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">uninstall_happi</span></code>.</p>
+<p>The module will directly be accessible from <em>python</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">happi</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Alternative: Execute the <code class="docutils literal notranslate"><span class="pre">Diagnostics.py</span></code> script from python</li>
+</ol>
+<blockquote>
+<div><p>Adding a new <em>python</em> module is not always possible.
+Instead, we provide the script <code class="docutils literal notranslate"><span class="pre">Diagnostics.py</span></code> which is able to find the <code class="docutils literal notranslate"><span class="pre">happi</span></code>
+module and import it into <em>python</em>.</p>
+<p>You may add the following command in your own python script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">execfile</span><span class="p">(</span><span class="s2">&quot;/path/to/Smilei/scripts/Diagnostics.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+        </div></div>
+      </div>
+    </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="namelist.html" title="Write a namelist"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-448-gd0624b66 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div>
+      <a href="site.html">Site index</a>
+      </div>
+      <div>
+        Last updated on Mar 06, 2018
+      </div>
+      
+      <div>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.1</a>
+      </div>
+      
+    </div>
+    
+    <script type="text/javascript">
+        
+        var nav = document.getElementById("nav");
+        var nav_list = document.getElementById("nav_list");
+        var nav_button = document.getElementById("nav_button");
+        var smallScreenMenu = document.getElementById("smallScreenMenu");
+        var smallScreenMenuButton = document.getElementById("smallScreenMenuButton");
+        var searchicon = document.getElementById("searchicon");
+        var searchbox  = document.getElementById("searchbox");
+        var searchinput= document.getElementById("searchinput");
+        var menus = document.getElementsByClassName("menu");
+        for( var i=0; i<menus.length; i++ )
+            menus[i].active = false;
+        
+        
+        var ul = nav_list.getElementsByTagName("ul")[0], li;
+        var keep_nav = false;
+        if( ul ) {
+            li = ul.firstElementChild;
+            if( li ) {
+                if( li.getElementsByTagName("ul").length > 0 ) keep_nav = true;
+            }
+        }
+        if( keep_nav ) {
+            li.removeChild( li.firstElementChild );
+        } else {
+            document.getElementById("nav_positioner").removeChild( document.getElementById("nav") );
+        }
+        
+        function navOff() {
+            nav_list.style.display = "none";
+            nav_button.className = "";
+            nav.style.overflowY = "visible";
+        }
+        
+        function toggleNav() {
+            for( var i=0; i<menus.length; i++ )
+                menuOff( menus[i] );
+            if( nav_list.style.display != "inline-block" ) {
+                nav_list.style.display = "inline-block";
+                nav_button.className = "pushed";
+                nav.style.overflowY = "auto";
+            } else {
+                navOff();
+            }
+        }
+        
+        function toggleSmallScreenMenu() {
+            if( smallScreenMenu.className != "on" ) {
+                smallScreenMenu.className = "on";
+                smallScreenMenuButton.className = "pushed";
+            } else {
+                smallScreenMenu.className = "off";
+                smallScreenMenuButton.className = "";
+            }
+        }
+        
+        function menuOn( menu ) {
+            var divs = menu.getElementsByTagName("div");
+            if(nav_list) navOff();
+            divs[1].className = "on";
+            divs[0].className = "menuButton pushed";
+            menu.active = true;
+        }
+        function menuOff( menu ) {
+            var divs = menu.getElementsByTagName("div");
+            divs[1].className = "off";
+            divs[0].className = "menuButton";
+            menu.active = false;
+        }
+        
+        function thisMenuOnly(menu_id) {
+            var menu = document.getElementById(menu_id);
+            for( var i=0; i<menus.length; i++ )
+                if( i!=menu_id )
+                    menuOff( menus[i] );
+            menuOn( menu );
+        }
+        
+        function toggleMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            if( menu.active ) {
+                menuOff( menu );
+            } else {
+                for( var i=0; i<menus.length; i++ )
+                    if( i!=menu_id )
+                        menuOff( menus[i] );
+                menuOn( menu );
+            }
+        }
+        
+        function openSearch() {
+            for( var i=0; i<menus.length; i++ ) {
+                menuOff( menus[i] );
+                menus[i].style.zIndex = "-1";
+            }
+            searchicon.style.display = "none";
+            closesearchicon.style.display = "block";
+            searchbox.style.display = "block";
+            searchinput.focus();
+        }
+        
+        function closeSearch() {
+            searchicon.style.display = "block";
+            closesearchicon.style.display = "none";
+            searchbox .style.display = "none";
+            for( var i=0; i<menus.length; i++ )
+                menus[i].style.zIndex = "0";
+        }
+        
+        
+        var documentDiv = document.getElementsByClassName("document")[0];
+        documentDiv.addEventListener('click', function (event) {
+            if(nav_list) navOff();
+            for( var i=0; i<menus.length; i++ )
+                menuOff( menus[i] );
+        });
+    </script>
+  </body>
+</html>
