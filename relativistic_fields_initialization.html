@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Partners &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
+    <title>Field initialization for relativistic species &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -17,7 +17,8 @@
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Publications" href="material.html" />
+    <link rel="next" title="Install" href="installation.html" />
+    <link rel="prev" title="Multiphoton Breit-Wheeler pair creation" href="multiphoton_Breit_Wheeler.html" />
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     "HTML-CSS": {
@@ -72,9 +73,17 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
-          <li class="outer">
-              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
-          </li>
+        </ul>
+            <ul>
+<li><a class="reference internal" href="#">Field initialization for relativistic species</a><ul>
+<li><a class="reference internal" href="#the-relativistic-poisson-s-equation">The relativistic Poisson’s equation</a></li>
+<li><a class="reference internal" href="#recommendations-for-relativistic-species-field-initialization">Recommendations for relativistic species field initialization</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+        <ul>
         </ul>
         <hr />
         <ul>
@@ -99,16 +108,9 @@
           <li class="outer">
               <a href="material.html">Publications</a>
           </li>
-        </ul>
-            <ul>
-<li><a class="reference internal" href="#">Partners</a><ul>
-<li><a class="reference internal" href="#related-projects">Related projects</a></li>
-<li><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
-</ul>
-</li>
-</ul>
-
-        <ul>
+          <li class="outer">
+              <a href="partners.html">Partners</a>
+          </li>
           <li class="outer">
               <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
           </li>
@@ -123,11 +125,12 @@
                 Sections
             </div>
             <div id="nav_list" class="toctree-smilei">
-                <div id="nav_title"><a href="#">Partners</a></div>
+                <div id="nav_title"><a href="#">Field initialization for relativistic species</a></div>
                 <ul>
-<li><a class="reference internal" href="#">Partners</a><ul>
-<li><a class="reference internal" href="#related-projects">Related projects</a></li>
-<li><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li><a class="reference internal" href="#">Field initialization for relativistic species</a><ul>
+<li><a class="reference internal" href="#the-relativistic-poisson-s-equation">The relativistic Poisson’s equation</a></li>
+<li><a class="reference internal" href="#recommendations-for-relativistic-species-field-initialization">Recommendations for relativistic species field initialization</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -177,7 +180,7 @@
             </div>
         </div>
         
-        <div class="menu" id="menu_Units">
+        <div class="menu" id="menu_Units" style="font-weight:bold">
             <div id="menuButton_Units" class="menuButton"
                  onmouseenter="prepareMenu('menu_Units')"
                  onmousedown="event.preventDefault()"
@@ -208,8 +211,8 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
-                        <li class="outer">
-                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        <li >
+                            <a href="#">Field initialization for relativistic species</a>
                         </li>
             
                     </ul>
@@ -248,7 +251,7 @@
             </div>
         </div>
         
-        <div class="menu" id="menu_Publications" style="font-weight:bold">
+        <div class="menu" id="menu_Publications">
             <div id="menuButton_Publications" class="menuButton"
                  onmouseenter="prepareMenu('menu_Publications')"
                  onmousedown="event.preventDefault()"
@@ -261,8 +264,8 @@
                         <li class="outer">
                             <a href="material.html">Publications</a>
                         </li>
-                        <li >
-                            <a href="#">Partners</a>
+                        <li class="outer">
+                            <a href="partners.html">Partners</a>
                         </li>
                         <li class="outer">
                             <a href="https://smileipic.github.io/tutorials">Smilei tutorials</a>
@@ -359,7 +362,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="material.html" title="Publications"
+          <a href="installation.html" title="Install"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
@@ -370,221 +376,105 @@
       <div class="bodywrapper">
         <div class="body" role="main">
           
-  <div class="section" id="partners">
-<h1>Partners<a class="headerlink" href="#partners" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/mdls.png"><img alt="mdls" class="align-middle" src="_images/mdls.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.maisondelasimulation.fr/">Maison de la Simulation</a> (MdlS), USR 3441</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:julien&#46;derouillat&#37;&#52;&#48;cea&#46;fr">Julien Dérouillat</a></li>
-<li><a class="reference external" href="mailto:haithem&#46;kallala&#37;&#52;&#48;cea&#46;fr">Haithem Kallala</a></li>
-<li><a class="reference external" href="mailto:mathieu&#46;lobet&#37;&#52;&#48;cea&#46;fr">Mathieu Lobet</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/luli.png"><img alt="luli" class="align-middle" src="_images/luli.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.luli.polytechnique.fr">Laboratoire pour l’Utilisation des Lasers Intenses</a> (LULI), UMR 7605</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:mickael&#46;grech&#37;&#52;&#48;polytechnique&#46;edu">Mickael Grech</a></li>
-<li><a class="reference external" href="mailto:tommaso&#46;vinci&#37;&#52;&#48;polytechnique&#46;edu">Tommaso Vinci</a></li>
-<li><a class="reference external" href="mailto:marco&#46;chiaramello&#37;&#52;&#48;polytechnique&#46;edu">Marco Chiaramello</a></li>
-<li><a class="reference external" href="mailto:anna&#46;grassi&#37;&#52;&#48;polytechnique&#46;edu">Anna Grassi</a></li>
-<li><a class="reference external" href="mailto:frederic&#46;perez&#37;&#52;&#48;polytechnique&#46;edu">Frédéric Pérez</a></li>
-<li><a class="reference external" href="mailto:caterina&#46;riconda&#37;&#52;&#48;upmc&#46;fr">Caterina Riconda</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/llr.png"><img alt="llr" class="align-middle" src="_images/llr.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://polywww.in2p3.fr">Laboratoire Leprince-Ringuet</a> (LLR), UMR 7638</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:beck&#37;&#52;&#48;llr&#46;in2p3&#46;fr">Arnaud Beck</a></li>
-<li><a class="reference external" href="mailto:zemzemi&#37;&#52;&#48;llr&#46;in2p3&#46;fr">Imen Zemzemi</a></li>
-<li><a class="reference external" href="mailto:massimo&#37;&#52;&#48;llr&#46;in2p3&#46;fr">Francesco Massimo</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="9%" />
-<col width="91%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/idris.png"><img alt="idris" class="align-middle" src="_images/idris.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.idris.fr">Institut du developpement et des ressources en informatique scientifique</a> (IDRIS), UPS 851</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:marie&#46;fle&#37;&#52;&#48;idris&#46;fr">Marie Flé</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/lpp.png"><img alt="lpp" class="align-middle" src="_images/lpp.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.lpp.fr">Laboratoire de Physique des Plasmas</a> (LPP), UMR 7648</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:nicolas&#46;aunai&#37;&#52;&#48;lpp&#46;polytechnique&#46;fr">Nicolas Aunai</a></li>
-<li><a class="reference external" href="mailto:jeremy&#46;dargent&#37;&#52;&#48;lpp&#46;polytechnique&#46;fr">Jérémy Dargent</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/iramis.png"><img alt="IRAMIS" class="align-middle" src="_images/iramis.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://iramis.cea.fr">Institut Rayonnement Matière de Saclay</a> (Iramis)</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:guillaume&#46;bouchard&#37;&#52;&#48;cea&#46;fr">Guillaume Bouchard</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/irap.png"><img alt="IRAP" class="align-middle" src="_images/irap.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.irap.omp.eu">Institut de Recherche en Astrophysique et Planétologie</a> (IRAP)</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:Illya&#46;Plotnikov&#37;&#52;&#48;irap&#46;omp&#46;eu">Illya Plotnikov</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/intel.jpg"><img alt="intel" class="align-middle" src="_images/intel.jpg" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="https://www.intel.fr">Intel</a></td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:asma&#46;farjallah&#37;&#52;&#48;intel&#46;com">Asma Farjallah</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td rowspan="2"><a class="reference internal" href="_images/iapras.png"><img alt="IAPRAS" class="align-middle" src="_images/iapras.png" style="width: 6em;" /></a></td>
-<td><a class="reference external" href="http://www.ipfran.ru/">Institute of Applied Physics, Russian Academy of Science</a></td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li><a class="reference external" href="mailto:agolovanov&#37;&#52;&#48;appl&#46;sci-nnov&#46;ru">Anton Golovanov</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="field-initialization-for-relativistic-species">
+<h1>Field initialization for relativistic species<a class="headerlink" href="#field-initialization-for-relativistic-species" title="Permalink to this headline">¶</a></h1>
+<p>As explained in <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a>, if a net charge is present at the beginning of the simulation, the initial electromagnetic fields are computed.
+For static charge distributions, the solution of Poisson’s equation will be necessary to find the initial electrostatic field.
+If the initial charge has a non-zero initial speed, in general the electric and magnetic field should be computed solving the full set of Maxwell’s equations or equivalently the potentials equations.
+In some physical setups of interest, one or more relativistic species are injected in a plasma. In these cases, the computation of the initial electromagnetic fields can be reduced to the solution of a modified version of Poisson’s equation.</p>
 <hr class="docutils" />
-<div class="section" id="related-projects">
-<h2>Related projects<a class="headerlink" href="#related-projects" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/picsar.jpg"><img alt="picsar" class="align-middle" src="_images/picsar.jpg" style="width: 6em;" /></a></td>
-<td>The <a class="reference external" href="https://picsar.net/">PICSAR</a> library for high-performance PIC
-algorithms is currently being incorporated in Smilei.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/openpmd.jpg"><img alt="openpmd" class="align-middle" src="_images/openpmd.jpg" style="width: 6em;" /></a></td>
-<td>The <a class="reference external" href="https://openpmd.org/">OpenPMD</a> standard for formatting PIC data
-is progressively adopted in Smilei.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="the-relativistic-poisson-s-equation">
+<h2>The relativistic Poisson’s equation<a class="headerlink" href="#the-relativistic-poisson-s-equation" title="Permalink to this headline">¶</a></h2>
+<p>From the continuity equation <span class="math notranslate nohighlight">\(\partial_t \rho + \nabla \cdot \mathbf{J} = 0\)</span>
+and Maxwell’s equations, it can be shown that the quantities <span class="math notranslate nohighlight">\(\nabla\cdot\mathbf{B}\)</span> and <span class="math notranslate nohighlight">\(\nabla\cdot\mathbf{E}-\rho\)</span> do not change over time:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\partial_t \left( \nabla\cdot\mathbf{B} \right ) &amp;=&amp; 0, \\
+\partial_t \left( \nabla\cdot\mathbf{E}-\rho \right ) &amp;=&amp; \nabla\cdot\partial_t\mathbf{E}-\partial_t\rho = \nabla\cdot\left(\nabla\times\mathbf{B}-\mathbf{J}\right)-\partial_t\rho = - \left(\nabla\cdot\mathbf{J}+\partial_t \rho\right).
+\end{eqnarray}\end{split}\]</div>
+<p>Thus, if a simulation starts with <span class="math notranslate nohighlight">\(\rho\neq0\)</span>, the electromagnetic fields must be properly initialized.</p>
+<p>In the case of a static charge distribution, i.e. <span class="math notranslate nohighlight">\(\rho\neq0\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J}=0\)</span>, the initial electrostatic potential <span class="math notranslate nohighlight">\(\Phi\)</span> can be computed solving Poisson’s equation:</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 \Phi = -\rho,\]</div>
+<p>and then be integrated to find the initial electric field: <span class="math notranslate nohighlight">\(\mathbf{E}=-\nabla\Phi\)</span>. The initial magnetic field <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> will be zero.</p>
+<p>In general when the initial current <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> is not zero, the full set of fields equations should be solved to correctly initialize the electromagnetic fields.</p>
+<p>However, if a species is already relativistic when the simulation starts, e.g. a relativistic electron bunch, its initial electromagnetic fields can be computed through a simplified procedure, described in <a class="reference internal" href="#vay2008" id="id1">[Vay2008]</a>, <a class="reference internal" href="#londrillo2014" id="id2">[Londrillo2014]</a>, <a class="reference internal" href="#massimo2016" id="id3">[Massimo2016]</a> and <a class="reference internal" href="#marocchino2018" id="id4">[Marocchino2018]</a>.</p>
+<p>An important assumption of this calculation is that the species is highly relativistic, moving in the positive <span class="math notranslate nohighlight">\(x\)</span> direction, with negligible momentum spread. Under this hypothesis, the transverse components of the species current density are neglected and the four-current quadrivector can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\left(\mathbf{J},\rho c\right) = \left(\rho \beta_0 c, 0, 0, \rho c\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_0 c\)</span> is the initial mean velocity of the relativistic species. At least locally, the potentials <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\Phi\)</span> in the laboratory frame will be only function of <span class="math notranslate nohighlight">\(x-\beta_0 c t\)</span>, as they are propagating with the species at uniform velocity.</p>
+<p>In the relativistic species rest frame <span class="math notranslate nohighlight">\(S'\)</span>, the charge distribution is static and the electrostatic potential in that reference frame <span class="math notranslate nohighlight">\(\Phi'\)</span> is related to the charge density in that reference frame <span class="math notranslate nohighlight">\(\rho'\)</span> through Poisson’s equation:</p>
+<div class="math notranslate nohighlight" id="equation-poisson">
+<span class="eqno">(34)<a class="headerlink" href="#equation-poisson" title="Permalink to this equation">¶</a></span>\[\nabla'^2 \Phi' = -\rho',\]</div>
+<p>where the Laplacian operator is computed in the reference frame <span class="math notranslate nohighlight">\(S'\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\nabla'^2=\partial^2_{x'}+\partial^2_{y'}+\partial^2_{z'}.\]</div>
+<p>The vector potential in the species rest frame can be set to zero: <span class="math notranslate nohighlight">\(\mathbf{A'}=0\)</span>. Through the above mentioned assumptions, it is possible to rewrite Eq. <a class="reference internal" href="#equation-poisson">(34)</a> only in terms of laboratory frame quantities.</p>
+<p>Lorentz transformation of the four-vector <span class="math notranslate nohighlight">\(\left(\mathbf{J},\rho c\right)\)</span> yields <span class="math notranslate nohighlight">\(\rho'=\rho/\gamma_0\)</span>, where <span class="math notranslate nohighlight">\(\gamma_0=1/\sqrt{1-\beta^2_0}\)</span> is the average Lorentz factor of the relativistic species.
+Similarly, the potential <span class="math notranslate nohighlight">\(\Phi'\)</span> can be rewritten in terms of the potential in the laboratory frame: <span class="math notranslate nohighlight">\(\Phi'=\Phi/\gamma_0\)</span>. The Lorentz back-transformation of coordinates</p>
+<div class="math notranslate nohighlight">
+\[x=\gamma_0(x'+\beta_0 ct'),\quad  ct = \gamma_0(ct'+\beta x'), \quad y=y', \quad z=z'\]</div>
+<p>allows to transform the derivatives in Eq. <a class="reference internal" href="#equation-poisson">(34)</a> as</p>
+<div class="math notranslate nohighlight">
+\[\partial_{x'}=\gamma_0\left(\partial_x+\frac{\beta_0}{c}\partial_t\right), \quad \partial_{y'}=\partial_y, \quad \partial_{z'}=\partial_z.\]</div>
+<p>The partial derivative along the <span class="math notranslate nohighlight">\(x'\)</span> direction can be further simplified, through the hypothesis of temporary dependence of all quantities on <span class="math notranslate nohighlight">\(x-\beta_0 c t\)</span>, implying <span class="math notranslate nohighlight">\(\partial_t=-\beta c\partial_x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\partial_{x'}=\frac{1}{\gamma_0}\partial_x.\]</div>
+<p>Equation <a class="reference internal" href="#equation-poisson">(34)</a> can thus be rewritten as</p>
+<div class="math notranslate nohighlight" id="equation-relpoisson">
+<span class="eqno">(35)<a class="headerlink" href="#equation-relpoisson" title="Permalink to this equation">¶</a></span>\[\left( \frac{1}{\gamma^2_0}\partial^2_x+\nabla_{\perp}^2\right) \Phi = -\rho,\]</div>
+<p>here informally referred to as the relativistic Poisson’s equation. In <strong class="program">Smilei</strong>, as for Eq. <a class="reference internal" href="#equation-poisson">(34)</a>, the solution of the relativistic Poisson’s equation is performed through the conjugate gradient method.</p>
+<p>Once the potential <span class="math notranslate nohighlight">\(\Phi\)</span> is found, we can compute all the components of the electromagnetic field, using again the relations <span class="math notranslate nohighlight">\(\partial_t=-\beta c\partial_x\)</span>, <span class="math notranslate nohighlight">\(\Phi'=-\Phi/\gamma_0\)</span> and the Lorentz back-transformation of the vector potential <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A_x = \gamma_0(A_x'+\beta_0 \Phi'/c)=\gamma_0\beta_0 \Phi'/c=\beta_0\Phi/c,\quad A_y = A_y'=0, \quad A_z = A_z'=0.\]</div>
+<p>From all these relations, the electromagnetic field can be computed as usual, through the definitions of potentials <span class="math notranslate nohighlight">\(\mathbf{E}=-\nabla\Phi-\partial_t\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}=-\nabla\times\mathbf{A}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+E_x &amp;=&amp; -\partial_x \Phi - \partial_t A_x = -\partial_x \Phi + \beta_0^2 \partial_x \Phi = -\frac{1}{\gamma_0^2}\partial_x \Phi,\\
+E_y &amp;=&amp; -\partial_y \Phi - \partial_t A_y = -\partial_y \Phi,\\
+E_z &amp;=&amp; -\partial_z \Phi - \partial_t A_z = -\partial_z \Phi,\newline\\
+B_x &amp;=&amp; \partial_y A_z - \partial_z A_y = 0 ,\\
+B_y &amp;=&amp; \partial_z A_x - \partial_x A_z = \partial_z A_x = \frac{\beta_0}{c} \partial_z \Phi = - \frac{\beta_0}{c} E_z,\\
+B_z &amp;=&amp; \partial_x A_y - \partial_y A_x = - \partial_y A_x = - \frac{\beta_0}{c} \partial_y \Phi = \frac{\beta_0}{c} E_y,
+\end{eqnarray}\end{split}\]</div>
+<p>or in more compact form: <span class="math notranslate nohighlight">\(\mathbf{E}=\left( -\frac{1}{\gamma_0^2}\partial_x \Phi, -\partial_y \Phi,-\partial_z \Phi \right)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}=\frac{\beta_0}{c}\mathbf{\hat{x}}\times\mathbf{E}\)</span>.</p>
+<p>From the previous equations, it can be inferred that, in a 1D cartesian geometry, the fields computed through this procedure equal those obtained through the standard Poisson’s problem.
+This can also be inferred from the relativistic transformations of fields, which conserve the <span class="math notranslate nohighlight">\(x\)</span> components of the electromagnetic fields for boosts in the <span class="math notranslate nohighlight">\(x\)</span> direction.</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
-<p>Financial support from the <em>Laboratoires d’Excellence</em>:</p>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/plasapar.png"><img alt="plasapar" class="align-middle" src="_images/plasapar.png" style="width: 130px;" /></a></td>
-<td><div class="first last line-block">
-<div class="line"><a class="reference external" href="http://www.plasapar.com">Plas&#64;Par</a>, providing grants for 2 PhD thesis.</div>
+<div class="section" id="recommendations-for-relativistic-species-field-initialization">
+<h2>Recommendations for relativistic species field initialization<a class="headerlink" href="#recommendations-for-relativistic-species-field-initialization" title="Permalink to this headline">¶</a></h2>
+<p>In <strong class="program">Smilei</strong>, each species can independently benefit from this field initialization procedure. Its field will be initialized when the species will start to move, in order not to interfere with the other species’ dynamics.
+The initialized fields will be superimposed to the electromagnetic fields already present in the simulation. To have physically meaningful results, we recommend to place a species which requires this method of field initialization far from other species, otherwise the latter could experience instantaneous unphysical forces by the relativistic species’ fields.</p>
+<p>A relativistic mean velocity in the <span class="math notranslate nohighlight">\(x\)</span> direction and a negligible energy spread are assumed in the hypotheses of this procedure, so the user must ensure these conditions when defining the species requiring field initialization in the namelist.
+The procedure could be extended to non-monoenergetic species, dividing the species particles in monoenergetic energy bins and then superimposing the fields by each of the monoenergetic bins, computed with the same procedure.
+At the moment, this energy binning technique is not available in <strong class="program">Smilei</strong>.</p>
 </div>
-</td>
-</tr>
+<hr class="docutils" />
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils citation" frame="void" id="vay2008" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Vay2008]</a></td><td><a class="reference external" href="https://doi.org/10.1063/1.2837054">J.-L. Vay, Physics of Plasmas 15, 056701 (2008)</a></td></tr>
 </tbody>
 </table>
-<table border="1" class="noborder docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
+<table class="docutils citation" frame="void" id="londrillo2014" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/palm.png"><img alt="palm" class="align-middle" src="_images/palm.png" style="width: 130px;" /></a></td>
-<td><div class="first last line-block">
-<div class="line">Smilei was initiated thanks to the SimPLE junior chair</div>
-<div class="line">granted by the labex <a class="reference external" href="http://www.labex-palm.fr">PALM</a>.</div>
-</div>
-</td>
-</tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[Londrillo2014]</a></td><td><a class="reference external" href="https://doi.org/10.1016/j.nima.2013.10.028">P. Londrillo, C. Gatti and M. Ferrario, Nucl. Instr. and Meth. A 740, 236-241 (2014)</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="massimo2016" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[Massimo2016]</a></td><td><a class="reference external" href="https://doi.org/10.1016/j.nima.2016.02.043">F. Massimo, A. Marocchino and A. R. Rossi, Nucl. Instr. and Meth. A 829, 378-382 (2016)</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="marocchino2018" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[Marocchino2018]</a></td><td><a class="reference external" href="https://doi.org/10.1016/j.nima.2018.02.068">A. Marocchino, E. Chiadroni, M. Ferrario, F. Mira and A.R. Rossi, Nucl. Instr. and Meth. A (2018)</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -603,7 +493,10 @@ is progressively adopted in Smilei.</td>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="material.html" title="Publications"
+          <a href="installation.html" title="Install"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>

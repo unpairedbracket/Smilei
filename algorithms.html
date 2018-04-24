@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>PIC algorithms &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>PIC algorithms &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -70,6 +70,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li><a class="reference internal" href="#multi-pass-binomial-filtering-of-the-current-densities">Multi-pass binomial filtering of the current densities</a></li>
+<li><a class="reference internal" href="#friedman-filter-on-the-electric-field">Friedman filter on the electric field</a></li>
 </ul>
 </li>
 </ul>
@@ -90,6 +92,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -104,6 +109,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -143,6 +151,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li><a class="reference internal" href="#multi-pass-binomial-filtering-of-the-current-densities">Multi-pass binomial filtering of the current densities</a></li>
+<li><a class="reference internal" href="#friedman-filter-on-the-electric-field">Friedman filter on the electric field</a></li>
 </ul>
 </li>
 </ul>
@@ -165,10 +175,13 @@
             
         
         <div class="menu" id="menu_Licence">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -190,10 +203,13 @@
         </div>
         
         <div class="menu" id="menu_Units" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -217,6 +233,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -224,10 +243,13 @@
         </div>
         
         <div class="menu" id="menu_Install">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -242,6 +264,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -249,10 +274,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -268,6 +296,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -353,7 +389,7 @@
         <li class="right" >
           <a href="units.html" title="Units"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -373,20 +409,20 @@ the behaviour of plasmas. Note that all quantities are expressed in terms of the
 <p>The kinetic description of a collisionless plasma relies on the so-called Vlasov-Maxwell
 system of equations. In this description, the different species of particles constituting
 the plasma are described by their respective distribution functions
-<span class="math notranslate">\(f_s(t,\mathbf{x},\mathbf{p})\)</span>, where <span class="math notranslate">\(s\)</span> denotes a given species consisting
-of particles of charge <span class="math notranslate">\(q_s\)</span>, mass <span class="math notranslate">\(m_s\)</span>, and <span class="math notranslate">\(\mathbf{x}\)</span> and
-<span class="math notranslate">\(\mathbf{p}\)</span> denote the position and momentum of a phase-space element.
-The distribution <span class="math notranslate">\(f_s\)</span> satisfies Vlasov’s equation:</p>
-<div class="math notranslate" id="equation-vlasov">
+<span class="math notranslate nohighlight">\(f_s(t,\mathbf{x},\mathbf{p})\)</span>, where <span class="math notranslate nohighlight">\(s\)</span> denotes a given species consisting
+of particles of charge <span class="math notranslate nohighlight">\(q_s\)</span>, mass <span class="math notranslate nohighlight">\(m_s\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and
+<span class="math notranslate nohighlight">\(\mathbf{p}\)</span> denote the position and momentum of a phase-space element.
+The distribution <span class="math notranslate nohighlight">\(f_s\)</span> satisfies Vlasov’s equation:</p>
+<div class="math notranslate nohighlight" id="equation-vlasov">
 <span class="eqno">(1)<a class="headerlink" href="#equation-vlasov" title="Permalink to this equation">¶</a></span>\[\left(\partial_t + \frac{\mathbf{p}}{m_s \gamma} \cdot \nabla + \mathbf{F}_L \cdot \nabla_{\mathbf{p}} \right) f_s = 0\,,\]</div>
-<p>where <span class="math notranslate">\(\gamma = \sqrt{1+\mathbf{p}^2/m_s^2}\)</span> is the (relativistic) Lorentz factor,</p>
-<div class="math notranslate" id="equation-lorentzforce">
+<p>where <span class="math notranslate nohighlight">\(\gamma = \sqrt{1+\mathbf{p}^2/m_s^2}\)</span> is the (relativistic) Lorentz factor,</p>
+<div class="math notranslate nohighlight" id="equation-lorentzforce">
 <span class="eqno">(2)<a class="headerlink" href="#equation-lorentzforce" title="Permalink to this equation">¶</a></span>\[\mathbf{F}_L = q_s\,(\mathbf{E} + \mathbf{v} \times \mathbf{B})\]</div>
 <p>is the Lorentz force acting on the particles.
 This force follows from the existence, in the plasma, of collective (macroscopic)
-electric [<span class="math notranslate">\(\mathbf{E}(t,\mathbf{x})\)</span>] and magnetic [<span class="math notranslate">\(\mathbf{B}(t,\mathbf{x})\)</span>]
+electric [<span class="math notranslate nohighlight">\(\mathbf{E}(t,\mathbf{x})\)</span>] and magnetic [<span class="math notranslate nohighlight">\(\mathbf{B}(t,\mathbf{x})\)</span>]
 fields satisfying Maxwell’s equations:</p>
-<div class="math notranslate" id="equation-maxwell">
+<div class="math notranslate nohighlight" id="equation-maxwell">
 <span class="eqno">(3)<a class="headerlink" href="#equation-maxwell" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
 \nabla \cdot \mathbf{B} &amp;=&amp; 0 \,,\\
 \nabla \cdot \mathbf{E} &amp;=&amp; \rho \,,\\
@@ -397,41 +433,41 @@ fields satisfying Maxwell’s equations:</p>
 self-consistent dynamics of the plasma which consistuents are subject to the Lorentz force,
 and in turn modify the collective electric and magnetic fields through their charge and
 current densities:</p>
-<div class="math notranslate" id="equation-rhoj">
+<div class="math notranslate nohighlight" id="equation-rhoj">
 <span class="eqno">(4)<a class="headerlink" href="#equation-rhoj" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
 \rho(t,\mathbf{x}) &amp;=&amp; \sum_s q_s\int\!d^3\!p f_s(t,\mathbf{x},\mathbf{p})\,,\\
 \mathbf{J}(t,\mathbf{x}) &amp;=&amp; \sum_s q_s\int\! d^3\!p\,\mathbf{v} f_s(t,\mathbf{x},\mathbf{p})\,,
 \end{eqnarray}\end{split}\]</div>
-<p>where we have introduced the velocity <span class="math notranslate">\(\mathbf{v} = \mathbf{p}/(m_s\,\gamma)\)</span>.</p>
+<p>where we have introduced the velocity <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{p}/(m_s\,\gamma)\)</span>.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="quasi-particles">
 <span id="quasiparticlessection"></span><h2>Quasi-particles<a class="headerlink" href="#quasi-particles" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Particle-In-Cell</em> method owes its name to the discretization of the distribution
-function <span class="math notranslate">\(f_s\)</span> as a sum of <span class="math notranslate">\(N_s\)</span> <em>quasi-particles</em> (also referred to as
+function <span class="math notranslate nohighlight">\(f_s\)</span> as a sum of <span class="math notranslate nohighlight">\(N_s\)</span> <em>quasi-particles</em> (also referred to as
 <em>super-particles</em> or <em>macro-particles</em>):</p>
-<div class="math notranslate" id="equation-fs-discretized">
+<div class="math notranslate nohighlight" id="equation-fs-discretized">
 <span class="eqno">(5)<a class="headerlink" href="#equation-fs-discretized" title="Permalink to this equation">¶</a></span>\[f_s(t,\mathbf{x},\mathbf{p}) =
   \sum_{p=1}^{N_s}\,w_p\,\,S\big(\mathbf{x}-\mathbf{x}_p(t)\big)\,\delta\big(\mathbf{p}-\mathbf{p}_p(t)\big)\,,\]</div>
-<p>where <span class="math notranslate">\(w_p\)</span> is a quasi-particle <em>weight</em>, <span class="math notranslate">\(\mathbf{x}_p\)</span> is its position,
-<span class="math notranslate">\(\mathbf{p}_p\)</span> is its momentum, <span class="math notranslate">\(S\)</span> is the shape-function of all quasi-particles,
-and <span class="math notranslate">\(\delta\)</span> is the Dirac distribution.</p>
+<p>where <span class="math notranslate nohighlight">\(w_p\)</span> is a quasi-particle <em>weight</em>, <span class="math notranslate nohighlight">\(\mathbf{x}_p\)</span> is its position,
+<span class="math notranslate nohighlight">\(\mathbf{p}_p\)</span> is its momentum, <span class="math notranslate nohighlight">\(S\)</span> is the shape-function of all quasi-particles,
+and <span class="math notranslate nohighlight">\(\delta\)</span> is the Dirac distribution.</p>
 <p>In PIC codes, Vlasov’s equation <a class="reference internal" href="#equation-vlasov">(1)</a> is integrated along the continuous trajectories
 of these quasi-particles, while Maxwell’s equations <a class="reference internal" href="#equation-maxwell">(3)</a> are solved on a
 discrete spatial grid, the spaces between consecutive grid points being referred to as
 <em>cells</em>. Injecting the discrete distribution function of
 Eq. <a class="reference internal" href="#equation-fs-discretized">(5)</a> in Vlasov’s equation <a class="reference internal" href="#equation-vlasov">(1)</a>, multiplying the result by
-<span class="math notranslate">\(\mathbf{p}\)</span> and integrating over all <span class="math notranslate">\(\mathbf{p}\)</span> and over the volume of
+<span class="math notranslate nohighlight">\(\mathbf{p}\)</span> and integrating over all <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> and over the volume of
 the quasi-particles, leads to the relativistic equations of motion of individual
 quasi-particles:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray}
 \frac{d\mathbf{x}_p}{dt} &amp;=&amp; \frac{\mathbf{u}_p}{\gamma_p}\,\\
 \frac{d\mathbf{u}_p}{dt} &amp;=&amp; r_s \, \left( \mathbf{E}_p + \frac{\mathbf{u}_p}{\gamma_p} \times \mathbf{B}_p \right),
 \end{eqnarray}\end{split}\]</div>
-<p>where <span class="math notranslate">\(r_s = q_s/m_s\)</span> is the charge-over-mass ratio (for species <span class="math notranslate">\(s\)</span>),
-<span class="math notranslate">\(\mathbf{u}_p = \mathbf{p}_p/m_s\)</span> is the reduced momentum and
-<span class="math notranslate">\(\gamma_p=\sqrt{1+\mathbf{u}_p^2}\)</span> is the Lorentz factor.</p>
+<p>where <span class="math notranslate nohighlight">\(r_s = q_s/m_s\)</span> is the charge-over-mass ratio (for species <span class="math notranslate nohighlight">\(s\)</span>),
+<span class="math notranslate nohighlight">\(\mathbf{u}_p = \mathbf{p}_p/m_s\)</span> is the reduced momentum and
+<span class="math notranslate nohighlight">\(\gamma_p=\sqrt{1+\mathbf{u}_p^2}\)</span> is the Lorentz factor.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="time-and-space-discretization">
@@ -447,12 +483,12 @@ electromagnetic fields as well as charge and density currents.</p>
 <a class="reference internal image-reference" href="_images/figYee.png"><img alt="_images/figYee.png" src="_images/figYee.png" style="width: 13cm;" /></a>
 <p>Similarly, the time-centering
 of the time-derivative in Maxwell’s equations is ensured by considering the electric fields
-as defined at integer time-steps <span class="math notranslate">\((n)\)</span> and magnetic fields at half-integer
-time-steps <span class="math notranslate">\((n+\tfrac{1}{2})\)</span>. Time-centering of the magnetic fields is however
+as defined at integer time-steps <span class="math notranslate nohighlight">\((n)\)</span> and magnetic fields at half-integer
+time-steps <span class="math notranslate nohighlight">\((n+\tfrac{1}{2})\)</span>. Time-centering of the magnetic fields is however
 necessary for diagnostic purposes, and most importantly when computing the Lorentz force
 acting on the quasi-particles.</p>
 <p>A <em>leap-frog</em> scheme is used to advance the particles in time, so that the particle positions
-and velocities are defined at integer <span class="math notranslate">\((n)\)</span> and half-integer <span class="math notranslate">\((n-\tfrac{1}{2})\)</span>
+and velocities are defined at integer <span class="math notranslate nohighlight">\((n)\)</span> and half-integer <span class="math notranslate nohighlight">\((n-\tfrac{1}{2})\)</span>
 time-steps, respectively.</p>
 </div>
 <hr class="docutils" />
@@ -470,27 +506,27 @@ directly copied from a file generated at the end of a previous simulation), or f
 user-defined input file. In that case, the user defines the initial conditions of the
 particle, charge and current densities as well as the initial electromagnetic fields
 over the whole simulation domain.</p>
-<p>In particular, the number density <span class="math notranslate">\(n_s(\mathbf{x})\)</span>, mean velocity
-<span class="math notranslate">\(\mathbf{v}_s(\mathbf{x})\)</span> and temperature <span class="math notranslate">\(T_s(\mathbf{x})\)</span> of all species
-<span class="math notranslate">\(s\)</span> in a given cell (located at position <span class="math notranslate">\(\mathbf{x}\)</span>) at time <span class="math notranslate">\(t=0\)</span>
+<p>In particular, the number density <span class="math notranslate nohighlight">\(n_s(\mathbf{x})\)</span>, mean velocity
+<span class="math notranslate nohighlight">\(\mathbf{v}_s(\mathbf{x})\)</span> and temperature <span class="math notranslate nohighlight">\(T_s(\mathbf{x})\)</span> of all species
+<span class="math notranslate nohighlight">\(s\)</span> in a given cell (located at position <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>) at time <span class="math notranslate nohighlight">\(t=0\)</span>
 have to be prescribed. The particle loading then consists in creating, in each cell,
-<span class="math notranslate">\(N_s\)</span> particles with positions <span class="math notranslate">\(\mathbf{x}_p\)</span> (either randomly chosen or
+<span class="math notranslate nohighlight">\(N_s\)</span> particles with positions <span class="math notranslate nohighlight">\(\mathbf{x}_p\)</span> (either randomly chosen or
 regularly spaced) such that particles are uniformly distributed within the cell,
-and momentum <span class="math notranslate">\(\mathbf{p}_p\)</span> randomly chosen such that the particle distribution
-follows a Maxwell-Jüttner distribution with mean-velocity <span class="math notranslate">\(\mathbf{v}_s(\mathbf{x})\)</span>
-and temperature <span class="math notranslate">\(T_s(\mathbf{x})\)</span>.</p>
+and momentum <span class="math notranslate nohighlight">\(\mathbf{p}_p\)</span> randomly chosen such that the particle distribution
+follows a Maxwell-Jüttner distribution with mean-velocity <span class="math notranslate nohighlight">\(\mathbf{v}_s(\mathbf{x})\)</span>
+and temperature <span class="math notranslate nohighlight">\(T_s(\mathbf{x})\)</span>.</p>
 <p>In <strong class="program">Smilei</strong>, a weight is assigned to each particle depending on the density associated
 to the cell it originates from:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[w_p = \frac{n_s\big(\mathbf{x}_p(t=0)\big)}{N_s}\,.\]</div>
 <p>This variable weighting is particularly beneficial when considering initially
 highly-inhomogeneous density distributions.</p>
 <p>Once all particles in the simulation domain have been created, the total charge and
-current densities <span class="math notranslate">\(\rho(t=0,\mathbf{x})\)</span> and <span class="math notranslate">\(\mathbf{J}(t=0,\mathbf{x})\)</span>
+current densities <span class="math notranslate nohighlight">\(\rho(t=0,\mathbf{x})\)</span> and <span class="math notranslate nohighlight">\(\mathbf{J}(t=0,\mathbf{x})\)</span>
 are computed on the grid using a simple projection technique:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\rho(t=0,\mathbf{x}) = \sum_s\,q_s\,\sum_p\,w_p\,S\big(\mathbf{x}-\mathbf{x}_p(t=0)\big)\,.\]</div>
-<p>Then, the initial electric fields are computed from <span class="math notranslate">\(\rho(t=0,\mathbf{x})\)</span>
+<p>Then, the initial electric fields are computed from <span class="math notranslate nohighlight">\(\rho(t=0,\mathbf{x})\)</span>
 by solving Poisson’s equation. In <strong class="program">Smilei</strong>, this is done using the conjugate gradient
 method. This iterative method is particularly interesting
 as it is easily implemented on massively parallel computers and requires mainly
@@ -498,13 +534,14 @@ local information exchange between adjacent processes.</p>
 <p>External (divergence-free) electric and/or magnetic fields can then be added to the
 resulting electrostatic fields, provided they fullfill Maxwell’s equations <a class="reference internal" href="#equation-maxwell">(3)</a>,
 and in particular Gauss’ and Poisson’s.</p>
+<p>Note that a relativistic plasma needs <a class="reference internal" href="relativistic_fields_initialization.html"><span class="doc">special treatment</span></a>.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="the-pic-loop">
 <h2>The PIC loop<a class="headerlink" href="#the-pic-loop" title="Permalink to this headline">¶</a></h2>
-<p>At the end of the initialization stage [time-step <span class="math notranslate">\((n=0)\)</span>], all quasi-particles
+<p>At the end of the initialization stage [time-step <span class="math notranslate nohighlight">\((n=0)\)</span>], all quasi-particles
 in the simulation have been loaded and the electromagnetic fields have been computed
-over the whole simulation grid. The PIC loop is then started over <span class="math notranslate">\(N\)</span> time-steps
+over the whole simulation grid. The PIC loop is then started over <span class="math notranslate nohighlight">\(N\)</span> time-steps
 each consisting in</p>
 <ol class="arabic simple">
 <li>interpolating the electromagnetic fields at the particle positions,</li>
@@ -513,21 +550,21 @@ each consisting in</p>
 <li>computing the new electromagnetic fields on the grid.</li>
 </ol>
 <p>In this section, we describe these four steps which advance the time from
-time-step <span class="math notranslate">\((n)\)</span> to time-step <span class="math notranslate">\((n+1)\)</span>.</p>
+time-step <span class="math notranslate nohighlight">\((n)\)</span> to time-step <span class="math notranslate nohighlight">\((n+1)\)</span>.</p>
 <div class="section" id="field-interpolation">
 <h3>Field interpolation<a class="headerlink" href="#field-interpolation" title="Permalink to this headline">¶</a></h3>
-<p>At the beginning of time-step <span class="math notranslate">\((n)\)</span>, the particles velocity and position are known
-at time-step <span class="math notranslate">\((n-\tfrac{1}{2})\)</span> and <span class="math notranslate">\((n)\)</span>, respectively. For each particle
-<span class="math notranslate">\(p\)</span>, the electromagnetic fields [at time-step <span class="math notranslate">\((n)\)</span>] are computed at the
+<p>At the beginning of time-step <span class="math notranslate nohighlight">\((n)\)</span>, the particles velocity and position are known
+at time-step <span class="math notranslate nohighlight">\((n-\tfrac{1}{2})\)</span> and <span class="math notranslate nohighlight">\((n)\)</span>, respectively. For each particle
+<span class="math notranslate nohighlight">\(p\)</span>, the electromagnetic fields [at time-step <span class="math notranslate nohighlight">\((n)\)</span>] are computed at the
 particle position using a simple interpolation technique:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray}
 \mathbf{E}_p^{(n)} = V_c^{-1} \int d\mathbf{x}\, S\left(\mathbf{x}-\mathbf{x}_p^{(n)}\right) \mathbf{E}^{(n)}(\mathbf{x})\,,\\
 \mathbf{B}_p^{(n)} = V_c^{-1} \int d\mathbf{x}\, S\left(\mathbf{x}-\mathbf{x}_p^{(n)}\right) \mathbf{B}^{(n)}(\mathbf{x})\,,
 \end{eqnarray}\end{split}\]</div>
 <p>where we have used the time-centered magnetic fields
-<span class="math notranslate">\(\mathbf{B}^{(n)}=\tfrac{1}{2}[\mathbf{B}^{(n+1/2) } + \mathbf{B}^{(n-1/2)}]\)</span>,
-and <span class="math notranslate">\(V_c\)</span> denotes the volume of a cell.</p>
+<span class="math notranslate nohighlight">\(\mathbf{B}^{(n)}=\tfrac{1}{2}[\mathbf{B}^{(n+1/2) } + \mathbf{B}^{(n-1/2)}]\)</span>,
+and <span class="math notranslate nohighlight">\(V_c\)</span> denotes the volume of a cell.</p>
 </div>
 <div class="section" id="particle-push">
 <h3>Particle push<a class="headerlink" href="#particle-push" title="Permalink to this headline">¶</a></h3>
@@ -539,11 +576,11 @@ both in the classical and relativistic form,
 the <a class="reference external" href="https://doi.org/10.1063/1.2837054">pusher developed by J.-L. Vay</a>,
 and the <a class="reference external" href="https://arxiv.org/abs/1701.05605">pusher of Higuera and Cary</a>.</p>
 <p>All schemes compute the new particle momentum and position according to</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\mathbf{u}_p^{n+\tfrac{1}{2}}=\mathbf{v}_p^{n-\tfrac{1}{2}} + r_s \Delta t \, \left[ E_p^{(n)} + \frac{\mathbf{v}_p^{(n+\tfrac{1}{2})}+\mathbf{v}_p^{(n-\tfrac{1}{2})}}{2} \times B_p^{(n)}\right],\]</div>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\mathbf{x}_p^{n+1}=\mathbf{x}_p^{n} + \Delta t \, \frac{\mathbf{u}_p^{n+\tfrac{1}{2}}}{\gamma_p},\]</div>
-<p>where <span class="math notranslate">\(\Delta t\)</span> denotes the duration of a time-step.</p>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> denotes the duration of a time-step.</p>
 </div>
 <div class="section" id="current-deposition">
 <h3>Current deposition<a class="headerlink" href="#current-deposition" title="Permalink to this headline">¶</a></h3>
@@ -551,30 +588,30 @@ and the <a class="reference external" href="https://arxiv.org/abs/1701.05605">pu
 performed using the charge-conserving algorithm
 <a class="reference external" href="https://doi.org/10.1016/S0010-4655(00)00228-9">proposed by Esirkepov</a>.
 The current densities along the dimensions of the grid
-(i.e., the <span class="math notranslate">\(x\)</span>-direction for 1D3V simulations,
-both <span class="math notranslate">\(x\)</span>- and <span class="math notranslate">\(y\)</span>-directions for 2D3V simulations,
-and all three <span class="math notranslate">\(x\)</span>-, <span class="math notranslate">\(y\)</span>- and <span class="math notranslate">\(z\)</span>-directions for 3D3V simulations)
+(i.e., the <span class="math notranslate nohighlight">\(x\)</span>-direction for 1D3V simulations,
+both <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-directions for 2D3V simulations,
+and all three <span class="math notranslate nohighlight">\(x\)</span>-, <span class="math notranslate nohighlight">\(y\)</span>- and <span class="math notranslate nohighlight">\(z\)</span>-directions for 3D3V simulations)
 are computed from the charge flux through the cell borders
 (hence ensuring charge conservation) while the current densities along the other
 dimensions are performed using a simple projection.</p>
 <p>To illustrate this point, we take the example of current deposition in a 2D3V simulation.
-The current densities in the <span class="math notranslate">\(x\)</span>- and <span class="math notranslate">\(y\)</span>-directions associated to a particle
-with charge <span class="math notranslate">\(q\)</span> are computed as:</p>
-<div class="math notranslate">
+The current densities in the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-directions associated to a particle
+with charge <span class="math notranslate nohighlight">\(q\)</span> are computed as:</p>
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray}
 (J_x)_{i+\tfrac{1}{2},j}^{(n+\tfrac{1}{2})} = (J_x)_{i-\tfrac{1}{2},j}^{(n+\tfrac{1}{2})} + q\,w_p\,\frac{\Delta x}{\Delta t}\,(W_x)_{i+\tfrac{1}{2},j}^{(n+\tfrac{1}{2})}\,\\
 (J_y)_{i,j+\tfrac{1}{2}}^{(n+\tfrac{1}{2})} = (J_y)_{i,j-\tfrac{1}{2}}^{(n+\tfrac{1}{2})} + q\,w_p\,\frac{\Delta y}{\Delta t}\,(W_y)_{j,i+\tfrac{1}{2}}^{(n+\tfrac{1}{2})}\,
 \end{eqnarray}\end{split}\]</div>
-<p>where <span class="math notranslate">\((W_x)^{(n+\tfrac{1}{2})}\)</span> and <span class="math notranslate">\((W_y)^{(n+\tfrac{1}{2})}\)</span> are computed
-from the particle current and former positions <span class="math notranslate">\(x_p^{(n+1)}\)</span> and <span class="math notranslate">\(x_p^{(n)}\)</span>,
+<p>where <span class="math notranslate nohighlight">\((W_x)^{(n+\tfrac{1}{2})}\)</span> and <span class="math notranslate nohighlight">\((W_y)^{(n+\tfrac{1}{2})}\)</span> are computed
+from the particle current and former positions <span class="math notranslate nohighlight">\(x_p^{(n+1)}\)</span> and <span class="math notranslate nohighlight">\(x_p^{(n)}\)</span>,
 respectively, using the method developed by Esirkepov.
-The particle current in the <span class="math notranslate">\(z\)</span>-direction (not a dimension of the grid) is,
+The particle current in the <span class="math notranslate nohighlight">\(z\)</span>-direction (not a dimension of the grid) is,
 in this geometry, computed using a simple projection:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[(J_z)_{i,j} = q w_r \mathbf{v}_p\,S(\mathbf{x}_{i,j}-\mathbf{x}_p)\,.\]</div>
 <p>In all cases, the charge density deposited by the particle is obtained using the simple
 projection:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[(\rho)_{i,j}^{(n+1)} = q\,w_p\,S(\mathbf{x}_{i,j}-\mathbf{x}_p^{(n+1)})\,.\]</div>
 <p>The total charge and current densities henceforth gather the contributions of all
 quasi-particles of all species. It is worth noting that, within a charge-conserving
@@ -583,23 +620,23 @@ framework, charge densities are only projected on the grid for diagnostics purpo
 </div>
 <div class="section" id="maxwell-solvers">
 <h3>Maxwell solvers<a class="headerlink" href="#maxwell-solvers" title="Permalink to this headline">¶</a></h3>
-<p>Now that the currents are known at time-step <span class="math notranslate">\(n+\tfrac{1}{2}\)</span>, the electromagnetic
+<p>Now that the currents are known at time-step <span class="math notranslate nohighlight">\(n+\tfrac{1}{2}\)</span>, the electromagnetic
 fields can be advanced solving Maxwell’s equations <a class="reference internal" href="#equation-maxwell">(3)</a>.</p>
 <p>First, Maxwell-Ampère is solved, giving the advanced electric fields</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\mathbf{E}^{(n+1)} = \mathbf{E}^{(n)} + \Delta t\, \left[\left(\nabla \times \mathbf{B}\right)^{(n+\tfrac{1}{2})} - \mathbf{J}^{(n+\tfrac{1}{2})} \right]\,.\]</div>
 <p>Then, Maxwell-Faraday is computed, leading to the advanced magnetic fields</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\mathbf{B}^{(n+\tfrac{3}{2})} = \mathbf{B}^{(n+\tfrac{1}{2})} - \Delta t\, \left(\nabla \times \mathbf{E}\right)^{(n+1)}\,.\]</div>
 <p>The discretization of the curl-operator is not detailed here.</p>
 <p>It is worth
 noting that computing the two previous equations is sufficient to get a complete description
 of the new electromagnetic fields. Indeed, it can be shown that this conserves a
-divergence-free magnetic field if Gauss’ equation is satisfied at time <span class="math notranslate">\(t=0\)</span>.
+divergence-free magnetic field if Gauss’ equation is satisfied at time <span class="math notranslate nohighlight">\(t=0\)</span>.
 Similarly, Poisson’s equation is verified as long as it is satisfied
-at time <span class="math notranslate">\(t=0\)</span>, if the charge deposition algorithm fulfills the charge conservation
+at time <span class="math notranslate nohighlight">\(t=0\)</span>, if the charge deposition algorithm fulfills the charge conservation
 equation:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\partial_t \rho + \nabla \cdot \mathbf{J} = 0\]</div>
 <p>(this motivated the use of Esirkepov’s projection scheme discussed in the previous paragraph).</p>
 </div>
@@ -627,6 +664,41 @@ to absorb outgoing electromagnetic waves.
 In contrast, the reflective electromagnetic BC will reflect any outgoing
 electromagnetic wave reaching the simulation boundary.
 Lastly, periodic BCs correspond to applying the fields from the opposite boundary.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="multi-pass-binomial-filtering-of-the-current-densities">
+<span id="multipassbinomialfilter"></span><h2>Multi-pass binomial filtering of the current densities<a class="headerlink" href="#multi-pass-binomial-filtering-of-the-current-densities" title="Permalink to this headline">¶</a></h2>
+<p>A multi-pass binomial filter on the current densities is available in <strong class="program">Smilei</strong>,
+which implementation follows that <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0021999111002270?via%3Dihub">presented by Vay et al. (2011)</a>.
+Each pass consists in a 3-points spatial averaging (in all spatial dimensions) of the current densities,
+so that the filtered current density (here defined at location i on a one-dimensional grid) is recomputed as:</p>
+<div class="math notranslate nohighlight">
+\[J_{f,i} = \frac{1}{2}\,J_i + \frac{J_{i+1}+J_{i-1}}{4}.\]</div>
+<p>Current filtering, if required by the user, is applied before solving
+Maxwell’s equation, and the number of passes is an <a class="reference internal" href="namelist.html#currentfilter"><span class="std std-ref">input parameter</span></a>
+defined by the user.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="friedman-filter-on-the-electric-field">
+<span id="efieldfilter"></span><h2>Friedman filter on the electric field<a class="headerlink" href="#friedman-filter-on-the-electric-field" title="Permalink to this headline">¶</a></h2>
+<p>A method for temporal filtering of the electric field is also available in <strong class="program">Smilei</strong>.
+It is the so-called Friedman filter detailed in <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0021999104002608?via%3Dihub">Greenwood et al. (2004)</a>.
+This method consists in computing the filtered electric field at time-step <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{\bf E}_f^{(n)} = \left(1+\frac{\theta}{2}\right) {\bf E}^{(n)} - \theta \left(1-\frac{\theta}{2}\right) {\bf E}^{(n-1)} + \frac{1}{2} \theta \big(1-\theta\big)^2 \bar{\bf E}^{(n-2)},\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\bar{\bf E}^{(n-2)} = {\bf E}^{(n-2)} + \theta \bar{\bf E}^{(n-3)},\]</div>
+<p>and <span class="math notranslate nohighlight">\(\theta \in [0,1[\)</span> is an <a class="reference internal" href="namelist.html#fieldfilter"><span class="std std-ref">input parameter</span></a> defined by the user.
+Note that the filtered field <span class="math notranslate nohighlight">\(E_f\)</span> is not used to push particles, but is used when solving the Maxwell-Faraday equation.
+Also note that, as underlined in <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0021999104002608?via%3Dihub">Greenwood et al. (2004)</a>,
+using this particular filter modifies the CFL condition of the Maxwell solver.
+A simple trick to ensure that this condition is still verified is to use (for <span class="math notranslate nohighlight">\(\Delta x = \Delta y = \Delta z\)</span>) the
+magic time-step <span class="math notranslate nohighlight">\(\Delta t = \Delta x/2\)</span> whenever the Friedman filter is employed.</p>
+<p>Both filters on the <a class="reference internal" href="#multipassbinomialfilter"><span class="std std-ref">currents</span></a> and <a class="reference internal" href="#efieldfilter"><span class="std std-ref">electric fields</span></a> can be used together or
+separately. They can be used, e.g., to mitigate the numerical Cherenkov instability that plagues PIC simulations dealing with
+relativistically drifting flows.
+An exemple of their use to mitigate this effect is highlighted in the work by <a class="reference external" href="https://arxiv.org/abs/1712.02883">Plotnikov et al. (2017)</a>.</p>
 </div>
 </div>
 
@@ -648,7 +720,7 @@ Lastly, periodic BCs correspond to applying the fields from the opposite boundar
         <li class="right" >
           <a href="units.html" title="Units"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -656,11 +728,11 @@ Lastly, periodic BCs correspond to applying the fields from the opposite boundar
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -720,6 +792,18 @@ Lastly, periodic BCs correspond to applying the fields from the opposite boundar
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

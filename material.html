@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Publications &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Publications &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Partners" href="partners.html" />
-    <link rel="prev" title="Post-process" href="post-processing.html" />
+    <link rel="prev" title="Contribute" href="contribute.html" />
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     "HTML-CSS": {
@@ -73,6 +73,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -87,6 +90,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -137,10 +143,13 @@
             
         
         <div class="menu" id="menu_Licence">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -162,10 +171,13 @@
         </div>
         
         <div class="menu" id="menu_Units">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -189,6 +201,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -196,10 +211,13 @@
         </div>
         
         <div class="menu" id="menu_Install">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -214,6 +232,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -221,10 +242,13 @@
         </div>
         
         <div class="menu" id="menu_Publications" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li >
@@ -240,6 +264,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -323,9 +355,9 @@
           <a href="partners.html" title="Partners"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="post-processing.html" title="Post-process"
+          <a href="contribute.html" title="Contribute"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -344,6 +376,14 @@
 <cite>SMILEI: a collaborative, open-source, multi-purpose particle-in-cell code for plasma simulation</cite>,
 <a class="reference external" href="https://doi.org/10.1016/j.cpc.2017.09.024">Comput. Phys. Commun. 222, 351-373 (2018)</a>,
 <a class="reference external" href="https://arxiv.org/abs/1702.05128">arXiv:1702.05128</a></td></tr>
+</tbody>
+</table>
+<table class="bigcitation docutils citation" frame="void" id="plotnikov2017" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Plotnikov2017]</td><td>I. Plotnikov, A. Grassi and M. Grech,
+<cite>Perpendicular relativistic shocks in magnetized pair plasma</cite>,
+<a class="reference external" href="https://arxiv.org/abs/1712.02883">arXiv:1712.02883</a></td></tr>
 </tbody>
 </table>
 <table class="bigcitation docutils citation" frame="void" id="grassi2017b" rules="none">
@@ -448,9 +488,9 @@ in the Strongly Coupled regime</cite>,
           <a href="partners.html" title="Partners"
              >next</a> |</li>
         <li class="right" >
-          <a href="post-processing.html" title="Post-process"
+          <a href="contribute.html" title="Contribute"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -458,11 +498,11 @@ in the Strongly Coupled regime</cite>,
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -522,6 +562,18 @@ in the Strongly Coupled regime</cite>,
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

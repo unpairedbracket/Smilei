@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Binary collisions &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Binary collisions &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -84,6 +84,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -98,6 +101,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -153,10 +159,13 @@
             
         
         <div class="menu" id="menu_Licence">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -178,10 +187,13 @@
         </div>
         
         <div class="menu" id="menu_Units" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -205,6 +217,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -212,10 +227,13 @@
         </div>
         
         <div class="menu" id="menu_Install">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -230,6 +248,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -237,10 +258,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -256,6 +280,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -341,7 +373,7 @@
         <li class="right" >
           <a href="parallelization.html" title="Parallelization basics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -386,9 +418,9 @@ given in the input file.</p>
 <p>Calculate a few intermediate quantities:</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line">Particle density <span class="math notranslate">\(n_1\)</span> of group 1.</div>
-<div class="line">Particle density <span class="math notranslate">\(n_2\)</span>  of group 2.</div>
-<div class="line"><em>Crossed</em> particle density <span class="math notranslate">\(n_{12}\)</span> (see <a class="reference internal" href="#perez2012" id="id9">[Perez2012]</a>).</div>
+<div class="line">Particle density <span class="math notranslate nohighlight">\(n_1\)</span> of group 1.</div>
+<div class="line">Particle density <span class="math notranslate nohighlight">\(n_2\)</span>  of group 2.</div>
+<div class="line"><em>Crossed</em> particle density <span class="math notranslate nohighlight">\(n_{12}\)</span> (see <a class="reference internal" href="#perez2012" id="id9">[Perez2012]</a>).</div>
 <div class="line">Other constants.</div>
 </div>
 </div></blockquote>
@@ -397,7 +429,7 @@ given in the input file.</p>
 <div><div class="line-block">
 <div class="line">Calculate the momenta in the center-of-mass (COM) frame.</div>
 <div class="line">Calculate the coulomb log if requested (see <a class="reference internal" href="#perez2012" id="id10">[Perez2012]</a>).</div>
-<div class="line">Calculate the parameter <span class="math notranslate">\(s\)</span> and its correction at low temperature (see <a class="reference internal" href="#perez2012" id="id11">[Perez2012]</a>).</div>
+<div class="line">Calculate the parameter <span class="math notranslate nohighlight">\(s\)</span> and its correction at low temperature (see <a class="reference internal" href="#perez2012" id="id11">[Perez2012]</a>).</div>
 <div class="line">Pick the deflection angle (see <a class="reference internal" href="#nanbu1997" id="id12">[Nanbu1997]</a>).</div>
 <div class="line">Deflect particles in the COM frame and go back to the laboratory frame.</div>
 </div>
@@ -411,12 +443,12 @@ but should not. This was corrected in <strong class="program">Smilei</strong>.</
 <div class="section" id="test-cases-for-collisions">
 <h2>Test cases for collisions<a class="headerlink" href="#test-cases-for-collisions" title="Permalink to this headline">¶</a></h2>
 <p class="rubric">1. Beam relaxation</p>
-<p>An electron beam with narrow energy spread enters an ion background with <span class="math notranslate">\(T_i=10\)</span> eV.
-The ions are of very small mass <span class="math notranslate">\(m_i=10 m_e\)</span> to speed-up the calculation.
+<p>An electron beam with narrow energy spread enters an ion background with <span class="math notranslate nohighlight">\(T_i=10\)</span> eV.
+The ions are of very small mass <span class="math notranslate nohighlight">\(m_i=10 m_e\)</span> to speed-up the calculation.
 Only e-i collisions are calculated.
 The beam gets strong isotropization =&gt; the average velocity relaxes to zero.</p>
-<p>Three figures show the time-evolution of the longitudinal <span class="math notranslate">\(\left&lt;v_\|\right&gt;\)</span>
-and transverse velocity <span class="math notranslate">\(\sqrt{\left&lt;v_\perp^2\right&gt;}\)</span></p>
+<p>Three figures show the time-evolution of the longitudinal <span class="math notranslate nohighlight">\(\left&lt;v_\|\right&gt;\)</span>
+and transverse velocity <span class="math notranslate nohighlight">\(\sqrt{\left&lt;v_\perp^2\right&gt;}\)</span></p>
 <ul class="simple">
 <li><a class="reference internal" href="#beam1"><span class="std std-numref">Fig. 6</span></a> : initial velocity = 0.05, ion charge = 1</li>
 <li><a class="reference internal" href="#beam2"><span class="std std-numref">Fig. 7</span></a> : initial velocity = 0.01, ion charge = 1</li>
@@ -437,7 +469,7 @@ ratios of particle weights: 0.1, 1, and 10.</p>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.01, ion charge = 3.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\nu_\| = -\left(1+\frac{m_e}{m_i}\right)\nu_0
 \quad\textrm{and}\quad
 \nu_\perp = 2\;\nu_0
@@ -447,7 +479,7 @@ ratios of particle weights: 0.1, 1, and 10.</p>
 <p class="rubric">2. Thermalization</p>
 <p>A population of electrons has a different temperature from that of the ion population.
 Through e-i collisions, the two temperatures become equal.
-The ions are of very small mass <span class="math notranslate">\(m_i=10 m_e\)</span> to speed-up the calculation.
+The ions are of very small mass <span class="math notranslate nohighlight">\(m_i=10 m_e\)</span> to speed-up the calculation.
 Three cases are simulated, corresponding to different ratios of weights: 0.2, 1 and 5.
 They are plotted in <a class="reference internal" href="#thermalization"><span class="std std-numref">Fig. 9</span></a>.</p>
 <div class="figure" id="id26">
@@ -455,7 +487,7 @@ They are plotted in <a class="reference internal" href="#thermalization"><span c
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Thermalization between two species.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\nu_\epsilon=\frac{e^4\,Z^{\star 2} \sqrt{m_em_i}\,n_i\,\ln\Lambda }
 { 8 \epsilon_0^2 \,\left(m_eT_e+m_iT_i\right)^{3/2} }\]</div>
 <p class="rubric">3. Temperature isotropization</p>
@@ -467,13 +499,13 @@ as shown in <a class="reference internal" href="#temperature-isotropization"><sp
 <p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Temperature isotropization of an electron population.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\nu_T=\frac{e^4 \,n_e\,\ln\Lambda } { 8\pi^{3/2} \epsilon_0^2 \,m_e^{1/2}T_\|^{3/2} }
 A^{-2} \left[-3+(3-A)\frac{\rm{arctanh}(\sqrt{A})}{\sqrt{A}}\right]
 \quad \rm{where}\quad A=1-\frac{T_\perp}{T_\|}\]</div>
 <p class="rubric">4. Maxwellianization</p>
-<p>Electrons start with zero temperature along <span class="math notranslate">\(y\)</span> and <span class="math notranslate">\(z\)</span>.
-Their velocity distribution along <span class="math notranslate">\(x\)</span> is rectangular.
+<p>Electrons start with zero temperature along <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>.
+Their velocity distribution along <span class="math notranslate nohighlight">\(x\)</span> is rectangular.
 They collide only with themselves and the rectangle becomes a maxwellian
 as shown in <a class="reference internal" href="#maxwellianization"><span class="std std-numref">Fig. 11</span></a>.</p>
 <div class="figure" id="id28">
@@ -484,7 +516,7 @@ The red curve is an example of a gaussian function.</span></p>
 </div>
 <p class="rubric">5. Stopping power</p>
 <p>Test electrons (very low density) collide with background electrons of density
-<span class="math notranslate">\(10\,n_c\)</span> and <span class="math notranslate">\(T_e=5\)</span> keV.
+<span class="math notranslate nohighlight">\(10\,n_c\)</span> and <span class="math notranslate nohighlight">\(T_e=5\)</span> keV.
 Depending on their initial velocity, they are slowed down at different rates,
 as shown in <a class="reference internal" href="#stoppingpower"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure" id="id29">
@@ -494,10 +526,10 @@ Each point is one simulation. The black line is Frankel’s theory <a class="ref
 </div>
 <p class="rubric">6. Conductivity</p>
 <p>Solid-density Cu is simulated at different temperatures (e-i equilibrium) with only
-e-i collisions. An electric field of <span class="math notranslate">\(E=3.2\)</span> GV/m (0.001 in code units) is
+e-i collisions. An electric field of <span class="math notranslate nohighlight">\(E=3.2\)</span> GV/m (0.001 in code units) is
 applied using two charged layers on each side of the solid Cu.
-The electron velocity increases until a limit value <span class="math notranslate">\(v_f\)</span>.
-The resulting conductivity <span class="math notranslate">\(\sigma=en_ev_f/E\)</span> is compared in
+The electron velocity increases until a limit value <span class="math notranslate nohighlight">\(v_f\)</span>.
+The resulting conductivity <span class="math notranslate nohighlight">\(\sigma=en_ev_f/E\)</span> is compared in
 <a class="reference internal" href="#conductivity"><span class="std std-numref">Fig. 13</span></a> to the models in <a class="reference internal" href="#lee1984" id="id15">[Lee1984]</a> and <a class="reference internal" href="#perez2012" id="id16">[Perez2012]</a>.</p>
 <div class="figure" id="id30">
 <span id="conductivity"></span><a class="reference internal image-reference" href="_images/conductivity.png"><img alt="_images/conductivity.png" src="_images/conductivity.png" style="width: 10cm;" /></a>
@@ -515,7 +547,7 @@ are executed:</p>
 <li>At the beginning of the run, cross-sections are calculated from tabulated binding
 energies (available for ions up to atomic number 100). These cross-sections are then
 tabulated for each requested ion species.</li>
-<li>Each timestep, the particle density <span class="math notranslate">\(n = n_e n_i/n_{ei}\)</span>
+<li>Each timestep, the particle density <span class="math notranslate nohighlight">\(n = n_e n_i/n_{ei}\)</span>
 (similar to the densities above for collisions) is calculated.</li>
 <li>During each collision, a probability for ionization is computed. If successful,
 the ion charge is increased, the incident electron is slowed down, and a new electron
@@ -528,42 +560,42 @@ over long time scales.</li>
 </ul>
 <p class="rubric">Relativistic change of frame</p>
 <p>A modification has been added to the theory of <a class="reference internal" href="#perez2012" id="id18">[Perez2012]</a> in order to account for the
-laboratory frame being different from the ion frame. Considering <span class="math notranslate">\(\overrightarrow{p_e}\)</span>
-and <span class="math notranslate">\(\overrightarrow{p_i}\)</span> the electron and ion momenta in the laboratory frame,
-and their associated Lorentz factors <span class="math notranslate">\(\gamma_e\)</span> and <span class="math notranslate">\(\gamma_i\)</span>, we define
-<span class="math notranslate">\(\overrightarrow{q_e}=\overrightarrow{p_e}/(m_e c)\)</span> and
-<span class="math notranslate">\(\overrightarrow{q_i}=\overrightarrow{p_i}/(m_i c)\)</span>.
+laboratory frame being different from the ion frame. Considering <span class="math notranslate nohighlight">\(\overrightarrow{p_e}\)</span>
+and <span class="math notranslate nohighlight">\(\overrightarrow{p_i}\)</span> the electron and ion momenta in the laboratory frame,
+and their associated Lorentz factors <span class="math notranslate nohighlight">\(\gamma_e\)</span> and <span class="math notranslate nohighlight">\(\gamma_i\)</span>, we define
+<span class="math notranslate nohighlight">\(\overrightarrow{q_e}=\overrightarrow{p_e}/(m_e c)\)</span> and
+<span class="math notranslate nohighlight">\(\overrightarrow{q_i}=\overrightarrow{p_i}/(m_i c)\)</span>.
 The Lorentz factor of the electron in the ion frame is
-<span class="math notranslate">\(\gamma_e^\star=\gamma_e\gamma_i-\overrightarrow{q_e}\cdot\overrightarrow{q_i}\)</span>.
+<span class="math notranslate nohighlight">\(\gamma_e^\star=\gamma_e\gamma_i-\overrightarrow{q_e}\cdot\overrightarrow{q_i}\)</span>.
 The probability for ionization reads:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[P = 1-\exp\left( - v_e \sigma n \Delta t \right) = 1-\exp\left( -V^\star \sigma^\star n \Delta t \right)\]</div>
-<p>where <span class="math notranslate">\(v_e\)</span> is the electron velocity in the laboratory frame,
-<span class="math notranslate">\(\sigma\)</span> is the cross-section in the laboratory frame, <span class="math notranslate">\(\sigma^\star\)</span>
+<p>where <span class="math notranslate nohighlight">\(v_e\)</span> is the electron velocity in the laboratory frame,
+<span class="math notranslate nohighlight">\(\sigma\)</span> is the cross-section in the laboratory frame, <span class="math notranslate nohighlight">\(\sigma^\star\)</span>
 is the cross-section in the ion frame, and
-<span class="math notranslate">\(V^\star=c\sqrt{\gamma_e^{\star\,2}-1}/(\gamma_e\gamma_i)\)</span>.</p>
-<p>The loss of energy <span class="math notranslate">\(m_ec^2 \delta\gamma\)</span> of the incident electron translates into a change in momentum
-<span class="math notranslate">\({q_e^\star}' = \alpha_e q_e^\star\)</span> in the ion frame, with
-<span class="math notranslate">\(\alpha_e=\sqrt{(\gamma_e^\star-\delta\gamma)^2-1}/\sqrt{\gamma_e^{\star2}-1}\)</span>.
+<span class="math notranslate nohighlight">\(V^\star=c\sqrt{\gamma_e^{\star\,2}-1}/(\gamma_e\gamma_i)\)</span>.</p>
+<p>The loss of energy <span class="math notranslate nohighlight">\(m_ec^2 \delta\gamma\)</span> of the incident electron translates into a change in momentum
+<span class="math notranslate nohighlight">\({q_e^\star}' = \alpha_e q_e^\star\)</span> in the ion frame, with
+<span class="math notranslate nohighlight">\(\alpha_e=\sqrt{(\gamma_e^\star-\delta\gamma)^2-1}/\sqrt{\gamma_e^{\star2}-1}\)</span>.
 In the laboratory frame, it becomes
-<span class="math notranslate">\(\overrightarrow{q_e'}=\alpha_e\overrightarrow{q_e}+((1-\alpha_e)\gamma_e^\star-\delta\gamma)\overrightarrow{q_i}\)</span>.</p>
+<span class="math notranslate nohighlight">\(\overrightarrow{q_e'}=\alpha_e\overrightarrow{q_e}+((1-\alpha_e)\gamma_e^\star-\delta\gamma)\overrightarrow{q_i}\)</span>.</p>
 <p>A similar operation is done for defining the momentum of the new electron in the lab frame.
-It is created with energy <span class="math notranslate">\(m_ec^2 (\gamma_w-1)\)</span> and its momentum is
-<span class="math notranslate">\(q_w^\star = \alpha_w q_e^\star\)</span> in the ion frame, with
-<span class="math notranslate">\(\alpha_w=\sqrt{\gamma_w^2-1}/\sqrt{\gamma_e^{\star 2}-1}\)</span>.
+It is created with energy <span class="math notranslate nohighlight">\(m_ec^2 (\gamma_w-1)\)</span> and its momentum is
+<span class="math notranslate nohighlight">\(q_w^\star = \alpha_w q_e^\star\)</span> in the ion frame, with
+<span class="math notranslate nohighlight">\(\alpha_w=\sqrt{\gamma_w^2-1}/\sqrt{\gamma_e^{\star 2}-1}\)</span>.
 In the laboratory frame, it becomes
-<span class="math notranslate">\(\overrightarrow{q_w}=\alpha_w\overrightarrow{q_e}+(\gamma_w-\alpha_w\gamma_e^\star)\overrightarrow{q_i}\)</span>.</p>
+<span class="math notranslate nohighlight">\(\overrightarrow{q_w}=\alpha_w\overrightarrow{q_e}+(\gamma_w-\alpha_w\gamma_e^\star)\overrightarrow{q_i}\)</span>.</p>
 <p class="rubric">Multiple ionization</p>
 <p>A modification has been added to the theory of <a class="reference internal" href="#perez2012" id="id19">[Perez2012]</a> in order to account for
 multiple ionization in a single timestep. The approach for field ionization
 by <a class="reference external" href="http://dx.doi.org/10.1063/1.3559494">Nuter et al</a>
 has been adapted to calculate the successive impact ionization probabilities
 when an ion is ionized several times in a row.</p>
-<p>Writing the probability to not ionize an ion already ionized <span class="math notranslate">\(i\)</span> times as
-<span class="math notranslate">\(\bar{P}^i = \exp\left( -W_i\Delta t\right)\)</span>, and defining
-<span class="math notranslate">\(R^m_n = (1-W_m/W_n)^{-1}\)</span>, we can calculate the probability to ionize <span class="math notranslate">\(k\)</span> times
+<p>Writing the probability to not ionize an ion already ionized <span class="math notranslate nohighlight">\(i\)</span> times as
+<span class="math notranslate nohighlight">\(\bar{P}^i = \exp\left( -W_i\Delta t\right)\)</span>, and defining
+<span class="math notranslate nohighlight">\(R^m_n = (1-W_m/W_n)^{-1}\)</span>, we can calculate the probability to ionize <span class="math notranslate nohighlight">\(k\)</span> times
 the ion:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\begin{split}P^i_k = \left\{
 \begin{array}{ll}
 \bar{P}^i
@@ -581,34 +613,34 @@ the ion:</p>
 \quad\mathrm{if}\quad k=k_\mathrm{max}
 \end{array}
 \right.\end{split}\]</div>
-<p>where <span class="math notranslate">\(k_\mathrm{max} = Z-Z^\star\)</span>.</p>
-<p>The cumulative probability <span class="math notranslate">\(F^i_k = \sum_{j=0}^{k} P^i_j\)</span> provides an efficient
-way to pick when the ionization stops: we pick a random number <span class="math notranslate">\(U\in [0,1]\)</span> and
-loop from <span class="math notranslate">\(k=0\)</span> to <span class="math notranslate">\(k_\mathrm{max}\)</span>. We stop ionizing when <span class="math notranslate">\(F^i_k&gt;U\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(k_\mathrm{max} = Z-Z^\star\)</span>.</p>
+<p>The cumulative probability <span class="math notranslate nohighlight">\(F^i_k = \sum_{j=0}^{k} P^i_j\)</span> provides an efficient
+way to pick when the ionization stops: we pick a random number <span class="math notranslate nohighlight">\(U\in [0,1]\)</span> and
+loop from <span class="math notranslate nohighlight">\(k=0\)</span> to <span class="math notranslate nohighlight">\(k_\mathrm{max}\)</span>. We stop ionizing when <span class="math notranslate nohighlight">\(F^i_k&gt;U\)</span>.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="test-cases-for-ionization">
 <h2>Test cases for ionization<a class="headerlink" href="#test-cases-for-ionization" title="Permalink to this headline">¶</a></h2>
 <p class="rubric">1. Ionization rate</p>
-<p>A cold plasma of <span class="math notranslate">\(\mathrm{Al}^{3+}\)</span> is set with density <span class="math notranslate">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>
-and with all electrons drifting at a velocity <span class="math notranslate">\(v_e=0.03\,c\)</span>. The charge state of ions
+<p>A cold plasma of <span class="math notranslate nohighlight">\(\mathrm{Al}^{3+}\)</span> is set with density <span class="math notranslate nohighlight">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>
+and with all electrons drifting at a velocity <span class="math notranslate nohighlight">\(v_e=0.03\,c\)</span>. The charge state of ions
 versus time is shown in <a class="reference internal" href="#ionizationrate"><span class="std std-numref">Fig. 14</span></a> where the three dotted curves correspond
 to three different weight ratios between electrons and ions.</p>
 <div class="figure" id="id31">
 <span id="ionizationrate"></span><a class="reference internal image-reference" href="_images/ionization_rate.png"><img alt="_images/ionization_rate.png" src="_images/ionization_rate.png" style="width: 10cm;" /></a>
 <p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Ionization of an aluminium plasma by drifting electrons.</span></p>
 </div>
-<p>The theoretical curve (in black) corresponds to <span class="math notranslate">\(1-\exp\left(v_en_e\sigma t\right)\)</span>
-where <span class="math notranslate">\(\sigma\)</span> is the ionization cross section of <span class="math notranslate">\(\mathrm{Al}^{3+}\)</span> at the
+<p>The theoretical curve (in black) corresponds to <span class="math notranslate nohighlight">\(1-\exp\left(v_en_e\sigma t\right)\)</span>
+where <span class="math notranslate nohighlight">\(\sigma\)</span> is the ionization cross section of <span class="math notranslate nohighlight">\(\mathrm{Al}^{3+}\)</span> at the
 right electron energy. The discrepancy at late time is due to the changing velocity
 distributions and to the next level starting to ionize.</p>
 <p class="rubric">2. Inelastic stopping power</p>
-<p>A cold, non-ionized Al plasma is set with density <span class="math notranslate">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>.
+<p>A cold, non-ionized Al plasma is set with density <span class="math notranslate nohighlight">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>.
 Electrons of various initial velocities are slowed down by ionizing collisions and their
 energy loss is recorded as a function of time.</p>
 <p>A few examples are given in the left graph of <a class="reference internal" href="#ionizationstoppinpower"><span class="std std-numref">Fig. 15</span></a>.
 The theoretical curve is obtained from <a class="reference internal" href="#rohrlich1954" id="id20">[Rohrlich1954]</a>. Note that this theory does not
-work below a certain average ionization energy, in our case <span class="math notranslate">\(\sim 200\)</span> eV.</p>
+work below a certain average ionization energy, in our case <span class="math notranslate nohighlight">\(\sim 200\)</span> eV.</p>
 <div class="figure" id="id32">
 <span id="ionizationstoppinpower"></span><a class="reference internal image-reference" href="_images/ionization_stopping_power.png"><img alt="_images/ionization_stopping_power.png" src="_images/ionization_stopping_power.png" style="width: 14cm;" /></a>
 <p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Left: ionization slowing down versus time, for electrons injected at various
@@ -666,12 +698,12 @@ quantities <em>vs.</em> space.</dd>
 <p>The available arrays are:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">s</span></code>: defined in <a class="reference internal" href="#perez2012" id="id22">[Perez2012]</a>: <span class="math notranslate">\(s=N\left&lt;\theta^2\right&gt;\)</span>, where <span class="math notranslate">\(N\)</span> is
+<li><code class="docutils literal notranslate"><span class="pre">s</span></code>: defined in <a class="reference internal" href="#perez2012" id="id22">[Perez2012]</a>: <span class="math notranslate nohighlight">\(s=N\left&lt;\theta^2\right&gt;\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is
 the typical number of real collisions during a timestep, and
-<span class="math notranslate">\(\left&lt;\theta^2\right&gt;\)</span> is the average square deviation of individual
+<span class="math notranslate nohighlight">\(\left&lt;\theta^2\right&gt;\)</span> is the average square deviation of individual
 real collisions. This quantity somewhat represents the typical amount of angular
 deflection accumulated during one timestep.
-<strong>It is recommended that</strong> <span class="math notranslate">\(s&lt;1\)</span> <strong>in order to have realistic collisions.</strong></li>
+<strong>It is recommended that</strong> <span class="math notranslate nohighlight">\(s&lt;1\)</span> <strong>in order to have realistic collisions.</strong></li>
 <li><code class="docutils literal notranslate"><span class="pre">coulomb_log</span></code>: average Coulomb logarithm.</li>
 <li><code class="docutils literal notranslate"><span class="pre">debyelength</span></code>: Debye length (not provided if all Coulomb logs are manually defined).</li>
 </ul>
@@ -751,7 +783,7 @@ is an average over all the collisions occurring in a single <em>patch</em>.</p>
         <li class="right" >
           <a href="parallelization.html" title="Parallelization basics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -759,11 +791,11 @@ is an average over all the collisions occurring in a single <em>patch</em>.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -823,6 +855,18 @@ is an average over all the collisions occurring in a single <em>patch</em>.</p>
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

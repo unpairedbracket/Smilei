@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Releases &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Releases &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -86,6 +86,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -100,6 +103,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -157,10 +163,13 @@
             
         
         <div class="menu" id="menu_Licence" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -182,10 +191,13 @@
         </div>
         
         <div class="menu" id="menu_Units">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -209,6 +221,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -216,10 +231,13 @@
         </div>
         
         <div class="menu" id="menu_Install">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -234,6 +252,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -241,10 +262,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -260,6 +284,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -345,7 +377,7 @@
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -373,9 +405,15 @@ the GitHub page.</p>
 <div class="section" id="upcoming-changes">
 <h2>Upcoming changes<a class="headerlink" href="#upcoming-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Moving window along y and z</li>
-<li>Tracking particles in <em>Screens</em></li>
 <li>Vectorization</li>
+<li>Interface with the PICSAR library</li>
+<li>Compatibility with Python 3</li>
+<li>New ‘Performances’ diagnostic</li>
+<li>Tracked particles may output the fields at their location</li>
+<li>‘subgrid’ option in Fields diagnostics</li>
+<li>Printout of the expected disk usage</li>
+<li>Laser propagation pre-processing</li>
+<li>Bugfixes: circular polarization</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -488,7 +526,7 @@ the GitHub page.</p>
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -496,11 +534,11 @@ the GitHub page.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -560,6 +598,18 @@ the GitHub page.</p>
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

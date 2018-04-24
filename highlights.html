@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Highlights &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Highlights &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -83,6 +83,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -97,6 +100,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -151,10 +157,13 @@
             
         
         <div class="menu" id="menu_Licence" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -176,10 +185,13 @@
         </div>
         
         <div class="menu" id="menu_Units">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -203,6 +215,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -210,10 +225,13 @@
         </div>
         
         <div class="menu" id="menu_Install">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -228,6 +246,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -235,10 +256,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -254,6 +278,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -339,7 +371,7 @@
         <li class="right" >
           <a href="synopsis.html" title="Synopsis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -363,8 +395,8 @@ parallelization techniques employed in this section.</p>
 resources to make the overall simulation faster. The following figure shows
 the evolution of the time to calculate 100 iterations, as a function of time.
 Each line corresponds to a different partition of the box in terms of
-MPI processes and OpenMP threads: <span class="math notranslate">\(N\times M\)</span>, where <span class="math notranslate">\(N\)</span> is
-the total number of MPI processes, and <span class="math notranslate">\(M\)</span> is the number of threads
+MPI processes and OpenMP threads: <span class="math notranslate nohighlight">\(N\times M\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is
+the total number of MPI processes, and <span class="math notranslate nohighlight">\(M\)</span> is the number of threads
 in each MPI process.</p>
 <a class="reference internal image-reference" href="_images/openMP_balancing.png"><img alt="_images/openMP_balancing.png" src="_images/openMP_balancing.png" style="width: 500px;" /></a>
 <p>Using more OpenMP threads per MPI process (while keeping the total number
@@ -391,23 +423,23 @@ of the box.</p>
 <hr class="docutils" />
 <div class="section" id="high-harmonic-generation">
 <h2>High-harmonic generation<a class="headerlink" href="#high-harmonic-generation" title="Permalink to this headline">¶</a></h2>
-<p>The interaction between an ultra-intense (<span class="math notranslate">\(I&gt;10^{18}~{\rm W/cm^2}\)</span>) femtosecond laser pulse
+<p>The interaction between an ultra-intense (<span class="math notranslate nohighlight">\(I&gt;10^{18}~{\rm W/cm^2}\)</span>) femtosecond laser pulse
 with a solid target generates a dense “plasma mirror” at its surface that reflects the laser
 in a strongly non-linear manner. The temporal distortion of the reflected wave creates
 a train of ultra-short attosecond pulses, associated, in the frequency domain,
 to a comb of high-order harmonics.</p>
 <p>We present a 2-dimensional <strong class="program">Smilei</strong> simulation of laser-solid interaction
-with wavelength <span class="math notranslate">\(\lambda_0 = 0.8\)</span> µm, peak intensity
-<span class="math notranslate">\(2\times10^{19}~{\rm W/cm^2}\)</span>, at 45° incidence with p-polarization on an overdense plasma slab
-of constant electron density <span class="math notranslate">\(n_0=200\,n_c\)</span> (<span class="math notranslate">\(n_c\)</span> being the critical density),
-<span class="math notranslate">\(5\lambda_0\)</span>-thick, with an exponential pre-plasma of gradient length <span class="math notranslate">\(0.1\,\lambda_0\)</span>
-down to a cut-off density <span class="math notranslate">\(0.05\,n_c\)</span>. The full box size is
-<span class="math notranslate">\(80\,\lambda_0 \times 60\lambda_0\)</span> and the simulation time <span class="math notranslate">\(150\,\lambda_0/c\)</span>
-with a total of <span class="math notranslate">\(\sim 1.4\)</span> billion quasi-particles in the box.</p>
+with wavelength <span class="math notranslate nohighlight">\(\lambda_0 = 0.8\)</span> µm, peak intensity
+<span class="math notranslate nohighlight">\(2\times10^{19}~{\rm W/cm^2}\)</span>, at 45° incidence with p-polarization on an overdense plasma slab
+of constant electron density <span class="math notranslate nohighlight">\(n_0=200\,n_c\)</span> (<span class="math notranslate nohighlight">\(n_c\)</span> being the critical density),
+<span class="math notranslate nohighlight">\(5\lambda_0\)</span>-thick, with an exponential pre-plasma of gradient length <span class="math notranslate nohighlight">\(0.1\,\lambda_0\)</span>
+down to a cut-off density <span class="math notranslate nohighlight">\(0.05\,n_c\)</span>. The full box size is
+<span class="math notranslate nohighlight">\(80\,\lambda_0 \times 60\lambda_0\)</span> and the simulation time <span class="math notranslate nohighlight">\(150\,\lambda_0/c\)</span>
+with a total of <span class="math notranslate nohighlight">\(\sim 1.4\)</span> billion quasi-particles in the box.</p>
 <p>The following figure (top panel) shows half of the simulation box in the
 y-direction, and the laser field is reported at three different times.
-The reflected laser pulse (at time <span class="math notranslate">\(t_2\)</span>) shows a different spectral content than
-the incident pulse (at time <span class="math notranslate">\(t_0\)</span>). The plasma electron density is shown in black.
+The reflected laser pulse (at time <span class="math notranslate nohighlight">\(t_2\)</span>) shows a different spectral content than
+the incident pulse (at time <span class="math notranslate nohighlight">\(t_0\)</span>). The plasma electron density is shown in black.
 A close-up view of the interaction region is given in the bottom panel, illustrating
 the electron bunches being pulled out from the plasma surface.</p>
 <a class="reference internal image-reference" href="_images/hhg1.jpg"><img alt="_images/hhg1.jpg" src="_images/hhg1.jpg" style="width: 13cm;" /></a>
@@ -433,7 +465,7 @@ from the pump to the seed thanks to the excitation of a plasma or ion-acoustic w
 <p>Here, we look specifically at
 the <a class="reference external" href="http://aip.scitation.org/doi/abs/10.1063/1.861248">stimulated Brillouin scattering</a>
 (SBS) amplification, where the excited waves are ion-acoustic waves.</p>
-<p>A pump with intensity <span class="math notranslate">\(10^{15}\)</span> W/cm² (wavelength 1 µm)
+<p>A pump with intensity <span class="math notranslate nohighlight">\(10^{15}\)</span> W/cm² (wavelength 1 µm)
 correspond to the “strong-coupling” regime, particularly robust with respect to
 plasma inhomogeneities and seed frequency <a class="reference internal" href="material.html#chiaramello2016" id="id1">[Chiaramello2016]</a>.</p>
 <p>A 2-dimensional simulation, in conditions close to actual experiments, ran
@@ -474,34 +506,34 @@ for the plasma, expelled during the early and transition phases, to be evacuated
 the reconnection region. Otherwise, upstream plasma would not inflow,
 thereby stopping reconnection.</p>
 <p>Three ion populations are present.
-The solar wind and magnetospheric populations have densities equal to <span class="math notranslate">\(n_0\)</span> and <span class="math notranslate">\(n_0/10\)</span>,
+The solar wind and magnetospheric populations have densities equal to <span class="math notranslate nohighlight">\(n_0\)</span> and <span class="math notranslate nohighlight">\(n_0/10\)</span>,
 respectively, on their side of the current sheet, and fall to zero on the other side.
-The plume population increases from 0 to <span class="math notranslate">\(2\,n_0\)</span> at <span class="math notranslate">\(20\,c/\omega_{pi}\)</span> from the initial
-current sheet on the magnetospheric side. The magnetic field amplitude goes from <span class="math notranslate">\(2\,B_0\)</span>
-in the magnetosphere to <span class="math notranslate">\(B_0=m_e\omega_{pe}/e\)</span> in the solar wind and is totally in the
+The plume population increases from 0 to <span class="math notranslate nohighlight">\(2\,n_0\)</span> at <span class="math notranslate nohighlight">\(20\,c/\omega_{pi}\)</span> from the initial
+current sheet on the magnetospheric side. The magnetic field amplitude goes from <span class="math notranslate nohighlight">\(2\,B_0\)</span>
+in the magnetosphere to <span class="math notranslate nohighlight">\(B_0=m_e\omega_{pe}/e\)</span> in the solar wind and is totally in the
 simulation plane. The temperature is initially isotropic and its profile is calculated
 to balance the total pressure.</p>
-<p>The domain size is 1280 <span class="math notranslate">\(c/\omega_{pi} \times\)</span> 256 <span class="math notranslate">\(c/\omega_{pi}\)</span>.
-The total simulation time is <span class="math notranslate">\(800\times\)</span> the ion gyration time.
-We used a reduced ion to electron mass ratio <span class="math notranslate">\(m_i/m_e = 25\)</span>, and a ratio
+<p>The domain size is 1280 <span class="math notranslate nohighlight">\(c/\omega_{pi} \times\)</span> 256 <span class="math notranslate nohighlight">\(c/\omega_{pi}\)</span>.
+The total simulation time is <span class="math notranslate nohighlight">\(800\times\)</span> the ion gyration time.
+We used a reduced ion to electron mass ratio <span class="math notranslate nohighlight">\(m_i/m_e = 25\)</span>, and a ratio
 50 of the speed of light by the Alfvén velocity.
 There are initially 8.6 billion quasi-protons for the three populations, and 13 billion electrons.</p>
 <a class="reference internal image-reference" href="_images/reconnection.jpg"><img alt="_images/reconnection.jpg" src="_images/reconnection.jpg" style="width: 15cm;" /></a>
 <p>This figure presents some of the simulation results:
 the electron density at three different times.
 In the top panel, reconnection is in steady state between the solar wind plasma of
-density <span class="math notranslate">\(\simeq n_0\)</span> and the magnetosphere plasma of density <span class="math notranslate">\(\simeq 0.1~n_0\)</span>.
+density <span class="math notranslate nohighlight">\(\simeq n_0\)</span> and the magnetosphere plasma of density <span class="math notranslate nohighlight">\(\simeq 0.1~n_0\)</span>.
 At this time, the exhaust is filled with mixed solar wind/hot magnetospheric plasma as
-the plume (of density <span class="math notranslate">\(\simeq 2~n_0\)</span>) is still located at <span class="math notranslate">\(\simeq 10~c/\omega_{pi}\)</span>
+the plume (of density <span class="math notranslate nohighlight">\(\simeq 2~n_0\)</span>) is still located at <span class="math notranslate nohighlight">\(\simeq 10~c/\omega_{pi}\)</span>
 from the magnetospheric separatrix. The reconnection rate during this period has a
-typical value around <span class="math notranslate">\(0.1~\Omega_{ci}^{-1}\)</span>, with important fluctuations caused
-by plasmoid formation. The plume, originally at <span class="math notranslate">\(20~c/\omega_{pi}\)</span> from the magnetopause,
+typical value around <span class="math notranslate nohighlight">\(0.1~\Omega_{ci}^{-1}\)</span>, with important fluctuations caused
+by plasmoid formation. The plume, originally at <span class="math notranslate nohighlight">\(20~c/\omega_{pi}\)</span> from the magnetopause,
 is slowly advected towards the magnetosphere separatrix and finally touches the
-reconnection site at about <span class="math notranslate">\(t=300~\Omega_{ci}^{-1}\)</span>. The second panel at
-<span class="math notranslate">\(t=370~\Omega_{ci}^{-1}\)</span> shows the plume starting to fill the exhaust after
+reconnection site at about <span class="math notranslate nohighlight">\(t=300~\Omega_{ci}^{-1}\)</span>. The second panel at
+<span class="math notranslate nohighlight">\(t=370~\Omega_{ci}^{-1}\)</span> shows the plume starting to fill the exhaust after
 reaching the reconnection site and mixing with solar wind plasma.
 At this time, the reconnection rate collapses to about half its previous value.
-The transition phase lasts for about <span class="math notranslate">\(100~\Omega_{ci}^{-1}\)</span> before a plume
+The transition phase lasts for about <span class="math notranslate nohighlight">\(100~\Omega_{ci}^{-1}\)</span> before a plume
 reconnection regime reaches a quasi-steady state.
 The third panel shows the electron density at the end of the simulation,
 where the exhaust is filled with plume and solar wind plasma.</p>
@@ -530,10 +562,10 @@ hence stopping it and leading to compression of the downstream (shocked plasma) 
 driven in an initially unmagnetized electron-positron plasma.
 The simulation relies on the “piston” method that consists in initializing the
 simulation with a single cold electron-positron plasma drifting
-at a relativistic velocity <span class="math notranslate">\(v_0 \simeq 0.995\,c\)</span>.
+at a relativistic velocity <span class="math notranslate nohighlight">\(v_0 \simeq 0.995\,c\)</span>.
 Reflecting boundary conditions at the right border creates a counter-penetrating flow.</p>
-<p>The simulation box size is 2048 <span class="math notranslate">\(\delta_e \times\)</span> 128 <span class="math notranslate">\(\delta_e\)</span>
-(<span class="math notranslate">\(\delta_e = c/\omega_p\)</span> being the electron skin-depth of the initial flow),
+<p>The simulation box size is 2048 <span class="math notranslate nohighlight">\(\delta_e \times\)</span> 128 <span class="math notranslate nohighlight">\(\delta_e\)</span>
+(<span class="math notranslate nohighlight">\(\delta_e = c/\omega_p\)</span> being the electron skin-depth of the initial flow),
 with a total of 2.15 billion quasi-particles.
 The following figure show an unstable overlapping region of incoming and
 reflected flows, resulting in the creation, before the shock
@@ -546,7 +578,7 @@ density (panel c).</p>
 <p>The following figure demonstrates the build-up, at late times, of a supra-thermal tail
 in the downstream particle energy distribution.
 It is characteristic of first-order Fermi acceleration at the shock front,
-and appears to follow a <span class="math notranslate">\(\gamma^{-2.5}\)</span> power law.</p>
+and appears to follow a <span class="math notranslate nohighlight">\(\gamma^{-2.5}\)</span> power law.</p>
 <a class="reference internal image-reference" href="_images/shock3.jpg"><img alt="_images/shock3.jpg" src="_images/shock3.jpg" style="width: 11cm;" /></a>
 <p>This simulation run on the TGCC/Curie machine using 128 MPI x 8 OpenMP threads
 for a total of 18800 CPU-hours for 49780 timesteps.
@@ -572,7 +604,7 @@ The average push time for one quasi-particle was of 0.63 µs (including 20% for 
         <li class="right" >
           <a href="synopsis.html" title="Synopsis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -580,11 +612,11 @@ The average push time for one quasi-particle was of 0.63 µs (including 20% for 
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -644,6 +676,18 @@ The average push time for one quasi-particle was of 0.63 µs (including 20% for 
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Write a namelist &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -73,6 +73,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -118,6 +121,9 @@
           </li>
           <li class="outer">
               <a href="post-processing.html">Post-process</a>
+          </li>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
           </li>
         </ul>
         <hr />
@@ -193,10 +199,13 @@
             
         
         <div class="menu" id="menu_Licence">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -218,10 +227,13 @@
         </div>
         
         <div class="menu" id="menu_Units">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -245,6 +257,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -252,10 +267,13 @@
         </div>
         
         <div class="menu" id="menu_Install" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -270,6 +288,9 @@
                         <li class="outer">
                             <a href="post-processing.html">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -277,10 +298,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -296,6 +320,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -381,7 +413,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -431,7 +463,7 @@ defined between brackets <code class="docutils literal notranslate"><span class=
 For example, <code class="docutils literal notranslate"><span class="pre">mean_velocity</span> <span class="pre">=</span> <span class="pre">[0.,</span> <span class="pre">1.1,</span> <span class="pre">3.]</span></code>.</p>
 </li>
 <li><p class="first">You are free to import any installed <em>python</em> package into the namelist.
-For instance, you may obtain <span class="math notranslate">\(\pi\)</span> using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">pi</span></code>.</p>
+For instance, you may obtain <span class="math notranslate nohighlight">\(\pi\)</span> using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">pi</span></code>.</p>
 </li>
 <li><p class="first">All quantities are normalized to arbitrary values: see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>.</p>
 </li>
@@ -514,7 +546,7 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dd><dl class="docutils">
 <dt>A list of numbers: size of the simulation box for each dimension of the simulation.</dt>
 <dd><ul class="first last simple">
-<li>Either <code class="docutils literal notranslate"><span class="pre">grid_length</span></code>, the simulation length in each direction in units of <span class="math notranslate">\(L_r\)</span>,</li>
+<li>Either <code class="docutils literal notranslate"><span class="pre">grid_length</span></code>, the simulation length in each direction in units of <span class="math notranslate nohighlight">\(L_r\)</span>,</li>
 <li>or <code class="docutils literal notranslate"><span class="pre">number_of_cells</span></code>, the number of cells in each direction.</li>
 </ul>
 </dd>
@@ -524,7 +556,7 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dl class="data">
 <dt id="cell_length">
 <code class="descname">cell_length</code><a class="headerlink" href="#cell_length" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of floats: sizes of one cell in each direction in units of <span class="math notranslate">\(L_r\)</span>.</p>
+<dd><p>A list of floats: sizes of one cell in each direction in units of <span class="math notranslate nohighlight">\(L_r\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -535,7 +567,7 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dd><dl class="docutils">
 <dt>Duration of the simulation.</dt>
 <dd><ul class="first last simple">
-<li>Either <code class="docutils literal notranslate"><span class="pre">simulation_time</span></code>, the simulation duration in units of <span class="math notranslate">\(T_r\)</span>,</li>
+<li>Either <code class="docutils literal notranslate"><span class="pre">simulation_time</span></code>, the simulation duration in units of <span class="math notranslate nohighlight">\(T_r\)</span>,</li>
 <li>or <code class="docutils literal notranslate"><span class="pre">number_of_timesteps</span></code>, the total number of timesteps.</li>
 </ul>
 </dd>
@@ -550,7 +582,7 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dd><dl class="docutils">
 <dt>Duration of one timestep.</dt>
 <dd><ul class="first last simple">
-<li>Either <code class="docutils literal notranslate"><span class="pre">timestep</span></code>, in units of <span class="math notranslate">\(T_r\)</span>,</li>
+<li>Either <code class="docutils literal notranslate"><span class="pre">timestep</span></code>, in units of <span class="math notranslate nohighlight">\(T_r\)</span>,</li>
 <li>or <code class="docutils literal notranslate"><span class="pre">timestep_over_CFL</span></code>, in units of the <em>Courant–Friedrichs–Lewy</em> (CFL) time.</li>
 </ul>
 </dd>
@@ -642,6 +674,49 @@ are available for 2DCartesian and <code class="docutils literal notranslate"><sp
 </dd></dl>
 
 <dl class="data">
+<dt id="solve_relativistic_poisson">
+<code class="descname">solve_relativistic_poisson</code><a class="headerlink" href="#solve_relativistic_poisson" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">False</td>
+</tr>
+</tbody>
+</table>
+<p>Decides if relativistic Poisson problem must be solved for at least one species.
+See <a class="reference internal" href="relativistic_fields_initialization.html"><span class="doc">Field initialization for relativistic species</span></a> for more details.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="relativistic_poisson_max_iteration">
+<code class="descname">relativistic_poisson_max_iteration</code><a class="headerlink" href="#relativistic_poisson_max_iteration" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">50000</td>
+</tr>
+</tbody>
+</table>
+<p>Maximum number of iteration for the Poisson solver.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="relativistic_poisson_max_error">
+<code class="descname">relativistic_poisson_max_error</code><a class="headerlink" href="#relativistic_poisson_max_error" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">1e-22</td>
+</tr>
+</tbody>
+</table>
+<p>Maximum error for the Poisson solver.</p>
+</dd></dl>
+
+<dl class="data">
 <dt id="EM_boundary_conditions">
 <code class="descname">EM_boundary_conditions</code><a class="headerlink" href="#EM_boundary_conditions" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -660,6 +735,33 @@ the following conditions: <code class="docutils literal notranslate"><span class
 <div class="line"><strong>Syntax 1:</strong> <code class="docutils literal notranslate"><span class="pre">[[bc_all]]</span></code>, identical for all boundaries.</div>
 <div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">[[bc_X],</span> <span class="pre">[bc_Y],</span> <span class="pre">...]</span></code>, different depending on x, y or z.</div>
 <div class="line"><strong>Syntax 3:</strong> <code class="docutils literal notranslate"><span class="pre">[[bc_Xmin,</span> <span class="pre">bc_Xmax],</span> <span class="pre">...]</span></code>,  different on each boundary.</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> is an open boundary condition. The incident wave vector <span class="math notranslate nohighlight">\(k_i\)</span> on each face is defined by <code class="docutils literal notranslate"><span class="pre">&quot;EM_boundary_conditions_k&quot;</span></code>.
+When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an injecting boundary, make sure <span class="math notranslate nohighlight">\(k_i\)</span> is aligned with the wave you are injecting.
+When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an absorbing boundary, the optimal wave absorption on a given face will be along <span class="math notranslate nohighlight">\(k_{abs}\)</span> the specular reflection of <span class="math notranslate nohighlight">\(k_i\)</span> on face <cite>i</cite>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="EM_boundary_conditions_k">
+<code class="descname">EM_boundary_conditions_k</code><a class="headerlink" href="#EM_boundary_conditions_k" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of lists of floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[[1.,0.],[-1.,0.],[0.,1.],[0.,-1.]]</span></code> in 2D</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[[1.,0.,0.],[-1.,0.,0.],[0.,1.,0.],[0.,-1.,0.],[0.,0.,1.],[0.,0.,-1.]]</span></code> in 3D</td>
+</tr>
+</tbody>
+</table>
+<p>The incident unit wave vector for each face (sequentially Xmin, Xmax, Ymin, Ymax, Zmin, Zmax)
+defined by its coordinates in the <cite>xyz</cite> frame.
+The number of coordinates is equal to the dimension of the simulation.</p>
+<div class="line-block">
+<div class="line"><strong>Syntax 1:</strong> <code class="docutils literal notranslate"><span class="pre">[[1,0,0]]</span></code>, identical for all boundaries.</div>
+<div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">[[1,0,0],[-1,0,0],</span> <span class="pre">...]</span></code>,  different on each boundary.</div>
 </div>
 </dd></dl>
 
@@ -683,10 +785,10 @@ the following conditions: <code class="docutils literal notranslate"><span class
 <span class="target" id="reference-angular-frequency-si"></span><dl class="data">
 <dt id="reference_angular_frequency_SI">
 <code class="descname">reference_angular_frequency_SI</code><a class="headerlink" href="#reference_angular_frequency_SI" title="Permalink to this definition">¶</a></dt>
-<dd><p>The value of the reference angular frequency <span class="math notranslate">\(\omega_r\)</span> in SI units,
+<dd><p>The value of the reference angular frequency <span class="math notranslate nohighlight">\(\omega_r\)</span> in SI units,
 <strong>only needed when collisions, ionization, radiation losses
 or multiphoton Breit-Wheeler pair creation are requested</strong>.
-This frequency is related to the normalization length according to <span class="math notranslate">\(L_r\omega_r = c\)</span>
+This frequency is related to the normalization length according to <span class="math notranslate nohighlight">\(L_r\omega_r = c\)</span>
 (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>).</p>
 </dd></dl>
 
@@ -862,7 +964,7 @@ corresponding to the <cite>x</cite> coordinate corrected by the moving window’
 </div>
 <div class="section" id="current-filtering">
 <span id="currentfilter"></span><h2>Current filtering<a class="headerlink" href="#current-filtering" title="Permalink to this headline">¶</a></h2>
-<p>The present version of <strong class="program">Smilei</strong> provides one method for current filtering,
+<p>The present version of <strong class="program">Smilei</strong> provides a <a class="reference internal" href="algorithms.html#multipassbinomialfilter"><span class="std std-ref">multi-pass binomial filter</span></a> on the current densities,
 which parameters are controlled in the following block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CurrentFilter</span><span class="p">(</span>
     <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">,</span>
@@ -902,7 +1004,8 @@ which parameters are controlled in the following block:</p>
 </div>
 <div class="section" id="field-filtering">
 <span id="fieldfilter"></span><h2>Field filtering<a class="headerlink" href="#field-filtering" title="Permalink to this headline">¶</a></h2>
-<p>The present version of <strong class="program">Smilei</strong> provides one method for field filtering,
+<p>The present version of <strong class="program">Smilei</strong> provides a method for field filtering
+(at the moment, only the <a class="reference internal" href="algorithms.html#efieldfilter"><span class="std std-ref">Friedman electric field time-filter</span></a> is available)
 which parameters are controlled in the following block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FieldFilter</span><span class="p">(</span>
     <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;Friedman&quot;</span><span class="p">,</span>
@@ -935,7 +1038,7 @@ which parameters are controlled in the following block:</p>
 </tr>
 </tbody>
 </table>
-<p>The <span class="math notranslate">\(\theta\)</span> parameter (between 0 and 1) of Friedman’s method.</p>
+<p>The <span class="math notranslate nohighlight">\(\theta\)</span> parameter (between 0 and 1) of Friedman’s method.</p>
 </dd></dl>
 
 <hr class="docutils" />
@@ -975,6 +1078,9 @@ which parameters are controlled in the following block:</p>
     <span class="n">radiation_photon_sampling</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">radiation_photon_gamma_threshold</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 
+    <span class="c1"># Relativistic field initialization:</span>
+    <span class="n">relativistic_field_initialization</span> <span class="o">=</span> <span class="s2">&quot;False&quot;</span><span class="p">,</span>
+
     <span class="c1"># For photon species only:</span>
     <span class="n">multiphoton_Breit_Wheeler</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;electron&quot;</span><span class="p">,</span><span class="s2">&quot;positron&quot;</span><span class="p">],</span>
     <span class="n">multiphoton_Breit_Wheeler_sampling</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -990,40 +1096,39 @@ which parameters are controlled in the following block:</p>
 <dl class="data">
 <dt id="position_initialization">
 <code class="descname">position_initialization</code><a class="headerlink" href="#position_initialization" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>The initialization of particle positions:</p>
+<dd><p>The method for initialization of particle positions. Options are:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&quot;regular&quot;</span></code> for regularly spaced</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code> for randomly distributed</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;centered&quot;</span></code> for centered in each cell</li>
+<li>The <a class="reference internal" href="#name" title="name"><code class="xref py py-data docutils literal notranslate"><span class="pre">name</span></code></a> of another species from which the positions are copied.
+This option requires (1) that the <em>target</em> species’ positions are initialized
+using one of the three other options above and (2) that the number of particles
+of both species are identical in each cell.</li>
+<li>A <em>numpy</em> array defining all the positions of the species’ particles.
+In this case you must also provide the weight of each particle (see <a class="reference internal" href="units.html#weights"><span class="std std-ref">Macro-particle weights</span></a>).
+The array shape must be <cite>(Ndim+1, Npart)</cite> where <cite>Ndim</cite> is the simulation dimension,
+and <cite>Npart</cite> is the total number of particles. Positions components <cite>x</cite>, <cite>y</cite>, <cite>z</cite> are
+given along the first columns and the weights are given in the last column of the array.
+This initialization is incompatible with <a class="reference internal" href="#number_density" title="number_density"><code class="xref py py-data docutils literal notranslate"><span class="pre">number_density</span></code></a>, <a class="reference internal" href="#charge_density" title="charge_density"><code class="xref py py-data docutils literal notranslate"><span class="pre">charge_density</span></code></a>
+and <a class="reference internal" href="#particles_per_cell" title="particles_per_cell"><code class="xref py py-data docutils literal notranslate"><span class="pre">particles_per_cell</span></code></a>.</li>
 </ul>
-<p>You can also decide to initialize species particles on another species particles (“targeted species”). In this case, replace one of the previous option by the name of the “targeted” species. For example, you want initialize position “electron” on randomly distributed “ion”</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Species</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ion&quot;</span><span class="p">,</span>
-    <span class="n">position_initialization</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
-    <span class="o">...</span>
-<span class="p">)</span>
-
-<span class="n">Species</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;electron&quot;</span><span class="p">,</span>
-    <span class="n">position_initialization</span> <span class="o">=</span> <span class="s2">&quot;ion&quot;</span><span class="p">,</span>
-    <span class="o">...</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><span class="red">Warning</span> Target species have to be initialize with “random”,”centered” or “regular”</p>
-<p><span class="red">Warning</span> The number of first species particles have to be the same of the second species particles</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="momentum_initialization">
 <code class="descname">momentum_initialization</code><a class="headerlink" href="#momentum_initialization" title="Permalink to this definition">¶</a></dt>
-<dd><p>The initialization of particle momenta:</p>
+<dd><p>The method for initialization of particle momenta. Options are:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&quot;maxwell-juettner&quot;</span></code> for a relativistic maxwellian (see <a class="reference internal" href="maxwell-juttner.html"><span class="doc">how it is done</span></a>)</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;rectangular&quot;</span></code> for a rectangular distribution</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;cold&quot;</span></code> for zero temperature</li>
+<li>A <em>numpy</em> array defining all the momenta of the species’ particles (requires that
+<a class="reference internal" href="#position_initialization" title="position_initialization"><code class="xref py py-data docutils literal notranslate"><span class="pre">position_initialization</span></code></a> also be an array with the same number of particles).
+The array shape must be <cite>(Ndim, Npart)</cite> where <cite>Ndim</cite> is the simulation dimension,
+and <cite>Npart</cite> is the total number of particles. Momentum components <cite>px</cite>, <cite>py</cite>, <cite>pz</cite>
+are given in successive columns.This initialization is incompatible with
+<a class="reference internal" href="#temperature" title="temperature"><code class="xref py py-data docutils literal notranslate"><span class="pre">temperature</span></code></a> and <a class="reference internal" href="#mean_velocity" title="mean_velocity"><code class="xref py py-data docutils literal notranslate"><span class="pre">mean_velocity</span></code></a>.</li>
 </ul>
 <p>The first 2 distributions depend on the parameter <a class="reference internal" href="#temperature" title="temperature"><code class="xref py py-data docutils literal notranslate"><span class="pre">temperature</span></code></a> explained below.</p>
 </dd></dl>
@@ -1045,7 +1150,7 @@ which parameters are controlled in the following block:</p>
 <dl class="data">
 <dt id="mass">
 <code class="descname">mass</code><a class="headerlink" href="#mass" title="Permalink to this definition">¶</a></dt>
-<dd><p>The mass of particles, in units of the electron mass <span class="math notranslate">\(m_e\)</span>.</p>
+<dd><p>The mass of particles, in units of the electron mass <span class="math notranslate nohighlight">\(m_e\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1077,7 +1182,7 @@ It must be lower than 101.</p>
 </tbody>
 </table>
 <p>The absolute value of the number density or charge density (choose one only)
-of the particle distribution, in units of the reference density <span class="math notranslate">\(N_r\)</span> (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>).</p>
+of the particle distribution, in units of the reference density <span class="math notranslate nohighlight">\(N_r\)</span> (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>).</p>
 </dd></dl>
 
 <dl class="data">
@@ -1091,7 +1196,7 @@ of the particle distribution, in units of the reference density <span class="mat
 </tr>
 </tbody>
 </table>
-<p>The particle charge, in units of the elementary charge <span class="math notranslate">\(e\)</span>.</p>
+<p>The particle charge, in units of the elementary charge <span class="math notranslate nohighlight">\(e\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1105,7 +1210,7 @@ of the particle distribution, in units of the reference density <span class="mat
 </tr>
 </tbody>
 </table>
-<p>The initial drift velocity of the particles, in units of the speed of light <span class="math notranslate">\(c\)</span>.</p>
+<p>The initial drift velocity of the particles, in units of the speed of light <span class="math notranslate nohighlight">\(c\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1119,7 +1224,7 @@ of the particle distribution, in units of the reference density <span class="mat
 </tr>
 </tbody>
 </table>
-<p>The initial temperature of the particles, in units of <span class="math notranslate">\(m_ec^2\)</span>.</p>
+<p>The initial temperature of the particles, in units of <span class="math notranslate nohighlight">\(m_ec^2\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1192,7 +1297,7 @@ the thermal boundaries (those set to <code class="docutils literal notranslate">
 </tr>
 </tbody>
 </table>
-<p>The time during which the particle positions are not updated, in units of <span class="math notranslate">\(T_r\)</span>.</p>
+<p>The time during which the particle positions are not updated, in units of <span class="math notranslate nohighlight">\(T_r\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1248,16 +1353,14 @@ which do not participate in the charge and currents.</p>
 </tr>
 </tbody>
 </table>
-<p>Type of pusher to be used for this species. The default value corresponds to the
-relativistic Boris pusher. Smilei has the following solvers implemented:</p>
+<p>Type of pusher to be used for this species. Options are:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&quot;boris&quot;</span></code>: The relativistic Boris pusher</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;borisnr&quot;</span></code>: The non-relativistic Boris pusher</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;vay&quot;</span></code>: The relativistic pusher of J. L. Vay</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;higueracary&quot;</span></code>: The relativistic pusher of A. V. Higuera and J. R. Cary</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;norm&quot;</span></code>:  For photon species only (rectilinear propagation)</li>
 </ul>
-<p>For photon species, the only pusher available is <code class="docutils literal notranslate"><span class="pre">&quot;norm&quot;</span></code> and corresponds to
-a rectilinear propagation.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1271,9 +1374,7 @@ a rectilinear propagation.</p>
 </tr>
 </tbody>
 </table>
-<p>Radiation reaction model used for this species (see <a class="reference internal" href="radiation_loss.html"><span class="doc">Synchrotron-like radiation reaction</span></a>).
-No radiation is actually emitted, unless you use the <code class="docutils literal notranslate"><span class="pre">&quot;Monte-Carlo&quot;</span></code> model
-and you define <a class="reference internal" href="#radiation_photon_species" title="radiation_photon_species"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_photon_species</span></code></a>.</p>
+<p>The <strong>radiation reaction</strong> model used for this species (see <a class="reference internal" href="radiation_loss.html"><span class="doc">Synchrotron-like radiation reaction</span></a>).</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>: no radiation</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;Landau-Lifshitz&quot;</span></code> (or <code class="docutils literal notranslate"><span class="pre">ll</span></code>): Landau-Lifshitz model approximated for high energies</li>
@@ -1281,28 +1382,19 @@ and you define <a class="reference internal" href="#radiation_photon_species" ti
 <li><code class="docutils literal notranslate"><span class="pre">&quot;&quot;Niel&quot;</span></code>: a <a class="reference external" href="https://arxiv.org/abs/1707.02618">stochastic radiation model</a> based on the work of Niel <cite>et al.</cite>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;Monte-Carlo&quot;</span></code> (or <code class="docutils literal notranslate"><span class="pre">mc</span></code>): Monte-Carlo radiation model. This model can be configured to generate macro-photons with <a class="reference internal" href="#radiation_photon_species" title="radiation_photon_species"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_photon_species</span></code></a>.</li>
 </ul>
-<p><span class="red">This parameter cannot be assigned to photons (mass=0).</span></p>
+<p>This parameter cannot be assigned to photons (mass = 0).</p>
+<p>Radiation is emitted only with the <code class="docutils literal notranslate"><span class="pre">&quot;Monte-Carlo&quot;</span></code> model when
+<a class="reference internal" href="#radiation_photon_species" title="radiation_photon_species"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_photon_species</span></code></a> is defined.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="radiation_photon_species">
 <code class="descname">radiation_photon_species</code><a class="headerlink" href="#radiation_photon_species" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
-</tr>
-</tbody>
-</table>
-<p><span class="red">This parameter is an attribute of particle species only (mass&gt;0).</span></p>
-<p>This parameter determines whether the Monte-Carlo <code class="xref py py-data docutils literal notranslate"><span class="pre">radiation</span> <span class="pre">model</span></code>
-will generate macro-photons. By default, the photon species is set to <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>
-meaning that no macro-photon will be created. To set the macro-photon generation,
-a photon species (<code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">=</span> <span class="pre">0</span></code>) has to be created after the particle species
-(<code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>) and the parameter <code class="docutils literal notranslate"><span class="pre">radiation_photon_species</span></code> set to this
-photon species name.</p>
-<p><span class="red">This parameter cannot be assigned to photons (mass=0).</span></p>
+<dd><p>The <a class="reference internal" href="#name" title="name"><code class="xref py py-data docutils literal notranslate"><span class="pre">name</span></code></a> of the photon species in which the Monte-Carlo <a class="reference internal" href="#radiation_model" title="radiation_model"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_model</span></code></a>
+will generate macro-photons. If unset (or <code class="docutils literal notranslate"><span class="pre">None</span></code>), no macro-photon will be created.
+The <em>target</em> photon species must be have its mass set to 0, and appear <em>after</em> the
+particle species in the namelist.</p>
+<p>This parameter cannot be assigned to photons (mass = 0).</p>
 </dd></dl>
 
 <dl class="data">
@@ -1316,17 +1408,11 @@ photon species name.</p>
 </tr>
 </tbody>
 </table>
-<p>When the macro-photon creation is activated
-(<a class="reference internal" href="#radiation_photon_species" title="radiation_photon_species"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_photon_species</span></code></a> set to one of the defined photon species),
-this parameter is the number of macro-photons generated per emission event.
-By default, a single macro-photon is created per emission but in order to
-improve the photon statistics, one can decide to increase this number.
-The weight of each photon is therefore the emitting particle one divided
-by this number.
-Obviously, this parameter can not be below 1. Note that a large number will
-rapidly slow down the application performance and can lead to memory
-saturation.</p>
-<p><span class="red">This parameter cannot be assigned to photons (mass=0).</span></p>
+<p>The number of macro-photons generated per emission event, when the macro-photon creation
+is activated (see <a class="reference internal" href="#radiation_photon_species" title="radiation_photon_species"><code class="xref py py-data docutils literal notranslate"><span class="pre">radiation_photon_species</span></code></a>). The total macro-photon weight
+is still conserved.</p>
+<p>A large number may rapidly slow down the performances and lead to memory saturation.</p>
+<p>This parameter cannot be assigned to photons (mass = 0).</p>
 </dd></dl>
 
 <dl class="data">
@@ -1340,13 +1426,29 @@ saturation.</p>
 </tr>
 </tbody>
 </table>
-<p>Threshold on the photon energy for the macro-photon emission when using the
+<p>The threshold on the photon energy for the macro-photon emission when using the
 radiation reaction Monte-Carlo process.
 Under this threshold, the macro-photon from the radiation reaction Monte-Carlo
-process is not created but taken anyway into account in the energy balance.
+process is not created but still taken into account in the energy balance.
 The default value corresponds to twice the electron rest mass energy that
 is the required energy to decay into electron-positron pairs.</p>
-<p><span class="red">This parameter cannot be assigned to photons (mass=0).</span></p>
+<p>This parameter cannot be assigned to photons (mass = 0).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="relativistic_field_initialization">
+<code class="descname">relativistic_field_initialization</code><a class="headerlink" href="#relativistic_field_initialization" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">False</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Flag for relativistic particles. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the electromagnetic fields of this species will added to the electromagnetic fields already present in the simulation.
+This operation will be performed when time equals <a class="reference internal" href="#time_frozen" title="time_frozen"><code class="xref py py-data docutils literal notranslate"><span class="pre">time_frozen</span></code></a>. See <a class="reference internal" href="relativistic_fields_initialization.html"><span class="doc">Field initialization for relativistic species</span></a> for details on the computation of the electromagentic fields of a relativistic species.
+To have physically meaningful results, we recommend to place a species which requires this method of field initialization far from other species, otherwise the latter could experience instantly turned-on unphysical forces by the relativistic species’ fields.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1360,14 +1462,10 @@ is the required energy to decay into electron-positron pairs.</p>
 </tr>
 </tbody>
 </table>
-<p><span class="red">This parameter is an attribute of photon species only (mass=0).</span></p>
-<p>This entry is an
-array of two strings respectively corresponding to one for the previously
-defined electron and the positron species.
-By default, <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> means that the process is not activated.
-To activate the multiphoton Breit-Wheeler pair creation, just specify
-a defined electron and positron species. (see <a class="reference internal" href="multiphoton_Breit_Wheeler.html"><span class="doc">Multiphoton Breit-Wheeler pair creation</span></a>)</p>
-<p><span class="red">This parameter is an attribute of photon species only (mass=0).</span></p>
+<p>An list of the <a class="reference internal" href="#name" title="name"><code class="xref py py-data docutils literal notranslate"><span class="pre">name</span></code></a> of two species: electrons and positrons created through
+the <a class="reference internal" href="multiphoton_Breit_Wheeler.html"><span class="doc">Multiphoton Breit-Wheeler pair creation</span></a>.
+By default, the process is not activated.</p>
+<p>This parameter can <strong>only</strong> be assigned to photons species (mass = 0).</p>
 </dd></dl>
 
 <dl class="data">
@@ -1381,14 +1479,11 @@ a defined electron and positron species. (see <a class="reference internal" href
 </tr>
 </tbody>
 </table>
-<p>This entry is an array of two integers respectively corresponding to the
-number of electrons and positrons generated per photon decay. By default,
-a single electron and positron are created. This number can be increased
-to improve the particle statistics. The weight of each particle is therefore
-the photon one divided by the corresponding number. Obviously, this parameter can not be
-below 1. Note that large numbers will rapidly slow down the application
-performance and can lead to memory saturation. (see <a class="reference internal" href="multiphoton_Breit_Wheeler.html"><span class="doc">Multiphoton Breit-Wheeler pair creation</span></a>)</p>
-<p><span class="red">This parameter is an attribute of photon species only (mass=0).</span></p>
+<p>A list of two integers: the number of electrons and positrons generated per photon decay
+in the <a class="reference internal" href="multiphoton_Breit_Wheeler.html"><span class="doc">Multiphoton Breit-Wheeler pair creation</span></a>. The total macro-particle weight is still
+conserved.</p>
+<p>Large numbers may rapidly slow down the performances and lead to memory saturation.</p>
+<p>This parameter can <strong>only</strong> be assigned to photons species (mass = 0).</p>
 </dd></dl>
 
 </div>
@@ -1435,8 +1530,8 @@ There are several syntaxes to introduce a laser in <strong class="program">Smile
 </table>
 <p>The full wave expression at the chosen box side. It is a list of <strong>two</strong> <em>python</em>
 functions taking several arguments depending on the simulation dimension:
-<span class="math notranslate">\((t)\)</span> for a 1-D simulation, <span class="math notranslate">\((y,t)\)</span> for a 2-D simulation (etc.)
-The two functions represent <span class="math notranslate">\(B_y\)</span> and <span class="math notranslate">\(B_z\)</span>, respectively.</p>
+<span class="math notranslate nohighlight">\((t)\)</span> for a 1-D simulation, <span class="math notranslate nohighlight">\((y,t)\)</span> for a 2-D simulation (etc.)
+The two functions represent <span class="math notranslate nohighlight">\(B_y\)</span> and <span class="math notranslate nohighlight">\(B_z\)</span>, respectively.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -1448,18 +1543,21 @@ The two functions represent <span class="math notranslate">\(B_y\)</span> and <s
     <span class="n">chirp_profile</span>  <span class="o">=</span> <span class="n">tconstant</span><span class="p">(),</span>
     <span class="n">time_envelope</span>  <span class="o">=</span> <span class="n">tgaussian</span><span class="p">(),</span>
     <span class="n">space_envelope</span> <span class="o">=</span> <span class="p">[</span> <span class="n">By_profile</span>  <span class="p">,</span> <span class="n">Bz_profile</span>   <span class="p">],</span>
-    <span class="n">phase</span>          <span class="o">=</span> <span class="p">[</span> <span class="n">PhiY_profile</span><span class="p">,</span> <span class="n">PhiZ_profile</span> <span class="p">]</span>
+    <span class="n">phase</span>          <span class="o">=</span> <span class="p">[</span> <span class="n">PhiY_profile</span><span class="p">,</span> <span class="n">PhiZ_profile</span> <span class="p">],</span>
+    <span class="n">delay_phase</span>    <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>This implements a wave of the form:</p>
-<div class="math notranslate">
-\[ \begin{align}\begin{aligned}B_y(\mathbf{x}, t) = S_y(\mathbf{x})\; T\left[t-\phi_y(\mathbf{x})/\omega(t)\right]
-\;\sin\left( \omega(t) t - \phi_y(\mathbf{x}) \right)\\B_z(\mathbf{x}, t) = S_z(\mathbf{x})\; T\left[t-\phi_z(\mathbf{x})/\omega(t)\right]
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}B_y(\mathbf{x}, t) = S_y(\mathbf{x})\; T\left(t-t_{0y}\right)
+\;\sin\left( \omega(t) t - \phi_y(\mathbf{x}) \right)\\B_z(\mathbf{x}, t) = S_z(\mathbf{x})\; T\left(t-t_{0z}\right)
 \;\sin\left( \omega(t) t - \phi_z(\mathbf{x}) \right)\end{aligned}\end{align} \]</div>
-<p>where <span class="math notranslate">\(T\)</span> is the temporal envelope, <span class="math notranslate">\(S_y\)</span> and <span class="math notranslate">\(S_y\)</span> are the
-spatial envelopes, <span class="math notranslate">\(\omega\)</span> is the time-varying frequency, and
-<span class="math notranslate">\(\phi_y\)</span> and <span class="math notranslate">\(\phi_z\)</span> are the phases.</p>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temporal envelope, <span class="math notranslate nohighlight">\(S_y\)</span> and <span class="math notranslate nohighlight">\(S_z\)</span> are the
+spatial envelopes, <span class="math notranslate nohighlight">\(\omega\)</span> is the time-varying frequency,
+<span class="math notranslate nohighlight">\(\phi_y\)</span> and <span class="math notranslate nohighlight">\(\phi_z\)</span> are the phases, and we defined the delays
+<span class="math notranslate nohighlight">\(t_{0y} = (\phi_y(\mathbf{x})-\varphi_y)/\omega(t)\)</span> and
+<span class="math notranslate nohighlight">\(t_{0z} = (\phi_z(\mathbf{x})-\varphi_z)/\omega(t)\)</span>.</p>
 <dl class="data">
 <dt id="omega">
 <code class="descname">omega</code><a class="headerlink" href="#omega" title="Permalink to this definition">¶</a></dt>
@@ -1491,9 +1589,29 @@ spatial envelopes, <span class="math notranslate">\(\omega\)</span> is the time-
 </tbody>
 </table>
 <p>The variation of the laser frequency over time, such that
-<span class="math notranslate">\(\omega(t)=\mathtt{omega}\times\mathtt{chirp\_profile}(t)\)</span>.</p>
+<span class="math notranslate nohighlight">\(\omega(t)=\mathtt{omega}\times\mathtt{chirp\_profile}(t)\)</span>.</p>
 </dd></dl>
 
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This definition of the chirp profile is not standard.
+Indeed, <span class="math notranslate nohighlight">\(\omega(t)\)</span> as defined here <strong>is not</strong> the instantaneous frequency, <span class="math notranslate nohighlight">\(\omega_{\rm inst}(t)\)</span>,
+which is obtained from the time derivative of the phase <span class="math notranslate nohighlight">\(\omega(t) t\)</span>.</p>
+<p>Should one define the chirp as <span class="math notranslate nohighlight">\(C(t) = \omega_{\rm inst}(t)/\omega\)</span> (with <span class="math notranslate nohighlight">\(\omega\)</span> defined by the input
+parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>), the user can easily obtain the corresponding chirp profile as defined in
+<strong class="program">Smilei</strong> as:</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{chirp\_profile}(t) = \frac{1}{t} \int_0^t dt' C(t')\,.\]</div>
+<p>Let us give as an example the case of a <em>linear chirp</em>, with the instantaneous frequency
+<span class="math notranslate nohighlight">\(\omega_{\rm inst}(t) = \omega [1+\alpha\,\omega(t-t_0)]\)</span>.
+<span class="math notranslate nohighlight">\(C(t) = 1+\alpha\,\omega(t-t_0)\)</span>. The corresponding input chirp profile reads:</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{chirp\_profile}(t) = 1 - \alpha\, \omega t_0 + \frac{\alpha}{2} \omega t\]</div>
+<p>Similarly, for a <em>geometric (exponential) chirp</em> such that <span class="math notranslate nohighlight">\(\omega_{\rm inst}(t) = \omega\, \alpha^{\omega t}\)</span>,
+<span class="math notranslate nohighlight">\(C(t) = \alpha^{\omega t}\)</span>, and the corresponding input chirp profile reads:</p>
+<div class="last math notranslate nohighlight">
+\[\mathtt{chirp\_profile}(t) = \frac{\alpha^{\omega t} - 1}{\omega t \, \ln \alpha}\,.\]</div>
+</div>
 <dl class="data">
 <dt id="time_envelope">
 <code class="descname">time_envelope</code><a class="headerlink" href="#time_envelope" title="Permalink to this definition">¶</a></dt>
@@ -1523,7 +1641,7 @@ spatial envelopes, <span class="math notranslate">\(\omega\)</span> is the time-
 </tr>
 </tbody>
 </table>
-<p>The two spatial envelopes <span class="math notranslate">\(S_y\)</span> and <span class="math notranslate">\(S_z\)</span>.</p>
+<p>The two spatial envelopes <span class="math notranslate nohighlight">\(S_y\)</span> and <span class="math notranslate nohighlight">\(S_z\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1539,7 +1657,25 @@ spatial envelopes, <span class="math notranslate">\(\omega\)</span> is the time-
 </tr>
 </tbody>
 </table>
-<p>The two spatially-varying phases <span class="math notranslate">\(\phi_y\)</span> and <span class="math notranslate">\(\phi_z\)</span>.</p>
+<p>The two spatially-varying phases <span class="math notranslate nohighlight">\(\phi_y\)</span> and <span class="math notranslate nohighlight">\(\phi_z\)</span>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="delay_phase">
+<code class="descname">delay_phase</code><a class="headerlink" href="#delay_phase" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">0.,</span> <span class="pre">0.</span> <span class="pre">]</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>An extra phase for the time envelopes of <span class="math notranslate nohighlight">\(B_y\)</span> and <span class="math notranslate nohighlight">\(B_z\)</span>. Useful in the
+case of elliptical polarization where the two temporal profiles might have a slight
+delay due to the mismatched <a class="reference internal" href="#phase" title="phase"><code class="xref py py-data docutils literal notranslate"><span class="pre">phase</span></code></a>.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -1604,7 +1740,7 @@ spatial envelopes, <span class="math notranslate">\(\omega\)</span> is the time-
 </tr>
 </tbody>
 </table>
-<p>The polarization ellipticity: 0 for linear and <span class="math notranslate">\(\pm 1\)</span> for circular.</p>
+<p>The polarization ellipticity: 0 for linear and <span class="math notranslate nohighlight">\(\pm 1\)</span> for circular.</p>
 </dd></dl>
 
 </div></blockquote>
@@ -1777,16 +1913,16 @@ external fields, etc. Depending on the case, they can be <em>spatial</em> or <em
 profiles.</p>
 <p class="rubric">1. Constant profiles</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">charge</span> <span class="pre">=</span> <span class="pre">-3.,</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species with charge <span class="math notranslate">\(Z^\star=3\)</span>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">number_density</span> <span class="pre">=</span> <span class="pre">10.,</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species with density <span class="math notranslate">\(10\,N_r\)</span>.
+<li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">charge</span> <span class="pre">=</span> <span class="pre">-3.,</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species with charge <span class="math notranslate nohighlight">\(Z^\star=3\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">number_density</span> <span class="pre">=</span> <span class="pre">10.,</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species with density <span class="math notranslate nohighlight">\(10\,N_r\)</span>.
 You can choose <code class="docutils literal notranslate"><span class="pre">number_density</span></code> or <code class="docutils literal notranslate"><span class="pre">charge_density</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">mean_velocity</span> <span class="pre">=</span> <span class="pre">[0.05,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species
-with drift velocity <span class="math notranslate">\(v_x = 0.05\,c\)</span> over the whole box.</li>
+with drift velocity <span class="math notranslate nohighlight">\(v_x = 0.05\,c\)</span> over the whole box.</li>
 <li><code class="docutils literal notranslate"><span class="pre">Species(...,</span> <span class="pre">momentum_initialization=&quot;maxwell-juettner&quot;,</span> <span class="pre">temperature=[1e-5],</span> <span class="pre">...)</span></code> defines
-a species with a Maxwell-Jüttner distribution of temperature <span class="math notranslate">\(T = 10^{-5}\,m_ec^2\)</span> over the whole box.
+a species with a Maxwell-Jüttner distribution of temperature <span class="math notranslate nohighlight">\(T = 10^{-5}\,m_ec^2\)</span> over the whole box.
 Note that the temperature may be anisotropic: <code class="docutils literal notranslate"><span class="pre">temperature=[1e-5,</span> <span class="pre">2e-5,</span> <span class="pre">2e-5]</span></code>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">Species(</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">particles_per_cell</span> <span class="pre">=</span> <span class="pre">10.,</span> <span class="pre">...</span> <span class="pre">)</span></code> defines a species with 10 particles per cell.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ExternalField(</span> <span class="pre">field=&quot;Bx&quot;,</span> <span class="pre">profile=0.1</span> <span class="pre">)</span></code> defines a constant external field <span class="math notranslate">\(B_x = 0.1 B_r\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ExternalField(</span> <span class="pre">field=&quot;Bx&quot;,</span> <span class="pre">profile=0.1</span> <span class="pre">)</span></code> defines a constant external field <span class="math notranslate nohighlight">\(B_x = 0.1 B_r\)</span>.</li>
 </ul>
 <p class="rubric">2. <em>Python</em> profiles</p>
 <blockquote>
@@ -1850,7 +1986,7 @@ on Species’ profiles.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>max</strong> – maximum value</li>
 <li><strong>xvacuum</strong> – empty length before the ramp up</li>
-<li><strong>xplateau</strong> – length of the plateau (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
+<li><strong>xplateau</strong> – length of the plateau (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
 <li><strong>xslope1</strong> – length of the ramp up</li>
 <li><strong>xslope2</strong> – length of the ramp down</li>
 </ul>
@@ -1870,14 +2006,14 @@ on Species’ profiles.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>max</strong> – maximum value</li>
 <li><strong>xvacuum</strong> – empty length before starting the profile</li>
-<li><strong>xlength</strong> – length of the profile (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
+<li><strong>xlength</strong> – length of the profile (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
 <li><strong>xfwhm</strong> – gaussian FWHM (default is <code class="docutils literal notranslate"><span class="pre">xlength/3.</span></code>)</li>
 <li><strong>xcenter</strong> – gaussian center position (default is in the middle of <code class="docutils literal notranslate"><span class="pre">xlength</span></code>)</li>
 <li><strong>xorder</strong> – order of the gaussian.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">If <code class="docutils literal notranslate"><span class="pre">yorder</span></code> equals 0, then the profile is constant over <span class="math notranslate">\(y\)</span>.</p>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">If <code class="docutils literal notranslate"><span class="pre">yorder</span></code> equals 0, then the profile is constant over <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </td>
 </tr>
 </tbody>
@@ -1912,7 +2048,7 @@ on Species’ profiles.</p>
 <li><strong>base</strong> – offset of the profile value</li>
 <li><strong>amplitude</strong> – amplitude of the cosine</li>
 <li><strong>xvacuum</strong> – empty length before starting the profile</li>
-<li><strong>xlength</strong> – length of the profile (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
+<li><strong>xlength</strong> – length of the profile (default is <a class="reference internal" href="#grid_length" title="grid_length"><code class="xref py py-data docutils literal notranslate"><span class="pre">grid_length</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">xvacuum</span></code>)</li>
 <li><strong>xphi</strong> – phase offset</li>
 <li><strong>xnumber</strong> – number of periods within <code class="docutils literal notranslate"><span class="pre">xlength</span></code></li>
 </ul>
@@ -1941,7 +2077,7 @@ on Species’ profiles.</p>
 </tbody>
 </table>
 <p>Creates a polynomial of the form</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray}
 &amp;\sum_i a_i(x-x_0)^i &amp; \quad\mathrm{in\, 1D}\\
 &amp;\sum_i \sum_j a_{ij}(x-x0)^{i-j}(y-y0)^j &amp; \quad\mathrm{in\, 2D}\\
@@ -1950,10 +2086,10 @@ on Species’ profiles.</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">orderi</span></code> is a coefficient (or list of coefficents) associated to the order <code class="docutils literal notranslate"><span class="pre">i</span></code>.
 In 1D, there is only one coefficient per order. In 2D, each <code class="docutils literal notranslate"><span class="pre">orderi</span></code> is a list
 of <code class="docutils literal notranslate"><span class="pre">i+1</span></code> coefficients. For instance, the second order has three coefficients
-associated to <span class="math notranslate">\(x^2\)</span>, <span class="math notranslate">\(xy\)</span> and <span class="math notranslate">\(y^2\)</span>, respectively.
+associated to <span class="math notranslate nohighlight">\(x^2\)</span>, <span class="math notranslate nohighlight">\(xy\)</span> and <span class="math notranslate nohighlight">\(y^2\)</span>, respectively.
 In 3D, each <code class="docutils literal notranslate"><span class="pre">orderi</span></code> is a list of <code class="docutils literal notranslate"><span class="pre">(i+1)*(i+2)/2</span></code> coefficients. For instance,
-the second order has 6 coefficients associated to <span class="math notranslate">\(x^2\)</span>, <span class="math notranslate">\(xy\)</span>, <span class="math notranslate">\(xz\)</span>,
-<span class="math notranslate">\(y^2\)</span>, <span class="math notranslate">\(yz\)</span> and <span class="math notranslate">\(z^2\)</span>, respectively.</p>
+the second order has 6 coefficients associated to <span class="math notranslate nohighlight">\(x^2\)</span>, <span class="math notranslate nohighlight">\(xy\)</span>, <span class="math notranslate nohighlight">\(xz\)</span>,
+<span class="math notranslate nohighlight">\(y^2\)</span>, <span class="math notranslate nohighlight">\(yz\)</span> and <span class="math notranslate nohighlight">\(z^2\)</span>, respectively.</p>
 </dd></dl>
 
 <p><strong>Examples</strong>:</p>
@@ -1987,7 +2123,7 @@ the second order has 6 coefficients associated to <span class="math notranslate"
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>start</strong> – starting time</li>
-<li><strong>plateau</strong> – duration of the plateau (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
+<li><strong>plateau</strong> – duration of the plateau (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
 <li><strong>slope1</strong> – duration of the ramp up</li>
 <li><strong>slope2</strong> – duration of the ramp down</li>
 </ul>
@@ -2006,7 +2142,7 @@ the second order has 6 coefficients associated to <span class="math notranslate"
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>start</strong> – starting time</li>
-<li><strong>duration</strong> – duration of the profile (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
+<li><strong>duration</strong> – duration of the profile (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
 <li><strong>fwhm</strong> – gaussian FWHM (default is <code class="docutils literal notranslate"><span class="pre">duration/3.</span></code>)</li>
 <li><strong>center</strong> – gaussian center time (default is in the middle of <code class="docutils literal notranslate"><span class="pre">duration</span></code>)</li>
 <li><strong>order</strong> – order of the gaussian</li>
@@ -2045,7 +2181,7 @@ the second order has 6 coefficients associated to <span class="math notranslate"
 <li><strong>base</strong> – offset of the profile value</li>
 <li><strong>amplitude</strong> – amplitude of the cosine</li>
 <li><strong>start</strong> – starting time</li>
-<li><strong>duration</strong> – duration of the profile (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
+<li><strong>duration</strong> – duration of the profile (default is <a class="reference internal" href="#simulation_time" title="simulation_time"><code class="xref py py-data docutils literal notranslate"><span class="pre">simulation_time</span></code></a> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">start</span></code>)</li>
 <li><strong>phi</strong> – phase offset</li>
 <li><strong>freq</strong> – frequency</li>
 </ul>
@@ -2073,7 +2209,7 @@ the second order has 6 coefficients associated to <span class="math notranslate"
 </tr>
 </tbody>
 </table>
-<p>Creates a polynomial of the form <span class="math notranslate">\(\sum_i a_i(t-t_0)^i\)</span>.</p>
+<p>Creates a polynomial of the form <span class="math notranslate nohighlight">\(\sum_i a_i(t-t_0)^i\)</span>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -2185,8 +2321,8 @@ If the two groups are exactly equal, we call this situation <strong>intra-collis
 </table>
 <p>The Coulomb logarithm.</p>
 <ul class="simple">
-<li>If <span class="math notranslate">\(= 0\)</span>, the Coulomb logarithm is automatically computed for each collision.</li>
-<li>If <span class="math notranslate">\(&gt; 0\)</span>, the Coulomb logarithm is equal to this value.</li>
+<li>If <span class="math notranslate nohighlight">\(= 0\)</span>, the Coulomb logarithm is automatically computed for each collision.</li>
+<li>If <span class="math notranslate nohighlight">\(&gt; 0\)</span>, the Coulomb logarithm is equal to this value.</li>
 </ul>
 </dd></dl>
 
@@ -2275,7 +2411,7 @@ tables.</p>
 </tr>
 </tbody>
 </table>
-<p>Minimum value of the quantum parameter <span class="math notranslate">\(\chi\)</span> for the table <em>h</em> of Niel <cite>et al</cite>.</p>
+<p>Minimum value of the quantum parameter <span class="math notranslate nohighlight">\(\chi\)</span> for the table <em>h</em> of Niel <cite>et al</cite>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2289,7 +2425,7 @@ tables.</p>
 </tr>
 </tbody>
 </table>
-<p>Maximum value of the quantum parameter <span class="math notranslate">\(\chi\)</span> for the table <em>h</em> of Niel <cite>et al</cite>.</p>
+<p>Maximum value of the quantum parameter <span class="math notranslate nohighlight">\(\chi\)</span> for the table <em>h</em> of Niel <cite>et al</cite>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2323,10 +2459,10 @@ The possible values are:</p>
 <li>“table”: the <em>h</em> function is tabulated. The table is computed at initialization or read from an external file.</li>
 <li>“fit5”: A polynomial fit of order 5 is used. No table is required.
 The maximal relative error to the reference data is of maximum of 0.02.
-The fit is valid for quantum parameters <span class="math notranslate">\(\chi\)</span> between 1e-3 and 10.</li>
+The fit is valid for quantum parameters <span class="math notranslate nohighlight">\(\chi\)</span> between 1e-3 and 10.</li>
 <li>“fit10”:  A polynomial fit of order 10 is used. No table is required.
 The precision if better than the fit of order 5 with a maximal relative error of 0.0002.
-The fit is valid for quantum parameters <span class="math notranslate">\(\chi\)</span> between 1e-3 and 10.</li>
+The fit is valid for quantum parameters <span class="math notranslate nohighlight">\(\chi\)</span> between 1e-3 and 10.</li>
 <li>“ridgers”: The fit of Ridgers given in Ridgers et al., ArXiv 1708.04511 (2017)</li>
 </ul>
 <p>The use of tabulated values is best for accuracy but not for performance.
@@ -2346,7 +2482,7 @@ Fits are vectorizable.</p>
 </tbody>
 </table>
 <p>Minimum value of the quantum parameter c for the table containing
-the integration of <span class="math notranslate">\(F/\chi\)</span>.</p>
+the integration of <span class="math notranslate nohighlight">\(F/\chi\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2360,8 +2496,8 @@ the integration of <span class="math notranslate">\(F/\chi\)</span>.</p>
 </tr>
 </tbody>
 </table>
-<p>Maximum value of the quantum parameter <span class="math notranslate">\(\chi\)</span> for the table containing
-the integration of <span class="math notranslate">\(F/\chi\)</span>.</p>
+<p>Maximum value of the quantum parameter <span class="math notranslate nohighlight">\(\chi\)</span> for the table containing
+the integration of <span class="math notranslate nohighlight">\(F/\chi\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2376,7 +2512,7 @@ the integration of <span class="math notranslate">\(F/\chi\)</span>.</p>
 </tbody>
 </table>
 <p>Discretization of the table containing
-the integration of <span class="math notranslate">\(F/\chi\)</span>.</p>
+the integration of <span class="math notranslate nohighlight">\(F/\chi\)</span>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2607,7 +2743,7 @@ Default tables are located in <code class="docutils literal notranslate"><span c
 </tr>
 </tbody>
 </table>
-<p>Minimum value of the photon quantum parameter <span class="math notranslate">\(\chi_\gamma\)</span> for the table <em>T</em>.</p>
+<p>Minimum value of the photon quantum parameter <span class="math notranslate nohighlight">\(\chi_\gamma\)</span> for the table <em>T</em>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2621,7 +2757,7 @@ Default tables are located in <code class="docutils literal notranslate"><span c
 </tr>
 </tbody>
 </table>
-<p>Maximum value of the photon quantum parameter <span class="math notranslate">\(\chi_\gamma\)</span> for the table <em>T</em>.</p>
+<p>Maximum value of the photon quantum parameter <span class="math notranslate nohighlight">\(\chi_\gamma\)</span> for the table <em>T</em>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2801,10 +2937,10 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">Total energy</div>
 <div class="line">Total kinetic energy (in the particles)</div>
 <div class="line">Total EM energy (in the fields)</div>
-<div class="line">Expected value (Initial energy <span class="math notranslate">\(-\)</span> lost <span class="math notranslate">\(+\)</span> gained)</div>
-<div class="line">Energy balance (Utot <span class="math notranslate">\(-\)</span> Uexp)</div>
-<div class="line">Normalized energy balance (Ubal <span class="math notranslate">\(/\)</span> Utot)</div>
-<div class="line">Energy in Ex field (<span class="math notranslate">\(\int E_x^2 dV /2\)</span>)</div>
+<div class="line">Expected value (Initial energy <span class="math notranslate nohighlight">\(-\)</span> lost <span class="math notranslate nohighlight">\(+\)</span> gained)</div>
+<div class="line">Energy balance (Utot <span class="math notranslate nohighlight">\(-\)</span> Uexp)</div>
+<div class="line">Normalized energy balance (Ubal <span class="math notranslate nohighlight">\(/\)</span> Utot)</div>
+<div class="line">Energy in Ex field (<span class="math notranslate nohighlight">\(\int E_x^2 dV /2\)</span>)</div>
 <div class="line-block">
 <div class="line">… and idem for fields Ey, Ez, Bx_m, By_m and Bz_m</div>
 </div>
@@ -2868,11 +3004,11 @@ This is done by including the block <code class="docutils literal notranslate"><
 </div>
 </td>
 <td><div class="first last line-block">
-<div class="line">Minimum of <span class="math notranslate">\(E_x\)</span></div>
+<div class="line">Minimum of <span class="math notranslate nohighlight">\(E_x\)</span></div>
 <div class="line-block">
 <div class="line">… and its location (cell index)</div>
 </div>
-<div class="line">Maximum of <span class="math notranslate">\(E_x\)</span></div>
+<div class="line">Maximum of <span class="math notranslate nohighlight">\(E_x\)</span></div>
 <div class="line-block">
 <div class="line">… and its location (cell index)</div>
 </div>
@@ -3236,13 +3372,13 @@ It does not provide information on individual particles: instead, it produces
 <p>The data is discretized inside a “grid” chosen by the user. This grid may be of any dimension.</p>
 <p>Examples:</p>
 <ul class="simple">
-<li>1-dimensional grid along the position <span class="math notranslate">\(x\)</span> (gives density variation along <span class="math notranslate">\(x\)</span>)</li>
-<li>2-dimensional grid along positions <span class="math notranslate">\(x\)</span> and <span class="math notranslate">\(y\)</span> (gives density map)</li>
-<li>1-dimensional grid along the velocity <span class="math notranslate">\(v_x\)</span> (gives the velocity distribution)</li>
-<li>2-dimensional grid along position <span class="math notranslate">\(x\)</span> and momentum <span class="math notranslate">\(p_x\)</span> (gives the phase-space)</li>
-<li>1-dimensional grid along the kinetic energy <span class="math notranslate">\(E_\mathrm{kin}\)</span> (gives the energy distribution)</li>
-<li>3-dimensional grid along <span class="math notranslate">\(x\)</span>, <span class="math notranslate">\(y\)</span> and <span class="math notranslate">\(E_\mathrm{kin}\)</span> (gives the density map for several energies)</li>
-<li>1-dimensional grid along the charge <span class="math notranslate">\(Z^\star\)</span> (gives the charge distribution)</li>
+<li>1-dimensional grid along the position <span class="math notranslate nohighlight">\(x\)</span> (gives density variation along <span class="math notranslate nohighlight">\(x\)</span>)</li>
+<li>2-dimensional grid along positions <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (gives density map)</li>
+<li>1-dimensional grid along the velocity <span class="math notranslate nohighlight">\(v_x\)</span> (gives the velocity distribution)</li>
+<li>2-dimensional grid along position <span class="math notranslate nohighlight">\(x\)</span> and momentum <span class="math notranslate nohighlight">\(p_x\)</span> (gives the phase-space)</li>
+<li>1-dimensional grid along the kinetic energy <span class="math notranslate nohighlight">\(E_\mathrm{kin}\)</span> (gives the energy distribution)</li>
+<li>3-dimensional grid along <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(E_\mathrm{kin}\)</span> (gives the density map for several energies)</li>
+<li>1-dimensional grid along the charge <span class="math notranslate nohighlight">\(Z^\star\)</span> (gives the charge distribution)</li>
 <li>0-dimensional grid (simply gives the total integrated particle density)</li>
 </ul>
 <p>Each dimension of the grid is called “axis”.</p>
@@ -3270,9 +3406,9 @@ Consider reading <a class="reference internal" href="units.html#weights"><span c
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_charge&quot;</span></code> results in a charge density.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_charge_vx&quot;</span></code> results in the <span class="math notranslate">\(j_x\)</span> current density (same with <span class="math notranslate">\(y\)</span> and <span class="math notranslate">\(z\)</span>).</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_charge_vx&quot;</span></code> results in the <span class="math notranslate nohighlight">\(j_x\)</span> current density (same with <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>).</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_p&quot;</span></code> results in the momentum density (same with <span class="math notranslate">\(p_x\)</span>, <span class="math notranslate">\(p_y\)</span> and <span class="math notranslate">\(p_z\)</span>).</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_p&quot;</span></code> results in the momentum density (same with <span class="math notranslate nohighlight">\(p_x\)</span>, <span class="math notranslate nohighlight">\(p_y\)</span> and <span class="math notranslate nohighlight">\(p_z\)</span>).</p>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;weight_ekin&quot;</span></code> results in the energy density.</p>
 </li>
@@ -3292,7 +3428,7 @@ defining the following function:</p>
 </pre></div>
 </div>
 <p>passed as <code class="docutils literal notranslate"><span class="pre">deposited_quantity=stuff</span></code>, the diagnostic will sum the weights
-<span class="math notranslate">\(\times\; p_x\)</span>.</p>
+<span class="math notranslate nohighlight">\(\times\; p_x\)</span>.</p>
 <p>You may also pass directly an implicit (<em>lambda</em>) function using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deposited_quantity</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">px</span>
 </pre></div>
@@ -3378,7 +3514,7 @@ its location in the histogram binning.</li>
 <p><strong>Examples of particle binning diagnostics</strong></p>
 <ul>
 <li><p class="first">Variation of the density of species <code class="docutils literal notranslate"><span class="pre">electron1</span></code>
-from <span class="math notranslate">\(x=0\)</span> to 1, every 5 time-steps, without time-averaging</p>
+from <span class="math notranslate nohighlight">\(x=0\)</span> to 1, every 5 time-steps, without time-averaging</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3389,7 +3525,7 @@ from <span class="math notranslate">\(x=0\)</span> to 1, every 5 time-steps, wit
 </pre></div>
 </div>
 </li>
-<li><p class="first">Density map from <span class="math notranslate">\(x=0\)</span> to 1, <span class="math notranslate">\(y=0\)</span> to 1</p>
+<li><p class="first">Density map from <span class="math notranslate nohighlight">\(x=0\)</span> to 1, <span class="math notranslate nohighlight">\(y=0\)</span> to 1</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3401,7 +3537,7 @@ from <span class="math notranslate">\(x=0\)</span> to 1, every 5 time-steps, wit
 </pre></div>
 </div>
 </li>
-<li><p class="first">Velocity distribution from <span class="math notranslate">\(v_x = -0.1\)</span> to <span class="math notranslate">\(0.1\)</span></p>
+<li><p class="first">Velocity distribution from <span class="math notranslate nohighlight">\(v_x = -0.1\)</span> to <span class="math notranslate nohighlight">\(0.1\)</span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3412,7 +3548,7 @@ from <span class="math notranslate">\(x=0\)</span> to 1, every 5 time-steps, wit
 </pre></div>
 </div>
 </li>
-<li><p class="first">Phase space from <span class="math notranslate">\(x=0\)</span> to 1 and from <span class="math notranslate">\(px=-1\)</span> to 1</p>
+<li><p class="first">Phase space from <span class="math notranslate nohighlight">\(x=0\)</span> to 1 and from <span class="math notranslate nohighlight">\(px=-1\)</span> to 1</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3425,7 +3561,7 @@ from <span class="math notranslate">\(x=0\)</span> to 1, every 5 time-steps, wit
 </div>
 </li>
 <li><p class="first">Energy distribution from 0.01 to 1 MeV in logarithmic scale.
-Note that the input units are <span class="math notranslate">\(m_ec^2 \sim 0.5\)</span> MeV</p>
+Note that the input units are <span class="math notranslate nohighlight">\(m_ec^2 \sim 0.5\)</span> MeV</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3436,8 +3572,8 @@ Note that the input units are <span class="math notranslate">\(m_ec^2 \sim 0.5\)
 </pre></div>
 </div>
 </li>
-<li><p class="first"><span class="math notranslate">\(x\)</span>-<span class="math notranslate">\(y\)</span> density maps for three bands of energy: <span class="math notranslate">\([0,1]\)</span>, <span class="math notranslate">\([1,2]\)</span>, <span class="math notranslate">\([2,\infty]\)</span>.
-Note the use of <code class="docutils literal notranslate"><span class="pre">edge_inclusive</span></code> to reach energies up to <span class="math notranslate">\(\infty\)</span></p>
+<li><p class="first"><span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> density maps for three bands of energy: <span class="math notranslate nohighlight">\([0,1]\)</span>, <span class="math notranslate nohighlight">\([1,2]\)</span>, <span class="math notranslate nohighlight">\([2,\infty]\)</span>.
+Note the use of <code class="docutils literal notranslate"><span class="pre">edge_inclusive</span></code> to reach energies up to <span class="math notranslate nohighlight">\(\infty\)</span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3450,7 +3586,7 @@ Note the use of <code class="docutils literal notranslate"><span class="pre">edg
 </pre></div>
 </div>
 </li>
-<li><p class="first">Charge distribution from <span class="math notranslate">\(Z^\star =0\)</span> to 10</p>
+<li><p class="first">Charge distribution from <span class="math notranslate nohighlight">\(Z^\star =0\)</span> to 10</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagParticleBinning</span><span class="p">(</span>
     <span class="n">deposited_quantity</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -3658,8 +3794,8 @@ This object has several attributes <code class="docutils literal notranslate"><s
 are provided as <strong>numpy</strong> arrays where each cell corresponds to one particle.
 The function must return a boolean <strong>numpy</strong> array of the same shape, containing <code class="docutils literal notranslate"><span class="pre">True</span></code>
 for particles that should be tracked, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
-<p>The following example selects all the particles that verify <span class="math notranslate">\(-1&lt;p_x&lt;1\)</span>
-or <span class="math notranslate">\(p_z&gt;3\)</span>:</p>
+<p>The following example selects all the particles that verify <span class="math notranslate nohighlight">\(-1&lt;p_x&lt;1\)</span>
+or <span class="math notranslate nohighlight">\(p_z&gt;3\)</span>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_filter</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">px</span><span class="o">&gt;-</span><span class="mf">1.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">px</span><span class="o">&lt;</span><span class="mf">1.</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">pz</span><span class="o">&gt;</span><span class="mf">3.</span><span class="p">)</span>
 </pre></div>
@@ -3973,7 +4109,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -3981,11 +4117,11 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -4045,6 +4181,18 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

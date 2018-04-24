@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Post-process &#8212; Smilei v3.3-463-g35b705a7 documentation</title>
+    <title>Post-process &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Publications" href="material.html" />
+    <link rel="next" title="Contribute" href="contribute.html" />
     <link rel="prev" title="Run" href="run.html" />
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -73,6 +73,9 @@
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
           </li>
+          <li class="outer">
+              <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -100,6 +103,7 @@
 <li><a class="reference internal" href="#specifying-units">Specifying units</a></li>
 <li><a class="reference internal" href="#units-of-particlebinning-and-screen">Units of ParticleBinning and Screen</a></li>
 <li><a class="reference internal" href="#obtain-the-data">Obtain the data</a></li>
+<li><a class="reference internal" href="#export-2d-or-3d-data-to-vtk">Export 2D or 3D data to VTK</a></li>
 <li><a class="reference internal" href="#plot-the-data-at-one-timestep">Plot the data at one timestep</a></li>
 <li><a class="reference internal" href="#plot-the-data-streaked-over-time">Plot the data streaked over time</a></li>
 <li><a class="reference internal" href="#animated-plot">Animated plot</a></li>
@@ -113,6 +117,9 @@
 </ul>
 
         <ul>
+          <li class="outer">
+              <a href="contribute.html">Contribute</a>
+          </li>
         </ul>
         <hr />
         <ul>
@@ -151,6 +158,7 @@
 <li><a class="reference internal" href="#specifying-units">Specifying units</a></li>
 <li><a class="reference internal" href="#units-of-particlebinning-and-screen">Units of ParticleBinning and Screen</a></li>
 <li><a class="reference internal" href="#obtain-the-data">Obtain the data</a></li>
+<li><a class="reference internal" href="#export-2d-or-3d-data-to-vtk">Export 2D or 3D data to VTK</a></li>
 <li><a class="reference internal" href="#plot-the-data-at-one-timestep">Plot the data at one timestep</a></li>
 <li><a class="reference internal" href="#plot-the-data-streaked-over-time">Plot the data streaked over time</a></li>
 <li><a class="reference internal" href="#animated-plot">Animated plot</a></li>
@@ -181,10 +189,13 @@
             
         
         <div class="menu" id="menu_Licence">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Licence')" onclick="toggleMenu('menu_Licence')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Licence" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Licence')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Overview</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Licence',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -206,10 +217,13 @@
         </div>
         
         <div class="menu" id="menu_Units">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Units')" onclick="toggleMenu('menu_Units')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Units" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Units')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Understand</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Units',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -233,6 +247,9 @@
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
                         </li>
+                        <li class="outer">
+                            <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -240,10 +257,13 @@
         </div>
         
         <div class="menu" id="menu_Install" style="font-weight:bold">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Install')" onclick="toggleMenu('menu_Install')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Install" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Install')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>Use</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Install',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -258,6 +278,9 @@
                         <li >
                             <a href="#">Post-process</a>
                         </li>
+                        <li class="outer">
+                            <a href="contribute.html">Contribute</a>
+                        </li>
             
                     </ul>
                 </div>
@@ -265,10 +288,13 @@
         </div>
         
         <div class="menu" id="menu_Publications">
-            <div class="menuButton" onmouseenter="thisMenuOnly('menu_Publications')" onclick="toggleMenu('menu_Publications')" onmousedown="event.preventDefault()">
+            <div id="menuButton_Publications" class="menuButton"
+                 onmouseenter="prepareMenu('menu_Publications')"
+                 onmousedown="event.preventDefault()"
+            >
                 <span>More</span>
             </div>
-            <div class="off">
+            <div class="off" onmouseleave="leaveMenu('menu_Publications',this)">
                 <div class="toctree-smilei">
                     <ul>
                         <li class="outer">
@@ -284,6 +310,14 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            var es=document.getElementsByClassName("menuButton"), i=0;
+            var evt = "ontouchend" in document ? "touchend" : "click";
+            for( var i=0; i<es.length; i+=1 ) {
+                es[i].addEventListener(evt, function(a){ return function(){toggleMenu(a)};}(es[i].parentNode.id));
+            }
+        </script>
         
         <div id="searchbox" role="search" style="display:none">
             <form class="search" action="search.html" method="get">
@@ -364,12 +398,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="material.html" title="Publications"
+          <a href="contribute.html" title="Contribute"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="run.html" title="Run"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -482,7 +516,7 @@ several instances may exist, you can directly iterate over them:</p>
 <li><dl class="first docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">data_log</span></code>:</dt>
 <dd><div class="first last line-block">
-<div class="line">If <code class="docutils literal notranslate"><span class="pre">True</span></code>, then <span class="math notranslate">\(\log_{10}\)</span> is applied to the output.</div>
+<div class="line">If <code class="docutils literal notranslate"><span class="pre">True</span></code>, then <span class="math notranslate nohighlight">\(\log_{10}\)</span> is applied to the output.</div>
 </div>
 </dd>
 </dl>
@@ -549,7 +583,7 @@ several instances may exist, you can directly iterate over them:</p>
 <div class="line">- With syntax 1, an average is performed over all the axis.</div>
 <div class="line">- With syntax 2, only the bin closest to <code class="docutils literal notranslate"><span class="pre">location</span></code> is kept.</div>
 <div class="line">- With syntax 3, an average is performed from <code class="docutils literal notranslate"><span class="pre">start</span></code> to <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</div>
-<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{&quot;x&quot;:[4,5]}</span></code> will average for <span class="math notranslate">\(x\)</span> within [4,5].</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">{&quot;x&quot;:[4,5]}</span></code> will average for <span class="math notranslate nohighlight">\(x\)</span> within [4,5].</div>
 </div>
 </dd>
 </dl>
@@ -592,7 +626,7 @@ several instances may exist, you can directly iterate over them:</p>
 </dl>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">subset</span></code> and <code class="docutils literal notranslate"><span class="pre">average</span></code> are very similar to those of <a class="reference internal" href="#Field" title="Field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Field()</span></code></a>, but they can only have the axes: <code class="docutils literal notranslate"><span class="pre">&quot;axis1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;axis2&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;axis3&quot;</span></code>.
-For instance, <code class="docutils literal notranslate"><span class="pre">average={&quot;axis1&quot;:&quot;all&quot;}</span></code>. Note that the axes are not necessarily <span class="math notranslate">\(x\)</span>, <span class="math notranslate">\(y\)</span> or <span class="math notranslate">\(z\)</span> because the probe mesh is arbitrary.</p>
+For instance, <code class="docutils literal notranslate"><span class="pre">average={&quot;axis1&quot;:&quot;all&quot;}</span></code>. Note that the axes are not necessarily <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> or <span class="math notranslate nohighlight">\(z\)</span> because the probe mesh is arbitrary.</p>
 </li>
 <li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
 </li>
@@ -717,7 +751,7 @@ A detailed explanation is provided below</p>
 <dt><code class="docutils literal notranslate"><span class="pre">axes</span></code>: A list of axes for plotting the trajectories or obtaining particle data.</dt>
 <dd><div class="first last line-block">
 <div class="line">Each axis is one of the <a class="reference internal" href="namelist.html#attributes" title="attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> defined in the namelist.</div>
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;]</span></code> corresponds to <span class="math notranslate">\(x\)</span> versus time.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;]</span></code> corresponds to <span class="math notranslate nohighlight">\(x\)</span> versus time.</div>
 <div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;,&quot;y&quot;]</span></code> correspond to 2-D trajectories.</div>
 <div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">axes</span> <span class="pre">=</span> <span class="pre">[&quot;x&quot;,&quot;px&quot;]</span></code> correspond to phase-space trajectories.</div>
 </div>
@@ -750,13 +784,13 @@ on particle IDs.</p>
 <li><div class="first line-block">
 <div class="line"><strong>Syntax 1:</strong> <code class="docutils literal notranslate"><span class="pre">select=&quot;any(times,</span> <span class="pre">condition)&quot;</span></code></div>
 <div class="line">Selects particles satisfying <code class="docutils literal notranslate"><span class="pre">condition</span></code> for at least one of the <code class="docutils literal notranslate"><span class="pre">times</span></code>.</div>
-<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;any(t&gt;0,</span> <span class="pre">px&gt;1.)&quot;</span></code> selects those reaching <span class="math notranslate">\(p_x&gt;1\)</span> at some point.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;any(t&gt;0,</span> <span class="pre">px&gt;1.)&quot;</span></code> selects those reaching <span class="math notranslate nohighlight">\(p_x&gt;1\)</span> at some point.</div>
 </div>
 </li>
 <li><div class="first line-block">
 <div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">select=&quot;all(times,</span> <span class="pre">condition)&quot;</span></code></div>
 <div class="line">Selects particles satisfying <code class="docutils literal notranslate"><span class="pre">condition</span></code> at all <code class="docutils literal notranslate"><span class="pre">times</span></code>.</div>
-<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;all(t&lt;40,</span> <span class="pre">px&lt;1)&quot;</span></code> selects those having <span class="math notranslate">\(p_x&lt;1\)</span> until timestep 40.</div>
+<div class="line">For example, <code class="docutils literal notranslate"><span class="pre">select=&quot;all(t&lt;40,</span> <span class="pre">px&lt;1)&quot;</span></code> selects those having <span class="math notranslate nohighlight">\(p_x&lt;1\)</span> until timestep 40.</div>
 </div>
 </li>
 <li><div class="first line-block">
@@ -864,19 +898,19 @@ proportional to the macro-particle statistical weights, as stated by their
 <a class="reference internal" href="namelist.html#deposited_quantity" title="deposited_quantity"><code class="xref py py-data docutils literal notranslate"><span class="pre">deposited_quantity</span></code></a> argument. These weights <a class="reference internal" href="units.html#weights"><span class="std std-ref">are defined as</span></a>
 the species density divided by the number of macro-particles of this species in the
 cell where the particle is born. Consequently, weights are in units of the number
-density <span class="math notranslate">\(N_r\)</span> (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>), and the sum of all macro-particle weights in
+density <span class="math notranslate nohighlight">\(N_r\)</span> (see <a class="reference internal" href="units.html"><span class="doc">Units</span></a>), and the sum of all macro-particle weights in
 one cell corresponds to the local species density.</p>
 <p>However, the <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code> and <code class="docutils literal notranslate"><span class="pre">DiagScreen</span></code> diagnostics do not necessarily
 sum the weights in one cell: they calculate a sum over a <em>bin</em> that can be of any size,
 and in any space (phase-space, etc). The data written in the outputs
-<code class="docutils literal notranslate"><span class="pre">ParticleBinning*.h5</span></code> and <code class="docutils literal notranslate"><span class="pre">Screen*.h5</span></code> is thus in units of <span class="math notranslate">\(N_r\)</span>, but does not
+<code class="docutils literal notranslate"><span class="pre">ParticleBinning*.h5</span></code> and <code class="docutils literal notranslate"><span class="pre">Screen*.h5</span></code> is thus in units of <span class="math notranslate nohighlight">\(N_r\)</span>, but does not
 always represent the actual plasma density.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">happi</span></code>, the post-processing takes into account these features in order for outputs
 to represent the actual plasma density. For instance, if your <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code>
 has two axes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, the output will represent the real plasma density. Another
 example: if your <code class="docutils literal notranslate"><span class="pre">DiagParticleBinning</span></code> has two axes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">px</span></code>, the output
-will be in units of <span class="math notranslate">\(N_r/P_r\)</span> and represents the real plasma density per unit of
-<span class="math notranslate">\(p_x\)</span>.</p>
+will be in units of <span class="math notranslate nohighlight">\(N_r/P_r\)</span> and represents the real plasma density per unit of
+<span class="math notranslate nohighlight">\(p_x\)</span>.</p>
 <p>Let us briefly explain how <code class="docutils literal notranslate"><span class="pre">happi</span></code> applies the correction. The idea is that the output
 has to be divided by the number of cells <em>relevant</em> to each bin.</p>
 <ul class="simple">
@@ -1006,6 +1040,43 @@ pairs <code class="docutils literal notranslate"><span class="pre">axis:array</s
     <span class="n">sum_px</span> <span class="o">+=</span> <span class="n">particle_chunk</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="c1"># Calculate the average px</span>
 <span class="n">mean_px</span> <span class="o">=</span> <span class="n">sum_px</span> <span class="o">/</span> <span class="n">npart</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="export-2d-or-3d-data-to-vtk">
+<h2>Export 2D or 3D data to VTK<a class="headerlink" href="#export-2d-or-3d-data-to-vtk" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="Field.toVTK">
+<code class="descclassname">Field.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>numberOfPieces=1</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.toVTK" title="Permalink to this definition">¶</a></dt>
+<dt id="Probe.toVTK">
+<code class="descclassname">Probe.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>numberOfPieces=1</em><span class="sig-paren">)</span><a class="headerlink" href="#Probe.toVTK" title="Permalink to this definition">¶</a></dt>
+<dt id="ParticleBinning.toVTK">
+<code class="descclassname">ParticleBinning.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>numberOfPieces=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ParticleBinning.toVTK" title="Permalink to this definition">¶</a></dt>
+<dt id="Screen.toVTK">
+<code class="descclassname">Screen.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>numberOfPieces=1</em><span class="sig-paren">)</span><a class="headerlink" href="#Screen.toVTK" title="Permalink to this definition">¶</a></dt>
+<dt id="TrackParticles.toVTK">
+<code class="descclassname">TrackParticles.</code><code class="descname">toVTK</code><span class="sig-paren">(</span><em>rendering=&quot;trajectory&quot;</em>, <em>data_format=&quot;xml&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#TrackParticles.toVTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the data from a diagnostic object to the vtk format.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">numberOfPieces</span></code>: the number of files into which the data will be split.</li>
+<li><code class="docutils literal notranslate"><span class="pre">rendering</span></code>: the type of output in the case of <a class="reference internal" href="#TrackParticles" title="TrackParticles"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TrackParticles()</span></code></a>:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;trajectory&quot;</span></code>: show particle trajectories. One file is generated for all trajectories.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;cloud&quot;</span></code>: show a cloud of particles. One file is generated for each iteration.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">data_format</span></code>: the data formatting in the case of <a class="reference internal" href="#TrackParticles" title="TrackParticles"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TrackParticles()</span></code></a>,
+either <code class="docutils literal notranslate"><span class="pre">&quot;vtk&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;xml&quot;</span></code>. The format <code class="docutils literal notranslate"><span class="pre">&quot;vtk&quot;</span></code> results in ascii.</li>
+</ul>
+<p><strong>Example for tracked particles</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span>
+<span class="n">tracked_particles</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">TrackParticles</span><span class="p">(</span><span class="s2">&quot;electron&quot;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;px&quot;</span><span class="p">,</span><span class="s2">&quot;py&quot;</span><span class="p">,</span><span class="s2">&quot;pz&quot;</span><span class="p">,</span><span class="s2">&quot;Id&quot;</span><span class="p">],</span> <span class="n">timesteps</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Create cloud of particles in separate files for each iteration</span>
+<span class="n">tracked_particles</span><span class="o">.</span><span class="n">toVTK</span><span class="p">(</span><span class="n">rendering</span><span class="o">=</span><span class="s2">&quot;cloud&quot;</span><span class="p">,</span><span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">);</span>
+<span class="c1"># Create trajectory in a single file</span>
+<span class="n">tracked_particles</span><span class="o">.</span><span class="n">toVTK</span><span class="p">(</span><span class="n">rendering</span><span class="o">=</span><span class="s2">&quot;trajectory&quot;</span><span class="p">,</span><span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1285,12 +1356,12 @@ is <a class="reference external" href="https://smileipic.github.io/tutorials">av
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="material.html" title="Publications"
+          <a href="contribute.html" title="Contribute"
              >next</a> |</li>
         <li class="right" >
           <a href="run.html" title="Run"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-463-g35b705a7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -1298,11 +1369,11 @@ is <a class="reference external" href="https://smileipic.github.io/tutorials">av
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Mar 26, 2018
+        Last updated on Apr 24, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
       </div>
       
     </div>
@@ -1362,6 +1433,18 @@ is <a class="reference external" href="https://smileipic.github.io/tutorials">av
                 smallScreenMenu.className = "off";
                 smallScreenMenuButton.className = "";
             }
+        }
+        
+        function prepareMenu(menu_id) {
+            var menu = document.getElementById(menu_id);
+            menu.timer1 = setTimeout(function(a){ return function(){thisMenuOnly(a)};}(menu_id), 100);
+            menu.addEventListener("mouseleave", function(a){ return function(){clearTimeout(a.timer1)};}(menu) );
+        }
+        
+        function leaveMenu(menu_id, source) {
+            var menu = document.getElementById(menu_id);
+            menu.timer2 = setTimeout(function(a){ return function(){menuOff(a)};}(menu), 1000);
+            source.addEventListener("mouseenter", function(a){ return function(){clearTimeout(a.timer2)};}(menu) );
         }
         
         function menuOn( menu ) {

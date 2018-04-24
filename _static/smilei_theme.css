@@ -71,8 +71,8 @@ div.document {
 }
 
 div.documentwrapper {
-    max-width: 50em;
-    margin: 2.7em auto 0 auto;
+    max-width: 210mm;
+    margin: 12mm auto 0 auto;
 }
 
 div.bodywrapper {
@@ -90,7 +90,7 @@ div.body {
 }
 
 div.footer {
-    max-width: 50em;
+    max-width: 210mm;
     margin: 1.5em auto;
     font-size: 14px;
     color: #888;
@@ -130,7 +130,7 @@ div.logo {
     padding-right: 2em;
     margin: 0;
     text-align: left;
-    height:2.7em;
+    height:12mm;
 }
 
 div.sphinxsidebarwrapper h1.logo {
@@ -501,14 +501,14 @@ table.docutils.citation, table.docutils.citation td, table.docutils.citation th 
 div.headercolor {
     position:fixed;
     top:0;
-	height: 2.7em;
+	height: 12mm;
 	width: 100%;
 	background-color:#0672BA;
 }
 
 div.hpositioner {
 	position: relative;
-	max-width: 50em;
+	max-width: 210mm;
 	margin: 0 auto;
 	height:100%;
 }
@@ -533,7 +533,7 @@ div.header > * {
     margin:0;
 }
 .menu {
-    height: 2.7em;
+    height: 12mm;
 }
 #nav_positioner {
     position: fixed;
@@ -544,14 +544,14 @@ div.header > * {
 
 #nav {
     position:absolute;
-    right:-25.0em;
+    right:-105.0mm;
     top:0;
 	text-align: left;
     white-space: nowrap;
     max-height:100%;
-    min-height:2.7em;
+    min-height:12mm;
     min-width :6em;
-	padding: 2.7em 12px 0 5px;
+	padding: 12mm 12px 0 5px;
 	box-sizing: border-box;
 }
 #nav_button {
@@ -582,7 +582,7 @@ div.header > * {
     padding:0.3em 1em;
 }
 #nav_title {
-    line-height: 2.16em;
+    line-height: 9.6mm;
     border-left: 1px solid #aaa;
     border-right: 1px solid #aaa;
     background-color: #eee;
@@ -609,12 +609,12 @@ div.header > * {
 .menuButton {
     cursor:pointer;
     padding: 0 2em;
-    line-height: 2.7em;
+    line-height: 12mm;
     height: 100%;
 }
 
 .menuButton > span {
-    font-size: 1.296em;
+    font-size: 5.76mm;
 }
 
 .menuButton.pushed {
@@ -625,9 +625,9 @@ div.header > * {
     font-size: 1em;
     position: absolute;
     left:-1px;
-    top: 2.7em;
+    top: 12mm;
     white-space: nowrap;
-    min-width: 10em;
+    min-width: 40mm;
     -moz-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
@@ -646,8 +646,8 @@ div.header > * {
 }
 
 #smallScreenMenuButton {
-	width: 3.24em;
-	height:2.7em;
+	width: 14.4mm;
+	height:12mm;
 	cursor:pointer;
     float:right;
     text-align: center;
@@ -655,8 +655,8 @@ div.header > * {
 }
 
 #smallScreenMenuButton svg, #nav_button svg {
-    width: 2.7em;
-    height:2.7em;
+    width: 12mm;
+    height:12mm;
     margin:0 auto;
 }
 
@@ -671,7 +671,7 @@ div.header > * {
 #smallScreenMenu {
     width: 100%;
     position:fixed;
-    top:2.7em;
+    top:12mm;
     bottom:0;
     left:0;
     padding:0.3em 0 0 0;
@@ -751,7 +751,7 @@ table.docutils thead {
 /* --------------------------------------------------------------------*/
 /* Logos and icons */
 img.logo {
-	height:2.7em;
+	height:12mm;
 }
 .icon {
 	display:inline-block;
@@ -897,8 +897,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight:bold !important;
 }
 .section {
-    padding-top:1.35em;
-    margin-top:-2.7em;
+    padding-top:6.0mm;
+    margin-top:-12mm;
 }
 
 /* --------------------------------------------------------------------*/
@@ -964,26 +964,26 @@ div.admonition p {
 /* Search box */
 
 #searchicon, #closesearchicon {
-	width:2.7em;
+	width:12mm;
 	text-align: center;
 	cursor:pointer;
 }
 #searchicon > svg, #closesearchicon > svg {
-	height:2.7em;
+	height:12mm;
 }
 #searchbox {
 	position: absolute;
-	right:2.7em;
-	height:2.7em;
+	right:12mm;
+	height:12mm;
 }
 #searchinput {
-	height:1.3em;
-	width: 20em;
+	height:7.2mm;
+	width: 80mm;
 	font-size: 1em;
-	padding:0.3em 0.6em;
-	margin:0.3em 0;
+	padding:1.2mm 0.6em;
+	margin:0.6mm 0;
 	border-radius:0.5em;
-	border:0.1em solid #bbb;
+	border:0.6mm solid #bbb;
 }
 #search-results {
 	padding-top: 5px;
@@ -991,7 +991,7 @@ div.admonition p {
 
 
 
-@media screen and (max-width:  50.5em) {
+@media screen and (max-width:  212.1mm) {
 
 	body, div.documentwrapper, .bodywrapper {
 		margin:0;
@@ -1024,7 +1024,7 @@ div.admonition p {
 	}
 	
 	div.document {
-	    margin: 2.7em 0 0 0;
+	    margin: 12mm 0 0 0;
 	    padding: 0 1em 1em 1em;
 	}
 	
@@ -1047,8 +1047,8 @@ div.admonition p {
 	}
 	#searchbox {
 		display:block !important;
-		left:7.45em;
-		right:4.75em;
+		left:33.6mm;
+		right:22.8mm;
 	}
 	#searchinput {
 		display:block !important;
@@ -1057,7 +1057,7 @@ div.admonition p {
 }
 
 
-@media screen and (min-width: 50.5em) {
+@media screen and (min-width: 212.1mm) {
 	#smallScreenMenu {
 	    display: none !important;
 	}
