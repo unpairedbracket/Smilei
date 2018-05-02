@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.3-691-g3a5e8a1c documentation</title>
+    <title>Write a namelist &#8212; Smilei v3.3-705-g85294811 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -413,7 +413,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-705-g85294811 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -1107,11 +1107,12 @@ using one of the three other options above and (2) that the number of particles
 of both species are identical in each cell.</li>
 <li>A <em>numpy</em> array defining all the positions of the species’ particles.
 In this case you must also provide the weight of each particle (see <a class="reference internal" href="units.html#weights"><span class="std std-ref">Macro-particle weights</span></a>).
-The array shape must be <cite>(Ndim+1, Npart)</cite> where <cite>Ndim</cite> is the simulation dimension,
+The array shape must be <cite>(Ndim+1, Npart)</cite> where <cite>Ndim</cite> is the simulation dimension (of the particles),
 and <cite>Npart</cite> is the total number of particles. Positions components <cite>x</cite>, <cite>y</cite>, <cite>z</cite> are
-given along the first columns and the weights are given in the last column of the array.
+given along the first <cite>Ndim</cite> columns and the weights are given in the last column of the array.
 This initialization is incompatible with <a class="reference internal" href="#number_density" title="number_density"><code class="xref py py-data docutils literal notranslate"><span class="pre">number_density</span></code></a>, <a class="reference internal" href="#charge_density" title="charge_density"><code class="xref py py-data docutils literal notranslate"><span class="pre">charge_density</span></code></a>
-and <a class="reference internal" href="#particles_per_cell" title="particles_per_cell"><code class="xref py py-data docutils literal notranslate"><span class="pre">particles_per_cell</span></code></a>.</li>
+and <a class="reference internal" href="#particles_per_cell" title="particles_per_cell"><code class="xref py py-data docutils literal notranslate"><span class="pre">particles_per_cell</span></code></a>. Particles initialized outside of the initial simulation domain
+will not be created. This initalization is disregarded when running a <cite>restart</cite>.</li>
 </ul>
 </dd></dl>
 
@@ -4109,7 +4110,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-691-g3a5e8a1c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-705-g85294811 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4117,11 +4118,11 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Apr 24, 2018
+        Last updated on May 02, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
       </div>
       
     </div>
