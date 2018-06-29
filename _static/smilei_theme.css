@@ -647,12 +647,17 @@ div.header > * {
 }
 
 #smallScreenMenuButton {
-	width: 14.4mm;
-	height:12mm;
-	cursor:pointer;
+    width: 14.4mm;
+    height:12mm;
+    cursor:pointer;
     float:right;
     text-align: center;
     display:none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
 }
 
 #smallScreenMenuButton svg, #nav_button svg {
