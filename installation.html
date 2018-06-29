@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Install &#8212; Smilei v3.3-713-g80f8b55c documentation</title>
+    <title>Install &#8212; Smilei v3.3-714-gfee31156 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -368,7 +368,7 @@
             </svg>
         </div>
         
-        <div id="smallScreenMenuButton" onclick="toggleSmallScreenMenu()">
+        <div id="smallScreenMenuButton" onclick="toggleSmallScreenMenu(event)">
             <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
                viewBox="-20 -20 140 140">
               <g  style="fill:#ffffff;stroke:none;">
@@ -408,7 +408,7 @@
         <li class="right" >
           <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-713-g80f8b55c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-714-gfee31156 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -752,7 +752,7 @@ module and import it into <em>python</em>.</p>
         <li class="right" >
           <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-713-g80f8b55c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.3-714-gfee31156 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -816,7 +816,8 @@ module and import it into <em>python</em>.</p>
             }
         }
         
-        function toggleSmallScreenMenu() {
+        function toggleSmallScreenMenu(e) {
+            e.preventDefault();
             if( smallScreenMenu.className != "on" ) {
                 smallScreenMenu.className = "on";
                 smallScreenMenuButton.className = "pushed";
