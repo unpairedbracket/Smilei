@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Synchrotron-like radiation reaction &#8212; Smilei v3.4-4-g71d572a3 documentation</title>
+    <title>Synchrotron-like radiation reaction &#8212; Smilei v3.4-70-g741f447f documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Multiphoton Breit-Wheeler pair creation" href="multiphoton_Breit_Wheeler.html" />
-    <link rel="prev" title="Field ionization" href="field_ionization.html" />
+    <link rel="prev" title="Field (or user defined) ionization" href="field_ionization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -66,7 +66,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field ionization</a>
+              <a href="field_ionization.html">Field (or user defined) ionization</a>
           </li>
         </ul>
             <ul>
@@ -249,7 +249,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field ionization</a>
+                            <a href="field_ionization.html">Field (or user defined) ionization</a>
                         </li>
                         <li >
                             <a href="#">Synchrotron-like radiation reaction</a>
@@ -414,9 +414,9 @@
           <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="field_ionization.html" title="Field ionization"
+          <a href="field_ionization.html" title="Field (or user defined) ionization"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -790,11 +790,11 @@ The maximal quantum parameter <span class="math notranslate nohighlight">\(\chi\
 value reached during the simulation is around 0.5.</p>
 <div class="figure" id="id18">
 <span id="rad-counter-prop-scalar"></span><a class="reference internal image-reference" href="_images/rad_counter_prop_scalar.png"><img alt="_images/rad_counter_prop_scalar.png" src="_images/rad_counter_prop_scalar.png" style="width: 15cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Kinetic, radiated and total energy plotted respectively with solid, dashed and dotted lines for
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Kinetic, radiated and total energy plotted respectively with solid, dashed and dotted lines for
 the <span class="blue">Monte-Carlo</span> (<strong>MC</strong>), <span class="orange">Niel</span> (<strong>Niel</strong>),
 <span class="green">corrected Landau-Lifshitz</span> (<strong>CLL</strong>) and the <span class="red">Landau-Lifshitz</span> (<strong>LL</strong>) models.</span></p>
 </div>
-<p><a class="reference internal" href="#rad-counter-prop-scalar"><span class="std std-numref">Fig. 19</span></a> shows that the Monte-Carlo, the Niel and
+<p><a class="reference internal" href="#rad-counter-prop-scalar"><span class="std std-numref">Fig. 20</span></a> shows that the Monte-Carlo, the Niel and
 the corrected Landau-Lifshitz models exhibit very similar
 results in term of the total radiated and kinetic energy evolution with a final
 radiation rate of 80% the initial kinetic energy. The relative error on the
@@ -803,10 +803,10 @@ As expected, the Landau-Lifshitz model overestimates the radiated energy
 because the interaction happens mainly in the quantum regime.</p>
 <div class="figure" id="id19">
 <span id="rad-counter-prop-track"></span><a class="reference internal image-reference" href="_images/rad_counter_prop_track.png"><img alt="_images/rad_counter_prop_track.png" src="_images/rad_counter_prop_track.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Evolution of the normalized kinetic energy
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Evolution of the normalized kinetic energy
 <span class="math notranslate nohighlight">\(\gamma - 1\)</span> of some selected electrons as a function of their position.</span></p>
 </div>
-<p><a class="reference internal" href="#rad-counter-prop-track"><span class="std std-numref">Fig. 20</span></a> shows that the Monte-Carlo and the Niel models
+<p><a class="reference internal" href="#rad-counter-prop-track"><span class="std std-numref">Fig. 21</span></a> shows that the Monte-Carlo and the Niel models
 reproduce the stochastic nature of the trajectories as opposed to the
 continuous approaches (corrected Landau-Lifshitz and Landau-Lifshitz).
 In the latter, every particles initially located at the same position will
@@ -847,19 +847,19 @@ The initial electron Lorentz factor is
 <span class="math notranslate nohighlight">\(\gamma_{-,0} = \varepsilon_{-,0}/mc^2 =  450\)</span>.
 Electrons are initialized with a Maxwell-Juttner distribution of temperature
 <span class="math notranslate nohighlight">\(0.1 m_e c^2\)</span>.</p>
-<p><a class="reference internal" href="#synchrotron-scalar"><span class="std std-numref">Fig. 21</span></a> shows the time evolution of the particle kinetic energy,
+<p><a class="reference internal" href="#synchrotron-scalar"><span class="std std-numref">Fig. 22</span></a> shows the time evolution of the particle kinetic energy,
 the radiated energy and the total energy. All radiation models provide
 similar evolution of these integrated quantities. The relative error on the
 total energy is between <span class="math notranslate nohighlight">\(2 \times 10^{-9}\)</span> and <span class="math notranslate nohighlight">\(3 \times 10^{-9}\)</span>.</p>
 <div class="figure" id="id20">
 <span id="synchrotron-scalar"></span><a class="reference internal image-reference" href="_images/synchrotron_scalar.png"><img alt="_images/synchrotron_scalar.png" src="_images/synchrotron_scalar.png" style="width: 15cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Kinetic, radiated and total energies plotted respectively with solid, dashed and dotted
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Kinetic, radiated and total energies plotted respectively with solid, dashed and dotted
 lines for various models.</span></p>
 </div>
 <p>The main difference between models can be understood by studying the
 particle trajectories and phase spaces. For this purpose, the local kinetic energy spatial-distribution
 at <span class="math notranslate nohighlight">\(25 \omega_r^{-1}\)</span> is shown in
-<a class="reference internal" href="#synchrotron-x-y-gamma"><span class="std std-numref">Fig. 22</span></a> for the different models.
+<a class="reference internal" href="#synchrotron-x-y-gamma"><span class="std std-numref">Fig. 23</span></a> for the different models.
 With continuous radiation energy loss
 (corrected Landau-Lifshitz case), each electron of the bunch rotates with a decreasing
 radius but the bunch.
@@ -876,11 +876,11 @@ Stochastic effects are particularly strong at the beginning  with the highest
 recoil is the most important.</p>
 <div class="figure" id="id21">
 <span id="synchrotron-x-y-gamma"></span><a class="reference internal image-reference" href="_images/synchrotron_x_y_gamma.png"><img alt="_images/synchrotron_x_y_gamma.png" src="_images/synchrotron_x_y_gamma.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Average normalized kinetic energy at time <span class="math notranslate nohighlight">\(25 \omega_r^{-1}\)</span>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Average normalized kinetic energy at time <span class="math notranslate nohighlight">\(25 \omega_r^{-1}\)</span>
 for the simulations with the Monte-Carlo, the Niel
 and the corrected Landau-Lifshitz (<strong>CLL</strong>) models.</span></p>
 </div>
-<p><a class="reference internal" href="#synchrotron-t-gamma-ne"><span class="std std-numref">Fig. 23</span></a> shows the time evolution of
+<p><a class="reference internal" href="#synchrotron-t-gamma-ne"><span class="std std-numref">Fig. 24</span></a> shows the time evolution of
 the electron Lorentz factor distribution (normalized energy) for different
 radiation models.
 At the beginning, the distribution is extremely broad due to the Maxwell-Juttner parameters.
@@ -908,7 +908,7 @@ This model can be seen as the average behavior of the stochastic ones of
 electron groups having the same initial energy.</p>
 <div class="figure" id="id22">
 <span id="synchrotron-t-gamma-ne"></span><a class="reference internal image-reference" href="_images/synchrotron_t_gamma_ne.png"><img alt="_images/synchrotron_t_gamma_ne.png" src="_images/synchrotron_t_gamma_ne.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Time evolution of the electron energy distribution for the Monte-Carlo, the Niel
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Time evolution of the electron energy distribution for the Monte-Carlo, the Niel
 and the corrected Landau-Lifshitz (<strong>CLL</strong>) models.</span></p>
 </div>
 </div>
@@ -945,7 +945,7 @@ left-behind that causes ions to be consequently accelerated. This
 strong ion-acceleration mechanism
 is known as the radiation pressure acceleration (RPA) or laser piston.</p>
 <p>Under the action of an extremely intense laser pulse, electrons accelerated at
-the target front radiate. It is confirmed in <a class="reference internal" href="#thin-foil-x-chi-ne"><span class="std std-numref">Fig. 24</span></a>
+the target front radiate. It is confirmed in <a class="reference internal" href="#thin-foil-x-chi-ne"><span class="std std-numref">Fig. 25</span></a>
 showing the distribution of the quantum parameter <span class="math notranslate nohighlight">\(\chi\)</span> along the x axis
 for the Monte-Carlo, the Niel and the corrected Landau-Lifshitz (<strong>CLL</strong>) radiation models.
 The maximum values can be seen at the front where the electrons
@@ -956,12 +956,12 @@ The radiation reaction can affect electron energy absorption and therefore the i
 acceleration mechanisms.</p>
 <div class="figure" id="id23">
 <span id="thin-foil-x-chi-ne"></span><a class="reference internal image-reference" href="_images/thin_foil_x_chi_ne.png"><img alt="_images/thin_foil_x_chi_ne.png" src="_images/thin_foil_x_chi_ne.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text"><span class="math notranslate nohighlight">\(x - \chi\)</span> electron distribution at time 47 fs for the Monte-Carlo,
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text"><span class="math notranslate nohighlight">\(x - \chi\)</span> electron distribution at time 47 fs for the Monte-Carlo,
 the Niel and the corrected Landau-Lifshitz (<strong>CLL</strong>) model.</span></p>
 </div>
 <p>The time evolutions of the electron kinetic energy, the carbon ion
 kinetic energy, the radiated energy and the total
-absorbed energy are shown in <a class="reference internal" href="#thin-foil-scalar"><span class="std std-numref">Fig. 25</span></a>.
+absorbed energy are shown in <a class="reference internal" href="#thin-foil-scalar"><span class="std std-numref">Fig. 26</span></a>.
 The <span class="green">corrected-Landau-Lifshitz</span>, the <span class="orange">Niel</span>
 and the <span class="blue">Monte-Carlo</span> models present very
 similar behaviors.
@@ -975,12 +975,12 @@ In all cases, radiation reaction strongly impacts the overall particle energy ab
 showing a difference close to 20% with the <span class="red">non-radiative</span> run.</p>
 <div class="figure" id="id24">
 <span id="thin-foil-scalar"></span><a class="reference internal image-reference" href="_images/thin_foil_scalar.png"><img alt="_images/thin_foil_scalar.png" src="_images/thin_foil_scalar.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Time evolution of the electron kinetic energy (solid lines), the carbon ion
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Time evolution of the electron kinetic energy (solid lines), the carbon ion
 kinetic energy (dashed line), the radiated energy (dotted line) and the total
 absorbed energy by particle and radiation (dotted-dashed lines), for various models.</span></p>
 </div>
 <p>The differences between electron <span class="math notranslate nohighlight">\(p_x\)</span> distributions are shown
-in <a class="reference internal" href="#thin-foil-x-px-ne"><span class="std std-numref">Fig. 26</span></a>. Without radiation reaction, electrons refluxing
+in <a class="reference internal" href="#thin-foil-x-px-ne"><span class="std std-numref">Fig. 27</span></a>. Without radiation reaction, electrons refluxing
 at the target front can travel farther in vacuum (negative <span class="math notranslate nohighlight">\(p_x\)</span>)
 before being injected back to the target.
 With radiation reaction, these electrons are rapidly slowed down
@@ -990,7 +990,7 @@ the regular positive spikes in <span class="math notranslate nohighlight">\(p_x\
 The maximum electron energy is almost twice lower with radiation reaction.</p>
 <div class="figure" id="id25">
 <span id="thin-foil-x-px-ne"></span><a class="reference internal image-reference" href="_images/thin_foil_x_px_ne.png"><img alt="_images/thin_foil_x_px_ne.png" src="_images/thin_foil_x_px_ne.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text"><span class="math notranslate nohighlight">\(x - p_x\)</span> electron distribution at time 47 fs for the Monte-Carlo,
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><span class="math notranslate nohighlight">\(x - p_x\)</span> electron distribution at time 47 fs for the Monte-Carlo,
 the Niel, the corrected Landau-Lifshitz (<strong>CLL</strong>) model and
 without radiation loss (<strong>none</strong>).</span></p>
 </div>
@@ -1176,9 +1176,9 @@ in the synchrotron case run on KNL.</p>
           <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              >next</a> |</li>
         <li class="right" >
-          <a href="field_ionization.html" title="Field ionization"
+          <a href="field_ionization.html" title="Field (or user defined) ionization"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -1186,7 +1186,7 @@ in the synchrotron case run on KNL.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Jul 07, 2018
+        Last updated on Jul 11, 2018
       </div>
       
       <div>

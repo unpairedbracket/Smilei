@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.4-4-g71d572a3 documentation</title>
+    <title>Write a namelist &#8212; Smilei v3.4-70-g741f447f documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -66,7 +66,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field ionization</a>
+              <a href="field_ionization.html">Field (or user defined) ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -253,7 +253,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field ionization</a>
+                            <a href="field_ionization.html">Field (or user defined) ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -420,7 +420,7 @@
         <li class="right" >
           <a href="supercomputers.html" title="Referenced supercomputers"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -602,6 +602,7 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dd><p>A list of integers: the number of patches in each direction.
 Each integer must be a power of 2, and the total number of patches must be
 greater or equal than the number of MPI processes.
+It is also advised to have more patches than the total number of openMP threads even if this is not a strict requirement.
 See <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>.</p>
 </dd></dl>
 
@@ -766,9 +767,9 @@ the following conditions: <code class="docutils literal notranslate"><span class
 <div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">[[bc_X],</span> <span class="pre">[bc_Y],</span> <span class="pre">...]</span></code>, different depending on x, y or z.</div>
 <div class="line"><strong>Syntax 3:</strong> <code class="docutils literal notranslate"><span class="pre">[[bc_Xmin,</span> <span class="pre">bc_Xmax],</span> <span class="pre">...]</span></code>,  different on each boundary.</div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> is an open boundary condition. The incident wave vector <span class="math notranslate nohighlight">\(k_i\)</span> on each face is defined by <code class="docutils literal notranslate"><span class="pre">&quot;EM_boundary_conditions_k&quot;</span></code>.
-When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an injecting boundary, make sure <span class="math notranslate nohighlight">\(k_i\)</span> is aligned with the wave you are injecting.
-When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an absorbing boundary, the optimal wave absorption on a given face will be along <span class="math notranslate nohighlight">\(k_{abs}\)</span> the specular reflection of <span class="math notranslate nohighlight">\(k_i\)</span> on face <cite>i</cite>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> is an open boundary condition. The incident wave vector <span class="math notranslate nohighlight">\(k_{inc}\)</span> on each face is defined by <code class="docutils literal notranslate"><span class="pre">&quot;EM_boundary_conditions_k&quot;</span></code>.
+When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an injecting boundary, make sure <span class="math notranslate nohighlight">\(k_{inc}\)</span> is aligned with the wave you are injecting.
+When using <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> as an absorbing boundary, the optimal wave absorption on a given face will be along <span class="math notranslate nohighlight">\(k_{abs}\)</span> the specular reflection of <span class="math notranslate nohighlight">\(k_{inc}\)</span> on the considered face.</p>
 </dd></dl>
 
 <dl class="data">
@@ -786,9 +787,9 @@ When using <code class="docutils literal notranslate"><span class="pre">&quot;si
 </tr>
 </tbody>
 </table>
-<p>The incident unit wave vector for each face (sequentially Xmin, Xmax, Ymin, Ymax, Zmin, Zmax)
+<p>The incident unit wave vector <cite>k</cite> for each face (sequentially Xmin, Xmax, Ymin, Ymax, Zmin, Zmax) is
 defined by its coordinates in the <cite>xyz</cite> frame.
-The number of coordinates is equal to the dimension of the simulation.</p>
+The number of coordinates is equal to the dimension of the simulation. The number of given vectors must be equal to 1 or to the number of faces which is twice the dimension of the simulation. In cylindrical geometry, <cite>k</cite> coordinates are given in the <cite>xr</cite> frame and only the Rmax face is affected.</p>
 <div class="line-block">
 <div class="line"><strong>Syntax 1:</strong> <code class="docutils literal notranslate"><span class="pre">[[1,0,0]]</span></code>, identical for all boundaries.</div>
 <div class="line"><strong>Syntax 2:</strong> <code class="docutils literal notranslate"><span class="pre">[[1,0,0],[-1,0,0],</span> <span class="pre">...]</span></code>,  different on each boundary.</div>
@@ -1083,6 +1084,7 @@ which parameters are controlled in the following block:</p>
     <span class="n">particles_per_cell</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
     <span class="n">mass</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
     <span class="n">atomic_number</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="c1">#maximum_charge_state = None,</span>
     <span class="n">number_density</span> <span class="o">=</span> <span class="mf">10.</span><span class="p">,</span>
     <span class="c1"># charge_density = None,</span>
     <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>
@@ -1098,6 +1100,7 @@ which parameters are controlled in the following block:</p>
     <span class="n">time_frozen</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
     <span class="c1"># ionization_model = &quot;none&quot;,</span>
     <span class="c1"># ionization_electrons = None,</span>
+    <span class="c1"># ionization_rate = None,</span>
     <span class="n">is_test</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">c_part_max</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="n">pusher</span> <span class="o">=</span> <span class="s2">&quot;boris&quot;</span><span class="p">,</span>
@@ -1197,6 +1200,20 @@ are given in successive columns.This initialization is incompatible with
 </table>
 <p>The atomic number of the particles, required only for ionization.
 It must be lower than 101.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="maximum_charge_state">
+<code class="descname">maximum_charge_state</code><a class="headerlink" href="#maximum_charge_state" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum charge state of a species for which the ionization model is <code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code>.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1342,8 +1359,43 @@ the thermal boundaries (those set to <code class="docutils literal notranslate">
 </tr>
 </tbody>
 </table>
-<p>The model for field ionization. Currently, only <code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code> is available.
-See <a class="reference internal" href="#collisionalionization"><span class="std std-ref">this</span></a> for collisional ionization instead.</p>
+<p>The model for ionization. Currently, only <code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code> (corresponding to <a class="reference internal" href="field_ionization.html"><span class="doc">field ionization</span></a>)
+and <code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code> (relying on a <a class="reference internal" href="field_ionization.html"><span class="doc">user-defined ionization rate</span></a>) are available.
+In the latter case, the additional parameter <code class="docutils literal notranslate"><span class="pre">ionization_rate</span></code> has to be defined.
+Note also that field ionization (<code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code>) requires the definition of the species <code class="docutils literal notranslate"><span class="pre">atomic_number</span></code> while
+ionization using a user-defined rate (<code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code>) requires the definition of the species <code class="docutils literal notranslate"><span class="pre">maximum_charge_state</span></code>.</p>
+<p>See <a class="reference internal" href="#collisionalionization"><span class="std std-ref">this</span></a> for collisional ionization instead.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ionization_rate">
+<code class="descname">ionization_rate</code><a class="headerlink" href="#ionization_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A python function giving the user-defined ionisation rate.
+To use this option, the <a class="reference external" href="http://www.numpy.org/">numpy package</a> must be available in your python installation.
+The function must have one argument, that you may call, for instance, <code class="docutils literal notranslate"><span class="pre">particles</span></code>.
+This object has several attributes <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">px</span></code>, <code class="docutils literal notranslate"><span class="pre">py</span></code>, <code class="docutils literal notranslate"><span class="pre">pz</span></code>, <code class="docutils literal notranslate"><span class="pre">charge</span></code>, <code class="docutils literal notranslate"><span class="pre">weight</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+Each of these attributes are provided as <strong>numpy</strong> arrays where each cell corresponds to one particle.</p>
+<p>The following example defines, for a species with maximum charge state of 2, a constant ionization rate that depends
+only on the initial particle charge (<code class="docutils literal notranslate"><span class="pre">r0</span></code> the ionisation rate from charge state 0 to 1 and
+<code class="docutils literal notranslate"><span class="pre">r1</span></code>  the ionisation rate from charge state 1 to 2):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_rate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">rate</span><span class="p">[</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r0</span>
+    <span class="n">rate</span><span class="p">[</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span>
+    <span class="k">return</span> <span class="n">rate</span>
+</pre></div>
+</div>
+<p>The following example defines an ionization rate [<span class="math notranslate nohighlight">\(r(x) = r0*f(x)\)</span>] that depends on the x-coordinate
+of the particle only:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">my_rate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r0</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rate</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="data">
@@ -3860,7 +3912,7 @@ iteration number of the PIC loop. The current time of the simulation is thus
 <p>A list of strings indicating the particle attributes to be written in the output.
 The attributes may be the particles’ spatial coordinates (<code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>),
 their momenta (<code class="docutils literal notranslate"><span class="pre">&quot;px&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;py&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pz&quot;</span></code>), their electrical charge (<code class="docutils literal notranslate"><span class="pre">&quot;q&quot;</span></code>),
-their statistical weight (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>), their quantum parameter
+their statistical weight (<code class="docutils literal notranslate"><span class="pre">&quot;weight&quot;</span></code>), their quantum parameter
 (<code class="docutils literal notranslate"><span class="pre">&quot;chi&quot;</span></code>, only for species with radiation losses) or the fields interpolated
 at their  positions (<code class="docutils literal notranslate"><span class="pre">&quot;Ex&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ey&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ez&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;By&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bz&quot;</span></code>).</p>
 </dd></dl>
@@ -3946,7 +3998,7 @@ of several numbers.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="checkpoints">
-<span id="id5"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
 <p>The simulation state can be saved (<em>dumped</em>) at given times (<em>checkpoints</em>)
 in order to be later <em>restarted</em> at that point.</p>
 <p>A few things are important to know when you need dumps and restarts.</p>
@@ -4140,7 +4192,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="supercomputers.html" title="Referenced supercomputers"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4148,7 +4200,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Jul 07, 2018
+        Last updated on Jul 11, 2018
       </div>
       
       <div>

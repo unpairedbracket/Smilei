@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Field ionization &#8212; Smilei v3.4-4-g71d572a3 documentation</title>
+    <title>Field (or user defined) ionization &#8212; Smilei v3.4-70-g741f447f documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -67,8 +67,8 @@
           </li>
         </ul>
             <ul>
-<li><a class="reference internal" href="#">Field ionization</a><ul>
-<li><a class="reference internal" href="#physical-model">Physical model</a></li>
+<li><a class="reference internal" href="#">Field (or user defined) ionization</a><ul>
+<li><a class="reference internal" href="#physical-model-for-field-ionization">Physical model for field ionization</a></li>
 <li><a class="reference internal" href="#monte-carlo-scheme">Monte-Carlo scheme</a></li>
 <li><a class="reference internal" href="#benchmarks">Benchmarks</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
@@ -130,10 +130,10 @@
                 Sections
             </div>
             <div id="nav_list" class="toctree-smilei">
-                <div id="nav_title"><a href="#">Field ionization</a></div>
+                <div id="nav_title"><a href="#">Field (or user defined) ionization</a></div>
                 <ul>
-<li><a class="reference internal" href="#">Field ionization</a><ul>
-<li><a class="reference internal" href="#physical-model">Physical model</a></li>
+<li><a class="reference internal" href="#">Field (or user defined) ionization</a><ul>
+<li><a class="reference internal" href="#physical-model-for-field-ionization">Physical model for field ionization</a></li>
 <li><a class="reference internal" href="#monte-carlo-scheme">Monte-Carlo scheme</a></li>
 <li><a class="reference internal" href="#benchmarks">Benchmarks</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
@@ -209,7 +209,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li >
-                            <a href="#">Field ionization</a>
+                            <a href="#">Field (or user defined) ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -376,7 +376,7 @@
         <li class="right" >
           <a href="collisions.html" title="Binary collisions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -385,8 +385,8 @@
       <div class="bodywrapper">
         <div class="body" role="main">
           
-  <div class="section" id="field-ionization">
-<h1>Field ionization<a class="headerlink" href="#field-ionization" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="field-or-user-defined-ionization">
+<h1>Field (or user defined) ionization<a class="headerlink" href="#field-or-user-defined-ionization" title="Permalink to this headline">¶</a></h1>
 <p>Field ionization is a process of particular importance for laser-plasma interaction
 in the ultra-high intensity regime.
 It can affect ion acceleration driven by irradiating a solid target with
@@ -396,9 +396,17 @@ This process is not described in the standard PIC (Vlasov-Maxwell) formulation,
 and an <em>ad hoc</em> description needs to be implemented.
 A Monte-Carlo module for field ionization has thus been developed in <strong class="program">Smilei</strong>,
 closely following the method proposed in <a class="reference internal" href="#nuter2011" id="id1">[Nuter2011]</a>.</p>
+<p>Alternatively, <strong class="program">Smilei</strong> now allows for the treatment of ionization considering a user-defined rate.
+The ionization rates are defined, for a given <code class="docutils literal notranslate"><span class="pre">Species</span></code>, as described <a class="reference internal" href="namelist.html#species"><span class="std std-ref">here</span></a>.
+The Monte-Carlo procedure behind the treatment of ionization in this case closely follows
+that developed for field ionization.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Note that, in the case of a user-defined ionization rate, only single ionization event per timestep are possible.</p>
+</div>
 <hr class="docutils" />
-<div class="section" id="physical-model">
-<h2>Physical model<a class="headerlink" href="#physical-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="physical-model-for-field-ionization">
+<h2>Physical model for field ionization<a class="headerlink" href="#physical-model-for-field-ionization" title="Permalink to this headline">¶</a></h2>
 <p>This scheme relies on the quasi-static rate for tunnel ionization derived in
 <a class="reference internal" href="#perelomov1966" id="id2">[Perelomov1966]</a>, <a class="reference internal" href="#perelomov1967" id="id3">[Perelomov1967]</a> and <a class="reference internal" href="#ammosov1986" id="id4">[Ammosov1986]</a>.
 Considering an ion with atomic number <span class="math notranslate nohighlight">\(Z\)</span> being ionized from charge state
@@ -482,12 +490,12 @@ The quasi-ion charge is also increased by <span class="math notranslate nohighli
 </div>
 <div class="section" id="benchmarks">
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h2>
-<p>In what follows, we present two benchmarks of the field ionization model
-implemented in <strong class="program">Smilei</strong>.
+<p>In what follows, we present two benchmarks of the field ionization model,
+and two additional benchmarks for the user-defined ionization rate.
 Both benchmarks consist in irradiating a thin (one cell long) neutral material (hydrogen or carbon)
 with a short (few optical-cycle long) laser with wavelength <span class="math notranslate nohighlight">\(\lambda_0 = 0.8~{\mu m}\)</span>.</p>
 <div class="figure" id="id8">
-<span id="fieldionization"></span><img alt="_images/FieldIonization.png" src="_images/FieldIonization.png" />
+<span id="figfieldionization"></span><img alt="_images/FieldIonization.png" src="_images/FieldIonization.png" />
 <p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Results of two benchmarks for the field ionization Model.
 Top: Average charge state of hydrogen ions as a function of time when irradiated by a laser.
 The red solid line corresponds to PIC results, the dashed line corresponds to
@@ -501,7 +509,7 @@ indicates the laser electric field envelope.</span></p>
 at <span class="math notranslate nohighlight">\(I_L = 10^{14}~{\rm W/cm^2}\)</span>, corresponding to a normalized vector
 potential <span class="math notranslate nohighlight">\(a_0 \simeq 6.81 \times 10^{-3}\)</span>, over 10 optical cycles.
 The resulting averaged ion charge in the simulation is presented as a function of
-time in <a class="reference internal" href="#fieldionization"><span class="std std-numref">Fig. 18</span></a> (top). It is found to be in excellent agreement
+time in <a class="reference internal" href="#figfieldionization"><span class="std std-numref">Fig. 18</span></a> (left). It is found to be in excellent agreement
 with the theoretical prediction considering the cycle averaged ionization rate
 <span class="math notranslate nohighlight">\(\Gamma_{\rm ADK} \simeq 2.55\times10^{12}~{\rm s^{-1}}\)</span> computed
 from <a class="reference internal" href="#equation-adkrate">(7)</a>.</p>
@@ -509,7 +517,7 @@ from <a class="reference internal" href="#equation-adkrate">(7)</a>.</p>
 <span class="math notranslate nohighlight">\(I_L = 5 \times 10^{16}~{\rm W/cm^2}\)</span>, corresponding to a normalized
 vector potential <span class="math notranslate nohighlight">\(a_0 \simeq 1.52 \times 10^{-1}\)</span>, and a gaussian time profile
 with FWHM <span class="math notranslate nohighlight">\(\tau_L=5~\lambda_0/c\)</span> (in terms of
-electric field). <a class="reference internal" href="#fieldionization"><span class="std std-numref">Fig. 18</span></a> (bottom) shows, as function of time,
+electric field). <a class="reference internal" href="#figfieldionization"><span class="std std-numref">Fig. 18</span></a> (right) shows, as function of time,
 the relative distribution of carbon ions for different charge states
 (from 0 to <span class="math notranslate nohighlight">\(+4\)</span>). These numerical results are shown to be in excellent
 agreement with theoretical predictions obtained by numerically solving the coupled
@@ -525,6 +533,25 @@ to ionize <span class="math notranslate nohighlight">\({\rm C}^{2+}\)</span> and
 so that multiple ionization from <span class="math notranslate nohighlight">\({\rm C}^{2+}\)</span> to <span class="math notranslate nohighlight">\({\rm C}^{4+}\)</span>
 during a single timestep does occur and is found to be correctly accounted for
 in our simulations.</p>
+<p>Let us now introduce two benchmarks for which the rate of ionization is defined by the user.
+The first benchmark considers an initially neutral species that can be potentially ionized twice.
+To run this case, a constant and uniform ionization rate is considered that depends only on the particle current charge
+state. For this particular case, we have considered a rate <span class="math notranslate nohighlight">\(r_0 = 0.1\)</span> (in code units) for ionization from
+charge state 0 to 1, and a rate <span class="math notranslate nohighlight">\(r_1 = 0.05\)</span> (in code units) for ionization from charge state 1 to 2.
+The simulation results presented in Fig. <a class="reference internal" href="#figfromrateionization"><span class="std std-numref">Fig. 19</span></a> (top panel) shows the time evolution of the
+fraction in each possible charge states (<span class="math notranslate nohighlight">\(Z=0\)</span>, <span class="math notranslate nohighlight">\(Z=1\)</span> and <span class="math notranslate nohighlight">\(Z=2\)</span>).
+Super-imposed (dashed lines) are the corresponding theoretical predictions.</p>
+<p>The second benchmark features an initially neutral species homogeneously distributed in the simulation box.
+The ionization rate is here chosen as a function of the spatial coordinate <span class="math notranslate nohighlight">\(x\)</span>,
+and reads <span class="math notranslate nohighlight">\(r(x) = r_0 \exp(-(x-x_c)^2/2)\)</span> with <span class="math notranslate nohighlight">\(r_0 = 0.02\)</span> the maximum ionization rate and
+<span class="math notranslate nohighlight">\(x_c=5\)</span> the center of the simulation box.
+The simulation results presented in Fig. <a class="reference internal" href="#figfromrateionization"><span class="std std-numref">Fig. 19</span></a> (bottom panel) shows,
+at the end of the simulation <span class="math notranslate nohighlight">\(t=20\)</span>, the electron number density as a function of space.
+Super-imposed (in red) is the corresponding theoretical prediction.</p>
+<div class="figure" id="id9">
+<span id="figfromrateionization"></span><img alt="_images/userDefinedRate.png" src="_images/userDefinedRate.png" />
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Results of the two benchmarks for the ionization model using user-defined rates as described above.</span></p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="references">
@@ -574,7 +601,7 @@ in our simulations.</p>
         <li class="right" >
           <a href="collisions.html" title="Binary collisions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-4-g71d572a3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-70-g741f447f documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -582,7 +609,7 @@ in our simulations.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Jul 07, 2018
+        Last updated on Jul 11, 2018
       </div>
       
       <div>
