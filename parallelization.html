@@ -6,14 +6,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Parallelization basics &#8212; Smilei v3.4-72-g62ad41a6 documentation</title>
+    <title>Parallelization basics &#8212; Smilei v3.5 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -66,8 +66,8 @@
 <li><a class="reference internal" href="#managing-processes-and-threads">Managing processes and threads</a></li>
 <li><a class="reference internal" href="#decomposition-of-the-box">Decomposition of the box</a></li>
 <li><a class="reference internal" href="#load-balancing-between-mpi-regions">Load balancing between MPI regions</a></li>
-<li><a class="reference internal" href="#cartesian-decomposition">Cartesian decomposition</a></li>
 <li><a class="reference internal" href="#recommendations">Recommendations</a></li>
+<li><a class="reference internal" href="#cartesian-decomposition">Cartesian decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -77,7 +77,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field (or user defined) ionization</a>
+              <a href="ionization.html">Ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -93,9 +93,6 @@
         <ul>
           <li class="outer">
               <a href="installation.html">Install</a>
-          </li>
-          <li class="outer">
-              <a href="supercomputers.html">Referenced supercomputers</a>
           </li>
           <li class="outer">
               <a href="namelist.html">Write a namelist</a>
@@ -139,8 +136,8 @@
 <li><a class="reference internal" href="#managing-processes-and-threads">Managing processes and threads</a></li>
 <li><a class="reference internal" href="#decomposition-of-the-box">Decomposition of the box</a></li>
 <li><a class="reference internal" href="#load-balancing-between-mpi-regions">Load balancing between MPI regions</a></li>
-<li><a class="reference internal" href="#cartesian-decomposition">Cartesian decomposition</a></li>
 <li><a class="reference internal" href="#recommendations">Recommendations</a></li>
+<li><a class="reference internal" href="#cartesian-decomposition">Cartesian decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -213,7 +210,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field (or user defined) ionization</a>
+                            <a href="ionization.html">Ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -242,9 +239,6 @@
                     <ul>
                         <li class="outer">
                             <a href="installation.html">Install</a>
-                        </li>
-                        <li class="outer">
-                            <a href="supercomputers.html">Referenced supercomputers</a>
                         </li>
                         <li class="outer">
                             <a href="namelist.html">Write a namelist</a>
@@ -380,7 +374,7 @@
         <li class="right" >
           <a href="algorithms.html" title="PIC algorithms"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -512,50 +506,6 @@ operation every now and then, we ensure that all regions manage an equitable com
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="cartesian-decomposition">
-<h2>Cartesian decomposition<a class="headerlink" href="#cartesian-decomposition" title="Permalink to this headline">¶</a></h2>
-<p>To be efficient, the dynamic load balancing process requires particles.
-For simulations with very local plasma it worths to manage handly the domain decomposition.
-Given that the distriubtion of patches along the space filling curve is not intuitive, it is possible to use a classical cartesian distribution.</p>
-<p>In the namelist :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">(</span>
-    <span class="o">...</span>
-    <span class="n">patch_decomposition</span> <span class="o">=</span> <span class="s2">&quot;cartesian&quot;</span>
-    <span class="o">...</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p class="rubric">Rules</p>
-<ul class="simple">
-<li>No more limits on the number of patches per direction.</li>
-<li>This option disables the load balancing.</li>
-<li><dl class="first docutils">
-<dt>To use fields diagnostics, the number of patches per process must allow to build regular pavement of the simulation box. For instance :</dt>
-<dd><ul class="first last">
-<li>8 x 8 patches on 4 MPI process : <strong>ok</strong>, each process own 2 x 8 patches slice.</li>
-<li>6 x 8 patches on 4 MPI process : <strong>not ok</strong>, each process own 12 patches which overlap 2 pavements.</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>By default, the cartesian decomposition is oriented to store contiguously patches along the most internal direction (<strong>Z</strong>, then <strong>Y</strong>, then <strong>X</strong>).
-The orientation can be modified throught the following option :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">(</span>
-    <span class="o">...</span>
-    <span class="n">patch_orientation</span> <span class="o">=</span> <span class="s2">&quot;YX&quot;</span><span class="p">,</span>  <span class="c1"># 2D</span>
-    <span class="n">patch_orientation</span> <span class="o">=</span> <span class="s2">&quot;ZYX&quot;</span><span class="p">,</span> <span class="c1"># 3D</span>
-    <span class="o">...</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p class="rubric">Reminder</p>
-<ul class="simple">
-<li>This option is not compatible with the usage of fields diagnostics.</li>
-<li>These parameters are optional, without specfication of the patches distribution the Hilbert curve is used.</li>
-</ul>
-</div>
-<hr class="docutils" />
 <div class="section" id="recommendations">
 <h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -581,6 +531,46 @@ Warning: it is commonly advised to use larger patches if more than half of your 
 </li>
 </ul>
 </div>
+<hr class="docutils" />
+<div class="section" id="cartesian-decomposition">
+<h2>Cartesian decomposition<a class="headerlink" href="#cartesian-decomposition" title="Permalink to this headline">¶</a></h2>
+<p>The dynamic load balancing process described above may not be efficient
+in all cases. Depending on the plasma shape, it may be necessary to use another
+domain decomposition approach.
+In Smilei, it is possible to use a classical cartesian decomposition.</p>
+<p>In the namelist:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">patch_decomposition</span> <span class="o">=</span> <span class="s2">&quot;cartesian&quot;</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Rules</p>
+<ul class="simple">
+<li>No more restrictions on the number of patches per direction.</li>
+<li>This option disables the load balancing.</li>
+<li><dl class="first docutils">
+<dt>To use fields diagnostics, the number of patches per process must allow to build a rectangular tessellation of the simulation box. For instance:</dt>
+<dd><ul class="first last">
+<li>8 x 8 patches on 4 MPI process : <strong>ok</strong>, each process own 2 x 8 patches slice.</li>
+<li>6 x 8 patches on 4 MPI process : <strong>not ok</strong>, each process own 12 patches which overlap 2 pavements.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>By default, the cartesian decomposition is oriented to contiguously store patches along the most internal direction (<strong>Z</strong>, then <strong>Y</strong>, then <strong>X</strong>).
+The orientation can be modified throught the following option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Main</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">patch_orientation</span> <span class="o">=</span> <span class="s2">&quot;YX&quot;</span><span class="p">,</span>  <span class="c1"># 2D</span>
+    <span class="n">patch_orientation</span> <span class="o">=</span> <span class="s2">&quot;ZYX&quot;</span><span class="p">,</span> <span class="c1"># 3D</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -601,7 +591,7 @@ Warning: it is commonly advised to use larger patches if more than half of your 
         <li class="right" >
           <a href="algorithms.html" title="PIC algorithms"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -609,11 +599,11 @@ Warning: it is commonly advised to use larger patches if more than half of your 
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 04, 2018
+        Last updated on Sep 13, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
       </div>
       
     </div>

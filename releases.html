@@ -6,14 +6,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Releases &#8212; Smilei v3.4-72-g62ad41a6 documentation</title>
+    <title>Releases &#8212; Smilei v3.5 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -51,7 +51,8 @@
             <ul>
 <li><a class="reference internal" href="#">Releases</a><ul>
 <li><a class="reference internal" href="#upcoming-changes">Upcoming changes</a></li>
-<li><a class="reference internal" href="#current-release-3-4-1">Current release 3.4.1</a></li>
+<li><a class="reference internal" href="#release-3-5">Release 3.5</a></li>
+<li><a class="reference internal" href="#release-3-4-1">Release 3.4.1</a></li>
 <li><a class="reference internal" href="#release-3-4">Release 3.4</a></li>
 <li><a class="reference internal" href="#release-3-3">Release 3.3</a></li>
 <li><a class="reference internal" href="#release-3-2">Release 3.2</a></li>
@@ -81,7 +82,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field (or user defined) ionization</a>
+              <a href="ionization.html">Ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -97,9 +98,6 @@
         <ul>
           <li class="outer">
               <a href="installation.html">Install</a>
-          </li>
-          <li class="outer">
-              <a href="supercomputers.html">Referenced supercomputers</a>
           </li>
           <li class="outer">
               <a href="namelist.html">Write a namelist</a>
@@ -140,7 +138,8 @@
                 <ul>
 <li><a class="reference internal" href="#">Releases</a><ul>
 <li><a class="reference internal" href="#upcoming-changes">Upcoming changes</a></li>
-<li><a class="reference internal" href="#current-release-3-4-1">Current release 3.4.1</a></li>
+<li><a class="reference internal" href="#release-3-5">Release 3.5</a></li>
+<li><a class="reference internal" href="#release-3-4-1">Release 3.4.1</a></li>
 <li><a class="reference internal" href="#release-3-4">Release 3.4</a></li>
 <li><a class="reference internal" href="#release-3-3">Release 3.3</a></li>
 <li><a class="reference internal" href="#release-3-2">Release 3.2</a></li>
@@ -221,7 +220,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field (or user defined) ionization</a>
+                            <a href="ionization.html">Ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -250,9 +249,6 @@
                     <ul>
                         <li class="outer">
                             <a href="installation.html">Install</a>
-                        </li>
-                        <li class="outer">
-                            <a href="supercomputers.html">Referenced supercomputers</a>
                         </li>
                         <li class="outer">
                             <a href="namelist.html">Write a namelist</a>
@@ -388,7 +384,7 @@
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -421,8 +417,17 @@ the GitHub page.</p>
 </ul>
 <hr class="docutils" />
 </div>
-<div class="section" id="current-release-3-4-1">
-<span id="latestversion"></span><h2>Current release 3.4.1<a class="headerlink" href="#current-release-3-4-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="release-3-5">
+<span id="latestversion"></span><h2>Release 3.5<a class="headerlink" href="#release-3-5" title="Permalink to this headline">¶</a></h2>
+<p><strong>Download</strong>: <a class="reference external" href="_downloads/smilei-v3.5.tar.gz">Smilei v3.5</a></p>
+<ul class="simple">
+<li><a class="reference internal" href="laser_offset.html"><span class="doc">Laser defined in tilted plane</span></a></li>
+<li>Bugfixes: Field diagnostic subgrid, Scalar diagnostic PoyInst, MPI tags for large number of patches</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="release-3-4-1">
+<h2>Release 3.4.1<a class="headerlink" href="#release-3-4-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Download</strong>: <a class="reference external" href="_downloads/smilei-v3.4.1.tar.gz">Smilei v3.4.1</a></p>
 <ul class="simple">
 <li>Ionization considering a user-defined rate</li>
@@ -556,7 +561,7 @@ the GitHub page.</p>
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -564,11 +569,11 @@ the GitHub page.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 04, 2018
+        Last updated on Sep 13, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
       </div>
       
     </div>

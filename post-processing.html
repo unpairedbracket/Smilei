@@ -6,14 +6,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Post-process &#8212; Smilei v3.4-72-g62ad41a6 documentation</title>
+    <title>Post-process &#8212; Smilei v3.5 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -66,7 +66,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field (or user defined) ionization</a>
+              <a href="ionization.html">Ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -82,9 +82,6 @@
         <ul>
           <li class="outer">
               <a href="installation.html">Install</a>
-          </li>
-          <li class="outer">
-              <a href="supercomputers.html">Referenced supercomputers</a>
           </li>
           <li class="outer">
               <a href="namelist.html">Write a namelist</a>
@@ -243,7 +240,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field (or user defined) ionization</a>
+                            <a href="ionization.html">Ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -272,9 +269,6 @@
                     <ul>
                         <li class="outer">
                             <a href="installation.html">Install</a>
-                        </li>
-                        <li class="outer">
-                            <a href="supercomputers.html">Referenced supercomputers</a>
                         </li>
                         <li class="outer">
                             <a href="namelist.html">Write a namelist</a>
@@ -410,7 +404,7 @@
         <li class="right" >
           <a href="run.html" title="Run"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -471,25 +465,25 @@ and <a class="reference internal" href="namelist.html#diagperformances"><span cl
 <p>Once a simulation is opened as shown above, you can access the content of the namelist
 using the attribute <code class="docutils literal notranslate"><span class="pre">namelist</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;path/to/my/results&quot;</span><span class="p">)</span> <span class="c1"># Open a simulation</span>
-<span class="nb">print</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">timestep</span>   <span class="c1"># print the timestep</span>
-<span class="nb">print</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">geometry</span>   <span class="c1"># print the simulation dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">timestep</span><span class="p">)</span>   <span class="c1"># print the timestep</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>   <span class="c1"># print the simulation dimensions</span>
 </pre></div>
 </div>
 <p>All the variables defined in the original namelist are copied into this variable.</p>
 <p>Concerning components like <a class="reference internal" href="namelist.html#species"><span class="std std-ref">Species</span></a>, <a class="reference internal" href="namelist.html#externalfield"><span class="std std-ref">External fields</span></a> or <a class="reference internal" href="namelist.html#diagprobe"><span class="std std-ref">Probe diagnostics</span></a>, of which
 several instances may exist, you can directly iterate over them:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Species</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>You can also access to a specific component by referencing its number:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">ExternalField</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># get the first external field</span>
-<span class="nb">print</span> <span class="s2">&quot;An external field &quot;</span><span class="o">+</span><span class="n">F</span><span class="o">.</span><span class="n">field</span><span class="o">+</span><span class="s2">&quot; was applied&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An external field &quot;</span><span class="o">+</span><span class="n">F</span><span class="o">.</span><span class="n">field</span><span class="o">+</span><span class="s2">&quot; was applied&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In the case of the species, you can also obtain a given species by its name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">namelist</span><span class="o">.</span><span class="n">Species</span><span class="p">[</span><span class="s2">&quot;electron1&quot;</span><span class="p">]</span>
-<span class="nb">print</span> <span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;species &quot;</span><span class="o">+</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; has mass &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">mass</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -544,7 +538,7 @@ several instances may exist, you can directly iterate over them:</p>
 <h2>Open a Field diagnostic<a class="headerlink" href="#open-a-field-diagnostic" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="Field">
-<code class="descname">Field</code><span class="sig-paren">(</span><em>diagNumber=None, field=None, timesteps=None, subset=None, average=None, units=[&quot;&quot;], data_log=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Field" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Field</code><span class="sig-paren">(</span><em>diagNumber=None, field=None, timesteps=None, subset=None, average=None, units=[&quot;&quot;], data_log=False, moving=False, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Field" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">timesteps</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, <code class="docutils literal notranslate"><span class="pre">data_log</span></code>: same as before.</p>
 </li>
@@ -594,6 +588,9 @@ several instances may exist, you can directly iterate over them:</p>
 </div>
 </dd>
 </dl>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">moving</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, plots will display the X coordinates evolving according to the
+<a class="reference internal" href="namelist.html#movingwindow"><span class="std std-ref">moving window</span></a></p>
 </li>
 <li><p class="first">Other keyword arguments (<code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are available, the same as the function <a class="reference internal" href="#plot" title="plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a>.</p>
 </li>
@@ -1051,6 +1048,13 @@ pairs <code class="docutils literal notranslate"><span class="pre">axis:array</s
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="Field.getXmoved">
+<code class="descclassname">Field.</code><code class="descname">getXmoved</code><span class="sig-paren">(</span><em>timestep</em><span class="sig-paren">)</span><a class="headerlink" href="#Field.getXmoved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific to Field diagnostics, this method returns the displacement of the moving
+window at the required <code class="docutils literal notranslate"><span class="pre">timestep</span></code>.</p>
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="export-2d-or-3d-data-to-vtk">
@@ -1368,7 +1372,7 @@ is <a class="reference external" href="https://smileipic.github.io/tutorials">av
         <li class="right" >
           <a href="run.html" title="Run"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -1376,11 +1380,11 @@ is <a class="reference external" href="https://smileipic.github.io/tutorials">av
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 04, 2018
+        Last updated on Sep 13, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
       </div>
       
     </div>

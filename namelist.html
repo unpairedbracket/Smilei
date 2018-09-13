@@ -6,19 +6,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.4-72-g62ad41a6 documentation</title>
+    <title>Write a namelist &#8212; Smilei v3.5 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Run" href="run.html" />
-    <link rel="prev" title="Referenced supercomputers" href="supercomputers.html" />
+    <link rel="prev" title="Install" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -66,7 +66,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field (or user defined) ionization</a>
+              <a href="ionization.html">Ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -82,9 +82,6 @@
         <ul>
           <li class="outer">
               <a href="installation.html">Install</a>
-          </li>
-          <li class="outer">
-              <a href="supercomputers.html">Referenced supercomputers</a>
           </li>
         </ul>
             <ul>
@@ -253,7 +250,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field (or user defined) ionization</a>
+                            <a href="ionization.html">Ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -282,9 +279,6 @@
                     <ul>
                         <li class="outer">
                             <a href="installation.html">Install</a>
-                        </li>
-                        <li class="outer">
-                            <a href="supercomputers.html">Referenced supercomputers</a>
                         </li>
                         <li >
                             <a href="#">Write a namelist</a>
@@ -418,9 +412,9 @@
           <a href="run.html" title="Run"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="supercomputers.html" title="Referenced supercomputers"
+          <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -613,7 +607,7 @@ See <a class="reference internal" href="parallelization.html"><span class="doc">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">‘hilbert’</td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;hilbert&quot;</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -624,8 +618,17 @@ See <a class="reference internal" href="parallelization.html"><span class="doc">
 <dl class="data">
 <dt id="patch_orientation">
 <code class="descname">patch_orientation</code><a class="headerlink" href="#patch_orientation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Only for a <code class="docutils literal notranslate"><span class="pre">&quot;cartesian&quot;</span></code> patches distribution.
-<code class="docutils literal notranslate"><span class="pre">&quot;YX&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ZYX&quot;</span></code> respectively available for 2D and 3D simulations.
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Only for a <code class="docutils literal notranslate"><span class="pre">&quot;cartesian&quot;</span></code> patches decomposition.
+<code class="docutils literal notranslate"><span class="pre">&quot;YX&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ZYX&quot;</span></code> respectively available for 2D and 3D simulations, while the default <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>
+corresponds to the decomposition oriented as <code class="docutils literal notranslate"><span class="pre">XY</span></code> or <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>.
 See <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>.</p>
 </dd></dl>
 
@@ -945,6 +948,11 @@ This load is normalized to the load of a single particle.</p>
 </div>
 <div class="section" id="moving-window">
 <span id="movingwindow"></span><h2>Moving window<a class="headerlink" href="#moving-window" title="Permalink to this headline">¶</a></h2>
+<p>The simulated box can move relative to the initial plasma position. This “moving window”
+basically consists in removing periodically some plasma from the <code class="docutils literal notranslate"><span class="pre">x_min</span></code> border and
+adding new plasma after the <code class="docutils literal notranslate"><span class="pre">x_max</span></code> border, thus changing the physical domain that the
+simulation represents but keeping the same box size. This is particularly useful to
+<em>follow</em> plasma moving at high speed.</p>
 <p>The block <code class="docutils literal notranslate"><span class="pre">MovingWindow</span></code> is optional. The window does not move it you do not define it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MovingWindow</span><span class="p">(</span>
     <span class="n">time_start</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
@@ -1174,7 +1182,7 @@ are given in successive columns.This initialization is incompatible with
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1225,7 +1233,7 @@ It must be lower than 101.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1240,7 +1248,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1254,7 +1262,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or <em>python</em> functions (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or </td>
 </tr>
 </tbody>
 </table>
@@ -1268,7 +1276,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or <em>python</em> functions (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or </td>
 </tr>
 </tbody>
 </table>
@@ -1359,41 +1367,35 @@ the thermal boundaries (those set to <code class="docutils literal notranslate">
 </tr>
 </tbody>
 </table>
-<p>The model for ionization. Currently, only <code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code> (corresponding to <a class="reference internal" href="field_ionization.html"><span class="doc">field ionization</span></a>)
-and <code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code> (relying on a <a class="reference internal" href="field_ionization.html"><span class="doc">user-defined ionization rate</span></a>) are available.
-In the latter case, the additional parameter <code class="docutils literal notranslate"><span class="pre">ionization_rate</span></code> has to be defined.
-Note also that field ionization (<code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code>) requires the definition of the species <code class="docutils literal notranslate"><span class="pre">atomic_number</span></code> while
-ionization using a user-defined rate (<code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code>) requires the definition of the species <code class="docutils literal notranslate"><span class="pre">maximum_charge_state</span></code>.</p>
-<p>See <a class="reference internal" href="#collisionalionization"><span class="std std-ref">this</span></a> for collisional ionization instead.</p>
+<p>The model for ionization:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;tunnel&quot;</span></code> for <a class="reference internal" href="ionization.html#field-ionization"><span class="std std-ref">field ionization</span></a> (requires species with an <a class="reference internal" href="#atomic_number" title="atomic_number"><code class="xref py py-data docutils literal notranslate"><span class="pre">atomic_number</span></code></a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;from_rate&quot;</span></code>, relying on a <a class="reference internal" href="ionization.html#rate-ionization"><span class="std std-ref">user-defined ionization rate</span></a> (requires species with a <a class="reference internal" href="#maximum_charge_state" title="maximum_charge_state"><code class="xref py py-data docutils literal notranslate"><span class="pre">maximum_charge_state</span></code></a>).</li>
+</ul>
 </dd></dl>
 
 <dl class="data">
 <dt id="ionization_rate">
 <code class="descname">ionization_rate</code><a class="headerlink" href="#ionization_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>A python function giving the user-defined ionisation rate.
+<dd><p>A python function giving the user-defined ionisation rate as a function of various particle attributes.
 To use this option, the <a class="reference external" href="http://www.numpy.org/">numpy package</a> must be available in your python installation.
 The function must have one argument, that you may call, for instance, <code class="docutils literal notranslate"><span class="pre">particles</span></code>.
 This object has several attributes <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">px</span></code>, <code class="docutils literal notranslate"><span class="pre">py</span></code>, <code class="docutils literal notranslate"><span class="pre">pz</span></code>, <code class="docutils literal notranslate"><span class="pre">charge</span></code>, <code class="docutils literal notranslate"><span class="pre">weight</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>.
 Each of these attributes are provided as <strong>numpy</strong> arrays where each cell corresponds to one particle.</p>
-<p>The following example defines, for a species with maximum charge state of 2, a constant ionization rate that depends
-only on the initial particle charge (<code class="docutils literal notranslate"><span class="pre">r0</span></code> the ionisation rate from charge state 0 to 1 and
-<code class="docutils literal notranslate"><span class="pre">r1</span></code>  the ionisation rate from charge state 1 to 2):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_rate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
-    <span class="n">rate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">rate</span><span class="p">[</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r0</span>
-    <span class="n">rate</span><span class="p">[</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span>
-    <span class="k">return</span> <span class="n">rate</span>
-</pre></div>
-</div>
-<p>The following example defines an ionization rate [<span class="math notranslate nohighlight">\(r(x) = r0*f(x)\)</span>] that depends on the x-coordinate
-of the particle only:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+<p>The following example defines, for a species with maximum charge state of 2,
+an ionization rate that depends on the initial particle charge
+and linear in the x coordinate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">zeros_like</span>
 
 <span class="k">def</span> <span class="nf">my_rate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">x</span>
-    <span class="n">rate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r0</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">charge_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">charge_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">charge</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rate</span><span class="p">[</span><span class="n">charge_0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r0</span> <span class="o">*</span> <span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">charge_0</span><span class="p">]</span>
+    <span class="n">rate</span><span class="p">[</span><span class="n">charge_1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">particles</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">charge_1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">rate</span>
+
+<span class="n">Species</span><span class="p">(</span> <span class="o">...</span><span class="p">,</span> <span class="n">ionization_rate</span> <span class="o">=</span> <span class="n">my_rate</span> <span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1401,7 +1403,7 @@ of the particle only:</p>
 <dl class="data">
 <dt id="ionization_electrons">
 <code class="descname">ionization_electrons</code><a class="headerlink" href="#ionization_electrons" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the electron species that field ionization uses when creating new electrons.</p>
+<dd><p>The name of the electron species that <a class="reference internal" href="#ionization_model" title="ionization_model"><code class="xref py py-data docutils literal notranslate"><span class="pre">ionization_model</span></code></a> uses when creating new electrons.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1569,10 +1571,10 @@ conserved.</p>
 <p>This parameter can <strong>only</strong> be assigned to photons species (mass = 0).</p>
 </dd></dl>
 
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="lasers">
-<h2>Lasers<a class="headerlink" href="#lasers" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Lasers<a class="headerlink" href="#lasers" title="Permalink to this headline">¶</a></h2>
 <p>A laser consists in applying oscillating boundary conditions for the magnetic
 field on one of the box sides. The only boundary conditions that support lasers
 are <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> (see <a class="reference internal" href="#EM_boundary_conditions" title="EM_boundary_conditions"><code class="xref py py-data docutils literal notranslate"><span class="pre">EM_boundary_conditions</span></code></a>).
@@ -1607,7 +1609,7 @@ There are several syntaxes to introduce a laser in <strong class="program">Smile
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two <em>python</em> functions</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two </td>
 </tr>
 </tbody>
 </table>
@@ -1621,7 +1623,7 @@ The two functions represent <span class="math notranslate nohighlight">\(B_y\)</
 <p class="rubric">2. Defining the wave envelopes</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Laser</span><span class="p">(</span>
-    <span class="n">box_side</span>        <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+    <span class="n">box_side</span>       <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
     <span class="n">omega</span>          <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
     <span class="n">chirp_profile</span>  <span class="o">=</span> <span class="n">tconstant</span><span class="p">(),</span>
     <span class="n">time_envelope</span>  <span class="o">=</span> <span class="n">tgaussian</span><span class="p">(),</span>
@@ -1665,7 +1667,7 @@ spatial envelopes, <span class="math notranslate nohighlight">\(\omega\)</span> 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a <em>python</em> function or a <a class="reference internal" href="#profiles"><span class="std std-ref">time profile</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">tconstant()</span></code></td>
 </tr>
@@ -1702,7 +1704,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a <em>python</em> function or a <a class="reference internal" href="#profiles"><span class="std std-ref">time profile</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">tconstant()</span></code></td>
 </tr>
@@ -1718,7 +1720,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two <em>python</em> functions or two <a class="reference internal" href="#profiles"><span class="std std-ref">spatial profiles</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">1.,</span> <span class="pre">0.</span> <span class="pre">]</span></code></td>
 </tr>
@@ -1734,7 +1736,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two <em>python</em> functions or two <a class="reference internal" href="#profiles"><span class="std std-ref">spatial profiles</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">0.,</span> <span class="pre">0.</span> <span class="pre">]</span></code></td>
 </tr>
@@ -1767,11 +1769,11 @@ delay due to the mismatched <a class="reference internal" href="#phase" title="p
 <div><p>For one-dimensional simulations, you may use the simplified laser creator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserPlanar1D</span><span class="p">(</span>
     <span class="n">box_side</span>         <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
-    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
-    <span class="n">omega</span>           <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">a0</span>               <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">omega</span>            <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
     <span class="n">polarization_phi</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">ellipticity</span>     <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
+    <span class="n">ellipticity</span>      <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>    <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1832,14 +1834,14 @@ delay due to the mismatched <a class="reference internal" href="#phase" title="p
 <div><p>For two-dimensional simulations, you may use the simplified laser creator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserGaussian2D</span><span class="p">(</span>
     <span class="n">box_side</span>         <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
-    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
-    <span class="n">omega</span>           <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
-    <span class="n">focus</span>           <span class="o">=</span> <span class="p">[</span><span class="mf">50.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
-    <span class="n">waist</span>           <span class="o">=</span> <span class="mf">3.</span><span class="p">,</span>
-    <span class="n">incidence_angle</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+    <span class="n">a0</span>               <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">omega</span>            <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">focus</span>            <span class="o">=</span> <span class="p">[</span><span class="mf">50.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
+    <span class="n">waist</span>            <span class="o">=</span> <span class="mf">3.</span><span class="p">,</span>
+    <span class="n">incidence_angle</span>  <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
     <span class="n">polarization_phi</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">ellipticity</span>     <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
+    <span class="n">ellipticity</span>      <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>    <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1850,7 +1852,7 @@ delay due to the mismatched <a class="reference internal" href="#phase" title="p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two floats <code class="docutils literal notranslate"><span class="pre">[X,</span> <span class="pre">Y]</span></code></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two floats </td>
 </tr>
 </tbody>
 </table>
@@ -1892,20 +1894,116 @@ delay due to the mismatched <a class="reference internal" href="#phase" title="p
 <div><p>For three-dimensional simulations, you may use the simplified laser creator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserGaussian3D</span><span class="p">(</span>
     <span class="n">box_side</span>         <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
-    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
-    <span class="n">omega</span>           <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
-    <span class="n">focus</span>           <span class="o">=</span> <span class="p">[</span><span class="mf">50.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
-    <span class="n">waist</span>           <span class="o">=</span> <span class="mf">3.</span><span class="p">,</span>
-    <span class="n">incidence_angle</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+    <span class="n">a0</span>               <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">omega</span>            <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">focus</span>            <span class="o">=</span> <span class="p">[</span><span class="mf">50.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
+    <span class="n">waist</span>            <span class="o">=</span> <span class="mf">3.</span><span class="p">,</span>
+    <span class="n">incidence_angle</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
     <span class="n">polarization_phi</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">ellipticity</span>     <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
-    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
+    <span class="n">ellipticity</span>      <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>    <span class="o">=</span> <span class="n">tconstant</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>This is almost the same as <code class="docutils literal notranslate"><span class="pre">LaserGaussian2D</span></code>, with the <code class="docutils literal notranslate"><span class="pre">focus</span></code> parameter having
 now 3 elements (focus position in 3D), and the <code class="docutils literal notranslate"><span class="pre">incidence_angle</span></code> being a list of
 two angles, corresponding to rotations around <cite>y</cite> and <cite>z</cite>, respectively.</p>
+</div></blockquote>
+<p class="rubric">5. Defining a generic wave at some distance from the boundary</p>
+<blockquote>
+<div><p>In some cases, the laser field is not known at the box boundary, but rather at some
+plane inside the box. Smilei can pre-calculate the corresponding wave at the boundary
+using the <em>angular spectrum method</em>. This technique is only available in 2D and 3D
+cartesian geometries and requires the python packages <em>numpy</em>.
+A <a class="reference internal" href="laser_offset.html"><span class="doc">detailed explanation</span></a> of the method is available.
+The laser is introduced using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserOffset</span><span class="p">(</span>
+    <span class="n">box_side</span>               <span class="o">=</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+    <span class="n">space_time_profile</span>     <span class="o">=</span> <span class="p">[</span> <span class="n">By_profile</span><span class="p">,</span> <span class="n">Bz_profile</span> <span class="p">],</span>
+    <span class="n">offset</span>                 <span class="o">=</span> <span class="mf">10.</span><span class="p">,</span>
+    <span class="n">extra_envelope</span>          <span class="o">=</span> <span class="n">tconstant</span><span class="p">(),</span>
+    <span class="n">keep_n_strongest_modes</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">/</span><span class="mf">180.</span><span class="o">*</span><span class="mf">3.14159</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="data">
+<dt>
+<code class="descname">space_time_profile</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two </td>
+</tr>
+</tbody>
+</table>
+<p>The magnetic field profiles at some arbitrary plane, as a function of space and time.
+The arguments of these profiles are <code class="docutils literal notranslate"><span class="pre">(y,t)</span></code> in 2D and <code class="docutils literal notranslate"><span class="pre">(y,z,t)</span></code> in 3D.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="offset">
+<code class="descname">offset</code><a class="headerlink" href="#offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>The distance from the box boundary to the plane where <a class="reference internal" href="#space_time_profile" title="space_time_profile"><code class="xref py py-data docutils literal notranslate"><span class="pre">space_time_profile</span></code></a>
+is defined.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="extra_envelope">
+<code class="descname">extra_envelope</code><a class="headerlink" href="#extra_envelope" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">*z:</span> <span class="pre">1.</span></code>, which means a profile of value 1 everywhere</td>
+</tr>
+</tbody>
+</table>
+<p>An extra envelope applied at the boundary, on top of the <a class="reference internal" href="#space_time_profile" title="space_time_profile"><code class="xref py py-data docutils literal notranslate"><span class="pre">space_time_profile</span></code></a>.
+This envelope takes two arguments (<cite>y</cite>, <cite>t</cite>) in 2D, and three arguments (<cite>y</cite>, <cite>z</cite>, <cite>t</cite>)
+in 3D.
+As the wave propagation technique stores a limited Fourier transform (in the time
+domain) of the wave, some periodicity can be obtained in the actual laser.
+One may thus observe that the laser pulse is repeated several times.
+The envelope can be used to remove these spurious repetitions.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="keep_n_strongest_modes">
+<code class="descname">keep_n_strongest_modes</code><a class="headerlink" href="#keep_n_strongest_modes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">100</td>
+</tr>
+</tbody>
+</table>
+<p>The number of temporal Fourier modes that are kept during the pre-processing.
+See <a class="reference internal" href="laser_offset.html"><span class="doc">this page</span></a> for more details.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="angle">
+<code class="descname">angle</code><a class="headerlink" href="#angle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><ol class="first last arabic simple" start="0">
+<li></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Angle between the boundary and the profile’s plane, the rotation being around <span class="math notranslate nohighlight">\(z\)</span>.
+See <a class="reference internal" href="laser_offset.html"><span class="doc">this page</span></a> for more details.</p>
+</dd></dl>
+
 </div></blockquote>
 <hr class="docutils" />
 </div>
@@ -1931,7 +2029,7 @@ two angles, corresponding to rotations around <cite>y</cite> and <cite>z</cite>,
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1942,7 +2040,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <hr class="docutils" />
 </div>
 <div class="section" id="antennas">
-<span id="id2"></span><h2>Antennas<a class="headerlink" href="#antennas" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Antennas<a class="headerlink" href="#antennas" title="Permalink to this headline">¶</a></h2>
 <p>An antenna is an extra current applied during the whole simulation.
 It is applied using an <code class="docutils literal notranslate"><span class="pre">Antenna</span></code> block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Antenna</span><span class="p">(</span>
@@ -1965,7 +2063,7 @@ It is applied using an <code class="docutils literal notranslate"><span class="p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1980,7 +2078,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
 </tr>
 </tbody>
 </table>
@@ -1990,7 +2088,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <hr class="docutils" />
 </div>
 <div class="section" id="profiles">
-<span id="id3"></span><h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
 <p>Several quantities require the input of a profile: particle charge, particle density,
 external fields, etc. Depending on the case, they can be <em>spatial</em> or <em>temporal</em>
 profiles.</p>
@@ -2355,7 +2453,7 @@ reflect, stop, thermalize or kill particles which reach it:</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="collisions">
-<span id="id4"></span><h2>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h2>
 <p>To have binary collisions in <strong class="program">Smilei</strong>, add one or several <code class="docutils literal notranslate"><span class="pre">Collisions</span></code> blocks:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Collisions</span><span class="p">(</span>
     <span class="n">species1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;electrons1&quot;</span><span class="p">,</span>  <span class="s2">&quot;electrons2&quot;</span><span class="p">],</span>
@@ -3052,7 +3150,7 @@ This is done by including the block <code class="docutils literal notranslate"><
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><strong>Species information</strong></td>
+<tr class="row-odd"><td colspan="2"><strong>Particle information</strong></td>
 </tr>
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Dens_abc</div>
@@ -3081,8 +3179,12 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">ExMax</div>
 <div class="line">ExMaxCell</div>
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 <div class="line">PoyXmin</div>
 <div class="line">PoyXminInst</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </td>
@@ -3096,11 +3198,15 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">… and its location (cell index)</div>
 </div>
 <div class="line">… same for fields Ey Ez Bx_m By_m Bz_m Jx Jy Jz Rho</div>
-<div class="line">Accumulated Poynting flux through xmin boundary</div>
+<div class="line"><br /></div>
+<div class="line">Time-accumulated Poynting flux through xmin boundary</div>
 <div class="line">Current Poynting flux through xmin boundary</div>
 <div class="line-block">
 <div class="line">… same for other boundaries</div>
 </div>
+<div class="line">These Poynting scalars are integrated accross the boundary.</div>
+<div class="line">Consequently, they are energies per unit surface in 1D,</div>
+<div class="line">energies per unit length in 2D, and energies in 3D.</div>
 </div>
 </td>
 </tr>
@@ -3717,7 +3823,7 @@ for instance:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats <code class="docutils literal notranslate"><span class="pre">[X]</span></code> in 1D,  <code class="docutils literal notranslate"><span class="pre">[X,Y]</span></code> in 2D,  <code class="docutils literal notranslate"><span class="pre">[X,Y,Z]</span></code> in 3D</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats </td>
 </tr>
 </tbody>
 </table>
@@ -3732,7 +3838,7 @@ a point of the <code class="docutils literal notranslate"><span class="pre">&quo
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats <code class="docutils literal notranslate"><span class="pre">[X]</span></code> in 1D,  <code class="docutils literal notranslate"><span class="pre">[X,Y]</span></code> in 2D,  <code class="docutils literal notranslate"><span class="pre">[X,Y,Z]</span></code> in 3D</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats </td>
 </tr>
 </tbody>
 </table>
@@ -3998,7 +4104,7 @@ of several numbers.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="checkpoints">
-<span id="id6"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
 <p>The simulation state can be saved (<em>dumped</em>) at given times (<em>checkpoints</em>)
 in order to be later <em>restarted</em> at that point.</p>
 <p>A few things are important to know when you need dumps and restarts.</p>
@@ -4190,9 +4296,9 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
           <a href="run.html" title="Run"
              >next</a> |</li>
         <li class="right" >
-          <a href="supercomputers.html" title="Referenced supercomputers"
+          <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4200,11 +4306,11 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 04, 2018
+        Last updated on Sep 13, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
       </div>
       
     </div>

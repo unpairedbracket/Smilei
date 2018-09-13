@@ -6,18 +6,18 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Install &#8212; Smilei v3.4-72-g62ad41a6 documentation</title>
+    <title>Install &#8212; Smilei v3.5 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Referenced supercomputers" href="supercomputers.html" />
+    <link rel="next" title="Write a namelist" href="namelist.html" />
     <link rel="prev" title="Field initialization for relativistic species" href="relativistic_fields_initialization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/x-mathjax-config">
@@ -66,7 +66,7 @@
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
-              <a href="field_ionization.html">Field (or user defined) ionization</a>
+              <a href="ionization.html">Ionization</a>
           </li>
           <li class="outer">
               <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -83,23 +83,8 @@
         </ul>
             <ul>
 <li><a class="reference internal" href="#">Install</a><ul>
-<li><a class="reference internal" href="#install-dependencies-on-mac">Install dependencies on Mac</a><ul>
-<li><a class="reference internal" href="#via-macports">Via Macports</a></li>
-<li><a class="reference internal" href="#via-homebrew">Via HomeBrew</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#install-dependencies-on-linux">Install dependencies on Linux</a><ul>
-<li><a class="reference internal" href="#fedora">Fedora</a></li>
-<li><a class="reference internal" href="#debian-ubuntu-mint-etc">Debian (Ubuntu, Mint etc…)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-optional-picsar-library">The optional Picsar library</a><ul>
-<li><a class="reference internal" href="#install-fftw">Install FFTW</a></li>
-<li><a class="reference internal" href="#install-picsar-as-a-library">Install PICSAR as a library</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#install-dependencies-on-other-systems">Install dependencies on other systems</a></li>
-<li><a class="reference internal" href="#download-and-compile-smilei">Download and compile Smilei</a></li>
+<li><a class="reference internal" href="#install-the-dependencies">Install the dependencies</a></li>
+<li><a class="reference internal" href="#download-and-compile">Download and compile</a></li>
 <li><a class="reference internal" href="#advanced-compilation-options">Advanced compilation options</a></li>
 <li><a class="reference internal" href="#compile-the-documentation">Compile the documentation</a></li>
 <li><a class="reference internal" href="#install-the-happi-module">Install the happi module</a></li>
@@ -108,9 +93,6 @@
 </ul>
 
         <ul>
-          <li class="outer">
-              <a href="supercomputers.html">Referenced supercomputers</a>
-          </li>
           <li class="outer">
               <a href="namelist.html">Write a namelist</a>
           </li>
@@ -149,23 +131,8 @@
                 <div id="nav_title"><a href="#">Install</a></div>
                 <ul>
 <li><a class="reference internal" href="#">Install</a><ul>
-<li><a class="reference internal" href="#install-dependencies-on-mac">Install dependencies on Mac</a><ul>
-<li><a class="reference internal" href="#via-macports">Via Macports</a></li>
-<li><a class="reference internal" href="#via-homebrew">Via HomeBrew</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#install-dependencies-on-linux">Install dependencies on Linux</a><ul>
-<li><a class="reference internal" href="#fedora">Fedora</a></li>
-<li><a class="reference internal" href="#debian-ubuntu-mint-etc">Debian (Ubuntu, Mint etc…)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-optional-picsar-library">The optional Picsar library</a><ul>
-<li><a class="reference internal" href="#install-fftw">Install FFTW</a></li>
-<li><a class="reference internal" href="#install-picsar-as-a-library">Install PICSAR as a library</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#install-dependencies-on-other-systems">Install dependencies on other systems</a></li>
-<li><a class="reference internal" href="#download-and-compile-smilei">Download and compile Smilei</a></li>
+<li><a class="reference internal" href="#install-the-dependencies">Install the dependencies</a></li>
+<li><a class="reference internal" href="#download-and-compile">Download and compile</a></li>
 <li><a class="reference internal" href="#advanced-compilation-options">Advanced compilation options</a></li>
 <li><a class="reference internal" href="#compile-the-documentation">Compile the documentation</a></li>
 <li><a class="reference internal" href="#install-the-happi-module">Install the happi module</a></li>
@@ -241,7 +208,7 @@
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
-                            <a href="field_ionization.html">Field (or user defined) ionization</a>
+                            <a href="ionization.html">Ionization</a>
                         </li>
                         <li class="outer">
                             <a href="radiation_loss.html">Synchrotron-like radiation reaction</a>
@@ -270,9 +237,6 @@
                     <ul>
                         <li >
                             <a href="#">Install</a>
-                        </li>
-                        <li class="outer">
-                            <a href="supercomputers.html">Referenced supercomputers</a>
                         </li>
                         <li class="outer">
                             <a href="namelist.html">Write a namelist</a>
@@ -403,12 +367,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="supercomputers.html" title="Referenced supercomputers"
+          <a href="namelist.html" title="Write a namelist"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -422,8 +386,8 @@
 <p>Before installing <strong class="program">Smilei</strong>, you need to install a few dependencies:</p>
 <ul class="simple">
 <li>A C++11 compiler, optionally implementing openMP</li>
-<li>MPI libraries supporting <code class="docutils literal notranslate"><span class="pre">MPI_THREAD_MULTIPLE</span></code></li>
-<li>HDF5 libraries compatible with your versions of C++ and MPI</li>
+<li>an MPI library supporting <code class="docutils literal notranslate"><span class="pre">MPI_THREAD_MULTIPLE</span></code></li>
+<li>an HDF5 library compatible with your versions of C++ and MPI</li>
 <li>Python 2.7 or Python 3 (with header files)</li>
 </ul>
 <p>Optional dependencies are:</p>
@@ -431,222 +395,24 @@
 <li>Git</li>
 <li>Python modules: sphinx, h5py, numpy, matplotlib, pylab, pint</li>
 <li>ffmpeg</li>
-<li>the <a class="reference external" href="http://picsar.net">Picsar</a> library</li>
+<li>the <a class="reference external" href="http://picsar.net">Picsar</a> library: see <a class="reference internal" href="install_PICSAR.html"><span class="doc">this documentation</span></a></li>
 </ul>
-<p>On a large cluster, refer to the administrator to install these requirements.
-If you want to install <strong class="program">Smilei</strong> on your personal computer, refer to the following sections.</p>
-<p>To get some help on compilation and the environment variables you can change in order
-to have a successful compilation, you can type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code>.</p>
 <hr class="docutils" />
-<div class="section" id="install-dependencies-on-mac">
-<h2>Install dependencies on Mac<a class="headerlink" href="#install-dependencies-on-mac" title="Permalink to this headline">¶</a></h2>
-<p>Even if it possible to install all dependencies manually, we recommend using a
-package manager software.</p>
-<div class="section" id="via-macports">
-<h3>Via Macports<a class="headerlink" href="#via-macports" title="Permalink to this headline">¶</a></h3>
-<p>This installation procedure relies on the software <a class="reference external" href="https://www.macports.org">MacPorts</a>
-that you can install following <a class="reference external" href="https://www.macports.org/install.php">these instructions</a>.</p>
-<ol class="arabic">
-<li><p class="first">In a terminal, run the following command to install the C++ compiler with MPI and HDF5:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install openmpi-gcc7 +threads
-sudo port <span class="k">select</span> --set mpi openmpi-gcc7-fortran
-sudo port install hdf5-18 +openmpi+gcc7+threads
-</pre></div>
-</div>
-</li>
-<li><p class="first">Edit your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> hidden file located in your home folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>open ~/.bash_profile
-</pre></div>
-</div>
-<p>and add the following lines at the end:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SMILEICXX</span><span class="o">=</span>mpicxx
-<span class="nb">export</span> <span class="nv">HDF5_ROOT_DIR</span><span class="o">=</span>/opt/local/hdf5-18/lib/
-</pre></div>
-</div>
-</li>
-<li><p class="first">Python should be already installed by default, but in case you need
-a specific version, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install python27
-sudo port <span class="k">select</span> --set python python27
-sudo port <span class="k">select</span> --set python2 python27
-</pre></div>
-</div>
-</li>
-<li><p class="first">If you wish to run the Python post-processing scripts provided in <strong class="program">Smilei</strong>,
-you need several modules (numpy, matplotlib, pylab, h5py, sphinx, pint).
-We recommend to install <strong class="program">IPython</strong> which includes some of these.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install py27-ipython <span class="c1"># nicer python console</span>
-sudo port install py27-h5py    <span class="c1"># mandatory for opening any HDF5 file</span>
-sudo port install py27-pint    <span class="c1"># only for auto unit conversion</span>
-sudo port install py27-sphinx  <span class="c1"># only for building the doc</span>
-</pre></div>
-</div>
-</li>
-</ol>
-</div>
-<div class="section" id="via-homebrew">
-<h3>Via HomeBrew<a class="headerlink" href="#via-homebrew" title="Permalink to this headline">¶</a></h3>
-<p>This installation procedure has been tested on macOS 10.13</p>
-<ol class="arabic">
-<li><p class="first"><a class="reference external" href="http://brew.sh">HomeBrew</a> can easily installed via:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Once installed, you need these packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install gcc python numpy
-brew install openmpi --with-mpi-thread-multiple
-brew install hdf5 --with-mpi
-pip3 install ipython h5py pint sphinx matplotlib scipy
-</pre></div>
-</div>
-</li>
-<li><p class="first">now you can compile <strong class="program">smilei</strong> (see <a class="reference internal" href="#compile"><span class="std std-ref">Download and compile Smilei</span></a> for other options)</p>
-</li>
-</ol>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="install-dependencies-on-linux">
-<h2>Install dependencies on Linux<a class="headerlink" href="#install-dependencies-on-linux" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fedora">
-<h3>Fedora<a class="headerlink" href="#fedora" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dnf install -y gcc-c++ hdf5-openmpi hdf5-openmpi-devel openmpi-devel git which findutils python python-devel
-dnf install -y h5py ipython python2-pint sphinx python2-matplotlib
-</pre></div>
-</div>
-</div>
-<div class="section" id="debian-ubuntu-mint-etc">
-<h3>Debian (Ubuntu, Mint etc…)<a class="headerlink" href="#debian-ubuntu-mint-etc" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Install these packages</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python-h5py ipython python-pint python-sphinx python-matplotlib python-dev  python-numpy
-</pre></div>
-</div>
-</div></blockquote>
-<p>Since the system <code class="docutils literal notranslate"><span class="pre">openmpi</span></code> is not compiled with <code class="docutils literal notranslate"><span class="pre">--enable-mpi-thread-multiple</span></code>, a manual installation is required :</p>
-<ol class="arabic simple" start="2">
-<li>Choose a path whet to install dependencies by setting the environment variable <code class="docutils literal notranslate"><span class="pre">INSTALL_DIR</span></code>. e.g. :</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">INSTALL_DIR</span><span class="o">=</span>/usr/local
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Download <a class="reference external" href="https://www.open-mpi.org/software/ompi">OpenMPI</a> and install.
-You may choose any <code class="docutils literal notranslate"><span class="pre">${INSTALL_DIR}</span></code>.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf openmpi-1.10.2.tar.gz
-<span class="nb">cd</span> openmpi-1.10.2
-./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi --enable-mpi-thread-multiple --enable-mpirun-prefix-by-default
-make
-make install
-</pre></div>
-</div>
-<p>Set environment variables in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/openmpi/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Download <a class="reference external" href="https://support.hdfgroup.org/HDF5">HDF5</a> and install</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf hdf5-1.8.16.tar.gz
-<span class="nb">cd</span> hdf5-1.8.16
-./configure --prefix<span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5 --enable-parallel --with-pic --enable-linux-lfs --enable-shared --enable-production<span class="o">=</span>yes --disable-sharedlib-rpath --enable-static <span class="nv">CC</span><span class="o">=</span>mpicc <span class="nv">FC</span><span class="o">=</span>mpif90
-make
-make install
-</pre></div>
-</div>
-<p>Set environment variables in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">HDF5_ROOT_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/hdf5
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="the-optional-picsar-library">
-<h2>The optional Picsar library<a class="headerlink" href="#the-optional-picsar-library" title="Permalink to this headline">¶</a></h2>
-<p>A Pseudo-Spectral Analytical Time Domain solver (PSATD) for Maxwell equations
-is available for use in Smilei via the <a class="reference external" href="http://picsar.net">Picsar</a> library.
-The PSATD solver is an FFT-based high-order Maxwell solver.
-Picsar uses the <a class="reference external" href="http://www.fftw.org">FFTW</a> library.</p>
-<div class="section" id="install-fftw">
-<h3>Install FFTW<a class="headerlink" href="#install-fftw" title="Permalink to this headline">¶</a></h3>
-<p>Download and install the <a class="reference external" href="http://www.fftw.org/">latest version</a> of FFTW</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf fftw-3.3.7.tar.gz
-<span class="nb">cd</span> fftw-3.3.7
-configure --prefix INSTALL_DIR --enable-shared --enable-threads --with-openmp --enable-mpi
-make
-make install
-</pre></div>
-</div>
-<p>Set a few environment variables, typically in your <cite>~/.bashrc</cite> or <cite>~/.bash_profile</cite> file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FFTW_LIB_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/lib
-<span class="nb">export</span> <span class="nv">FFTW_INC_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/include
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">INSTALL_DIR</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-picsar-as-a-library">
-<h3>Install PICSAR as a library<a class="headerlink" href="#install-picsar-as-a-library" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Download the <a class="reference external" href="git&#64;bitbucket.org:berkeleylab/picsar.git">latest version of Picsar</a></li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@bitbucket.org:berkeleylab/picsar.git
-<span class="nb">cd</span> picsar/
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Set library flags to compile picsar as a library</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s/MODE=prod/MODE=library/g&#39;</span> Makefile
-sed -i <span class="s1">&#39;s/COMP=gnu/COMP=intel/g&#39;</span> Makefile <span class="c1"># - if using intel compiler</span>
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Link fftw to picsar (you may have to modify the following according to your machine)</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -i  <span class="s1">&#39;s/FFTW3_LIB=\/usr\/lib\/x86_64-linux-gnu/FFTW3_LIB=$(FFTW_LIB_DIR)/g&#39;</span> Makefile
-sed -i  <span class="s1">&#39;s/FFTW3_INCLUDE=\/usr\/include/FFTW3_INCLUDE=$(FFTW_INC_DIR)/g&#39;</span> Makefile
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Install picsar as a library</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make lib
-<span class="nb">export</span> <span class="nv">LIBPXR</span><span class="o">=</span><span class="nv">$PWD</span>/lib
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LIBPXR</span><span class="si">}</span>:<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="install-dependencies-on-other-systems">
-<h2>Install dependencies on other systems<a class="headerlink" href="#install-dependencies-on-other-systems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-the-dependencies">
+<h2>Install the dependencies<a class="headerlink" href="#install-the-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>There are various ways to install all dependencies, depending on the platform:</p>
+<ul class="simple">
+<li><a class="reference internal" href="install_macos.html"><span class="doc">On MacOs</span></a></li>
+<li><a class="reference internal" href="install_linux.html"><span class="doc">On Linux</span></a></li>
+<li><a class="reference internal" href="install_supercomputer.html"><span class="doc">On a supercomputer</span></a></li>
+</ul>
+<p>The command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code> can give you some information about your environment.</p>
 <p>If you have successfully installed these dependencies on other platforms, please
 <a class="reference internal" href="partners.html"><span class="doc">contact us</span></a> and share!</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="download-and-compile-smilei">
-<span id="compile"></span><h2>Download and compile Smilei<a class="headerlink" href="#download-and-compile-smilei" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-and-compile">
+<span id="compile"></span><h2>Download and compile<a class="headerlink" href="#download-and-compile" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Download the latest <strong class="program">Smilei</strong> tarball <a class="reference internal" href="releases.html#latestversion"><span class="std std-ref">here</span></a>.</p>
 </li>
@@ -747,12 +513,12 @@ module and import it into <em>python</em>.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="supercomputers.html" title="Referenced supercomputers"
+          <a href="namelist.html" title="Write a namelist"
              >next</a> |</li>
         <li class="right" >
           <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.4-72-g62ad41a6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -760,11 +526,11 @@ module and import it into <em>python</em>.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 04, 2018
+        Last updated on Sep 13, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
       </div>
       
     </div>
