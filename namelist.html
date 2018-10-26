@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.5 documentation</title>
+    <title>Write a namelist &#8212; Smilei v3.5-2-gecc3f40c documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -414,7 +414,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-2-gecc3f40c documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -1182,7 +1182,7 @@ are given in successive columns.This initialization is incompatible with
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1233,7 +1233,7 @@ It must be lower than 101.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1248,7 +1248,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1262,7 +1262,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or <em>python</em> functions (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1276,7 +1276,7 @@ of the particle distribution, in units of the reference density <span class="mat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of 3 floats or <em>python</em> functions (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1609,7 +1609,7 @@ There are several syntaxes to introduce a laser in <strong class="program">Smile
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two <em>python</em> functions</td>
 </tr>
 </tbody>
 </table>
@@ -1667,7 +1667,7 @@ spatial envelopes, <span class="math notranslate nohighlight">\(\omega\)</span> 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a <em>python</em> function or a <a class="reference internal" href="#profiles"><span class="std std-ref">time profile</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">tconstant()</span></code></td>
 </tr>
@@ -1704,7 +1704,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a <em>python</em> function or a <a class="reference internal" href="#profiles"><span class="std std-ref">time profile</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">tconstant()</span></code></td>
 </tr>
@@ -1720,7 +1720,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two <em>python</em> functions or two <a class="reference internal" href="#profiles"><span class="std std-ref">spatial profiles</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">1.,</span> <span class="pre">0.</span> <span class="pre">]</span></code></td>
 </tr>
@@ -1736,7 +1736,7 @@ parameter <span class="math notranslate nohighlight">\(\mathtt{omega}\)</span>),
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of two <em>python</em> functions or two <a class="reference internal" href="#profiles"><span class="std std-ref">spatial profiles</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">0.,</span> <span class="pre">0.</span> <span class="pre">]</span></code></td>
 </tr>
@@ -1852,7 +1852,7 @@ delay due to the mismatched <a class="reference internal" href="#phase" title="p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two floats </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two floats <code class="docutils literal notranslate"><span class="pre">[X,</span> <span class="pre">Y]</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -1934,7 +1934,7 @@ The laser is introduced using:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of two <em>python</em> functions</td>
 </tr>
 </tbody>
 </table>
@@ -1956,7 +1956,7 @@ is defined.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a <em>python</em> function or a <a class="reference internal" href="#profiles"><span class="std std-ref">python profile</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">*z:</span> <span class="pre">1.</span></code>, which means a profile of value 1 everywhere</td>
 </tr>
@@ -2029,7 +2029,7 @@ See <a class="reference internal" href="laser_offset.html"><span class="doc">thi
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -2063,7 +2063,7 @@ It is applied using an <code class="docutils literal notranslate"><span class="p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -2078,7 +2078,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float or <em>python</em> function (see section <a class="reference internal" href="#profiles"><span class="std std-ref">Profiles</span></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -3823,7 +3823,7 @@ for instance:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats <code class="docutils literal notranslate"><span class="pre">[X]</span></code> in 1D,  <code class="docutils literal notranslate"><span class="pre">[X,Y]</span></code> in 2D,  <code class="docutils literal notranslate"><span class="pre">[X,Y,Z]</span></code> in 3D</td>
 </tr>
 </tbody>
 </table>
@@ -3838,7 +3838,7 @@ a point of the <code class="docutils literal notranslate"><span class="pre">&quo
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats </td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">A list of floats <code class="docutils literal notranslate"><span class="pre">[X]</span></code> in 1D,  <code class="docutils literal notranslate"><span class="pre">[X,Y]</span></code> in 2D,  <code class="docutils literal notranslate"><span class="pre">[X,Y,Z]</span></code> in 3D</td>
 </tr>
 </tbody>
 </table>
@@ -4298,7 +4298,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-2-gecc3f40c documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4306,11 +4306,11 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Sep 13, 2018
+        Last updated on Oct 26, 2018
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
       </div>
       
     </div>
