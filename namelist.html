@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Write a namelist &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -63,6 +63,9 @@
               <a href="parallelization.html">Parallelization basics</a>
           </li>
           <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
+          <li class="outer">
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
@@ -73,6 +76,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -90,17 +96,19 @@
 <li><a class="reference internal" href="#python-workflow">Python workflow</a></li>
 <li><a class="reference internal" href="#main-variables">Main variables</a></li>
 <li><a class="reference internal" href="#load-balancing">Load Balancing</a></li>
+<li><a class="reference internal" href="#vectorization">Vectorization</a></li>
 <li><a class="reference internal" href="#moving-window">Moving window</a></li>
 <li><a class="reference internal" href="#current-filtering">Current filtering</a></li>
 <li><a class="reference internal" href="#field-filtering">Field filtering</a></li>
 <li><a class="reference internal" href="#species">Species</a></li>
 <li><a class="reference internal" href="#lasers">Lasers</a></li>
+<li><a class="reference internal" href="#laser-envelope-model">Laser envelope model</a></li>
 <li><a class="reference internal" href="#external-fields">External fields</a></li>
 <li><a class="reference internal" href="#antennas">Antennas</a></li>
 <li><a class="reference internal" href="#profiles">Profiles</a></li>
 <li><a class="reference internal" href="#walls">Walls</a></li>
 <li><a class="reference internal" href="#collisions">Collisions</a></li>
-<li><a class="reference internal" href="#radiations-reaction">Radiations reaction</a></li>
+<li><a class="reference internal" href="#radiation-reaction">Radiation reaction</a></li>
 <li><a class="reference internal" href="#multiphoton-breit-wheeler">Multiphoton Breit-Wheeler</a></li>
 <li><a class="reference internal" href="#scalar-diagnostics"><em>Scalar</em> diagnostics</a></li>
 <li><a class="reference internal" href="#fields-diagnostics"><em>Fields</em> diagnostics</a></li>
@@ -156,17 +164,19 @@
 <li><a class="reference internal" href="#python-workflow">Python workflow</a></li>
 <li><a class="reference internal" href="#main-variables">Main variables</a></li>
 <li><a class="reference internal" href="#load-balancing">Load Balancing</a></li>
+<li><a class="reference internal" href="#vectorization">Vectorization</a></li>
 <li><a class="reference internal" href="#moving-window">Moving window</a></li>
 <li><a class="reference internal" href="#current-filtering">Current filtering</a></li>
 <li><a class="reference internal" href="#field-filtering">Field filtering</a></li>
 <li><a class="reference internal" href="#species">Species</a></li>
 <li><a class="reference internal" href="#lasers">Lasers</a></li>
+<li><a class="reference internal" href="#laser-envelope-model">Laser envelope model</a></li>
 <li><a class="reference internal" href="#external-fields">External fields</a></li>
 <li><a class="reference internal" href="#antennas">Antennas</a></li>
 <li><a class="reference internal" href="#profiles">Profiles</a></li>
 <li><a class="reference internal" href="#walls">Walls</a></li>
 <li><a class="reference internal" href="#collisions">Collisions</a></li>
-<li><a class="reference internal" href="#radiations-reaction">Radiations reaction</a></li>
+<li><a class="reference internal" href="#radiation-reaction">Radiation reaction</a></li>
 <li><a class="reference internal" href="#multiphoton-breit-wheeler">Multiphoton Breit-Wheeler</a></li>
 <li><a class="reference internal" href="#scalar-diagnostics"><em>Scalar</em> diagnostics</a></li>
 <li><a class="reference internal" href="#fields-diagnostics"><em>Fields</em> diagnostics</a></li>
@@ -247,6 +257,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -257,6 +270,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -414,7 +430,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -522,7 +538,30 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dl class="data">
 <dt id="geometry">
 <code class="descname">geometry</code><a class="headerlink" href="#geometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>The geometry of the simulation: <code class="docutils literal notranslate"><span class="pre">&quot;1Dcartesian&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;2Dcartesian&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code>.</p>
+<dd><p>The geometry of the simulation:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;1Dcartesian&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;2Dcartesian&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;AMcylindrical&quot;</span></code>: cylindrical geometry with azimuthal Fourier decomposition. See <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a>.</li>
+</ul>
+<p>In the following documentation, all references to dimensions or coordinates
+depend on the <code class="docutils literal notranslate"><span class="pre">geometry</span></code>.
+1D, 2D and 3D stand for 1-dimensional, 2-dimensional and 3-dimensional cartesian
+geometries, respectively. All coordinates are ordered as <span class="math notranslate nohighlight">\((x)\)</span>, <span class="math notranslate nohighlight">\((x,y)\)</span> or <span class="math notranslate nohighlight">\((x,y,z)\)</span>.
+In the <code class="docutils literal notranslate"><span class="pre">&quot;AMcylindrical&quot;</span></code> case, all grid coordinates are 2-dimensional
+<span class="math notranslate nohighlight">\((x,r)\)</span>, while particle coordinates (in <a class="reference internal" href="#species"><span class="std std-ref">Species</span></a>)
+are expressed in the 3-dimensional Cartesian frame <span class="math notranslate nohighlight">\((x,y,z)\)</span>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">&quot;AMcylindrical&quot;</span></code> geometry is currently proposed in alpha version.
+It has not been thoroughly tested and only Fields diagnostics are available.
+Boundary conditions must be set to <code class="docutils literal notranslate"><span class="pre">&quot;remove&quot;</span></code> for particles,
+<code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> for longitudinal EM boundaries and
+<code class="docutils literal notranslate"><span class="pre">&quot;buneman&quot;</span></code> for transverse EM boundaries.
+Vectorization, checkpoints, load balancing, ionization, collisions and
+order-4 interpolation are not supported yet.</p>
+</div>
 </dd></dl>
 
 <dl class="data">
@@ -532,11 +571,15 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">2</td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Interpolation order. To this day, only <code class="docutils literal notranslate"><span class="pre">2</span></code> is available.</p>
+<p>Interpolation order, defines particle shape function:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">2</span></code>  : 3 points stencil, supported in all configurations.</li>
+<li><code class="docutils literal notranslate"><span class="pre">4</span></code>  : 5 points stencil, not supported in vectorized 2D geometry.</li>
+</ul>
 </dd></dl>
 
 <dl class="data">
@@ -596,40 +639,31 @@ so that the user can directly run <code class="docutils literal notranslate"><sp
 <dd><p>A list of integers: the number of patches in each direction.
 Each integer must be a power of 2, and the total number of patches must be
 greater or equal than the number of MPI processes.
-It is also advised to have more patches than the total number of openMP threads even if this is not a strict requirement.
+It is also strongly advised to have more patches than the total number of openMP threads.
 See <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="patch_decomposition">
-<code class="descname">patch_decomposition</code><a class="headerlink" href="#patch_decomposition" title="Permalink to this definition">¶</a></dt>
+<dt id="patch_arrangement">
+<code class="descname">patch_arrangement</code><a class="headerlink" href="#patch_arrangement" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;hilbert&quot;</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;hilbertian&quot;</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>The patches distribution. <code class="docutils literal notranslate"><span class="pre">&quot;cartesian&quot;</span></code> is available too.
-See <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="patch_orientation">
-<code class="descname">patch_orientation</code><a class="headerlink" href="#patch_orientation" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Only for a <code class="docutils literal notranslate"><span class="pre">&quot;cartesian&quot;</span></code> patches decomposition.
-<code class="docutils literal notranslate"><span class="pre">&quot;YX&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ZYX&quot;</span></code> respectively available for 2D and 3D simulations, while the default <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>
-corresponds to the decomposition oriented as <code class="docutils literal notranslate"><span class="pre">XY</span></code> or <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>.
-See <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>.</p>
+<p>Determines the ordering of patches and the way they are separated into the
+various MPI processes. Options are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;hilbertian&quot;</span></code>: following the Hilbert curve (see <a class="reference internal" href="parallelization.html#loadbalancingexplanation"><span class="std std-ref">this explanation</span></a>).</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;linearized_XY&quot;</span></code> in 2D or <code class="docutils literal notranslate"><span class="pre">&quot;linearized_XYZ&quot;</span></code> in 3D: following the
+row-major (C-style) ordering.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;linearized_YX&quot;</span></code> in 2D or <code class="docutils literal notranslate"><span class="pre">&quot;linearized_ZYX&quot;</span></code> in 3D: following the
+column-major (fortran-style) ordering. This prevents the usage of
+<a class="reference internal" href="#diagfields"><span class="std std-ref">Fields diagnostics</span></a> (see <a class="reference internal" href="parallelization.html"><span class="doc">Parallelization basics</span></a>).</li>
+</ul>
 </dd></dl>
 
 <dl class="data">
@@ -643,10 +677,10 @@ See <a class="reference internal" href="parallelization.html"><span class="doc">
 </tr>
 </tbody>
 </table>
-<p>Advanced users. Integer specifying the cluster width along X direction in number of cells.
+<p>For advanced users. Integer specifying the cluster width along X direction in number of cells.
 The “cluster” is a sub-patch structure in which particles are sorted for cache improvement.
-clrw must divide the number of cells in one patch (in dimension X).
-The finest sorting is achieved with clrw=1 and no sorting with clrw equal to the full size of a patch along dimension X.
+<code class="docutils literal notranslate"><span class="pre">clrw</span></code> must divide the number of cells in one patch (in dimension X).
+The finest sorting is achieved with <code class="docutils literal notranslate"><span class="pre">clrw=1</span></code> and no sorting with <code class="docutils literal notranslate"><span class="pre">clrw</span></code> equal to the full size of a patch along dimension X.
 The cluster size in dimension Y and Z is always the full extent of the patch.</p>
 </dd></dl>
 
@@ -661,8 +695,7 @@ The cluster size in dimension Y and Z is always the full extent of the patch.</p
 </tr>
 </tbody>
 </table>
-<p>The solver for Maxwell’s equations. Only <code class="docutils literal notranslate"><span class="pre">&quot;Yee&quot;</span></code> is available for all geometries at the moment. <code class="docutils literal notranslate"><span class="pre">&quot;Cowan&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Grassi&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Lehe&quot;</span></code>
-are available for 2DCartesian and <code class="docutils literal notranslate"><span class="pre">&quot;Lehe&quot;</span></code> is available for 3DCartesian. Lehe solver is described in this <a class="reference external" href="https://journals.aps.org/prab/abstract/10.1103/PhysRevSTAB.16.021301">paper</a></p>
+<p>The solver for Maxwell’s equations. Only <code class="docutils literal notranslate"><span class="pre">&quot;Yee&quot;</span></code> is available for all geometries at the moment. <code class="docutils literal notranslate"><span class="pre">&quot;Cowan&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Grassi&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Lehe&quot;</span></code> are available for <code class="docutils literal notranslate"><span class="pre">2DCartesian</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Lehe&quot;</span></code> is available for <code class="docutils literal notranslate"><span class="pre">3DCartesian</span></code>. The Lehe solver is described in <a class="reference external" href="https://journals.aps.org/prab/abstract/10.1103/PhysRevSTAB.16.021301">this paper</a></p>
 </dd></dl>
 
 <dl class="data">
@@ -864,6 +897,20 @@ is costly.</p>
 the variable  <a class="reference internal" href="#smilei_mpi_rank" title="smilei_mpi_rank"><code class="xref py py-data docutils literal notranslate"><span class="pre">smilei_mpi_rank</span></code></a>.</p>
 </dd></dl>
 
+<dl class="data">
+<dt id="number_of_AM">
+<code class="descname">number_of_AM</code><a class="headerlink" href="#number_of_AM" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">2</td>
+</tr>
+</tbody>
+</table>
+<p>The number of azimuthal modes used for the Fourier decomposition in <code class="docutils literal notranslate"><span class="pre">&quot;AMcylindrical&quot;</span></code> geometry.</p>
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="load-balancing">
@@ -942,6 +989,77 @@ This load is normalized to the load of a single particle.</p>
 </table>
 <p>Computational load of a single frozen particle considered by the dynamic load balancing algorithm.
 This load is normalized to the load of a single particle.</p>
+</dd></dl>
+
+<hr class="docutils" />
+</div>
+<div class="section" id="vectorization">
+<span id="id1"></span><h2>Vectorization<a class="headerlink" href="#vectorization" title="Permalink to this headline">¶</a></h2>
+<p>The block <code class="docutils literal notranslate"><span class="pre">Vectorization</span></code> is optional.
+It controls the SIMD operations that can enhance the performance of some computations.
+The technique is detailed in Ref. <a class="reference internal" href="material.html#beck" id="id2">[Beck]</a> and summarized in <a class="reference internal" href="vectorization.html"><span class="doc">this doc</span></a>.
+It requires <a class="reference internal" href="installation.html#vectorization-flags"><span class="std std-ref">additional compilation options</span></a> to be actived.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Vectorization</span><span class="p">(</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span>
+    <span class="n">reconfigure_every</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="n">initial_mode</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="data">
+<dt id="mode">
+<code class="descname">mode</code><a class="headerlink" href="#mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>: non-vectorized operators are used.
+Recommended when the number of particles per cell stays below 10.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code>: vectorized operators are used.
+Recommended when the number of particles per cell stays above 10.
+Particles are sorted per cell.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code>: the best operators (scalar or vectorized)
+are determined and configured dynamically and locally
+(per patch and per species).
+Particles are sorted per cell.</li>
+</ul>
+<p>In the <code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code> mode, <a class="reference internal" href="#clrw" title="clrw"><code class="xref py py-data docutils literal notranslate"><span class="pre">clrw</span></code></a> is set to the maximum.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="reconfigure_every">
+<code class="descname">reconfigure_every</code><a class="headerlink" href="#reconfigure_every" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">20</td>
+</tr>
+</tbody>
+</table>
+<p>The number of timesteps between each dynamic reconfiguration of
+the vectorized operators, when using the  <code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code> vectorization mode.
+It may be set to a <a class="reference internal" href="#timeselections"><span class="std std-ref">time selection</span></a> as well.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="initial_mode">
+<code class="descname">initial_mode</code><a class="headerlink" href="#initial_mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">off</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Default state when the <code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code> mode is activated
+and no particle is present in the patch.</p>
 </dd></dl>
 
 <hr class="docutils" />
@@ -1083,7 +1201,7 @@ which parameters are controlled in the following block:</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="species">
-<span id="id1"></span><h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
 <p>Each species has to be defined in a <code class="docutils literal notranslate"><span class="pre">Species</span></code> block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Species</span><span class="p">(</span>
     <span class="n">name</span>      <span class="o">=</span> <span class="s2">&quot;electrons1&quot;</span><span class="p">,</span>
@@ -1110,6 +1228,7 @@ which parameters are controlled in the following block:</p>
     <span class="c1"># ionization_electrons = None,</span>
     <span class="c1"># ionization_rate = None,</span>
     <span class="n">is_test</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="c1"># ponderomotive_dynamics = False,</span>
     <span class="n">c_part_max</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="n">pusher</span> <span class="o">=</span> <span class="s2">&quot;boris&quot;</span><span class="p">,</span>
 
@@ -1422,6 +1541,26 @@ which do not participate in the charge and currents.</p>
 </dd></dl>
 
 <dl class="data">
+<dt id="ponderomotive_dynamics">
+<code class="descname">ponderomotive_dynamics</code><a class="headerlink" href="#ponderomotive_dynamics" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">False</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Flag for particles interacting with an envelope model for the laser, if present.
+If <code class="docutils literal notranslate"><span class="pre">True</span></code>, this species will project its susceptibility and be influenced by the laser envelope field.
+See <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a> for details on the dynamics of particles in presence of a laser envelope field.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ionization, Radiation and Multiphoton Breit-Wheeler pair creation are not yet implemented for species interacting with an envelope model for the laser.</p>
+</div>
+<dl class="data">
 <dt id="c_part_max">
 <code class="descname">c_part_max</code><a class="headerlink" href="#c_part_max" title="Permalink to this definition">¶</a></dt>
 <dd><p><span class="red">to do</span></p>
@@ -1445,6 +1584,7 @@ which do not participate in the charge and currents.</p>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;vay&quot;</span></code>: The relativistic pusher of J. L. Vay</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;higueracary&quot;</span></code>: The relativistic pusher of A. V. Higuera and J. R. Cary</li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;norm&quot;</span></code>:  For photon species only (rectilinear propagation)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;ponderomotive_boris&quot;</span></code>: modified relativistic Boris pusher for species whose flag <code class="docutils literal notranslate"><span class="pre">&quot;ponderomotive_dynamics&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. Valid only if the species has non-zero mass</li>
 </ul>
 </dd></dl>
 
@@ -1574,7 +1714,7 @@ conserved.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="lasers">
-<span id="id2"></span><h2>Lasers<a class="headerlink" href="#lasers" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Lasers<a class="headerlink" href="#lasers" title="Permalink to this headline">¶</a></h2>
 <p>A laser consists in applying oscillating boundary conditions for the magnetic
 field on one of the box sides. The only boundary conditions that support lasers
 are <code class="docutils literal notranslate"><span class="pre">&quot;silver-muller&quot;</span></code> (see <a class="reference internal" href="#EM_boundary_conditions" title="EM_boundary_conditions"><code class="xref py py-data docutils literal notranslate"><span class="pre">EM_boundary_conditions</span></code></a>).
@@ -2007,6 +2147,66 @@ See <a class="reference internal" href="laser_offset.html"><span class="doc">thi
 </div></blockquote>
 <hr class="docutils" />
 </div>
+<div class="section" id="laser-envelope-model">
+<span id="laser-envelope"></span><h2>Laser envelope model<a class="headerlink" href="#laser-envelope-model" title="Permalink to this headline">¶</a></h2>
+<p>In the geometry (<code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code>) it is possible to model a laser pulse propagating in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction through an envelope model (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a> for the advantages and limits of this approximation).
+The fast oscillations of the laser are neglected and all the physical quantities of the simulation, including the electromagnetic fields and their source terms, as well as the particles positions and momenta, are meant to be an average over one or more optical cycles.
+Effects involving characteristic lengths comparable to the laser central wavelength, or effects dependent on the polarization of the laser, cannot be modeled with this option.</p>
+<p>For the moment the only way to specify a laser pulse through this model in <strong class="program">Smilei</strong> is through a cylindrically symmetric 3D gaussian beam. For the moment, only one laser pulse can be specified through the envelope model in a simulation, thus multi-pulse set-ups cannot be defined.
+Contrarily to a standard Laser, the laser envelope will be entirely initialized inside the simulation box at the start of the simulation.</p>
+<p>Following is the laser envelope creator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserEnvelopeGaussian3D</span><span class="p">(</span>
+    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">focus</span>           <span class="o">=</span> <span class="p">[</span><span class="mf">150.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
+    <span class="n">waist</span>           <span class="o">=</span> <span class="mf">30.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tgaussian</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="mf">150.</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">40.</span><span class="p">),</span>
+    <span class="n">envelope_solver</span> <span class="o">=</span> <span class="s1">&#39;explicit&#39;</span><span class="p">,</span>
+    <span class="n">Envelope_boundary_conditions</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;reflective&quot;</span><span class="p">]</span> <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The arguments appearing <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> have the same meaning they would have in a normal LaserGaussian3D, with some differences:</p>
+<dl class="data">
+<dt>
+<code class="descname">time_envelope</code></dt>
+<dd><p>Since the envelope will be entirely initialized in the simulation box already at the start of the simulation, the time envelope will be applied in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction instead of time. It is recommended to initialize the laser envelope in vacuum, separated from the plasma, to avoid unphysical results.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="envelope_solver">
+<code class="descname">envelope_solver</code><a class="headerlink" href="#envelope_solver" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>For the moment the only available solver for the laser envelope equation is an explicit solver with centered finite differences in space and time.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Envelope_boundary_conditions">
+<code class="descname">Envelope_boundary_conditions</code><a class="headerlink" href="#Envelope_boundary_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of lists of strings</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[[&quot;reflective&quot;]]</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>For the moment, only reflective boundary conditions are implemented in the resolution of the envelope equation.</p>
+</dd></dl>
+
+<p>It is important to remember that the profile defined through the block <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> corresponds to the complex envelope of the laser vector potential component <span class="math notranslate nohighlight">\(\tilde{A}\)</span> in the polarization direction.
+The calculation of the correspondent complex envelope for the laser electric field component in that direction is described in <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>.
+Note that only order 2 interpolation is supported in presence of the envelope model for the laser.</p>
+<hr class="docutils" />
+</div>
 <div class="section" id="external-fields">
 <span id="externalfield"></span><h2>External fields<a class="headerlink" href="#external-fields" title="Permalink to this headline">¶</a></h2>
 <p>An external field can be applied using an <code class="docutils literal notranslate"><span class="pre">ExternalField</span></code> block:</p>
@@ -2040,7 +2240,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <hr class="docutils" />
 </div>
 <div class="section" id="antennas">
-<span id="id3"></span><h2>Antennas<a class="headerlink" href="#antennas" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Antennas<a class="headerlink" href="#antennas" title="Permalink to this headline">¶</a></h2>
 <p>An antenna is an extra current applied during the whole simulation.
 It is applied using an <code class="docutils literal notranslate"><span class="pre">Antenna</span></code> block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Antenna</span><span class="p">(</span>
@@ -2088,7 +2288,7 @@ Refer to <a class="reference internal" href="units.html"><span class="doc">Units
 <hr class="docutils" />
 </div>
 <div class="section" id="profiles">
-<span id="id4"></span><h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
 <p>Several quantities require the input of a profile: particle charge, particle density,
 external fields, etc. Depending on the case, they can be <em>spatial</em> or <em>temporal</em>
 profiles.</p>
@@ -2453,8 +2653,8 @@ reflect, stop, thermalize or kill particles which reach it:</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="collisions">
-<span id="id5"></span><h2>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h2>
-<p>To have binary collisions in <strong class="program">Smilei</strong>, add one or several <code class="docutils literal notranslate"><span class="pre">Collisions</span></code> blocks:</p>
+<span id="id7"></span><h2>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="collisions.html"><span class="doc">Binary collisions</span></a> are specified by one or several <code class="docutils literal notranslate"><span class="pre">Collisions</span></code> blocks:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Collisions</span><span class="p">(</span>
     <span class="n">species1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;electrons1&quot;</span><span class="p">,</span>  <span class="s2">&quot;electrons2&quot;</span><span class="p">],</span>
     <span class="n">species2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ions1&quot;</span><span class="p">],</span>
@@ -2484,6 +2684,13 @@ electrons with ions:</p>
 In other words, if <code class="docutils literal notranslate"><span class="pre">species1</span></code> is not equal to <code class="docutils literal notranslate"><span class="pre">species2</span></code>,
 then they cannot have any common species.
 If the two groups are exactly equal, we call this situation <strong>intra-collisions</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If both lists <code class="docutils literal notranslate"><span class="pre">species1</span></code> and <code class="docutils literal notranslate"><span class="pre">species2</span></code> contain only one species,
+the algorithm is potentially faster than the situation with several
+species in one or the other list. This is especially true if the
+machine accepts SIMD vectorization.</p>
+</div>
 </dd></dl>
 
 <dl class="data">
@@ -2518,10 +2725,8 @@ If the two groups are exactly equal, we call this situation <strong>intra-collis
 </tr>
 </tbody>
 </table>
-<div class="line-block">
-<div class="line">Number of timesteps between each output of information about collisions.</div>
-<div class="line">If 0, there will be no outputs.</div>
-</div>
+<p>Number of timesteps between each output of information about collisions.
+If 0, there will be no outputs.</p>
 </dd></dl>
 
 <span class="target" id="collisionalionization"></span><dl class="data">
@@ -2540,18 +2745,17 @@ species groups must be all electrons (<a class="reference internal" href="#mass"
 same <a class="reference internal" href="#atomic_number" title="atomic_number"><code class="xref py py-data docutils literal notranslate"><span class="pre">atomic_number</span></code></a>.</p>
 </dd></dl>
 
-<p>For more details about the collision scheme in <strong class="program">Smilei</strong>, see <a class="reference internal" href="collisions.html"><span class="doc">Binary collisions</span></a></p>
 <hr class="docutils" />
 </div>
-<div class="section" id="radiations-reaction">
-<span id="radiationreaction"></span><h2>Radiations reaction<a class="headerlink" href="#radiations-reaction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="radiation-reaction">
+<span id="radiationreaction"></span><h2>Radiation reaction<a class="headerlink" href="#radiation-reaction" title="Permalink to this headline">¶</a></h2>
 <p>The block <code class="docutils literal notranslate"><span class="pre">RadiationReaction()</span></code> enables to tune the radiation loss properties
 (see <a class="reference internal" href="radiation_loss.html"><span class="doc">Synchrotron-like radiation reaction</span></a>).
 Many parameters are used for the generation of the cross-section tables
 for the Monte-Carlo emission process.
 If the tables already exist in the simulation directory, then they will be read
 and no new table will be generated by <strong class="program">Smilei</strong>.
-Else, <strong class="program">Smilei</strong> has all the components to compute and output these
+Otherwise, <strong class="program">Smilei</strong> can compute and output these
 tables.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RadiationReaction</span><span class="p">(</span>
 
@@ -3362,6 +3566,91 @@ The full list of fields that are saved by this diagnostic:</p>
 </tr>
 </tbody>
 </table>
+<p>In <code class="docutils literal notranslate"><span class="pre">AMcylindrical</span></code> geometry, the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code>
+indices are replaced by <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code> (theta). In addition,
+the angular Fourier modes are denoted by the suffix <code class="docutils literal notranslate"><span class="pre">_mode_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code>
+is the mode number. In summary, the list of fields reads as follows.</p>
+<table border="1" class="nowrap docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Bx_mode_0, Bx_mode_1, etc.</div>
+<div class="line">Br_mode_0, Br_mode_1, etc.</div>
+<div class="line">Bt_mode_0, Bt_mode_1, etc.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Components of the magnetic field</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Ex_mode_0, Ex_mode_1, etc.</div>
+<div class="line">Er_mode_0, Er_mode_1, etc.</div>
+<div class="line">Et_mode_0, Et_mode_1, etc.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Components of the electric field</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2">The same notation works for Jx, Jr, Jt, and Rho</td>
+</tr>
+</tbody>
+</table>
+<p>In the case of an envelope model for the laser (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>),
+the following fields are also available:</p>
+<table border="1" class="nowrap docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Env_A_abs</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Module of laser vector potential’s complex envelope</div>
+<div class="line"><span class="math notranslate nohighlight">\(\tilde{A}\)</span> (component along the polarization</div>
+<div class="line">direction)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Env_Chi</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Total  susceptibility <span class="math notranslate nohighlight">\(\chi\)</span></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Env_E_abs</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Module of laser electric field’s complex envelope</div>
+<div class="line"><span class="math notranslate nohighlight">\(\tilde{E}\)</span> (component along the polarization</div>
+<div class="line">direction)</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="data">
@@ -3508,6 +3797,8 @@ When using <code class="docutils literal notranslate"><span class="pre">vectors<
 <code class="docutils literal notranslate"><span class="pre">&quot;Bx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;By&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jz&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Rho&quot;</span></code>. Only these
 fields will be saved.
 Note that it does NOT speed up calculation much, but it saves disk space.</p>
+<p>In the case of an envelope model for the laser (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>), the following fields are also available: <code class="docutils literal notranslate"><span class="pre">&quot;Env_A_abs&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;Env_Chi&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Env_E_abs&quot;</span></code>.</p>
 </dd></dl>
 
 <p><strong>Examples of probe diagnostics</strong></p>
@@ -4028,11 +4319,12 @@ at their  positions (<code class="docutils literal notranslate"><span class="pre
 <div class="section" id="performances-diagnostics">
 <span id="diagperformances"></span><h2><em>Performances</em> diagnostics<a class="headerlink" href="#performances-diagnostics" title="Permalink to this headline">¶</a></h2>
 <p>The <em>performances</em> diagnostic records information on the computational load and timers
-for each MPI process in the simulation.</p>
+for each MPI process  or for each patch in the simulation.</p>
 <p>Only one block <code class="docutils literal notranslate"><span class="pre">DiagPerformances()</span></code> may be added in the namelist, for instance:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiagPerformances</span><span class="p">(</span>
     <span class="n">every</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
 <span class="c1">#    flush_every = 100,</span>
+    <span class="n">patch_information</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -4064,6 +4356,20 @@ for each MPI process in the simulation.</p>
 <p>Number of timesteps <strong>or</strong> a <a class="reference internal" href="#timeselections"><span class="std std-ref">time selection</span></a>.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">flush_every</span></code> coincides with <code class="docutils literal notranslate"><span class="pre">every</span></code>, the output file is actually written
 (“flushed” from the buffer). Flushing too often might <em>dramatically</em> slow down the simulation.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="patch_information">
+<code class="descname">patch_information</code><a class="headerlink" href="#patch_information" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">False</td>
+</tr>
+</tbody>
+</table>
+<p>Activation of the performance per patch output.</p>
 </dd></dl>
 
 <hr class="docutils" />
@@ -4104,7 +4410,7 @@ of several numbers.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="checkpoints">
-<span id="id7"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Checkpoints<a class="headerlink" href="#checkpoints" title="Permalink to this headline">¶</a></h2>
 <p>The simulation state can be saved (<em>dumped</em>) at given times (<em>checkpoints</em>)
 in order to be later <em>restarted</em> at that point.</p>
 <p>A few things are important to know when you need dumps and restarts.</p>
@@ -4298,7 +4604,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Releases &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Releases &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -51,6 +51,7 @@
             <ul>
 <li><a class="reference internal" href="#">Releases</a><ul>
 <li><a class="reference internal" href="#upcoming-changes">Upcoming changes</a></li>
+<li><a class="reference internal" href="#release-4-0">Release 4.0</a></li>
 <li><a class="reference internal" href="#release-3-5">Release 3.5</a></li>
 <li><a class="reference internal" href="#release-3-4-1">Release 3.4.1</a></li>
 <li><a class="reference internal" href="#release-3-4">Release 3.4</a></li>
@@ -79,6 +80,9 @@
               <a href="parallelization.html">Parallelization basics</a>
           </li>
           <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
+          <li class="outer">
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
@@ -89,6 +93,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -138,6 +145,7 @@
                 <ul>
 <li><a class="reference internal" href="#">Releases</a><ul>
 <li><a class="reference internal" href="#upcoming-changes">Upcoming changes</a></li>
+<li><a class="reference internal" href="#release-4-0">Release 4.0</a></li>
 <li><a class="reference internal" href="#release-3-5">Release 3.5</a></li>
 <li><a class="reference internal" href="#release-3-4-1">Release 3.4.1</a></li>
 <li><a class="reference internal" href="#release-3-4">Release 3.4</a></li>
@@ -217,6 +225,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -227,6 +238,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -384,7 +398,7 @@
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -404,21 +418,30 @@ or <em>pull requests</em> for your changes to become part of the official releas
 a <a class="reference external" href="https://llrgit.in2p3.fr/smilei/smilei">different repository</a>
 reserved for the <a class="reference internal" href="partners.html"><span class="doc">Partners</span></a>. It is regularly synchronized with
 the GitHub page.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">In v3.3, <a class="reference internal" href="syntax_changes.html"><span class="doc">significant changes</span></a> have been made to the input syntax.</p>
-</div>
 <hr class="docutils" />
 <div class="section" id="upcoming-changes">
 <h2>Upcoming changes<a class="headerlink" href="#upcoming-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Vectorization</li>
-<li>Interface with the PICSAR library</li>
+<li>Interface with the PICSAR library (currently experimental)</li>
+<li>Cylindrical geometry with Fourier decomposition in azimuthal direction</li>
+<li>Probe diagnostics of currents and density per species</li>
 </ul>
 <hr class="docutils" />
 </div>
+<div class="section" id="release-4-0">
+<span id="latestversion"></span><h2>Release 4.0<a class="headerlink" href="#release-4-0" title="Permalink to this headline">¶</a></h2>
+<p><strong>Download</strong>: <a class="reference external" href="_downloads/smilei-v4.0.tar.gz">Smilei v4.0</a></p>
+<ul class="simple">
+<li><a class="reference internal" href="namelist.html#vectorization"><span class="std std-ref">Vectorization</span></a></li>
+<li>MPI option <cite>MPI_THREAD_MULTIPLE</cite> is now optional (but recommended)</li>
+<li>Faster collisions</li>
+<li>Bugfixes: handling <cite>sum</cite> for happi’s <cite>ParticleBinning</cite></li>
+<li><a class="reference internal" href="namelist.html#laser-envelope"><span class="std std-ref">Laser envelope model</span></a></li>
+</ul>
+</div>
+<hr class="docutils" />
 <div class="section" id="release-3-5">
-<span id="latestversion"></span><h2>Release 3.5<a class="headerlink" href="#release-3-5" title="Permalink to this headline">¶</a></h2>
+<h2>Release 3.5<a class="headerlink" href="#release-3-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Download</strong>: <a class="reference external" href="_downloads/smilei-v3.5.tar.gz">Smilei v3.5</a></p>
 <ul class="simple">
 <li><a class="reference internal" href="laser_offset.html"><span class="doc">Laser defined in tilted plane</span></a></li>
@@ -561,7 +584,7 @@ the GitHub page.</p>
         <li class="right" >
           <a href="highlights.html" title="Highlights"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

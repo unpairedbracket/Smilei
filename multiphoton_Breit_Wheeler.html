@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Multiphoton Breit-Wheeler pair creation &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Multiphoton Breit-Wheeler pair creation &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Field initialization for relativistic species" href="relativistic_fields_initialization.html" />
+    <link rel="next" title="Laser envelope model" href="laser_envelope.html" />
     <link rel="prev" title="Synchrotron-like radiation reaction" href="radiation_loss.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/x-mathjax-config">
@@ -63,6 +63,9 @@
               <a href="parallelization.html">Parallelization basics</a>
           </li>
           <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
+          <li class="outer">
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
@@ -87,6 +90,9 @@
 </ul>
 
         <ul>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
+          </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
           </li>
@@ -211,6 +217,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -221,6 +230,9 @@
                         </li>
                         <li >
                             <a href="#">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -373,12 +385,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
+          <a href="laser_envelope.html" title="Laser envelope model"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="radiation_loss.html" title="Synchrotron-like radiation reaction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -442,14 +454,14 @@ parameter equal to <span class="math notranslate nohighlight">\(\chi_\gamma = \v
 <p>We consider the case where photon interact in a constant uniform electric field.
 For a field of amplitude <span class="math notranslate nohighlight">\(E = 500 m_e \omega c / e\)</span>, the energy
 distribution and the production rate of pair creation as a function of <span class="math notranslate nohighlight">\(\chi_\gamma\)</span> are
-plotted in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 28</span></a>. It shows that the total production
+plotted in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 31</span></a>. It shows that the total production
 rate of electron-positron pairs rises rapidly to reach a peak around
 <span class="math notranslate nohighlight">\(\chi_\gamma = 10\)</span> with almost a pair generated per femtosecond.
 Under <span class="math notranslate nohighlight">\(\chi_\gamma = 0.1\)</span>, the production rate is very weak with
 less than a pair after 100 picoseconds of interaction.
 Above <span class="math notranslate nohighlight">\(\chi_\gamma = 10\)</span>, the production decreases slowly with
 <span class="math notranslate nohighlight">\(\chi_\gamma\)</span>.</p>
-<p>The right subplot in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 28</span></a> gives the probability
+<p>The right subplot in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 31</span></a> gives the probability
 for a photon to decay into a pair as a function of the energy given to the electron
 (using approximation <span class="math notranslate nohighlight">\(\chi_\gamma / \chi_- = \gamma_\gamma / \gamma_-\)</span>)
 for a field of amplitude <span class="math notranslate nohighlight">\(E = 500 m_e \omega c / e\)</span>.
@@ -460,7 +472,7 @@ equal electron-positron energies <span class="math notranslate nohighlight">\(\c
 Above this threshold, the energy dispersion increases with <span class="math notranslate nohighlight">\(\chi_\gamma\)</span>.</p>
 <div class="figure" id="id4">
 <span id="synchrotron-pairs-dndt"></span><a class="reference internal image-reference" href="_images/synchrotron_pairs_dNdt.png"><img alt="_images/synchrotron_pairs_dNdt.png" src="_images/synchrotron_pairs_dNdt.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">(left) - Normalized total pair production distribution given by Eq. <a class="reference internal" href="#equation-bwproductionrate">(30)</a>.
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">(left) - Normalized total pair production distribution given by Eq. <a class="reference internal" href="#equation-bwproductionrate">(30)</a>.
 (right) - Normalized pair creation <span class="math notranslate nohighlight">\(\chi\)</span> distribution given by Eq. <a class="reference internal" href="#equation-bwenergydistribution">(29)</a>.</span></p>
 </div>
 <hr class="docutils" />
@@ -570,17 +582,17 @@ initial quantum parameters:</p>
 <li>Case 2: <span class="math notranslate nohighlight">\(\chi_{\gamma,0} = 20\)</span>, <span class="math notranslate nohighlight">\(B = 1000\)</span>, <span class="math notranslate nohighlight">\(\gamma_{\gamma,0} = 8125\)</span></li>
 </ul>
 <p>The results of the first case are shown in
-<a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi1"><span class="std std-numref">Fig. 29</span></a>. The two first figures
+<a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi1"><span class="std std-numref">Fig. 32</span></a>. The two first figures
 represent respectively the electron (left) and the positron energy (center) spectrum at the end
 of the simulation when all photons have been converted into pairs.
 The last one on the right is the time evolution of the photon (green), electron (blue),
 positron (orange) and total (black) kinetic energy.
 The quantum parameter of all photons is initially equal to
-<span class="math notranslate nohighlight">\(\chi_{\gamma,0} = 1\)</span>. According to <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 28</span></a>,
+<span class="math notranslate nohighlight">\(\chi_{\gamma,0} = 1\)</span>. According to <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 31</span></a>,
 we are located in an area of the energy distribution where electrons and
 positrons are more likely to be created with almost the same energy
 (<span class="math notranslate nohighlight">\(\chi_{+} = \chi_{-} =\chi_{\gamma,0} /2\)</span>).
-This is confirmed in <a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi1"><span class="std std-numref">Fig. 29</span></a>.
+This is confirmed in <a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi1"><span class="std std-numref">Fig. 32</span></a>.
 Electron and positron energy spectra are well similar, symmetric and centered
 at half the initial photon energy equal to <span class="math notranslate nohighlight">\(\gamma = 750\)</span>.
 The energy balance (right figure) shows that positron and electron kinetic energies
@@ -589,18 +601,18 @@ at the end of the simulation.
 The total energy is well constant and conserved in time.</p>
 <div class="figure" id="id5">
 <span id="synchrotron-pairs-energy-spectra-chi1"></span><a class="reference internal image-reference" href="_images/synchrotron_pairs_energy_spectra_chi1.png"><img alt="_images/synchrotron_pairs_energy_spectra_chi1.png" src="_images/synchrotron_pairs_energy_spectra_chi1.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">(left) - Electron energy spectrum at the end of the run.
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">(left) - Electron energy spectrum at the end of the run.
 (middle) - Positron energy spectrum at the end of the run.
 (right) - Time evolution of the photon (green), electron (blue), positron
 (orange) and total (black) normalized energy <span class="math notranslate nohighlight">\(U / U_{tot}\)</span>.</span></p>
 </div>
 <p>The results of the second case are shown in
-<a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi20"><span class="std std-numref">Fig. 30</span></a> as for the first case.
+<a class="reference internal" href="#synchrotron-pairs-energy-spectra-chi20"><span class="std std-numref">Fig. 33</span></a> as for the first case.
 Here, the quantum parameter of all photons is initially equal to
 <span class="math notranslate nohighlight">\(\chi_{\gamma,0} = 20\)</span>. This means that contrary to the previous case,
 the probability to generate electrons and positrons of similar energy
 is not the most significant.
-As in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 28</span></a>, the energy spectra exhibit two maximums.
+As in <a class="reference internal" href="#synchrotron-pairs-dndt"><span class="std std-numref">Fig. 31</span></a>, the energy spectra exhibit two maximums.
 This maximums are located approximately at 10% and 90% of the initial photon
 energy of <span class="math notranslate nohighlight">\(\gamma_{\gamma,0} = 8125\)</span>.
 Electron and positron spectra are nonetheless similar and symmetric in respect
@@ -611,7 +623,7 @@ at the end of the simulation.
 The total energy is well constant and conserved in time.</p>
 <div class="figure" id="id6">
 <span id="synchrotron-pairs-energy-spectra-chi20"></span><a class="reference internal image-reference" href="_images/synchrotron_pairs_energy_spectra_chi20.png"><img alt="_images/synchrotron_pairs_energy_spectra_chi20.png" src="_images/synchrotron_pairs_energy_spectra_chi20.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">(left) - Electron energy spectrum at the end of the run.
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">(left) - Electron energy spectrum at the end of the run.
 (middle) - Positron energy spectrum at the end of the run.
 (right) - Time evolution of the photon (green), electron (blue)
 and positron (orange)
@@ -639,18 +651,18 @@ These photons are generated in the same direction of the electrons with an energ
 to almost the electron kinetic energy.
 Then, the macro-photons interact in turn with the laser field and can decay
 into electron-positron pairs via the multiphoton Breit-Wheeler process.</p>
-<p>The first plot on left of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 31</span></a> shows the energy
+<p>The first plot on left of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 34</span></a> shows the energy
 balance of the simulation.
-The second plot on the center of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 31</span></a> shows the
+The second plot on the center of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 34</span></a> shows the
 time evolution of the number of macro-electrons, macro-positrons and macro-photons.
 The electron bunch energy rapidly drops
 after entering the laser field around <span class="math notranslate nohighlight">\(t = 240 \omega_r^{-1}\)</span>.
 At the same time, many macro-photons are generated by the particle number evolution
-as shown in <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 31</span></a>. The photon energy therefore rapidly rises
+as shown in <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 34</span></a>. The photon energy therefore rapidly rises
 as the electron energy decreases.</p>
 <div class="figure" id="id7">
 <span id="counter-pair-smilei"></span><a class="reference internal image-reference" href="_images/counter_pair_smilei.png"><img alt="_images/counter_pair_smilei.png" src="_images/counter_pair_smilei.png" style="width: 18cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">(left) - Energy balance of the simulation. In the legend, <strong>Photon</strong> represents the macro-photon
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">(left) - Energy balance of the simulation. In the legend, <strong>Photon</strong> represents the macro-photon
 energy and <strong>Radiation</strong> represents the radiated energy excluding the macro-photons.
 (center) - Time evolution of the number of macro-electrons (blue),
 macro-positrons (orange) and macro-photons (green) in the simulation.
@@ -663,7 +675,7 @@ This is revealed by the yield of macro-positron.
 When electrons and positrons have lost sufficient energy, they can not produce
 macro-photons anymore and radiated energy is therefore added directly
 in the energy balance.
-This is shown by the red curve of the energy balance of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 31</span></a>.
+This is shown by the red curve of the energy balance of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 34</span></a>.
 The radiated energy rises after the main phase of the macro-photon generation after
 <span class="math notranslate nohighlight">\(t = 250 \omega_r^{-1}\)</span>. The radiated energy contains the energy from
 the continuous radiation reaction model and from the discontinuous Monte-Carlo
@@ -671,7 +683,7 @@ if the energy of the emitted photon is below <span class="math notranslate nohig
 Under this threshold, the photon can not decay into electron-positron pair.
 It is therefore useless and costly to generated a macro-photon.</p>
 <p>The final electron, positron and photon energy spectra are shown in
-the right plot of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 31</span></a>. At the end of the simulation,
+the right plot of <a class="reference internal" href="#counter-pair-smilei"><span class="std std-numref">Fig. 34</span></a>. At the end of the simulation,
 the photon spectrum is a broad decreasing profile ranging from 1 MeV to 1 GeV.
 This is the consequence of two main facts:</p>
 <ul class="simple">
@@ -699,12 +711,12 @@ Few particles have an energy above this threshold up to 1 GeV.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="relativistic_fields_initialization.html" title="Field initialization for relativistic species"
+          <a href="laser_envelope.html" title="Laser envelope model"
              >next</a> |</li>
         <li class="right" >
           <a href="radiation_loss.html" title="Synchrotron-like radiation reaction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Index &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -62,6 +62,9 @@
               <a href="parallelization.html">Parallelization basics</a>
           </li>
           <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
+          <li class="outer">
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
@@ -72,6 +75,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -184,6 +190,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -194,6 +203,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -345,7 +357,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -493,8 +505,12 @@
 </li>
       <li><a href="namelist.html#EM_boundary_conditions_k">EM_boundary_conditions_k (built-in variable)</a>
 </li>
+      <li><a href="namelist.html#Envelope_boundary_conditions">Envelope_boundary_conditions (built-in variable)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="namelist.html#envelope_solver">envelope_solver (built-in variable)</a>
+</li>
       <li><a href="namelist.html#every">every (built-in variable)</a>, <a href="namelist.html#every">[1]</a>, <a href="namelist.html#every">[2]</a>, <a href="namelist.html#every">[3]</a>, <a href="namelist.html#every">[4]</a>, <a href="namelist.html#every">[5]</a>, <a href="namelist.html#every">[6]</a>, <a href="namelist.html#every">[7]</a>
 </li>
       <li><a href="namelist.html#exit_after_dump">exit_after_dump (built-in variable)</a>
@@ -623,16 +639,18 @@
 </li>
       <li><a href="namelist.html#initial_balance">initial_balance (built-in variable)</a>
 </li>
+      <li><a href="namelist.html#initial_mode">initial_mode (built-in variable)</a>
+</li>
       <li><a href="namelist.html#integfochi_chipa_max">integfochi_chipa_max (built-in variable)</a>
 </li>
       <li><a href="namelist.html#integfochi_chipa_min">integfochi_chipa_min (built-in variable)</a>
 </li>
       <li><a href="namelist.html#integfochi_dim">integfochi_dim (built-in variable)</a>
 </li>
-      <li><a href="namelist.html#interpolation_order">interpolation_order (built-in variable)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="namelist.html#interpolation_order">interpolation_order (built-in variable)</a>
+</li>
       <li><a href="namelist.html#ionization_electrons">ionization_electrons (built-in variable)</a>
 </li>
       <li><a href="namelist.html#ionization_model">ionization_model (built-in variable)</a>
@@ -675,6 +693,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="namelist.html#mode">mode (built-in variable)</a>
+</li>
       <li><a href="namelist.html#model">model (built-in variable)</a>, <a href="namelist.html#model">[1]</a>
 </li>
       <li><a href="namelist.html#momentum_initialization">momentum_initialization (built-in variable)</a>
@@ -697,6 +717,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="namelist.html#number_of_AM">number_of_AM (built-in variable)</a>
+</li>
       <li><a href="namelist.html#number_of_cells">number_of_cells (built-in variable)</a>
 </li>
       <li><a href="namelist.html#number_of_patches">number_of_patches (built-in variable)</a>
@@ -735,9 +757,9 @@
 </li>
       <li><a href="namelist.html#passes">passes (built-in variable)</a>
 </li>
-      <li><a href="namelist.html#patch_decomposition">patch_decomposition (built-in variable)</a>
+      <li><a href="namelist.html#patch_arrangement">patch_arrangement (built-in variable)</a>
 </li>
-      <li><a href="namelist.html#patch_orientation">patch_orientation (built-in variable)</a>
+      <li><a href="namelist.html#patch_information">patch_information (built-in variable)</a>
 </li>
       <li><a href="post-processing.html#Performances">Performances()</a>
 </li>
@@ -773,6 +795,8 @@
 </li>
       <li><a href="namelist.html#polynomial">polynomial() (built-in function)</a>
 </li>
+      <li><a href="namelist.html#ponderomotive_dynamics">ponderomotive_dynamics (built-in variable)</a>
+</li>
       <li><a href="namelist.html#position_initialization">position_initialization (built-in variable)</a>
 </li>
       <li><a href="namelist.html#precision">precision (built-in variable)</a>
@@ -802,6 +826,8 @@
       <li><a href="namelist.html#radiation_photon_species">radiation_photon_species (built-in variable)</a>
 </li>
       <li><a href="namelist.html#random_seed">random_seed (built-in variable)</a>
+</li>
+      <li><a href="namelist.html#reconfigure_every">reconfigure_every (built-in variable)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -915,7 +941,7 @@
 </li>
       <li><a href="namelist.html#time_average">time_average (built-in variable)</a>, <a href="namelist.html#time_average">[1]</a>
 </li>
-      <li><a href="namelist.html#time_envelope">time_envelope (built-in variable)</a>, <a href="namelist.html#time_envelope">[1]</a>
+      <li><a href="namelist.html#time_envelope">time_envelope (built-in variable)</a>, <a href="namelist.html#time_envelope">[1]</a>, <a href="namelist.html#time_envelope">[2]</a>
 </li>
       <li><a href="namelist.html#time_fields_frozen">time_fields_frozen (built-in variable)</a>
 </li>
@@ -1056,6 +1082,9 @@
                         <a href="parallelization.html">Parallelization basics</a>
                     </li>
                     <li>
+                        <a href="vectorization.html">Vectorization</a>
+                    </li>
+                    <li>
                         <a href="collisions.html">Binary collisions</a>
                     </li>
                     <li>
@@ -1066,6 +1095,9 @@
                     </li>
                     <li>
                         <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                    </li>
+                    <li>
+                        <a href="laser_envelope.html">Laser envelope model</a>
                     </li>
                     <li>
                         <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -1113,7 +1145,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

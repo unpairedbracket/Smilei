@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Binary collisions &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Binary collisions &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ionization" href="ionization.html" />
-    <link rel="prev" title="Parallelization basics" href="parallelization.html" />
+    <link rel="prev" title="Vectorization" href="vectorization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -62,6 +62,9 @@
           <li class="outer">
               <a href="parallelization.html">Parallelization basics</a>
           </li>
+          <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
         </ul>
             <ul>
 <li><a class="reference internal" href="#">Binary collisions</a><ul>
@@ -84,6 +87,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -206,6 +212,9 @@
                         <li class="outer">
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
+                        <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
                         <li >
                             <a href="#">Binary collisions</a>
                         </li>
@@ -217,6 +226,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -372,9 +384,9 @@
           <a href="ionization.html" title="Ionization"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="parallelization.html" title="Parallelization basics"
+          <a href="vectorization.html" title="Vectorization"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -451,23 +463,23 @@ The beam gets strong isotropization =&gt; the average velocity relaxes to zero.<
 <p>Three figures show the time-evolution of the longitudinal <span class="math notranslate nohighlight">\(\left&lt;v_\|\right&gt;\)</span>
 and transverse velocity <span class="math notranslate nohighlight">\(\sqrt{\left&lt;v_\perp^2\right&gt;}\)</span></p>
 <ul class="simple">
-<li><a class="reference internal" href="#beam1"><span class="std std-numref">Fig. 6</span></a> : initial velocity = 0.05, ion charge = 1</li>
-<li><a class="reference internal" href="#beam2"><span class="std std-numref">Fig. 7</span></a> : initial velocity = 0.01, ion charge = 1</li>
-<li><a class="reference internal" href="#beam3"><span class="std std-numref">Fig. 8</span></a> : initial velocity = 0.01, ion charge = 3</li>
+<li><a class="reference internal" href="#beam1"><span class="std std-numref">Fig. 9</span></a> : initial velocity = 0.05, ion charge = 1</li>
+<li><a class="reference internal" href="#beam2"><span class="std std-numref">Fig. 10</span></a> : initial velocity = 0.01, ion charge = 1</li>
+<li><a class="reference internal" href="#beam3"><span class="std std-numref">Fig. 11</span></a> : initial velocity = 0.01, ion charge = 3</li>
 </ul>
 <p>Each of these figures show 3 different blue and red curves which correspond to different
 ratios of particle weights: 0.1, 1, and 10.</p>
 <div class="figure" id="id23">
 <span id="beam1"></span><a class="reference internal image-reference" href="_images/beam_relaxation123.png"><img alt="_images/beam_relaxation123.png" src="_images/beam_relaxation123.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.05, ion charge = 1.</span></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.05, ion charge = 1.</span></p>
 </div>
 <div class="figure" id="id24">
 <span id="beam2"></span><a class="reference internal image-reference" href="_images/beam_relaxation456.png"><img alt="_images/beam_relaxation456.png" src="_images/beam_relaxation456.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.01, ion charge = 1.</span></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.01, ion charge = 1.</span></p>
 </div>
 <div class="figure" id="id25">
 <span id="beam3"></span><a class="reference internal image-reference" href="_images/beam_relaxation789.png"><img alt="_images/beam_relaxation789.png" src="_images/beam_relaxation789.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.01, ion charge = 3.</span></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Relaxation of an electron beam. Initial velocity = 0.01, ion charge = 3.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
 <div class="math notranslate nohighlight">
@@ -482,10 +494,10 @@ ratios of particle weights: 0.1, 1, and 10.</p>
 Through e-i collisions, the two temperatures become equal.
 The ions are of very small mass <span class="math notranslate nohighlight">\(m_i=10 m_e\)</span> to speed-up the calculation.
 Three cases are simulated, corresponding to different ratios of weights: 0.2, 1 and 5.
-They are plotted in <a class="reference internal" href="#thermalization"><span class="std std-numref">Fig. 9</span></a>.</p>
+They are plotted in <a class="reference internal" href="#thermalization"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure" id="id26">
 <span id="thermalization"></span><a class="reference internal image-reference" href="_images/thermalisation_ei123.png"><img alt="_images/thermalisation_ei123.png" src="_images/thermalisation_ei123.png" style="width: 9cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Thermalization between two species.</span></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Thermalization between two species.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
 <div class="math notranslate nohighlight">
@@ -494,10 +506,10 @@ They are plotted in <a class="reference internal" href="#thermalization"><span c
 <p class="rubric">3. Temperature isotropization</p>
 <p>Electrons have a longitudinal temperature different from their transverse temperature.
 They collide only with themselves (intra-collisions) and the anisotropy disappears
-as shown in <a class="reference internal" href="#temperature-isotropization"><span class="std std-numref">Fig. 10</span></a>.</p>
+as shown in <a class="reference internal" href="#temperature-isotropization"><span class="std std-numref">Fig. 13</span></a>.</p>
 <div class="figure" id="id27">
 <span id="temperature-isotropization"></span><a class="reference internal image-reference" href="_images/temperature_isotropization1.png"><img alt="_images/temperature_isotropization1.png" src="_images/temperature_isotropization1.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Temperature isotropization of an electron population.</span></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Temperature isotropization of an electron population.</span></p>
 </div>
 <p>The black lines correspond to the theoretical rates taken from the NRL formulary:</p>
 <div class="math notranslate nohighlight">
@@ -508,10 +520,10 @@ A^{-2} \left[-3+(3-A)\frac{\rm{arctanh}(\sqrt{A})}{\sqrt{A}}\right]
 <p>Electrons start with zero temperature along <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>.
 Their velocity distribution along <span class="math notranslate nohighlight">\(x\)</span> is rectangular.
 They collide only with themselves and the rectangle becomes a maxwellian
-as shown in <a class="reference internal" href="#maxwellianization"><span class="std std-numref">Fig. 11</span></a>.</p>
+as shown in <a class="reference internal" href="#maxwellianization"><span class="std std-numref">Fig. 14</span></a>.</p>
 <div class="figure" id="id28">
 <span id="maxwellianization"></span><a class="reference internal image-reference" href="_images/Maxwellianization1.png"><img alt="_images/Maxwellianization1.png" src="_images/Maxwellianization1.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Maxwellianization of an electron population.
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Maxwellianization of an electron population.
 Each blue curve is the distribution at a given time.
 The red curve is an example of a gaussian function.</span></p>
 </div>
@@ -519,10 +531,10 @@ The red curve is an example of a gaussian function.</span></p>
 <p>Test electrons (very low density) collide with background electrons of density
 <span class="math notranslate nohighlight">\(10\,n_c\)</span> and <span class="math notranslate nohighlight">\(T_e=5\)</span> keV.
 Depending on their initial velocity, they are slowed down at different rates,
-as shown in <a class="reference internal" href="#stoppingpower"><span class="std std-numref">Fig. 12</span></a>.</p>
+as shown in <a class="reference internal" href="#stoppingpower"><span class="std std-numref">Fig. 15</span></a>.</p>
 <div class="figure" id="id29">
 <span id="stoppingpower"></span><a class="reference internal image-reference" href="_images/Stopping_power123.png"><img alt="_images/Stopping_power123.png" src="_images/Stopping_power123.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Stopping power of test electrons into a background electron population.
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Stopping power of test electrons into a background electron population.
 Each point is one simulation. The black line is Frankel’s theory <a class="reference internal" href="#frankel1979" id="id14">[Frankel1979]</a>.</span></p>
 </div>
 <p class="rubric">6. Conductivity</p>
@@ -531,10 +543,10 @@ e-i collisions. An electric field of <span class="math notranslate nohighlight">
 applied using two charged layers on each side of the solid Cu.
 The electron velocity increases until a limit value <span class="math notranslate nohighlight">\(v_f\)</span>.
 The resulting conductivity <span class="math notranslate nohighlight">\(\sigma=en_ev_f/E\)</span> is compared in
-<a class="reference internal" href="#conductivity"><span class="std std-numref">Fig. 13</span></a> to the models in <a class="reference internal" href="#lee1984" id="id15">[Lee1984]</a> and <a class="reference internal" href="#perez2012" id="id16">[Perez2012]</a>.</p>
+<a class="reference internal" href="#conductivity"><span class="std std-numref">Fig. 16</span></a> to the models in <a class="reference internal" href="#lee1984" id="id15">[Lee1984]</a> and <a class="reference internal" href="#perez2012" id="id16">[Perez2012]</a>.</p>
 <div class="figure" id="id30">
 <span id="conductivity"></span><a class="reference internal image-reference" href="_images/conductivity.png"><img alt="_images/conductivity.png" src="_images/conductivity.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Conductivity of solid-density copper. Each point is one simulation.</span></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Conductivity of solid-density copper. Each point is one simulation.</span></p>
 </div>
 <hr class="docutils" />
 </div>
@@ -625,11 +637,11 @@ loop from <span class="math notranslate nohighlight">\(k=0\)</span> to <span cla
 <p class="rubric">1. Ionization rate</p>
 <p>A cold plasma of <span class="math notranslate nohighlight">\(\mathrm{Al}^{3+}\)</span> is set with density <span class="math notranslate nohighlight">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>
 and with all electrons drifting at a velocity <span class="math notranslate nohighlight">\(v_e=0.03\,c\)</span>. The charge state of ions
-versus time is shown in <a class="reference internal" href="#ionizationrate"><span class="std std-numref">Fig. 14</span></a> where the three dotted curves correspond
+versus time is shown in <a class="reference internal" href="#ionizationrate"><span class="std std-numref">Fig. 17</span></a> where the three dotted curves correspond
 to three different weight ratios between electrons and ions.</p>
 <div class="figure" id="id31">
 <span id="ionizationrate"></span><a class="reference internal image-reference" href="_images/ionization_rate.png"><img alt="_images/ionization_rate.png" src="_images/ionization_rate.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Ionization of an aluminium plasma by drifting electrons.</span></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Ionization of an aluminium plasma by drifting electrons.</span></p>
 </div>
 <p>The theoretical curve (in black) corresponds to <span class="math notranslate nohighlight">\(1-\exp\left(v_en_e\sigma t\right)\)</span>
 where <span class="math notranslate nohighlight">\(\sigma\)</span> is the ionization cross section of <span class="math notranslate nohighlight">\(\mathrm{Al}^{3+}\)</span> at the
@@ -639,12 +651,12 @@ distributions and to the next level starting to ionize.</p>
 <p>A cold, non-ionized Al plasma is set with density <span class="math notranslate nohighlight">\(n_e=10^{21} \mathrm{cm}^{-3}\)</span>.
 Electrons of various initial velocities are slowed down by ionizing collisions and their
 energy loss is recorded as a function of time.</p>
-<p>A few examples are given in the left graph of <a class="reference internal" href="#ionizationstoppinpower"><span class="std std-numref">Fig. 15</span></a>.
+<p>A few examples are given in the left graph of <a class="reference internal" href="#ionizationstoppinpower"><span class="std std-numref">Fig. 18</span></a>.
 The theoretical curve is obtained from <a class="reference internal" href="#rohrlich1954" id="id20">[Rohrlich1954]</a>. Note that this theory does not
 work below a certain average ionization energy, in our case <span class="math notranslate nohighlight">\(\sim 200\)</span> eV.</p>
 <div class="figure" id="id32">
 <span id="ionizationstoppinpower"></span><a class="reference internal image-reference" href="_images/ionization_stopping_power.png"><img alt="_images/ionization_stopping_power.png" src="_images/ionization_stopping_power.png" style="width: 14cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Left: ionization slowing down versus time, for electrons injected at various
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Left: ionization slowing down versus time, for electrons injected at various
 initial energies into cold Al. Right: corresponding stopping power versus initial
 electron energy.</span></p>
 </div>
@@ -656,10 +668,10 @@ material and high-energy electrons. The multiple ionization algorithm is not per
 as it does not shuffle the particles for each ionization. Thus, good statistical
 sampling is reached after several timesteps. To test the potential error,
 we ran simulations of electrons at 1 MeV incident on cold atoms. The evolution of the
-secondary electron density is monitored versus time in <a class="reference internal" href="#ionizationmultiple"><span class="std std-numref">Fig. 16</span></a>.</p>
+secondary electron density is monitored versus time in <a class="reference internal" href="#ionizationmultiple"><span class="std std-numref">Fig. 19</span></a>.</p>
 <div class="figure" id="id33">
 <span id="ionizationmultiple"></span><a class="reference internal image-reference" href="_images/ionization_multiple.png"><img alt="_images/ionization_multiple.png" src="_images/ionization_multiple.png" style="width: 10cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Secondary electron density <em>vs</em> time, for cold plasmas traversed by a 1 MeV electron beam.</span></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Secondary electron density <em>vs</em> time, for cold plasmas traversed by a 1 MeV electron beam.</span></p>
 </div>
 <p>The solid lines correspond to a very-well resolved ionization, whereas the dashed lines
 correspond to a large timestep. A difference is visible initially, but decreases
@@ -673,11 +685,11 @@ that is relevant to picosecond-scale laser-plasma interaction. Plasmas initially
 a density of 10 times the critical density are given various initial temperatures.
 Ionization initially increases while the temperature decreases, until, after a while,
 their charge state stagnates (it still increases, but very slowly).
-In <a class="reference internal" href="#ionizationrecombination"><span class="std std-numref">Fig. 17</span></a>, these results are compared to a Thomas-Fermi model
+In <a class="reference internal" href="#ionizationrecombination"><span class="std std-numref">Fig. 20</span></a>, these results are compared to a Thomas-Fermi model
 from <a class="reference internal" href="#desjarlais2001" id="id21">[Desjarlais2001]</a>.</p>
 <div class="figure" id="id34">
 <span id="ionizationrecombination"></span><a class="reference internal image-reference" href="_images/ionization_recombination.png"><img alt="_images/ionization_recombination.png" src="_images/ionization_recombination.png" style="width: 12cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Final charge state of various plasmas at various temperatures.</span></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Final charge state of various plasmas at various temperatures.</span></p>
 </div>
 <p>The model does not account for detailed ionization potentials. It provides a rough
 approximation, and is particularly questionable for low temperatures or high Z.
@@ -782,9 +794,9 @@ is an average over all the collisions occurring in a single <em>patch</em>.</p>
           <a href="ionization.html" title="Ionization"
              >next</a> |</li>
         <li class="right" >
-          <a href="parallelization.html" title="Parallelization basics"
+          <a href="vectorization.html" title="Vectorization"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

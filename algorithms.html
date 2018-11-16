@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>PIC algorithms &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>PIC algorithms &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -73,6 +73,7 @@
 <li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
 <li><a class="reference internal" href="#multi-pass-binomial-filtering-of-the-current-densities">Multi-pass binomial filtering of the current densities</a></li>
 <li><a class="reference internal" href="#friedman-filter-on-the-electric-field">Friedman filter on the electric field</a></li>
+<li><a class="reference internal" href="#azimuthal-modes-decomposition">Azimuthal modes decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -80,6 +81,9 @@
         <ul>
           <li class="outer">
               <a href="parallelization.html">Parallelization basics</a>
+          </li>
+          <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
           </li>
           <li class="outer">
               <a href="collisions.html">Binary collisions</a>
@@ -92,6 +96,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -154,6 +161,7 @@
 <li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
 <li><a class="reference internal" href="#multi-pass-binomial-filtering-of-the-current-densities">Multi-pass binomial filtering of the current densities</a></li>
 <li><a class="reference internal" href="#friedman-filter-on-the-electric-field">Friedman filter on the electric field</a></li>
+<li><a class="reference internal" href="#azimuthal-modes-decomposition">Azimuthal modes decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -223,6 +231,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -233,6 +244,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -390,7 +404,7 @@
         <li class="right" >
           <a href="units.html" title="Units"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -700,6 +714,29 @@ magic time-step <span class="math notranslate nohighlight">\(\Delta t = \Delta x
 separately. They can be used, e.g., to mitigate the numerical Cherenkov instability that plagues PIC simulations dealing with
 relativistically drifting flows.
 An exemple of their use to mitigate this effect is highlighted in the work by <a class="reference external" href="https://arxiv.org/abs/1712.02883">Plotnikov et al. (2017)</a>.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="azimuthal-modes-decomposition">
+<span id="amcylindrical"></span><h2>Azimuthal modes decomposition<a class="headerlink" href="#azimuthal-modes-decomposition" title="Permalink to this headline">¶</a></h2>
+<p><strong class="program">Smilei</strong> can run simulations in cyclindrical geometry with azimuthal modes decomposition as described in <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0021999108005950?via%3Dihub">this article</a>.
+In this geometry, fields are expressed in cylindrical frame <span class="math notranslate nohighlight">\((e_x,e_r,e_\theta)\)</span> and can be written as a Fourier series:</p>
+<div class="math notranslate nohighlight">
+\[F\left(x,r,\theta\right) = \sum_{m=1}^{+\infty}\tilde{F}^{m}\left(x,r\right)\exp{\left(-im\theta\right)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the azimuthal mode, <span class="math notranslate nohighlight">\(F\)</span> any field component and <span class="math notranslate nohighlight">\(\tilde{F}^{m}\)</span> the <span class="math notranslate nohighlight">\(m^{th}\)</span> Fourier mode of <span class="math notranslate nohighlight">\(F\)</span>.
+<span class="math notranslate nohighlight">\(\tilde{F}^{m}\)</span> are given as follows:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{F}^{m} = \frac{1}{\pi}\int_0^{2\pi}F\left(x,r,\theta\right)\exp{\left(-im\theta\right)}d\theta,\]</div>
+<p>for all <span class="math notranslate nohighlight">\(m&gt;0\)</span>. Mode 0 is given by:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{F}^{0} = \frac{1}{2\pi}\int_0^{2\pi}F\left(x,r,\theta\right)d\theta.\]</div>
+<p>In the azimuthal modes decomposition simulations, only the <span class="math notranslate nohighlight">\(\tilde{F}^{m}\)</span> are computed and stored.
+Azimuthal modes from 0 to a maximum mode number defined by the user are considered.
+These modes evolve independently of each other according to the linearity of Maxwell’s equations.</p>
+<p>From this collection of modes, a full three-dimensional reconstruction of the EM fields is possible using the equation above.
+This can be done by using the <strong class="program">Smilei</strong> post processing tool <strong class="program">Happi</strong>.
+Note that each mode <span class="math notranslate nohighlight">\(\tilde{F}^{m}\)</span> is a function of <span class="math notranslate nohighlight">\(x\)</span>, the longitudinal coordinate and <span class="math notranslate nohighlight">\(r\)</span>, the radial coordinate.
+Therefore, each of them is only two dimensional.</p>
+<p>Finally, note that this decomposition concerns only the grid quantities ( EM fields and current densities) and be aware that particles evolve in a full three dimensional space.</p>
 </div>
 </div>
 
@@ -721,7 +758,7 @@ An exemple of their use to mitigate this effect is highlighted in the work by <a
         <li class="right" >
           <a href="units.html" title="Units"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

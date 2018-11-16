@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Publications &#8212; Smilei v3.5-8-g4bfc3886 documentation</title>
+    <title>Publications &#8212; Smilei v4.0 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -63,6 +63,9 @@
               <a href="parallelization.html">Parallelization basics</a>
           </li>
           <li class="outer">
+              <a href="vectorization.html">Vectorization</a>
+          </li>
+          <li class="outer">
               <a href="collisions.html">Binary collisions</a>
           </li>
           <li class="outer">
@@ -73,6 +76,9 @@
           </li>
           <li class="outer">
               <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+          </li>
+          <li class="outer">
+              <a href="laser_envelope.html">Laser envelope model</a>
           </li>
           <li class="outer">
               <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -191,6 +197,9 @@
                             <a href="parallelization.html">Parallelization basics</a>
                         </li>
                         <li class="outer">
+                            <a href="vectorization.html">Vectorization</a>
+                        </li>
+                        <li class="outer">
                             <a href="collisions.html">Binary collisions</a>
                         </li>
                         <li class="outer">
@@ -201,6 +210,9 @@
                         </li>
                         <li class="outer">
                             <a href="multiphoton_Breit_Wheeler.html">Multiphoton Breit-Wheeler pair creation</a>
+                        </li>
+                        <li class="outer">
+                            <a href="laser_envelope.html">Laser envelope model</a>
                         </li>
                         <li class="outer">
                             <a href="relativistic_fields_initialization.html">Field initialization for relativistic species</a>
@@ -358,7 +370,7 @@
         <li class="right" >
           <a href="contribute.html" title="Contribute"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -370,14 +382,7 @@
   <div class="section" id="publications">
 <h1>Publications<a class="headerlink" href="#publications" title="Permalink to this headline">¶</a></h1>
 <p class="emphlink">Tip: <a class="reference internal" href="licence.html#howtocite"><span class="std std-ref">How should I cite Smilei in my publication?</span></a></p>
-<table class="bigcitation docutils citation" frame="void" id="perez" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Perez]</td><td>F. Pérez, M. Grech,
-<cite>Oblique-incidence, arbitrary-profile wave injection for electromagnetic simulations</cite>,
-<a class="reference external" href="https://arxiv.org/abs/1809.04435">arXiv:1809.04435</a></td></tr>
-</tbody>
-</table>
+<hr class="docutils" />
 <table class="bigcitation docutils citation" frame="void" id="derouillat2018" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -387,12 +392,56 @@
 <a class="reference external" href="https://arxiv.org/abs/1702.05128">arXiv:1702.05128</a></td></tr>
 </tbody>
 </table>
+<hr class="docutils" />
+<table class="bigcitation docutils citation" frame="void" id="massimo" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Massimo]</td><td>F. Massimo, A. Beck, J. Dérouillat, M. Grech., F. Perez, I. Zemzemi and A. Specka,
+<cite>Efficient modeling of Laser Wakefield Acceleration through the PIC code SMILEI in CILEX project</cite>,
+<a class="reference external" href="http://icap2018.vrws.de/papers/mopag02.pdf">Proceedings of the International Computational Accelerator Physics Conference (ICAP 2018), JACoW pre-release</a>,</td></tr>
+</tbody>
+</table>
+<table class="bigcitation docutils citation" frame="void" id="beck" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Beck]</td><td>A. Beck, J. Dérouillat, M. Lobet, A. Farjallah, F. Massimo, I. Zemzemi, F. Perez, T. Vinci, M. Grech,
+<cite>Adaptive SIMD optimizations in particle-in-cell codes with fine-grain particle sorting</cite>,
+<a class="reference external" href="https://arxiv.org/abs/1810.03949">arXiv:1810.03949</a>,</td></tr>
+</tbody>
+</table>
+<table class="bigcitation docutils citation" frame="void" id="perez" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Perez]</td><td>F. Pérez, M. Grech,
+<cite>Oblique-incidence, arbitrary-profile wave injection for electromagnetic simulations</cite>,
+<a class="reference external" href="https://arxiv.org/abs/1809.04435">arXiv:1809.04435</a></td></tr>
+</tbody>
+</table>
+<table class="bigcitation docutils citation" frame="void" id="niel2018b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Niel2018b]</td><td>F. Niel, C. Riconda, F. Amiranoff, M. Lobet, J. Derouillat, F. Pérez, T. Vinci and M. Grech
+<cite>From quantum to classical modelling of radiation reaction: a focus on the radiation spectrum</cite>,
+<a class="reference external" href="http://iopscience.iop.org/article/10.1088/1361-6587/aace22">Plasma Phys. Control. Fusion 60, 094002 (2018)</a>,
+<a class="reference external" href="https://arxiv.org/abs/1802.02927">arXiv:1802.02927</a></td></tr>
+</tbody>
+</table>
 <table class="bigcitation docutils citation" frame="void" id="plotnikov2017" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label">[Plotnikov2017]</td><td>I. Plotnikov, A. Grassi and M. Grech,
 <cite>Perpendicular relativistic shocks in magnetized pair plasma</cite>,
+<a class="reference external" href="https://academic.oup.com/mnras/article/477/4/5238/4978470">Monthly Notices of the Royal Astronomical Society 477, 5238 (2018)</a>,
 <a class="reference external" href="https://arxiv.org/abs/1712.02883">arXiv:1712.02883</a></td></tr>
+</tbody>
+</table>
+<table class="bigcitation docutils citation" frame="void" id="niel2018" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Niel2018]</td><td>F. Niel, C. Riconda, F. Amiranoff, R. Duclous and M. Grech,
+<cite>From quantum to classical modelling of radiation reaction: a focus on stochasticity effects</cite>,
+<a class="reference external" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.97.043209">Phys. Rev. E 97, 043209 (2018)</a>,
+<a class="reference external" href="https://arxiv.org/abs/1707.02618">arXiv:1707.02618</a></td></tr>
 </tbody>
 </table>
 <table class="bigcitation docutils citation" frame="void" id="grassi2017b" rules="none">
@@ -404,20 +453,12 @@
 <a class="reference external" href="https://arxiv.org/abs/1705.05402">arXiv:1705.05402</a></td></tr>
 </tbody>
 </table>
-<table class="bigcitation docutils citation" frame="void" id="niel2017" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Niel2017]</td><td>F. Niel, C. Riconda, F. Amiranoff, R. Duclous and M. Grech,
-<cite>From quantum to classical modelling of radiation reaction: a focus on stochasticity effects</cite>,
-<a class="reference external" href="https://arxiv.org/abs/1707.02618">arXiv:1707.02618</a></td></tr>
-</tbody>
-</table>
 <table class="bigcitation docutils citation" frame="void" id="fedeli2017" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label">[Fedeli2017]</td><td>L. Fedeli, A. Formenti, L. Cialfi, A. Sgattoni, G. Cantono and M. Passoni,
 <cite>Structured targets for advanced laser-driven sources</cite>,
-<a class="reference external" href="https://doi.org/10.1088/1361-6587/aa8a54">accepted for publication in Plasma Phys. Control. Fusion</a></td></tr>
+<a class="reference external" href="http://iopscience.iop.org/article/10.1088/1361-6587/aa8a54/meta">Plasma Phys. Control. Fusion 60, 014013 (2017)</a></td></tr>
 </tbody>
 </table>
 <table class="bigcitation docutils citation" frame="void" id="golovanov2017" rules="none">
@@ -499,7 +540,7 @@ in the Strongly Coupled regime</cite>,
         <li class="right" >
           <a href="contribute.html" title="Contribute"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v3.5-8-g4bfc3886 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
