@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v4.0-2-g4d1300ce documentation</title>
+    <title>Write a namelist &#8212; Smilei v4.0-4-g1820bae3 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -430,7 +430,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-2-g4d1300ce documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-4-g1820bae3 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -3297,14 +3297,20 @@ This is done by including the block <code class="docutils literal notranslate"><
 <p>Number of digits of the outputs.</p>
 </dd></dl>
 
-<p>The full list of scalars that are saved by this diagnostic:</p>
+<p>The full list of available scalars is given in the table below.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As some of these quantities are integrated in space and/or time, their
+units are unusual, and depend on the simulation dimension.
+All details <a class="reference internal" href="units.html#integrated-quantities"><span class="std std-ref">here</span></a>.</p>
+</div>
 <table border="1" class="nowrap docutils">
 <colgroup>
 <col width="18%" />
 <col width="82%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td colspan="2"><strong>Global energies</strong></td>
+<tr class="row-odd"><td colspan="2"><strong>Space-integrated energy densities</strong></td>
 </tr>
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Utot</div>
@@ -3319,21 +3325,21 @@ This is done by including the block <code class="docutils literal notranslate"><
 </div>
 </td>
 <td><div class="first last line-block">
-<div class="line">Total energy</div>
-<div class="line">Total kinetic energy (in the particles)</div>
-<div class="line">Total EM energy (in the fields)</div>
-<div class="line">Expected value (Initial energy <span class="math notranslate nohighlight">\(-\)</span> lost <span class="math notranslate nohighlight">\(+\)</span> gained)</div>
-<div class="line">Energy balance (Utot <span class="math notranslate nohighlight">\(-\)</span> Uexp)</div>
-<div class="line">Normalized energy balance (Ubal <span class="math notranslate nohighlight">\(/\)</span> Utot)</div>
-<div class="line">Energy in Ex field (<span class="math notranslate nohighlight">\(\int E_x^2 dV /2\)</span>)</div>
+<div class="line">Total</div>
+<div class="line">Total kinetic (in the particles)</div>
+<div class="line">Total electromagnetic (in the fields)</div>
+<div class="line">Expected (Initial <span class="math notranslate nohighlight">\(-\)</span> lost <span class="math notranslate nohighlight">\(+\)</span> gained)</div>
+<div class="line">Balance (Utot <span class="math notranslate nohighlight">\(-\)</span> Uexp)</div>
+<div class="line">Normalized balance (Ubal <span class="math notranslate nohighlight">\(/\)</span> Utot)</div>
+<div class="line">Ex field contribution (<span class="math notranslate nohighlight">\(\int E_x^2 dV /2\)</span>)</div>
 <div class="line-block">
-<div class="line">… and idem for fields Ey, Ez, Bx_m, By_m and Bz_m</div>
+<div class="line">… same for fields Ey, Ez, Bx_m, By_m and Bz_m</div>
 </div>
-<div class="line">Total radiated energy</div>
+<div class="line">Total radiated</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="2"><strong>Energies lost/gained at boundaries</strong></td>
+<tr class="row-odd"><td colspan="2"><strong>Space- &amp; time-integrated Energies lost/gained at boundaries</strong></td>
 </tr>
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Ukin_bnd</div>
@@ -3342,15 +3348,25 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">Ukin_inj_mvw</div>
 <div class="line">Uelm_out_mvw</div>
 <div class="line">Uelm_inj_mvw</div>
+<div class="line"><br /></div>
+<div class="line">PoyXmin</div>
+<div class="line">PoyXminInst</div>
+<div class="line"><br /></div>
 </div>
 </td>
 <td><div class="first last line-block">
-<div class="line">Kinetic energy exchanged at the boundaries during the timestep</div>
-<div class="line">EM energy exchanged at boundaries during the timestep</div>
-<div class="line">Kinetic energy lost during the timestep due to the moving window</div>
-<div class="line">Kinetic energy injected during the timestep due to the moving window</div>
-<div class="line">EM energy lost during the timestep due to the moving window</div>
-<div class="line">EM energy injected during the timestep due to the moving window</div>
+<div class="line">Kinetic contribution exchanged at the boundaries during the timestep</div>
+<div class="line">EM contribution exchanged at boundaries during the timestep</div>
+<div class="line">Kinetic contribution lost during the timestep due to the moving window</div>
+<div class="line">Kinetic contribution gained during the timestep due to the moving window</div>
+<div class="line">EM contribution lost during the timestep due to the moving window</div>
+<div class="line">EM contribution gained during the timestep due to the moving window</div>
+<div class="line"><br /></div>
+<div class="line">Time-accumulated Poynting flux through xmin boundary</div>
+<div class="line">Current Poynting flux through xmin boundary</div>
+<div class="line-block">
+<div class="line">… same for other boundaries</div>
+</div>
 </div>
 </td>
 </tr>
@@ -3383,13 +3399,6 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">ExMax</div>
 <div class="line">ExMaxCell</div>
 <div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line">PoyXmin</div>
-<div class="line">PoyXminInst</div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
 </div>
 </td>
 <td><div class="first last line-block">
@@ -3402,15 +3411,6 @@ This is done by including the block <code class="docutils literal notranslate"><
 <div class="line">… and its location (cell index)</div>
 </div>
 <div class="line">… same for fields Ey Ez Bx_m By_m Bz_m Jx Jy Jz Rho</div>
-<div class="line"><br /></div>
-<div class="line">Time-accumulated Poynting flux through xmin boundary</div>
-<div class="line">Current Poynting flux through xmin boundary</div>
-<div class="line-block">
-<div class="line">… same for other boundaries</div>
-</div>
-<div class="line">These Poynting scalars are integrated accross the boundary.</div>
-<div class="line">Consequently, they are energies per unit surface in 1D,</div>
-<div class="line">energies per unit length in 2D, and energies in 3D.</div>
 </div>
 </td>
 </tr>
@@ -4604,7 +4604,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-2-g4d1300ce documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-4-g1820bae3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4612,7 +4612,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Nov 17, 2018
+        Last updated on Nov 20, 2018
       </div>
       
       <div>
