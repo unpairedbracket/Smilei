@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Units &#8212; Smilei v4.0-8-g19e9189c documentation</title>
+    <title>Units &#8212; Smilei v4.1 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -386,7 +386,7 @@
         <li class="right" >
           <a href="releases.html" title="Releases"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-8-g19e9189c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -496,9 +496,8 @@ They are all kept in the reference units listed above.</p>
 <p>Special care must be taken when considering local quantities that are spatially
 integrated.</p>
 <p class="rubric">1. The spatially-integrated kinetic energy density</p>
-<p>The particle kinetic energy multiplied by its weight gives an
-energy density, thus in units of <span class="math notranslate nohighlight">\(K_r N_r\)</span>. To obtain the spatially-integrated
-kinetic energy, we sum over particles and multiply by the space occupied by one cell.
+<p>The particle kinetic energy density is naturally in units of <span class="math notranslate nohighlight">\(K_r N_r\)</span>.
+Integrating over space give different results depending on the simulation dimension.
 In 1D, this space a length, with units <span class="math notranslate nohighlight">\(L_r\)</span>; in 2D, it is a surface, with units
 <span class="math notranslate nohighlight">\(L_r^2\)</span>; and in 3D, it is a volume, with units <span class="math notranslate nohighlight">\(L_r^3\)</span>.
 Overall, the integrated energy has the units <span class="math notranslate nohighlight">\(K_r N_r L_r^D\)</span>
@@ -513,7 +512,7 @@ Consequently, the spatially-integrated electromagnetic energy density has
 the units <span class="math notranslate nohighlight">\(K_r N_r L_r^D\)</span>; the same as the integrated kinetic energy density above.</p>
 <p>These electromagnetic energies appear, for instance, in the <a class="reference internal" href="namelist.html#diagscalar"><span class="std std-ref">Scalar diagnostics</span></a> as
 <code class="docutils literal notranslate"><span class="pre">Uelm</span></code> (and associated quantities).</p>
-<p class="rubric">3. The space- &amp; time-integrated Poyning flux</p>
+<p class="rubric">3. The space- &amp; time-integrated Poynting flux</p>
 <p>The Poynting flux has the units <span class="math notranslate nohighlight">\(E_r B_r / \mu_0 = V_r K_r N_r\)</span>.
 Consequently, the flux integrated over a boundary, and over time, has the units
 <span class="math notranslate nohighlight">\(V_r K_r N_r L_r^{D-1} T_r = K_r N_r L_r^D\)</span>, which is the same as the
@@ -530,16 +529,14 @@ In <strong class="program">Smilei</strong>, this weight is defined at the beginn
 for each particle and is never modified afterwards. Its definition reads:</p>
 <div class="math notranslate nohighlight">
 \[\textrm{macro-particle weight} = \frac
-    {\textrm{species density in the cell}}
-    {\textrm{number of particles of this species in the cell}}\]</div>
-<p>As a consequence, the sum of all weights of the particles in one cell is equal to
-the density of the species in this cell, in units of <span class="math notranslate nohighlight">\(N_r\)</span>.</p>
-<p>The charge carried by a macro-particle (in Coulomb) can therefore be retrieved by the inverse operation:</p>
-<div class="math notranslate nohighlight">
-\[\textrm{macro-particle charge} = \tilde{w}\tilde{q}V_{\rm cell}N_r\]</div>
-<p><span class="math notranslate nohighlight">\(\tilde{w}\)</span> and <span class="math notranslate nohighlight">\(\tilde{q}\)</span> are the normalized weight and charge of the particle.
-<span class="math notranslate nohighlight">\(V_{\rm cell}\)</span> is the volume of a single cell of the simulation.
-This last equation can be used to derive charge carried by track particles or to initialize weights in the case of a species which positions are initialized via a numpy array (see <a class="reference internal" href="namelist.html#species"><span class="std std-ref">Species</span></a>).</p>
+    {\textrm{species density} \times \textrm{cell hypervolume}}
+    {\textrm{number of macro-particles in cell}}\]</div>
+<p>As the density is in units of <span class="math notranslate nohighlight">\(N_r\)</span> and the cell hypervolume in
+units of <span class="math notranslate nohighlight">\(L_r^D\)</span> (where <span class="math notranslate nohighlight">\(D\)</span> is the simulation dimension),
+then the units of weights is <span class="math notranslate nohighlight">\(N_r L_r^D\)</span>.</p>
+<p>This definition of weights ensures that they do not depend on the
+cell hypervolume, i.e. they can be reused in another simulation, as long as
+<span class="math notranslate nohighlight">\(D\)</span>, <span class="math notranslate nohighlight">\(L_r\)</span> and <span class="math notranslate nohighlight">\(N_r\)</span> are unchanged.</p>
 </div>
 </div>
 
@@ -561,7 +558,7 @@ This last equation can be used to derive charge carried by track particles or to
         <li class="right" >
           <a href="releases.html" title="Releases"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-8-g19e9189c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -569,7 +566,7 @@ This last equation can be used to derive charge carried by track particles or to
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Nov 23, 2018
+        Last updated on Dec 13, 2018
       </div>
       
       <div>

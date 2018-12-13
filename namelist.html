@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v4.0-8-g19e9189c documentation</title>
+    <title>Write a namelist &#8212; Smilei v4.1 documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -430,7 +430,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-8-g19e9189c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -2971,7 +2971,7 @@ quantum parameter. It is advised to keep this value by default.</p>
 </tr>
 </tbody>
 </table>
-<p>Discretization of the <em>chimin</em> and <em>xip</em> tables in the <em>chipa</em> direction.</p>
+<p>Discretization of the <em>chimin</em> and <em>xip</em> tables in the <em>particle_chi</em> direction.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2985,7 +2985,7 @@ quantum parameter. It is advised to keep this value by default.</p>
 </tr>
 </tbody>
 </table>
-<p>Discretization of the <em>xip</em> tables in the <em>chiph</em> direction.</p>
+<p>Discretization of the <em>xip</em> tables in the <em>photon_chi</em> direction.</p>
 </dd></dl>
 
 <dl class="data">
@@ -3013,7 +3013,7 @@ quantum parameter. It is advised to keep this value by default.</p>
 </tr>
 </tbody>
 </table>
-<p>Threshold on the particle quantum parameter <em>chipa</em>. When a particle has a
+<p>Threshold on the particle quantum parameter <em>particle_chi</em>. When a particle has a
 quantum parameter below this threshold, radiation reaction is not taken
 into account.</p>
 </dd></dl>
@@ -3029,7 +3029,7 @@ into account.</p>
 </tr>
 </tbody>
 </table>
-<p>Threshold on the particle quantum parameter <em>chipa</em> between the continuous
+<p>Threshold on the particle quantum parameter <em>particle_chi</em> between the continuous
 and the discontinuous radiation model.</p>
 </dd></dl>
 
@@ -3230,7 +3230,7 @@ quantum parameter. It is advised to keep this value by default.</p>
 </tr>
 </tbody>
 </table>
-<p>Discretization of the <em>chimin</em> and <em>xip</em> tables in the <em>chiph</em> direction.</p>
+<p>Discretization of the <em>chimin</em> and <em>xip</em> tables in the <em>photon_chi</em> direction.</p>
 </dd></dl>
 
 <dl class="data">
@@ -3244,7 +3244,7 @@ quantum parameter. It is advised to keep this value by default.</p>
 </tr>
 </tbody>
 </table>
-<p>Discretization of the <em>xip</em> tables in the <em>chipa</em> direction.</p>
+<p>Discretization of the <em>xip</em> tables in the <em>particle_chi</em> direction.</p>
 </dd></dl>
 
 <hr class="docutils" />
@@ -3344,26 +3344,18 @@ All details <a class="reference internal" href="units.html#integrated-quantities
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">Ukin_bnd</div>
 <div class="line">Uelm_bnd</div>
-<div class="line">Ukin_out_mvw</div>
-<div class="line">Ukin_inj_mvw</div>
-<div class="line">Uelm_out_mvw</div>
-<div class="line">Uelm_inj_mvw</div>
 <div class="line"><br /></div>
-<div class="line">PoyXmin</div>
 <div class="line">PoyXminInst</div>
+<div class="line">PoyXmin</div>
 <div class="line"><br /></div>
 </div>
 </td>
 <td><div class="first last line-block">
 <div class="line">Kinetic contribution exchanged at the boundaries during the timestep</div>
 <div class="line">EM contribution exchanged at boundaries during the timestep</div>
-<div class="line">Kinetic contribution lost during the timestep due to the moving window</div>
-<div class="line">Kinetic contribution gained during the timestep due to the moving window</div>
-<div class="line">EM contribution lost during the timestep due to the moving window</div>
-<div class="line">EM contribution gained during the timestep due to the moving window</div>
 <div class="line"><br /></div>
-<div class="line">Time-accumulated Poynting flux through xmin boundary</div>
-<div class="line">Current Poynting flux through xmin boundary</div>
+<div class="line">Poynting contribution through xmin boundary during the timestep</div>
+<div class="line">Time-accumulated Poynting contribution through xmin boundary</div>
 <div class="line-block">
 <div class="line">… same for other boundaries</div>
 </div>
@@ -3373,20 +3365,20 @@ All details <a class="reference internal" href="units.html#integrated-quantities
 <tr class="row-odd"><td colspan="2"><strong>Particle information</strong></td>
 </tr>
 <tr class="row-even"><td><div class="first last line-block">
-<div class="line">Dens_abc</div>
 <div class="line">Zavg_abc</div>
+<div class="line">Dens_abc</div>
 <div class="line">Ukin_abc</div>
 <div class="line">Urad_abc</div>
 <div class="line">Ntot_abc</div>
 </div>
 </td>
 <td><div class="first last line-block">
-<div class="line">Average density of species “abc”</div>
+<div class="line">Average charge of species “abc”</div>
 <div class="line-block">
-<div class="line">… its average charge</div>
-<div class="line">… its total kinetic energy</div>
-<div class="line">… its total radiated energy</div>
-<div class="line">… and number of particles</div>
+<div class="line">… its integrated density</div>
+<div class="line">… its integrated kinetic energy density</div>
+<div class="line">… its integrated radiated energy density</div>
+<div class="line">… and number of macro-particles</div>
 </div>
 </div>
 </td>
@@ -3789,16 +3781,19 @@ When using <code class="docutils literal notranslate"><span class="pre">vectors<
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[]</span></code> (all fields)</td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">[]</span></code>, which means <code class="docutils literal notranslate"><span class="pre">[&quot;Ex&quot;,</span> <span class="pre">&quot;Ey&quot;,</span> <span class="pre">&quot;Ez&quot;,</span> <span class="pre">&quot;Bx&quot;,</span> <span class="pre">&quot;By&quot;,</span> <span class="pre">&quot;Bz&quot;,</span> <span class="pre">&quot;Jx&quot;,</span> <span class="pre">&quot;Jy&quot;,</span> <span class="pre">&quot;Jz&quot;,</span> <span class="pre">&quot;Rho&quot;]</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>A list of fields among <code class="docutils literal notranslate"><span class="pre">&quot;Ex&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ey&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ez&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;Bx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;By&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jz&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Rho&quot;</span></code>. Only these
-fields will be saved.
-Note that it does NOT speed up calculation much, but it saves disk space.</p>
-<p>In the case of an envelope model for the laser (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>), the following fields are also available: <code class="docutils literal notranslate"><span class="pre">&quot;Env_A_abs&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;Env_Chi&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Env_E_abs&quot;</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">&quot;Bx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;By&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jx&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jy&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jz&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Rho&quot;</span></code>.
+Only listed fields will be saved although they are all calculated.</p>
+<p>The contributions of each species to the currents and the density are also available,
+although they are not included by default. They may be added to the list as
+<code class="docutils literal notranslate"><span class="pre">&quot;Jx_abc&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jy_abc&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Jz_abc&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;Rho_abc&quot;</span></code>, where <code class="docutils literal notranslate"><span class="pre">abc</span></code> is the
+species name.</p>
+<p>In the case of an envelope model for the laser (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>),
+the following fields are also available: <code class="docutils literal notranslate"><span class="pre">&quot;Env_A_abs&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Env_Chi&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Env_E_abs&quot;</span></code>.</p>
 </dd></dl>
 
 <p><strong>Examples of probe diagnostics</strong></p>
@@ -4604,7 +4599,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.0-8-g19e9189c documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4612,7 +4607,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Nov 23, 2018
+        Last updated on Dec 13, 2018
       </div>
       
       <div>
