@@ -6,14 +6,15 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Laser envelope model &#8212; Smilei v4.1 documentation</title>
+    <title>Laser envelope model &#8212; Smilei v4.1-157-g6fd9ff4e documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://www.gitcdn.xyz/repo/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -404,7 +405,7 @@
         <li class="right" >
           <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -432,17 +433,17 @@ The various PIC codes using an envelope model for the laser solve different vers
 In <strong class="program">Smilei</strong>, the version of the envelope model written in laboratory frame coordinates, first demonstrated in the PIC code <strong class="program">ALaDyn</strong> <a class="reference internal" href="#benedetti2008" id="id9">[Benedetti2008]</a>, <a class="reference internal" href="#aladynzenodo" id="id10">[ALaDynZenodo]</a>, <a class="reference internal" href="#terzani" id="id11">[Terzani]</a> is implemented, including the same numerical scheme to solve the lab frame coordinates envelope equation.</p>
 <p>The basic assumption of the model is the description of the laser pulse vector potential in the complex polarization direction <span class="math notranslate nohighlight">\(\hat{A}(\mathbf{x},t)\)</span> as a slowly varying envelope <span class="math notranslate nohighlight">\(\tilde{A}(\mathbf{x},t)\)</span> modulated by fast oscillations at wavelength <span class="math notranslate nohighlight">\(\lambda_0\)</span>, moving at the speed of light <span class="math notranslate nohighlight">\(c\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-envelope">
-<span class="eqno">(34)<a class="headerlink" href="#equation-envelope" title="Permalink to this equation">¶</a></span>\[\hat{A}(\mathbf{x},t)=\textrm{Re}\left[\tilde{A}(\mathbf{x},t)e^{ik_0(x-ct)}\right],\]</div>
-<p>where <span class="math notranslate nohighlight">\(k_0=2\pi/\lambda_0\)</span>. In the language of signal processing, <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is the complex envelope of <span class="math notranslate nohighlight">\(\hat{A}\)</span>. In other words, the spectral content of <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is given by the positive frequency components of <span class="math notranslate nohighlight">\(\hat{A}\)</span> around <span class="math notranslate nohighlight">\(k_0\)</span>, but centered around the origin of the frequency <span class="math notranslate nohighlight">\(k\)</span> axis. As the laser is the source term of the phenomena of interest, in general any physical quantity <span class="math notranslate nohighlight">\(A\)</span> will be therefore given by the summation of a slowly varying part <span class="math notranslate nohighlight">\(\bar{A}\)</span> and a fast oscillating part <span class="math notranslate nohighlight">\(\hat{A}\)</span> with the same form of Eq. <a class="reference internal" href="#equation-envelope">(34)</a>:</p>
+<span class="eqno">(37)<a class="headerlink" href="#equation-envelope" title="Permalink to this equation">¶</a></span>\[\hat{A}(\mathbf{x},t)=\textrm{Re}\left[\tilde{A}(\mathbf{x},t)e^{ik_0(x-ct)}\right],\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_0=2\pi/\lambda_0\)</span>. In the language of signal processing, <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is the complex envelope of <span class="math notranslate nohighlight">\(\hat{A}\)</span>. In other words, the spectral content of <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is given by the positive frequency components of <span class="math notranslate nohighlight">\(\hat{A}\)</span> around <span class="math notranslate nohighlight">\(k_0\)</span>, but centered around the origin of the frequency <span class="math notranslate nohighlight">\(k\)</span> axis. As the laser is the source term of the phenomena of interest, in general any physical quantity <span class="math notranslate nohighlight">\(A\)</span> will be therefore given by the summation of a slowly varying part <span class="math notranslate nohighlight">\(\bar{A}\)</span> and a fast oscillating part <span class="math notranslate nohighlight">\(\hat{A}\)</span> with the same form of Eq. <a class="reference internal" href="#equation-envelope">(37)</a>:</p>
 <div class="math notranslate nohighlight">
 \[A=\bar{A} + \hat{A}\]</div>
 <p>In the envelope model context, “slowly varying” means that the spatial and temporal variations of <span class="math notranslate nohighlight">\(\bar{A}\)</span> and <span class="math notranslate nohighlight">\(\tilde{A}\)</span> are small enough to be treated perturbatively with respect to the ratio <span class="math notranslate nohighlight">\(\epsilon=\lambda_0/\lambda_p\)</span>, as described in detail in <a class="reference internal" href="#mora1997" id="id12">[Mora1997]</a>, <a class="reference internal" href="#quesnel1998" id="id13">[Quesnel1998]</a>, <a class="reference internal" href="#cowan2011" id="id14">[Cowan2011]</a>. The laser envelope transverse size <span class="math notranslate nohighlight">\(R\)</span> and longitudinal size <span class="math notranslate nohighlight">\(L\)</span> are thus assumed to scale as <span class="math notranslate nohighlight">\(R \approx L \approx \lambda_0 / \epsilon\)</span> <a class="reference internal" href="#mora1997" id="id15">[Mora1997]</a>, <a class="reference internal" href="#quesnel1998" id="id16">[Quesnel1998]</a>.
 As described thoroughly in the same references, the coupling between the laser envelope and the plasma particles can be modeled through the addiction of a ponderomotive force term in the particles equations of motion. This term, not representing a real force, is a term rising from an averaging process in the perturbative treatment of the particles motion over the laser optical cycles.</p>
 <p>Modeling the laser through a complex envelope and its coupling with the plasma through the ponderomotive force will yield physically meaningful results only if the variation scales in space and time are greater than <span class="math notranslate nohighlight">\(\lambda_0\)</span>, <span class="math notranslate nohighlight">\(1/\omega_0\)</span>. Examples violating these hypotheses include, but are not limited to, tightly focused lasers, few optical cycles lasers, sharp gradients in the plasma density.</p>
-<p>From Eq. <a class="reference internal" href="#equation-envelope">(34)</a>, the laser electric field’s complex envelope <span class="math notranslate nohighlight">\(\tilde{E}\)</span> can be derived. In the context of the perturbative treatment, the laser scalar potential can be neglected <a class="reference internal" href="#cowan2011" id="id17">[Cowan2011]</a>, yielding:</p>
+<p>From Eq. <a class="reference internal" href="#equation-envelope">(37)</a>, the laser electric field’s complex envelope <span class="math notranslate nohighlight">\(\tilde{E}\)</span> can be derived. In the context of the perturbative treatment, the laser scalar potential can be neglected <a class="reference internal" href="#cowan2011" id="id17">[Cowan2011]</a>, yielding:</p>
 <div class="math notranslate nohighlight">
 \[\hat{E} = -\partial_t \hat{A} = -\partial_t \Big\{\textrm{Re}\left[\tilde{A}(\mathbf{x},t)e^{ik_0(x-ct)}\right]\Big\} = \textrm{Re}\left[-\left(\partial_t-ik_0c\right)\tilde{A}(\mathbf{x},t)e^{ik_0(x-ct)}\right],\]</div>
-<p>which can be expressed, following the definition in Eq. <a class="reference internal" href="#equation-envelope">(34)</a>, also as</p>
+<p>which can be expressed, following the definition in Eq. <a class="reference internal" href="#equation-envelope">(37)</a>, also as</p>
 <div class="math notranslate nohighlight">
 \[\hat{E} = \textrm{Re}\left[\tilde{E}(\mathbf{x},t)e^{ik_0(x-ct)}\right].\]</div>
 <p>The laser electric field’s complex envelope along the polarization direction <span class="math notranslate nohighlight">\(\tilde{E}\)</span> can thus be defined:</p>
@@ -454,21 +455,21 @@ As described thoroughly in the same references, the coupling between the laser e
 <h2>The envelope equation<a class="headerlink" href="#the-envelope-equation" title="Permalink to this headline">¶</a></h2>
 <p>The evolution of the laser pulse is described by d’Alembert’s equation, which in normalized units reads:</p>
 <div class="math notranslate nohighlight" id="equation-dalembert">
-<span class="eqno">(35)<a class="headerlink" href="#equation-dalembert" title="Permalink to this equation">¶</a></span>\[\nabla^2 \hat{A}-\partial^2_t\hat{A}=-\hat{J},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\hat{J}\)</span> is the fast oscillating part of the current density in the laser polarization direction. Through the assumption given by Eq. <a class="reference internal" href="#equation-envelope">(34)</a>, Eq. <a class="reference internal" href="#equation-dalembert">(35)</a> can be reduced to an envelope equation:</p>
+<span class="eqno">(38)<a class="headerlink" href="#equation-dalembert" title="Permalink to this equation">¶</a></span>\[\nabla^2 \hat{A}-\partial^2_t\hat{A}=-\hat{J},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{J}\)</span> is the fast oscillating part of the current density in the laser polarization direction. Through the assumption given by Eq. <a class="reference internal" href="#equation-envelope">(37)</a>, Eq. <a class="reference internal" href="#equation-dalembert">(38)</a> can be reduced to an envelope equation:</p>
 <div class="math notranslate nohighlight" id="equation-envelope-equation">
-<span class="eqno">(36)<a class="headerlink" href="#equation-envelope-equation" title="Permalink to this equation">¶</a></span>\[\nabla^2 \tilde{A}+2i\left(\partial_x \tilde{A} + \partial_t \tilde{A}\right)-\partial^2_t\tilde{A}=\chi \tilde{A},\]</div>
+<span class="eqno">(39)<a class="headerlink" href="#equation-envelope-equation" title="Permalink to this equation">¶</a></span>\[\nabla^2 \tilde{A}+2i\left(\partial_x \tilde{A} + \partial_t \tilde{A}\right)-\partial^2_t\tilde{A}=\chi \tilde{A},\]</div>
 <p>which describes the evolution of the laser pulse only in terms of the laser envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span>. The function <span class="math notranslate nohighlight">\(\chi\)</span> represents the plasma susceptibility, which is computed similarly to the charge density (see <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a>) as</p>
 <div class="math notranslate nohighlight" id="equation-susceptibility">
-<span class="eqno">(37)<a class="headerlink" href="#equation-susceptibility" title="Permalink to this equation">¶</a></span>\[\chi(\mathbf{x}) = \sum_s\,\frac{q^2_s}{m_s}\,\sum_p\,\frac{w_p}{\bar{\gamma}_p}\,S\big(\mathbf{x}-\mathbf{\bar{x}}_p\big)\,\]</div>
+<span class="eqno">(40)<a class="headerlink" href="#equation-susceptibility" title="Permalink to this equation">¶</a></span>\[\chi(\mathbf{x}) = \sum_s\,\frac{q^2_s}{m_s}\,\sum_p\,\frac{w_p}{\bar{\gamma}_p}\,S\big(\mathbf{x}-\mathbf{\bar{x}}_p\big)\,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bar{\gamma}_p\)</span> is the averaged Lorentz factor of the particle <span class="math notranslate nohighlight">\(p\)</span>. This averaged quantity is computed from the averaged particle momentum <span class="math notranslate nohighlight">\(\mathbf{\bar{u}}_p=\mathbf{\bar{p}}_p/m_s\)</span> and the envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-gamma-ponderomotive">
-<span class="eqno">(38)<a class="headerlink" href="#equation-gamma-ponderomotive" title="Permalink to this equation">¶</a></span>\[\bar{\gamma}_p = \sqrt{1+\mathbf{\bar{u}}^2_p+\frac{|\tilde{A}(\mathbf{\bar{x}}_p)|^2}{2}}.\]</div>
-<p>The term at the right hand side of Eq. <a class="reference internal" href="#equation-envelope">(34)</a>, where the plasma susceptibility <span class="math notranslate nohighlight">\(\chi\)</span> appears, allows to describe phenomena where the plasma alters the propagation of the laser pulse, as relativistic self-focusing.</p>
-<p>Note that if in Eq. <a class="reference internal" href="#equation-envelope">(34)</a> the temporal variation of the envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is neglected, and <span class="math notranslate nohighlight">\(\partial^2_x \tilde{A} \ll 2i\partial_x \tilde{A}\)</span> is assumed, the well-known paraxial wave equation is retrieved in vacuum (<span class="math notranslate nohighlight">\(\chi=0\)</span>):</p>
+<span class="eqno">(41)<a class="headerlink" href="#equation-gamma-ponderomotive" title="Permalink to this equation">¶</a></span>\[\bar{\gamma}_p = \sqrt{1+\mathbf{\bar{u}}^2_p+\frac{|\tilde{A}(\mathbf{\bar{x}}_p)|^2}{2}}.\]</div>
+<p>The term at the right hand side of Eq. <a class="reference internal" href="#equation-envelope">(37)</a>, where the plasma susceptibility <span class="math notranslate nohighlight">\(\chi\)</span> appears, allows to describe phenomena where the plasma alters the propagation of the laser pulse, as relativistic self-focusing.</p>
+<p>Note that if in Eq. <a class="reference internal" href="#equation-envelope">(37)</a> the temporal variation of the envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span> is neglected, and <span class="math notranslate nohighlight">\(\partial^2_x \tilde{A} \ll 2i\partial_x \tilde{A}\)</span> is assumed, the well-known paraxial wave equation is retrieved in vacuum (<span class="math notranslate nohighlight">\(\chi=0\)</span>):</p>
 <div class="math notranslate nohighlight" id="equation-paraxial-wave-equation">
-<span class="eqno">(39)<a class="headerlink" href="#equation-paraxial-wave-equation" title="Permalink to this equation">¶</a></span>\[\nabla_{\perp}^2 \tilde{A}+2i\partial_x \tilde{A}=0.\]</div>
-<p>In <strong class="program">Smilei</strong>, none of these assumptions are made and the full version of Eq. <a class="reference internal" href="#equation-envelope-equation">(36)</a> is solved.</p>
+<span class="eqno">(42)<a class="headerlink" href="#equation-paraxial-wave-equation" title="Permalink to this equation">¶</a></span>\[\nabla_{\perp}^2 \tilde{A}+2i\partial_x \tilde{A}=0.\]</div>
+<p>In <strong class="program">Smilei</strong>, none of these assumptions are made and the full version of Eq. <a class="reference internal" href="#equation-envelope-equation">(39)</a> is solved.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="the-ponderomotive-equations-of-motion">
@@ -476,7 +477,7 @@ As described thoroughly in the same references, the coupling between the laser e
 <p>The process of averaging over the time scale of a laser oscillation period yields a simple result for the particles equations of motion.
 The averaged position <span class="math notranslate nohighlight">\(\mathbf{\bar{x}}_p\)</span> and momentum <span class="math notranslate nohighlight">\(\mathbf{\bar{u}}_p\)</span> of the particle <span class="math notranslate nohighlight">\(p\)</span> are related to the averaged electromagnetic fields <span class="math notranslate nohighlight">\(\mathbf{\bar{E}}_p=\mathbf{\bar{E}}(\mathbf{\bar{x}}_p)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\bar{B}}_p=\mathbf{\bar{B}}(\mathbf{\bar{x}}_p)\)</span> through the usual equations of motion, with the addition of a ponderomotive force term which models the interaction with the laser:</p>
 <div class="math notranslate nohighlight" id="equation-ponderomotive-equations-of-motion">
-<span class="eqno">(40)<a class="headerlink" href="#equation-ponderomotive-equations-of-motion" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(43)<a class="headerlink" href="#equation-ponderomotive-equations-of-motion" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
 \frac{d\mathbf{\bar{x}}_p}{dt} &amp;=&amp; \frac{\mathbf{\bar{u}_p}}{\bar{\gamma}_p}\,\\
 \frac{d\mathbf{\bar{u}}_p}{dt} &amp;=&amp; r_s \, \left( \mathbf{\bar{E}}_p + \frac{\mathbf{\bar{u}}_p}{\bar{\gamma}_p} \times \mathbf{\bar{B}}_p \right)-r^2_s\thinspace\frac{1}{4\bar{\gamma}_p}\nabla\left(|\tilde{A}_p|^2\right),
 \end{eqnarray}\end{split}\]</div>
@@ -487,7 +488,7 @@ The averaged position <span class="math notranslate nohighlight">\(\mathbf{\bar{
 <h2>The averaged electromagnetic fields<a class="headerlink" href="#the-averaged-electromagnetic-fields" title="Permalink to this headline">¶</a></h2>
 <p>In the envelope model, Maxwell’s equations remain unaltered, except for the fact that they describe the evolution of the averaged electromagnetic fields <span class="math notranslate nohighlight">\(\mathbf{\bar{E}}(\mathbf{x},t)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\bar{B}}(\mathbf{x},t)\)</span> in terms of the averaged charge density <span class="math notranslate nohighlight">\(\bar{\rho}(\mathbf{x},t)\)</span> and averaged current density <span class="math notranslate nohighlight">\(\mathbf{\bar{J}}(\mathbf{x},t)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-maxwell-envelope">
-<span class="eqno">(41)<a class="headerlink" href="#equation-maxwell-envelope" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(44)<a class="headerlink" href="#equation-maxwell-envelope" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{eqnarray}
 \nabla \cdot \mathbf{\bar{B}} &amp;=&amp; 0 \,,\\
 \nabla \cdot \mathbf{\bar{E}} &amp;=&amp; \bar{\rho} \,,\\
 \nabla \times \mathbf{\bar{B}} &amp;=&amp; \mathbf{\bar{J}} + \partial_t \mathbf{\bar{E}} \,,\\
@@ -498,7 +499,7 @@ The averaged position <span class="math notranslate nohighlight">\(\mathbf{\bar{
 <hr class="docutils" />
 <div class="section" id="the-ponderomotive-pic-loop">
 <h2>The ponderomotive PIC loop<a class="headerlink" href="#the-ponderomotive-pic-loop" title="Permalink to this headline">¶</a></h2>
-<p>Since Maxwell’s equations <a class="reference internal" href="#equation-maxwell-envelope">(41)</a> remain unaltered, their solution can employ the same techniques used in a standard PIC code. The main difficulty in the solution of the other equations, namely the envelope equation Eq. <a class="reference internal" href="#equation-envelope-equation">(36)</a> and the macroparticles equations of motion Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(40)</a>, is that the source terms contain the unknown terms.
+<p>Since Maxwell’s equations <a class="reference internal" href="#equation-maxwell-envelope">(44)</a> remain unaltered, their solution can employ the same techniques used in a standard PIC code. The main difficulty in the solution of the other equations, namely the envelope equation Eq. <a class="reference internal" href="#equation-envelope-equation">(39)</a> and the macroparticles equations of motion Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(43)</a>, is that the source terms contain the unknown terms.
 For example, in the envelope equations, the source term involves the unknown envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span> itself and <span class="math notranslate nohighlight">\(\chi\)</span>, which depends on the envelope. The equations of motion contain the term <span class="math notranslate nohighlight">\(\bar{\gamma}\)</span>, which depends on the envelope <span class="math notranslate nohighlight">\(\tilde{A}\)</span>.
 The PIC loop described in <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a> is thus modified to self-consistently solve the envelope model equations. At each timestep, the code performs the following operations</p>
 <ol class="arabic simple">
@@ -527,16 +528,16 @@ and <span class="math notranslate nohighlight">\(V_c\)</span> denotes the volume
 </div>
 <div class="section" id="susceptibility-deposition">
 <h3>Susceptibility deposition<a class="headerlink" href="#susceptibility-deposition" title="Permalink to this headline">¶</a></h3>
-<p>The particle averaged positions <span class="math notranslate nohighlight">\(\mathbf{\bar{x}}_p^{(n)}\)</span> and averaged momenta <span class="math notranslate nohighlight">\(\mathbf{\bar{p}}_p^{(n)}\)</span> and the ponderomotive potential <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n)}\)</span> are used to compute the ponderomotive Lorentz factor <span class="math notranslate nohighlight">\(\bar{\gamma}_p\)</span> <a class="reference internal" href="#equation-gamma-ponderomotive">(38)</a> and deposit the susceptibility on the grid through Eq. <a class="reference internal" href="#equation-susceptibility">(37)</a>.</p>
+<p>The particle averaged positions <span class="math notranslate nohighlight">\(\mathbf{\bar{x}}_p^{(n)}\)</span> and averaged momenta <span class="math notranslate nohighlight">\(\mathbf{\bar{p}}_p^{(n)}\)</span> and the ponderomotive potential <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n)}\)</span> are used to compute the ponderomotive Lorentz factor <span class="math notranslate nohighlight">\(\bar{\gamma}_p\)</span> <a class="reference internal" href="#equation-gamma-ponderomotive">(41)</a> and deposit the susceptibility on the grid through Eq. <a class="reference internal" href="#equation-susceptibility">(40)</a>.</p>
 </div>
 <div class="section" id="ponderomotive-momentum-push">
 <h3>Ponderomotive momentum push<a class="headerlink" href="#ponderomotive-momentum-push" title="Permalink to this headline">¶</a></h3>
 <p>The momentum push is performed through a modified version of the well-known <a class="reference external" href="https://archive.org/stream/DTIC_ADA023511#page/n7/mode/2up">Boris Pusher</a>, first implemented in <strong class="program">ALaDyn</strong> <a class="reference internal" href="#aladynzenodo" id="id19">[ALaDynZenodo]</a>.
-The plasma electric, magnetic and ponderomotive potential fields at the particle position <span class="math notranslate nohighlight">\(\mathbf{\bar{E}}_p^{(n)}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\bar{B}}_p^{(n)}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n)}\)</span> are used to advance the momentum <span class="math notranslate nohighlight">\(\mathbf{\bar{p}}_p^{(n-1/2)}\)</span> from time-step <span class="math notranslate nohighlight">\(n−1/2\)</span> to time-step <span class="math notranslate nohighlight">\(n + 1/2\)</span>, solving the momentum equation in Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(40)</a></p>
+The plasma electric, magnetic and ponderomotive potential fields at the particle position <span class="math notranslate nohighlight">\(\mathbf{\bar{E}}_p^{(n)}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\bar{B}}_p^{(n)}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n)}\)</span> are used to advance the momentum <span class="math notranslate nohighlight">\(\mathbf{\bar{p}}_p^{(n-1/2)}\)</span> from time-step <span class="math notranslate nohighlight">\(n−1/2\)</span> to time-step <span class="math notranslate nohighlight">\(n + 1/2\)</span>, solving the momentum equation in Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(43)</a></p>
 </div>
 <div class="section" id="envelope-equation-solution">
 <h3>Envelope equation solution<a class="headerlink" href="#envelope-equation-solution" title="Permalink to this headline">¶</a></h3>
-<p>Now that the averaged susceptibility is known at time-step <span class="math notranslate nohighlight">\(n\)</span>, the envelope can be advanced solving the envelope equation <a class="reference internal" href="#equation-envelope-equation">(36)</a>.
+<p>Now that the averaged susceptibility is known at time-step <span class="math notranslate nohighlight">\(n\)</span>, the envelope can be advanced solving the envelope equation <a class="reference internal" href="#equation-envelope-equation">(39)</a>.
 Central spatial and temporal finite differences are used to discretize the derivatives in the envelope equation and obtain an explicit solver scheme <a class="reference internal" href="#aladynzenodo" id="id20">[ALaDynZenodo]</a>, <a class="reference internal" href="#terzani" id="id21">[Terzani]</a>. The envelope <span class="math notranslate nohighlight">\(A\)</span> at time-step <span class="math notranslate nohighlight">\(n+1\)</span> can thus be computed from its value at timesteps <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n-1\)</span> and the suceptibility <span class="math notranslate nohighlight">\(\chi\)</span> at time-step <span class="math notranslate nohighlight">\(n\)</span>. The value of the envelope at timestep <span class="math notranslate nohighlight">\(n\)</span> is conserved for the next iteration of the time loop.
 A main advantage of this numerical scheme is its straightforward parallelization in 3D, due to the locality of the operations involved.</p>
 </div>
@@ -544,7 +545,7 @@ A main advantage of this numerical scheme is its straightforward parallelization
 <h3>Ponderomotive position push<a class="headerlink" href="#ponderomotive-position-push" title="Permalink to this headline">¶</a></h3>
 <p>The updated ponderomotive potential is interpolated at particle positions to obtain <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n+1)}\)</span>.
 Afterwards, the temporal interpolation <span class="math notranslate nohighlight">\(\mathbf{\Phi}_p^{(n+1/2)}=\left(\mathbf{\Phi}_p^{(n)}+\mathbf{\Phi}_p^{(n+1)}\right)/2\)</span> is performed.
-The updated ponderomotive Lorentz factor <span class="math notranslate nohighlight">\(\bar{\gamma}_p^{(n+1/2)}\)</span> can be computed and the averaged position of each particle can be advanced solving the last of Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(40)</a>:</p>
+The updated ponderomotive Lorentz factor <span class="math notranslate nohighlight">\(\bar{\gamma}_p^{(n+1/2)}\)</span> can be computed and the averaged position of each particle can be advanced solving the last of Eqs. <a class="reference internal" href="#equation-ponderomotive-equations-of-motion">(43)</a>:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\bar{x}}_p^{n+1}=\mathbf{\bar{x}}_p^{n} + \Delta t \, \frac{\mathbf{\bar{p}}_p^{n+\tfrac{1}{2}}}{m_s\bar{\gamma}_p^{(n+1/2)}},\]</div>
 </div>
@@ -557,7 +558,7 @@ performed exactly as in the standard PIC loop for the non averaged quantities (s
 <div class="section" id="maxwell-solvers">
 <h3>Maxwell solvers<a class="headerlink" href="#maxwell-solvers" title="Permalink to this headline">¶</a></h3>
 <p>Now that the averaged currents are known at time-step <span class="math notranslate nohighlight">\(n+\tfrac{1}{2}\)</span>, the averaged electromagnetic
-fields can be advanced solving Maxwell’s equations <a class="reference internal" href="#equation-maxwell-envelope">(41)</a>. Their solution is identical to the one described in <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a> for the corresponding non-averaged quantities.</p>
+fields can be advanced solving Maxwell’s equations <a class="reference internal" href="#equation-maxwell-envelope">(44)</a>. Their solution is identical to the one described in <a class="reference internal" href="algorithms.html"><span class="doc">PIC algorithms</span></a> for the corresponding non-averaged quantities.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -641,7 +642,7 @@ fields can be advanced solving Maxwell’s equations <a class="reference interna
         <li class="right" >
           <a href="multiphoton_Breit_Wheeler.html" title="Multiphoton Breit-Wheeler pair creation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -649,11 +650,11 @@ fields can be advanced solving Maxwell’s equations <a class="reference interna
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Dec 13, 2018
+        Last updated on Jan 24, 2019
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
       </div>
       
     </div>

@@ -6,14 +6,15 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Write a namelist &#8212; Smilei v4.1 documentation</title>
+    <title>Write a namelist &#8212; Smilei v4.1-157-g6fd9ff4e documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://www.gitcdn.xyz/repo/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -430,7 +431,7 @@
         <li class="right" >
           <a href="installation.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -2149,12 +2150,32 @@ See <a class="reference internal" href="laser_offset.html"><span class="doc">thi
 </div>
 <div class="section" id="laser-envelope-model">
 <span id="laser-envelope"></span><h2>Laser envelope model<a class="headerlink" href="#laser-envelope-model" title="Permalink to this headline">¶</a></h2>
-<p>In the geometry (<code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code>) it is possible to model a laser pulse propagating in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction through an envelope model (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a> for the advantages and limits of this approximation).
-The fast oscillations of the laser are neglected and all the physical quantities of the simulation, including the electromagnetic fields and their source terms, as well as the particles positions and momenta, are meant to be an average over one or more optical cycles.
-Effects involving characteristic lengths comparable to the laser central wavelength, or effects dependent on the polarization of the laser, cannot be modeled with this option.</p>
-<p>For the moment the only way to specify a laser pulse through this model in <strong class="program">Smilei</strong> is through a cylindrically symmetric 3D gaussian beam. For the moment, only one laser pulse can be specified through the envelope model in a simulation, thus multi-pulse set-ups cannot be defined.
-Contrarily to a standard Laser, the laser envelope will be entirely initialized inside the simulation box at the start of the simulation.</p>
-<p>Following is the laser envelope creator:</p>
+<p>In the geometries <code class="docutils literal notranslate"><span class="pre">&quot;1Dcartesian&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;2Dcartesian&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code> it is possible to model a laser pulse propagating in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction through an envelope model (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a> for the advantages and limits of this approximation).
+The fast oscillations of the laser are neglected and all the physical quantities of the simulation, including the electromagnetic fields and their source terms, as well as the particles positions and momenta, are meant as an average over one or more optical cycles.
+Effects involving characteristic lengths comparable to the laser central wavelength (i.e. sharp plasma density profiles) cannot be modeled with this option.</p>
+<p>For the moment the only way to specify a laser pulse through this model in <strong class="program">Smilei</strong> is through a gaussian beam (cylindrically symmetric for the geometries <code class="docutils literal notranslate"><span class="pre">&quot;2Dcartesian&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;3Dcartesian&quot;</span></code>). Currently only one laser pulse can be specified through the envelope model in a simulation, thus multi-pulse set-ups cannot be defined.
+Contrarily to a standard Laser initialized throught the Silver-Müller boundary conditions, the laser envelope will be entirely initialized inside the simulation box at the start of the simulation.</p>
+<p>Following is the laser envelope creator in 1D</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserEnvelopePlanar1D</span><span class="p">(</span>
+    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tgaussian</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="mf">150.</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">40.</span><span class="p">),</span>
+    <span class="n">envelope_solver</span> <span class="o">=</span> <span class="s1">&#39;explicit&#39;</span><span class="p">,</span>
+    <span class="n">Envelope_boundary_conditions</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;reflective&quot;</span><span class="p">]</span> <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Following is the laser envelope creator in 2D</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserEnvelopeGaussian2D</span><span class="p">(</span>
+    <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="n">focus</span>           <span class="o">=</span> <span class="p">[</span><span class="mf">150.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
+    <span class="n">waist</span>           <span class="o">=</span> <span class="mf">30.</span><span class="p">,</span>
+    <span class="n">time_envelope</span>   <span class="o">=</span> <span class="n">tgaussian</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="mf">150.</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">40.</span><span class="p">),</span>
+    <span class="n">envelope_solver</span> <span class="o">=</span> <span class="s1">&#39;explicit&#39;</span><span class="p">,</span>
+    <span class="n">Envelope_boundary_conditions</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;reflective&quot;</span><span class="p">]</span> <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Following is the laser envelope creator in 3D</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LaserEnvelopeGaussian3D</span><span class="p">(</span>
     <span class="n">a0</span>              <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
     <span class="n">focus</span>           <span class="o">=</span> <span class="p">[</span><span class="mf">150.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>
@@ -2165,11 +2186,18 @@ Contrarily to a standard Laser, the laser envelope will be entirely initialized 
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The arguments appearing <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> have the same meaning they would have in a normal LaserGaussian3D, with some differences:</p>
+<p>The arguments appearing <code class="docutils literal notranslate"><span class="pre">LaserEnvelopePlanar1D</span></code>, <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian2D</span></code> and <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> have the same meaning they would have in a normal <code class="docutils literal notranslate"><span class="pre">LaserPlanar1D</span></code>, <code class="docutils literal notranslate"><span class="pre">LaserGaussian2D</span></code> and <code class="docutils literal notranslate"><span class="pre">LaserGaussian3D</span></code>, with some differences:</p>
+<dl class="data">
+<dt>
+<code class="descname">waist</code></dt>
+<dd><p>Please note that a waist size comparable to the laser wavelength does not satisfy the assumptions of the envelope model.</p>
+</dd></dl>
+
 <dl class="data">
 <dt>
 <code class="descname">time_envelope</code></dt>
-<dd><p>Since the envelope will be entirely initialized in the simulation box already at the start of the simulation, the time envelope will be applied in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction instead of time. It is recommended to initialize the laser envelope in vacuum, separated from the plasma, to avoid unphysical results.</p>
+<dd><p>Since the envelope will be entirely initialized in the simulation box already at the start of the simulation, the time envelope will be applied in the <code class="docutils literal notranslate"><span class="pre">x</span></code> direction instead of time. It is recommended to initialize the laser envelope in vacuum, separated from the plasma, to avoid unphysical results.
+Temporal envelopes with variation scales near to the laser wavelength do not satisfy the assumptions of the envelope model (see <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>), yielding inaccurate results.</p>
 </dd></dl>
 
 <dl class="data">
@@ -2202,9 +2230,9 @@ Contrarily to a standard Laser, the laser envelope will be entirely initialized 
 <p>For the moment, only reflective boundary conditions are implemented in the resolution of the envelope equation.</p>
 </dd></dl>
 
-<p>It is important to remember that the profile defined through the block <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> corresponds to the complex envelope of the laser vector potential component <span class="math notranslate nohighlight">\(\tilde{A}\)</span> in the polarization direction.
+<p>It is important to remember that the profile defined through the blocks <code class="docutils literal notranslate"><span class="pre">LaserEnvelopePlanar1D</span></code>, <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian2D</span></code>, <code class="docutils literal notranslate"><span class="pre">LaserEnvelopeGaussian3D</span></code> correspond to the complex envelope of the laser vector potential component <span class="math notranslate nohighlight">\(\tilde{A}\)</span> in the polarization direction.
 The calculation of the correspondent complex envelope for the laser electric field component in that direction is described in <a class="reference internal" href="laser_envelope.html"><span class="doc">Laser envelope model</span></a>.
-Note that only order 2 interpolation is supported in presence of the envelope model for the laser.</p>
+Note that only order 2 interpolation and projection are supported in presence of the envelope model for the laser.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="external-fields">
@@ -2779,8 +2807,8 @@ tables.</p>
    <span class="n">chiph_xip_dim</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
 
    <span class="c1"># Radiation parameters</span>
-   <span class="n">chipa_radiation_threshold</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
-   <span class="n">chipa_disc_min_threshold</span> <span class="o">=</span> <span class="mf">1e-2</span><span class="p">,</span>
+   <span class="n">minimum_chi_continuous</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
+   <span class="n">minimum_chi_discontinuous</span> <span class="o">=</span> <span class="mf">1e-2</span><span class="p">,</span>
    <span class="n">table_path</span> <span class="o">=</span> <span class="s2">&quot;../databases/&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -3003,8 +3031,8 @@ quantum parameter. It is advised to keep this value by default.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="chipa_radiation_threshold">
-<code class="descname">chipa_radiation_threshold</code><a class="headerlink" href="#chipa_radiation_threshold" title="Permalink to this definition">¶</a></dt>
+<dt id="minimum_chi_continuous">
+<code class="descname">minimum_chi_continuous</code><a class="headerlink" href="#minimum_chi_continuous" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3019,8 +3047,8 @@ into account.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="chipa_disc_min_threshold">
-<code class="descname">chipa_disc_min_threshold</code><a class="headerlink" href="#chipa_disc_min_threshold" title="Permalink to this definition">¶</a></dt>
+<dt id="minimum_chi_discontinuous">
+<code class="descname">minimum_chi_discontinuous</code><a class="headerlink" href="#minimum_chi_discontinuous" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -4599,7 +4627,7 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
         <li class="right" >
           <a href="installation.html" title="Install"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -4607,11 +4635,11 @@ and <strong class="program">Smilei</strong>’s random seeds.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Dec 13, 2018
+        Last updated on Jan 24, 2019
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
       </div>
       
     </div>

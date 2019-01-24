@@ -6,14 +6,15 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Synchrotron-like radiation reaction &#8212; Smilei v4.1 documentation</title>
+    <title>Synchrotron-like radiation reaction &#8212; Smilei v4.1-157-g6fd9ff4e documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://www.gitcdn.xyz/repo/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -422,7 +423,7 @@
         <li class="right" >
           <a href="ionization.html" title="Ionization"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -584,6 +585,14 @@ can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-photonprodrate">
 <span class="eqno">(14)<a class="headerlink" href="#equation-photonprodrate" title="Permalink to this equation">¶</a></span>\[\frac{d^2N}{dt d\chi_\gamma} = \frac{1}{\pi \sqrt{3}} \frac{\alpha^2}{\tau_e \chi_\pm}
 \left[ \int_\nu^{+\infty}{K_{5/3(y)}dy} + \frac{2 \chi_\gamma \nu}{2} K_{2/3}(\nu) \right]\]</div>
+<p>This equation can be also decomposed into:</p>
+<div class="math notranslate nohighlight" id="equation-photonprodrate2">
+<span class="eqno">(15)<a class="headerlink" href="#equation-photonprodrate2" title="Permalink to this equation">¶</a></span>\[\frac{d^2N}{dt d\chi} = \frac{2}{3} \frac{\alpha^2}{\tau_e} \frac{S(\chi_\pm , \chi)}{\chi}\]</div>
+<p>where <span class="math notranslate nohighlight">\(S(\chi_\pm , \chi)\)</span> is so called the synchrotron emissity function.</p>
+<p>We therefore have:</p>
+<div class="math notranslate nohighlight" id="equation-synchrotron-emissivity-function">
+<span class="eqno">(16)<a class="headerlink" href="#equation-synchrotron-emissivity-function" title="Permalink to this equation">¶</a></span>\[S(\chi_\pm , \chi) = \frac{\sqrt{3}}{2\pi} \frac{\chi_\gamma}{\chi}
+\left[ \int_\nu^{+\infty}{K_{5/3(y)}dy} + \frac{2 \chi_\gamma \nu}{2} K_{2/3}(\nu) \right]\]</div>
 <p>Condition (i) is fulfilled when <span class="math notranslate nohighlight">\(a_0 = e \| A^{\mu} \| / mc^2 \gg 1\)</span>, <span class="math notranslate nohighlight">\(A^{\mu}\)</span>
 being the four-potential laser amplitude.</p>
 <p>conditions (ii) corresponds to <span class="math notranslate nohighlight">\(\mathbf{B}^2 - \mathbf{E}^2 \ll E_s^2\)</span>
@@ -593,10 +602,10 @@ and  <span class="math notranslate nohighlight">\(\mathbf{B}\cdot \mathbf{E} \ll
 terms of the photon normalized energy. After integration, one obtains the
 expression of the radiated power in the quantum regime:</p>
 <div class="math notranslate nohighlight" id="equation-quantumradpower">
-<span class="eqno">(15)<a class="headerlink" href="#equation-quantumradpower" title="Permalink to this equation">¶</a></span>\[P_{rad} = P_{cl} g(\chi)\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-quantumradpower" title="Permalink to this equation">¶</a></span>\[P_{rad} = P_{cl} g(\chi)\]</div>
 <p>with</p>
 <div class="math notranslate nohighlight" id="equation-g">
-<span class="eqno">(16)<a class="headerlink" href="#equation-g" title="Permalink to this equation">¶</a></span>\[g \left( \chi \right) = \frac{9 \sqrt{3} }{8 \pi} \int_0^{+\infty}{d\nu
+<span class="eqno">(18)<a class="headerlink" href="#equation-g" title="Permalink to this equation">¶</a></span>\[g \left( \chi \right) = \frac{9 \sqrt{3} }{8 \pi} \int_0^{+\infty}{d\nu
 \left[  \frac{2\nu^2 }{\left( 2 + 3 \nu \chi \right) ^2}K_{5/3}(\nu) +
 \frac{4 \nu \left( 3 \nu \chi\right)^2 }{\left( 2 + 3 \nu \chi \right)^4}K_{2/3}(\nu) \right]}\]</div>
 <p>The quantum instantaneous radiated power is nothing else than the classical one
@@ -619,16 +628,16 @@ the emitting electron. This is the subject of the next section.</p>
 model with an operator that takes into account diffusive stochastic effects
 ([Niel2017]):</p>
 <div class="math notranslate nohighlight" id="equation-nielstochasticforce">
-<span class="eqno">(17)<a class="headerlink" href="#equation-nielstochasticforce" title="Permalink to this equation">¶</a></span>\[F_{rad} dt = \left[ -P_{cl} g \left( \chi \right) dt + mc^2
+<span class="eqno">(19)<a class="headerlink" href="#equation-nielstochasticforce" title="Permalink to this equation">¶</a></span>\[F_{rad} dt = \left[ -P_{cl} g \left( \chi \right) dt + mc^2
 \sqrt{R\left( \chi, \gamma \right)} dW \right]
 \mathbf{u} / \left( \mathbf{u}^2 c \right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(dW\)</span> is a Wiener process of variance <span class="math notranslate nohighlight">\(dt\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-nielr">
-<span class="eqno">(18)<a class="headerlink" href="#equation-nielr" title="Permalink to this equation">¶</a></span>\[  R\left( \chi, \gamma \right) = \frac{2}{3} \frac{\alpha^2}{\tau_e} \gamma
+<span class="eqno">(20)<a class="headerlink" href="#equation-nielr" title="Permalink to this equation">¶</a></span>\[  R\left( \chi, \gamma \right) = \frac{2}{3} \frac{\alpha^2}{\tau_e} \gamma
   h \left( \chi \right)\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-nielh">
-<span class="eqno">(19)<a class="headerlink" href="#equation-nielh" title="Permalink to this equation">¶</a></span>\[  h \left( \chi \right) = \frac{9 \sqrt{3}}{4 \pi} \int_0^{+\infty}{d\nu
+<span class="eqno">(21)<a class="headerlink" href="#equation-nielh" title="Permalink to this equation">¶</a></span>\[  h \left( \chi \right) = \frac{9 \sqrt{3}}{4 \pi} \int_0^{+\infty}{d\nu
   \left[ \frac{2\chi^3 \nu^3}{\left( 2 + 3\nu\chi \right)^3} K_{5/3}(\nu)
   + \frac{54 \chi^5 \nu^4}{\left( 2 + 3 \nu \chi \right)^5} K_{2/3}(\nu) \right]}\]</div>
 </div>
@@ -643,29 +652,33 @@ sampled from <span class="math notranslate nohighlight">\(\tau_f = -\log{\xi}\)<
 <p>2. The optical depth <span class="math notranslate nohighlight">\(\tau\)</span> evolves according to the field and particle
 energy variations following this integral:</p>
 <div class="math notranslate nohighlight" id="equation-mcdtaudt">
-<span class="eqno">(20)<a class="headerlink" href="#equation-mcdtaudt" title="Permalink to this equation">¶</a></span>\[  \frac{d\tau}{dt} = \int_0^{\chi_{\pm}}{ \frac{d^2N}{d\chi dt}  d\chi }\]</div>
+<span class="eqno">(22)<a class="headerlink" href="#equation-mcdtaudt" title="Permalink to this equation">¶</a></span>\[  \frac{d\tau}{dt} = \int_0^{\chi_{\pm}}{ \frac{d^2N}{d\chi dt}  d\chi }
+  = \frac{2}{3} \frac{\alpha^2}{\tau_e} \int_0^{\chi_{\pm}}{ \frac{S(\chi_\pm, \chi)}{\chi}  d\chi }
+  = \frac{2}{3} \frac{\alpha^2}{\tau_e} K (\chi_\pm)\]</div>
 <p>that simply is the production rate of photons
 (integration of Eq. <a class="reference internal" href="#equation-photonprodrate">(14)</a>).
 Here, <span class="math notranslate nohighlight">\(\chi_{\pm}\)</span> is the emitting electron (or positron) quantum parameter and
 <span class="math notranslate nohighlight">\(\chi\)</span> the integration variable.</p>
-<p>3. The emitted photon’s quantum parameter <span class="math notranslate nohighlight">\(\chi_\gamma\)</span> is computed by
+<p>3. The emitted photon’s quantum parameter <span class="math notranslate nohighlight">\(\chi_{\gamma}\)</span> is computed by
 inverting the cumulative distribution function:</p>
 <div class="math notranslate nohighlight" id="equation-cumulativedistr">
-<span class="eqno">(21)<a class="headerlink" href="#equation-cumulativedistr" title="Permalink to this equation">¶</a></span>\[  P(\chi_\pm,\chi_\gamma) = \frac{\displaystyle{\int_0^{\chi_\gamma}{F(\chi_\pm, \chi)
-  d\chi}}}{\displaystyle{\int_0^{\chi_\pm}{F(\chi_\pm, \chi) d\chi}}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(F\)</span> is the so-called synchrotron emissivity function so that</p>
+<span class="eqno">(23)<a class="headerlink" href="#equation-cumulativedistr" title="Permalink to this equation">¶</a></span>\[  \xi = P(\chi_\pm,\chi_{\gamma}) = \frac{\displaystyle{\int_0^{\chi_\gamma}{S(\chi_\pm, \chi) / \chi
+  d\chi}}}{\displaystyle{\int_0^{\chi_\pm}{S(\chi_\pm, \chi) / \chi d\chi}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(S\)</span> is the so-called synchrotron emissivity function so that</p>
 <div class="math notranslate nohighlight" id="equation-mcf">
-<span class="eqno">(22)<a class="headerlink" href="#equation-mcf" title="Permalink to this equation">¶</a></span>\[  \frac{d^2 N}{dt d\chi_{\pm}} = \frac{2}{3} \frac{\alpha^2}{\tau_e} F (\chi_\pm, \chi_\gamma)\]</div>
-<p>The inversion of  <span class="math notranslate nohighlight">\(P(\chi_\pm,\chi_\gamma)=\xi'\)</span> is done after drawing
+<span class="eqno">(24)<a class="headerlink" href="#equation-mcf" title="Permalink to this equation">¶</a></span>\[  \frac{d^2 N}{dt d\chi} = \frac{2}{3} \frac{\alpha^2}{\tau_e} \frac{S (\chi_\pm, \chi)}{\chi}\]</div>
+<p>The inversion of  <span class="math notranslate nohighlight">\(\xi = P(\chi_\pm,\chi_{\gamma})\)</span> is done after drawing
 a second random number
-<span class="math notranslate nohighlight">\(\xi' \in \left[ 0,1\right]\)</span> to find <span class="math notranslate nohighlight">\(\chi_\gamma\)</span>.</p>
+<span class="math notranslate nohighlight">\(\phi \in \left[ 0,1\right]\)</span> to find <span class="math notranslate nohighlight">\(\chi_{\gamma}\)</span> by solving :</p>
+<div class="math notranslate nohighlight" id="equation-inverse-xi">
+<span class="eqno">(25)<a class="headerlink" href="#equation-inverse-xi" title="Permalink to this equation">¶</a></span>\[\xi^{-1} = P^{-1}(\chi_\pm, \chi_{\gamma}) = \phi\]</div>
 <p>4. The energy of the emitted photon is then computed:
 <span class="math notranslate nohighlight">\(\varepsilon_\gamma = mc^2 \gamma_\gamma =
 mc^2 \gamma_\pm \chi_\gamma / \chi_\pm\)</span>.</p>
 <p>5. The particle momentum is then updated using momentum conservation
 considering forward emission (valid when <span class="math notranslate nohighlight">\(\gamma_\pm \gg 1\)</span>).</p>
 <div class="math notranslate nohighlight" id="equation-momentumupdate">
-<span class="eqno">(23)<a class="headerlink" href="#equation-momentumupdate" title="Permalink to this equation">¶</a></span>\[  F_{rad} = - \frac{\varepsilon_\gamma}{c} \frac{\mathbf{p_\pm}}{\| \mathbf{p_\pm} \|}\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-momentumupdate" title="Permalink to this equation">¶</a></span>\[  F_{rad} = - \frac{\varepsilon_\gamma}{c} \frac{\mathbf{p_\pm}}{\| \mathbf{p_\pm} \|}\]</div>
 <p>The radiated force is the recoil induced by the photon emission.
 Radiation reaction is therefore a discrete process.
 Note that momentum conservation does not exactly conserve energy.
@@ -715,7 +728,7 @@ The model is accessible in the species configuration under the name
 <p>For the corrected version, we use a fit of the function
 <span class="math notranslate nohighlight">\(g(\chi)\)</span> given by</p>
 <div class="math notranslate nohighlight" id="equation-quantumcorrfit">
-<span class="eqno">(24)<a class="headerlink" href="#equation-quantumcorrfit" title="Permalink to this equation">¶</a></span>\[g \left( \chi_{\pm} \right) = \left[ 1 + 4.8 \left( 1 + \chi_{\pm} \right)
+<span class="eqno">(27)<a class="headerlink" href="#equation-quantumcorrfit" title="Permalink to this equation">¶</a></span>\[g \left( \chi_{\pm} \right) = \left[ 1 + 4.8 \left( 1 + \chi_{\pm} \right)
 \log \left( 1 + 1.7 \chi_{\pm} \right) + 2.44 \chi_{\pm}^2 \right]^{-2/3}\]</div>
 <p>This fit enables to keep the vectorization of the particle loop.
 The corrected model is accessible in the species configuration under the name
@@ -723,9 +736,9 @@ The corrected model is accessible in the species configuration under the name
 </div>
 <div class="section" id="fokker-planck-stochastic-model-of-niel-et-al">
 <h3>Fokker-Planck stochastic model of Niel <em>et al</em>.<a class="headerlink" href="#fokker-planck-stochastic-model-of-niel-et-al" title="Permalink to this headline">¶</a></h3>
-<p>Eq. <a class="reference internal" href="#equation-nielstochasticforce">(17)</a> is implemented in <strong class="program">Smilei</strong> using
+<p>Eq. <a class="reference internal" href="#equation-nielstochasticforce">(19)</a> is implemented in <strong class="program">Smilei</strong> using
 a simple explicit scheme.</p>
-<p>The direct computation of Eq. <a class="reference internal" href="#equation-nielh">(19)</a> during the emission process is too expensive.
+<p>The direct computation of Eq. <a class="reference internal" href="#equation-nielh">(21)</a> during the emission process is too expensive.
 For performance issues,  <strong class="program">Smilei</strong> uses tabulated values or fit functions.</p>
 <p>Concerning the tabulation, <strong class="program">Smilei</strong> first checks the presence of
 an external table at the specified path.
@@ -739,34 +752,38 @@ given in <a class="reference internal" href="namelist.html#radiationreaction"><s
 <p>Polynomial fits of this integral can be obtained in log-log
 or log10-log10 domain. However, high accuracy requires high-order polynomials
 (order 20 for an accuracy around <span class="math notranslate nohighlight">\(10^{-10}\)</span> for instance).
-In <strong class="program">Smilei</strong>, an order 5 (see Eq. <a class="reference internal" href="#equation-fit5">(25)</a>) and 10 polynomial fits are implemented.
+In <strong class="program">Smilei</strong>, an order 5 (see Eq. <a class="reference internal" href="#equation-fit5">(28)</a>) and 10 polynomial fits are implemented.
 They are valid for quantum parameters <span class="math notranslate nohighlight">\(\chi\)</span> between <span class="math notranslate nohighlight">\(10^{-3}\)</span> and 10.</p>
 <div class="math notranslate nohighlight" id="equation-fit5">
-<span class="eqno">(25)<a class="headerlink" href="#equation-fit5" title="Permalink to this equation">¶</a></span>\[\begin{split}h_{o5}(\chi) = \exp{ \left(1.399937206900322 \times 10^{-4}  \log(\chi)^5 \\
+<span class="eqno">(28)<a class="headerlink" href="#equation-fit5" title="Permalink to this equation">¶</a></span>\[\begin{split}h_{o5}(\chi) = \exp{ \left(1.399937206900322 \times 10^{-4}  \log(\chi)^5 \\
 + 3.123718241260330 \times 10^{-3}  \log{(\chi)}^4 \\
 + 1.096559086628964 \times 10^{-2}  \log(\chi)^3 \\
 -1.733977278199592 \times 10^{-1}  \log(\chi)^2 \\
 + 1.492675770100125  \log(\chi) \\
 -2.748991631516466 \right) }\end{split}\]</div>
 <p>An additional fit from <a class="reference internal" href="#ridgers2017" id="id15">[Ridgers2017]</a> has been implemented and the formula
-is given in Eq. <a class="reference internal" href="#equation-h-fit-ridgers">(26)</a>.</p>
+is given in Eq. <a class="reference internal" href="#equation-h-fit-ridgers">(29)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-h-fit-ridgers">
-<span class="eqno">(26)<a class="headerlink" href="#equation-h-fit-ridgers" title="Permalink to this equation">¶</a></span>\[h_{Ridgers}(\chi) = \chi^3  \frac{165}{48 \sqrt{3}} \left(1. + (1. + 4.528 \chi) \log(1.+12.29 \chi) + 4.632 \chi^2 \right)^{-7/6}\]</div>
+<span class="eqno">(29)<a class="headerlink" href="#equation-h-fit-ridgers" title="Permalink to this equation">¶</a></span>\[h_{Ridgers}(\chi) = \chi^3  \frac{165}{48 \sqrt{3}} \left(1. + (1. + 4.528 \chi) \log(1.+12.29 \chi) + 4.632 \chi^2 \right)^{-7/6}\]</div>
 <p>The stochastic diffusive model is accessible in the species configuration
 under the name <code class="docutils literal notranslate"><span class="pre">Niel</span></code>.</p>
 </div>
 <div class="section" id="id16">
 <h3>Monte-Carlo quantum model<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
-<p>The computation of Eq. <a class="reference internal" href="#equation-mcdtaudt">(20)</a> would be too expensive for every single
-particles. Instead, the integral of the function <span class="math notranslate nohighlight">\(F\)</span> is tabulated.
-This table is referred to as <code class="docutils literal notranslate"><span class="pre">integfochi_table</span></code> and related parameters
+<p>The computation of Eq. <a class="reference internal" href="#equation-mcdtaudt">(22)</a> would be too expensive for every single
+particles.
+Instead, the integral of the function <span class="math notranslate nohighlight">\(S(\chi_\pm, \chi) / \chi\)</span>
+called <span class="math notranslate nohighlight">\(K(\chi_\pm)\)</span> is tabulated.
+The tabulation boundaries depend on the user.
+They can be specified in the <strong class="program">Smilei</strong> input file.</p>
+<p>This table is referred to as <code class="docutils literal notranslate"><span class="pre">integfochi_table</span></code> and related parameters
 start by <code class="docutils literal notranslate"><span class="pre">integfochi</span></code> in the code.</p>
-<p>Similarly, Eq. <a class="reference internal" href="#equation-cumulativedistr">(21)</a> is tabulated (named <code class="docutils literal notranslate"><span class="pre">xip</span></code> in the code).
+<p>Similarly, Eq. <a class="reference internal" href="#equation-cumulativedistr">(23)</a> is tabulated (named <code class="docutils literal notranslate"><span class="pre">xip</span></code> in the code).
 The only difference is that a minimum photon quantum parameter
 <span class="math notranslate nohighlight">\(\chi_{\gamma,\min}\)</span> is computed before for the integration so that:</p>
 <div class="math notranslate nohighlight" id="equation-chimin">
-<span class="eqno">(27)<a class="headerlink" href="#equation-chimin" title="Permalink to this equation">¶</a></span>\[  \frac{\displaystyle{\int_{0}^{\chi_{\gamma,\min}}{F(\chi_\pm, \chi)
-  d\chi}}}{\displaystyle{\int_0^{\chi_\pm}{F(\chi_\pm, \chi) d\chi}}} &lt; \epsilon\]</div>
+<span class="eqno">(30)<a class="headerlink" href="#equation-chimin" title="Permalink to this equation">¶</a></span>\[  \frac{\displaystyle{\int_{0}^{\chi_{\gamma,\min}}{S(\chi_\pm, \chi) / \chi
+  d\chi}}}{\displaystyle{\int_0^{\chi_\pm}{S(\chi_\pm, \chi) / \chi d\chi}}} &lt; \epsilon\]</div>
 <p>This enables to find a lower bound to the <span class="math notranslate nohighlight">\(\chi_\gamma\)</span> range
 (discretization in the log domain) so that the
 remaining part is negligible in term of radiated energy.
@@ -1178,7 +1195,7 @@ in the synchrotron case run on KNL.</p>
         <li class="right" >
           <a href="ionization.html" title="Ionization"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -1186,11 +1203,11 @@ in the synchrotron case run on KNL.</p>
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Dec 13, 2018
+        Last updated on Jan 24, 2019
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
       </div>
       
     </div>

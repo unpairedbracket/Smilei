@@ -6,14 +6,15 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Field initialization for relativistic species &#8212; Smilei v4.1 documentation</title>
+    <title>Field initialization for relativistic species &#8212; Smilei v4.1-157-g6fd9ff4e documentation</title>
     <link rel="stylesheet" href="_static/smilei_theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://www.gitcdn.xyz/repo/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/smileiIcon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -380,7 +381,7 @@
         <li class="right" >
           <a href="laser_envelope.html" title="Laser envelope model"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -418,25 +419,25 @@ and Maxwell’s equations, it can be shown that the quantities <span class="math
 <p>where <span class="math notranslate nohighlight">\(\beta_0 c\)</span> is the initial mean velocity of the relativistic species. At least locally, the potentials <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\Phi\)</span> in the laboratory frame will be only function of <span class="math notranslate nohighlight">\(x-\beta_0 c t\)</span>, as they are propagating with the species at uniform velocity.</p>
 <p>In the relativistic species rest frame <span class="math notranslate nohighlight">\(S'\)</span>, the charge distribution is static and the electrostatic potential in that reference frame <span class="math notranslate nohighlight">\(\Phi'\)</span> is related to the charge density in that reference frame <span class="math notranslate nohighlight">\(\rho'\)</span> through Poisson’s equation:</p>
 <div class="math notranslate nohighlight" id="equation-poisson">
-<span class="eqno">(42)<a class="headerlink" href="#equation-poisson" title="Permalink to this equation">¶</a></span>\[\nabla'^2 \Phi' = -\rho',\]</div>
+<span class="eqno">(45)<a class="headerlink" href="#equation-poisson" title="Permalink to this equation">¶</a></span>\[\nabla'^2 \Phi' = -\rho',\]</div>
 <p>where the Laplacian operator is computed in the reference frame <span class="math notranslate nohighlight">\(S'\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\nabla'^2=\partial^2_{x'}+\partial^2_{y'}+\partial^2_{z'}.\]</div>
-<p>The vector potential in the species rest frame can be set to zero: <span class="math notranslate nohighlight">\(\mathbf{A'}=0\)</span>. Through the above mentioned assumptions, it is possible to rewrite Eq. <a class="reference internal" href="#equation-poisson">(42)</a> only in terms of laboratory frame quantities.</p>
+<p>The vector potential in the species rest frame can be set to zero: <span class="math notranslate nohighlight">\(\mathbf{A'}=0\)</span>. Through the above mentioned assumptions, it is possible to rewrite Eq. <a class="reference internal" href="#equation-poisson">(45)</a> only in terms of laboratory frame quantities.</p>
 <p>Lorentz transformation of the four-vector <span class="math notranslate nohighlight">\(\left(\mathbf{J},\rho c\right)\)</span> yields <span class="math notranslate nohighlight">\(\rho'=\rho/\gamma_0\)</span>, where <span class="math notranslate nohighlight">\(\gamma_0=1/\sqrt{1-\beta^2_0}\)</span> is the average Lorentz factor of the relativistic species.
 Similarly, the potential <span class="math notranslate nohighlight">\(\Phi'\)</span> can be rewritten in terms of the potential in the laboratory frame: <span class="math notranslate nohighlight">\(\Phi'=\Phi/\gamma_0\)</span>. The Lorentz back-transformation of coordinates</p>
 <div class="math notranslate nohighlight">
 \[x=\gamma_0(x'+\beta_0 ct'),\quad  ct = \gamma_0(ct'+\beta x'), \quad y=y', \quad z=z'\]</div>
-<p>allows to transform the derivatives in Eq. <a class="reference internal" href="#equation-poisson">(42)</a> as</p>
+<p>allows to transform the derivatives in Eq. <a class="reference internal" href="#equation-poisson">(45)</a> as</p>
 <div class="math notranslate nohighlight">
 \[\partial_{x'}=\gamma_0\left(\partial_x+\frac{\beta_0}{c}\partial_t\right), \quad \partial_{y'}=\partial_y, \quad \partial_{z'}=\partial_z.\]</div>
 <p>The partial derivative along the <span class="math notranslate nohighlight">\(x'\)</span> direction can be further simplified, through the hypothesis of temporary dependence of all quantities on <span class="math notranslate nohighlight">\(x-\beta_0 c t\)</span>, implying <span class="math notranslate nohighlight">\(\partial_t=-\beta c\partial_x\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\partial_{x'}=\frac{1}{\gamma_0}\partial_x.\]</div>
-<p>Equation <a class="reference internal" href="#equation-poisson">(42)</a> can thus be rewritten as</p>
+<p>Equation <a class="reference internal" href="#equation-poisson">(45)</a> can thus be rewritten as</p>
 <div class="math notranslate nohighlight" id="equation-relpoisson">
-<span class="eqno">(43)<a class="headerlink" href="#equation-relpoisson" title="Permalink to this equation">¶</a></span>\[\left( \frac{1}{\gamma^2_0}\partial^2_x+\nabla_{\perp}^2\right) \Phi = -\rho,\]</div>
-<p>here informally referred to as the relativistic Poisson’s equation. In <strong class="program">Smilei</strong>, as for Eq. <a class="reference internal" href="#equation-poisson">(42)</a>, the solution of the relativistic Poisson’s equation is performed through the conjugate gradient method.</p>
+<span class="eqno">(46)<a class="headerlink" href="#equation-relpoisson" title="Permalink to this equation">¶</a></span>\[\left( \frac{1}{\gamma^2_0}\partial^2_x+\nabla_{\perp}^2\right) \Phi = -\rho,\]</div>
+<p>here informally referred to as the relativistic Poisson’s equation. In <strong class="program">Smilei</strong>, as for Eq. <a class="reference internal" href="#equation-poisson">(45)</a>, the solution of the relativistic Poisson’s equation is performed through the conjugate gradient method.</p>
 <p>Once the potential <span class="math notranslate nohighlight">\(\Phi\)</span> is found, we can compute all the components of the electromagnetic field, using again the relations <span class="math notranslate nohighlight">\(\partial_t=-\beta c\partial_x\)</span>, <span class="math notranslate nohighlight">\(\Phi'=-\Phi/\gamma_0\)</span> and the Lorentz back-transformation of the vector potential <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[A_x = \gamma_0(A_x'+\beta_0 \Phi'/c)=\gamma_0\beta_0 \Phi'/c=\beta_0\Phi/c,\quad A_y = A_y'=0, \quad A_z = A_z'=0.\]</div>
@@ -511,7 +512,7 @@ At the moment, this energy binning technique is not available in <strong class="
         <li class="right" >
           <a href="laser_envelope.html" title="Laser envelope model"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Smilei v4.1-157-g6fd9ff4e documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
@@ -519,11 +520,11 @@ At the moment, this energy binning technique is not available in <strong class="
       <a href="site.html">Site index</a>
       </div>
       <div>
-        Last updated on Dec 13, 2018
+        Last updated on Jan 24, 2019
       </div>
       
       <div>
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
       </div>
       
     </div>
