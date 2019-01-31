@@ -130,7 +130,7 @@ class Options(object):
 					   "markerfacecolor","markerfacecoloralt","markersize","markevery",
 					   "visible","zorder"]:
 				self.plot[kwa] = val
-			elif kwa in ["cmap","aspect","interpolation"]:
+			elif kwa in ["cmap","aspect","interpolation","norm"]:
 				self.image[kwa] = val
 			elif kwa in ["orientation","fraction","pad","shrink","anchor","panchor",
 					   "extend","extendfrac","extendrect","spacing","ticks","format",
