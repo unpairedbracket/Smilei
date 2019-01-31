@@ -56,7 +56,8 @@ class Field(Diagnostic):
 		if self.cylindrical:
 			all_fields = list(self._fields)
 			self._fields = {}
-			for f in ["El","Er","Et","Bl","Br","Bt","Jl","Jr","Jt","Rho"]:
+			self._field_names = set([self._re.sub(r'_mode_\d+', '', i) for i in all_fields])
+			for f in self._field_names:
 				imode = 0
 				while f+"_mode_"+str(imode) in all_fields:
 					imode += 1
@@ -163,7 +164,7 @@ class Field(Diagnostic):
 		axis_stop  = self._offset + (self._initialShape-0.5)*self._spacing
 		axis_step  = self._spacing
 		if self.cylindrical:
-			if build3d:
+			if build3d is not None:
 				self._initialShape = [int(self._np.ceil( (s[1]-s[0])/float(s[2]) )) for s in build3d]
 				axis_start = build3d[:,0]
 				axis_stop  = build3d[:,1]
@@ -200,7 +201,7 @@ class Field(Diagnostic):
 		self._selection = [self._np.s_[:]]*self._naxes
 		self._offset  = fields[0].attrs['gridGlobalOffset']
 		self._spacing = fields[0].attrs['gridSpacing']
-		axis_name = "xyz" if not self.cylindrical or not build3d else "xr"
+		axis_name = "xyz" if (not self.cylindrical) or (build3d is not None) else "xr"
 		for iaxis in range(self._naxes):
 			centers = self._np.arange(axis_start[iaxis], axis_stop[iaxis], axis_step[iaxis])
 			label = axis_name[iaxis]
@@ -261,7 +262,7 @@ class Field(Diagnostic):
 			self._complex_selection_imag = tuple(self._complex_selection_imag)
 			
 			# In the case of "build3d", prepare some data for the 3D construction
-			if build3d:
+			if build3d is not None:
 				# Calculate the raw data positions
 				self._raw_positions = (
 					self._np.arange(self._offset[0], self._offset[0] + (self._raw_shape[0]  -0.5)*self._spacing[0], self._spacing[0] ),
